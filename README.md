@@ -1,6 +1,6 @@
-## Project Atelier Requirements
+# Project Atelier Requirements
 
-# Dependencies:
+## Dependencies:
 
  - react
  - babel
@@ -10,7 +10,7 @@
  - nodemon
  - webpack
 
-# scripts:
+## scripts:
 
  - server-dev: "npx nodemon --watch server server/index.js",
  - client-dev: "npx webpack --watch",

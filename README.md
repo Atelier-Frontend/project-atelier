@@ -9,6 +9,7 @@
  - express
  - nodemon
  - webpack
+ - dotenv
 
 ## scripts:
 

@@ -17,3 +17,4 @@
  - client-dev: "npx webpack --watch",
  -  build: "npx webpack",
  -  start: "node server/index.js"
+ - test: "Mocha"

@@ -6,7 +6,8 @@
     "server-dev": "npx nodemon --watch server server/index.js",
     "client-dev": "npx webpack --watch",
     "build": "npx webpack",
-    "start": "node server/index.js"
+    "start": "node server/index.js",
+    "test": "mocha"
   },
   "license": "Unlicensed",
   "dependencies": {
@@ -22,6 +23,8 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "webpack": "5.74.0",
-    "webpack-cli": "4.10.0"
+    "webpack-cli": "4.10.0",
+    "mocha": "10.0.0",
+    "chai": "4.3.6"
   }
 }

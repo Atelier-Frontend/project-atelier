@@ -18,7 +18,7 @@ app.use(express.static(path.join(__dirname, '../client/dist')));
 
 // returns array of 5 products
 app.get('/products', (req, res) => {
-  axios.get(apiPath + '/products', header)
+  axios.get(`${apiPath}/products`, header)
     .then((response) => {
       res.send(response.data);
     })

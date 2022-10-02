@@ -21,4 +21,4 @@ class ProductOverview extends React.Component {
   }
 };
 
-export default ProductOverview
+export default ProductOverview;

@@ -23,6 +23,7 @@ class App extends React.Component {
   }
 
   render () {
+    console.log(this.state);
     return (<div>
       <h1>Project Atelier</h1>
       {this.state.products.length > 0 && 

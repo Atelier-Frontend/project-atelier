@@ -9,8 +9,8 @@ class ProductOverview extends React.Component {
     }
   }
 
-  ComponentDidMount() {
-    var currentProduct = this.props.state.products[0];
+  componentDidMount() {
+    var currentProduct = this.props.products[0];
     this.setState({ product: currentProduct });
   }
 
@@ -21,4 +21,4 @@ class ProductOverview extends React.Component {
   }
 };
 
-export default ProductOverview
+export default ProductOverview;

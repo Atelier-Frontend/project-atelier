@@ -9,14 +9,14 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      products: []
+      products: {}
     }
   }
 
   componentDidMount() {
     axios.get('/products')
       .then((response) => {
-        this.setState({ products: response.data })
+        this.setState({ products: response.data[0] })
       })
       .catch((err) => {
         console.log(err);
@@ -26,7 +26,7 @@ class App extends React.Component {
   render () {
     return (<div>
       <h1>Project Atelier</h1>
-      {this.state.products.length > 0 &&
+      {Object.keys(this.state.products).length > 0 &&
         <ProductOverview products={this.state.products} />}
     </div>)
   }

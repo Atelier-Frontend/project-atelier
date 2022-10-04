@@ -66,8 +66,27 @@ app.get('/products/product_id/related', (req, res) => {
 
 
 // ---- QUESTIONS & ANSWERS ROUTES ---- //
+//Retrieves a list of questions for a particular product.
+app.get('/qa/questions', (req, res) => {
+  axios.get(`${apiPath}/qa/questions?${req._parsedOriginalUrl.query}`, header)
+    .then((response) => {
+      res.send(response.data);
+    })
+    .catch((err) => {
+      res.send(err)
+    })
+});
 
-
+//Returns answers for a given question.
+app.get(`/qa/questions/:question_id/answers`, (req, res) => {
+  axios.get(`${apiPath}/qa/questions/${req.query.question_id}/answers`, header)
+    .then((response) => {
+      res.send(response);
+    })
+    .catch((err) => {
+      res.send(err)
+    })
+})
 
 // ---- RELATED ITEM AND OUTFIT CREATION ROUTES ---- //
 

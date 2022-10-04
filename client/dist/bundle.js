@@ -19830,7 +19830,7 @@ var App = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      products: []
+      products: {}
     };
     return _this;
   }
@@ -19842,7 +19842,7 @@ var App = /*#__PURE__*/function (_React$Component) {
 
       axios__WEBPACK_IMPORTED_MODULE_3___default().get('/products').then(function (response) {
         _this2.setState({
-          products: response.data
+          products: response.data[0]
         });
       })["catch"](function (err) {
         console.log(err);
@@ -19852,7 +19852,7 @@ var App = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       console.log(this.state);
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Project Atelier"), this.state.products.length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Components_ProductOverview_ProductOverview_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Project Atelier"), Object.keys(this.state.products).length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Components_ProductOverview_ProductOverview_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {
         products: this.state.products
       }));
     }

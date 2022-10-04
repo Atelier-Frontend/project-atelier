@@ -68,25 +68,45 @@ app.get('/products/product_id/related', (req, res) => {
 // ---- QUESTIONS & ANSWERS ROUTES ---- //
 //Retrieves a list of questions for a particular product.
 app.get('/qa/questions', (req, res) => {
-  axios.get(`${apiPath}/qa/questions?${req._parsedOriginalUrl.query}`, header)
-    .then((response) => {
-      res.send(response.data);
-    })
-    .catch((err) => {
-      res.send(err)
-    })
+  res.end()
 });
 
 //Returns answers for a given question.
 app.get(`/qa/questions/:question_id/answers`, (req, res) => {
-  axios.get(`${apiPath}/qa/questions/${req.query.question_id}/answers`, header)
-    .then((response) => {
-      res.send(response);
-    })
-    .catch((err) => {
-      res.send(err)
-    })
-})
+  res.end()
+});
+
+//Adds a question for the given product.
+app.post('/qa/questions', (req, res) => {
+  res.end()
+});
+
+//Adds an answer for the given question.
+app.post(`/qa/questions/:question_id/answers`, (req, res) => {
+  res.end()
+});
+
+//Updates a question to show it was found helpful.
+app.put('/qa/questions/:question_id/helpful', (req, res) => {
+  res.end()
+});
+
+//Updates a question to show it was reported.
+app.put('/qa/questions/:question_id/report', (req, res) => {
+  res.end()
+});
+
+//Updates an answer to show it was found helpful.
+app.put('/qa/questions/:answer_id/helpful', (req, res) => {
+  res.end()
+});
+
+//Updates an answer to show it has been reported.
+app.put('/qa/answers/:answer_id/report', (req, res) => {
+  res.end()
+});
+
+
 
 // ---- RELATED ITEM AND OUTFIT CREATION ROUTES ---- //
 

@@ -135,46 +135,6 @@ var QnA = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(QnA, [{
-    key: "componentDidMount",
-    value: function componentDidMount(props) {
-      this.getQuestionsList(props);
-      this.getAnswersList(642681);
-    }
-  }, {
-    key: "getQuestionsList",
-    value: function getQuestionsList(props) {
-      var _this2 = this;
-
-      axios__WEBPACK_IMPORTED_MODULE_1___default().get('/qa/questions', {
-        params: {
-          product_id: this.props.products[0].id
-        }
-      }).then(function (response) {
-        _this2.setState({
-          questions: response.data.results
-        });
-      })["catch"](function (err) {
-        console.log('failed to get questions list');
-      });
-    }
-  }, {
-    key: "getAnswersList",
-    value: function getAnswersList(question_id) {
-      var _this3 = this;
-
-      axios__WEBPACK_IMPORTED_MODULE_1___default().get("/qa/questions/:question_id/answers", {
-        params: {
-          question_id: question_id
-        }
-      }).then(function (response) {
-        _this3.setState({
-          answers: response.data.results
-        });
-      })["catch"](function (err) {
-        console.log('failed to get answers list');
-      });
-    }
-  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "Questions ", '&', " Answers"));

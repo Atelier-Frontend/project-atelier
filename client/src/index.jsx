@@ -4,6 +4,7 @@ import $ from 'jquery';
 import axios from 'axios';
 import ProductOverview from './Components/ProductOverview/ProductOverview.jsx';
 
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -25,7 +26,7 @@ class App extends React.Component {
   render () {
     return (<div>
       <h1>Project Atelier</h1>
-      {this.state.products.length > 0 && 
+      {this.state.products.length > 0 &&
         <ProductOverview products={this.state.products} />}
     </div>)
   }

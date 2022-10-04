@@ -126,7 +126,10 @@ app.put('/reviews/:review_id/report', (req, res) => {
 // ---- RELATED ITEM AND OUTFIT CREATION ROUTES ---- //
 
 
+if (!module.parent) {
+  app.listen(port, () => {
+    console.log(`Listening on port ${port}`);
+  });
+};
 
-app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
-});
+module.exports = app;

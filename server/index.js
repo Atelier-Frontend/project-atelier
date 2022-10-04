@@ -122,12 +122,24 @@ app.put('/reviews/:review_id/report', (req, res) => {
 // ---- QUESTIONS & ANSWERS ROUTES ---- //
 //Retrieves a list of questions for a particular product.
 app.get('/qa/questions', (req, res) => {
-  res.end()
+  axios.get(`${apiPath}/qa/questions?${req._parsedOriginalUrl.query}`, header)
+    .then((response) => {
+      res.send(response.data);
+    })
+    .catch((err) => {
+      res.send(err)
+    })
 });
 
 //Returns answers for a given question.
 app.get(`/qa/questions/:question_id/answers`, (req, res) => {
-  res.end()
+  axios.get(`${apiPath}/qa/questions/${req.query.question_id}/answers`, header)
+    .then((response) => {
+      res.send(response);
+    })
+    .catch((err) => {
+      res.send(err)
+    })
 });
 
 //Adds a question for the given product.

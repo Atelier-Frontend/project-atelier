@@ -8,12 +8,26 @@ class Related extends React.Component {
       product: {},
 
     }
+    this.list = this.list.bind(this)
+  }
+
+  list () {
+    var lists = [];
+    var i = 0;
+    while (i < 2) {
+      var elm = <Cards item={this.props} class='Related'/>
+      lists.push(elm)
+      i+=1;
+    }
+    return lists;
+
   }
 
   render() {
     return (<div>
-      <h4>Related</h4>
-      <Cards />
+      <h4>Related</h4><section>
+      <ul>{this.list()}</ul>
+      </section>
     </div>)
   }
 };

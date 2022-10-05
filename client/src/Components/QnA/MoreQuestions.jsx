@@ -10,6 +10,7 @@ class MoreQuestions extends React.Component {
 
   render() {
     return (<div>
+      {/* only show up when questions are over two */}
       <button>{'MORE ANSWERED QUESTIONS'}</button>
     </div>)
   }

@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import AnswersSearch from './AnswersSearch.jsx';
+import QuestionsList from './QuestionsList.jsx';
 import MoreQuestions from './MoreQuestions.jsx';
 import AddQuestion from './AddQuestion.jsx';
 
@@ -19,7 +20,7 @@ class QnA extends React.Component {
   }
 
   getQuestionsList(props) {
-    axios.get('/qa/questions', {params: {product_id: this.props.products[0].id}})
+    axios.get('/qa/questions', {params: {product_id: this.props.products.id}})
       .then((response) => {
         this.setState({
           questions: response.data.results
@@ -46,6 +47,7 @@ class QnA extends React.Component {
     return (<div>
       <h4>Questions {'&'} Answers</h4>
       <AnswersSearch />
+      <QuestionsList questions={this.state.questions} />
       <MoreQuestions />
       <AddQuestion />
     </div>)

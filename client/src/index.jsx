@@ -21,7 +21,7 @@ class App extends React.Component {
         this.setState({ products: response.data[0] })
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err)
       });
   }
 

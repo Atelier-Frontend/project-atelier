@@ -5,6 +5,7 @@ import axios from 'axios';
 import ProductOverview from './Components/ProductOverview/ProductOverview.jsx';
 import Your from './Components/Related/Your.jsx';
 import Related from './Components/Related/Related.jsx';
+import QnA from './Components/QnA/QnA.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -29,10 +30,12 @@ class App extends React.Component {
       <h1>Project Atelier</h1>
       {Object.keys(this.state.products).length > 0 &&
         <ProductOverview products={this.state.products} />}
-        {Object.keys(this.state.products).length > 0 &&
-        <Related products={this.state.products} />}
-        {Object.keys(this.state.products).length > 0 &&
-        <Your products={this.state.products} />}
+      {Object.keys(this.state.products).length > 0 &&
+        <QnA products={this.state.products} />}
+      {Object.keys(this.state.products).length > 0 &&
+      <Related products={this.state.products} />}
+      {Object.keys(this.state.products).length > 0 &&
+      <Your products={this.state.products} />}
     </div>)
   }
 }

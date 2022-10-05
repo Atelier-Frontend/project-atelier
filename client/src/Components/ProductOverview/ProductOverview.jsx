@@ -1,4 +1,5 @@
 import React from 'react';
+import ProductInfo from './productInfo/ProductInfo.jsx';
 
 class ProductOverview extends React.Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class ProductOverview extends React.Component {
 
   render() {
     return (<div>
-      <h4>Product Overview</h4>
+      <ProductInfo />
     </div>)
   }
 };

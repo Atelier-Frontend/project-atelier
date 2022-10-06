@@ -162,6 +162,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -197,19 +199,49 @@ var AnswersList = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      moreAnswersClicked: false,
-      answers: []
+      a: 2
     };
     return _this;
   }
 
   _createClass(AnswersList, [{
+    key: "componentDidMount",
+    value: function componentDidMount(props) {
+      this.hahaha(this.props.question);
+    }
+  }, {
+    key: "moreAnswersHandler",
+    value: function moreAnswersHandler(e) {
+      var _this$setState, _this$setState2;
+
+      this.state[e.target.id] ? this.setState((_this$setState = {}, _defineProperty(_this$setState, e.target.id, false), _defineProperty(_this$setState, "a", 2), _this$setState)) : this.setState((_this$setState2 = {}, _defineProperty(_this$setState2, e.target.id, true), _defineProperty(_this$setState2, "a", Object.keys(this.props.question.answers).length), _this$setState2));
+    }
+  }, {
+    key: "hahaha",
+    value: function hahaha(questionObj) {
+      this.setState(_defineProperty({}, questionObj.question_id, false));
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this$props$question;
+      console.log(this.state);
+      var answers = this.props.question.answers; // let a = (this.state[this.props.question.question_id] === false) ? 2 : answers.length;
 
-      console.log(Object.values((_this$props$question = this.props.question) === null || _this$props$question === void 0 ? void 0 : _this$props$question.answers));
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, 'ssssss');
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, 'A: '), answers.length <= 2 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, answers.map(function (answer) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          key: answer.id
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, answer.body));
+      })) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, Object.values(answers).slice(0, this.state.a).map(function (answer) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          key: answer.id
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, answer.body));
+      })), this.state[this.props.question.question_id] === false ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+        id: this.props.question.question_id,
+        onClick: this.moreAnswersHandler.bind(this)
+      }, 'LOAD MORE ANSWERS') : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+        id: this.props.question.question_id,
+        onClick: this.moreAnswersHandler.bind(this)
+      }, 'FOLD ANSWERS'));
     }
   }]);
 
@@ -467,6 +499,7 @@ var QnA = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      console.log(this.state);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "Questions ", '&', " Answers"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_AnswersSearch_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_QuestionsList_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
         questions: this.state.questions
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_MoreQuestions_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_AddQuestion_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], null));
@@ -535,22 +568,12 @@ var QuestionsList = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props);
     _this.state = {
       moreQuestionsClicked: false,
-      moreAnswersClicked: false,
       questions: []
     };
     return _this;
   }
 
   _createClass(QuestionsList, [{
-    key: "moreAnswersHandler",
-    value: function moreAnswersHandler() {
-      this.state.moreAnswersClicked ? this.setState({
-        moreAnswersClicked: false
-      }) : this.setState({
-        moreAnswersClicked: true
-      });
-    }
-  }, {
     key: "render",
     value: function render() {
       var questions = this.props.questions;
@@ -559,24 +582,13 @@ var QuestionsList = /*#__PURE__*/function (_React$Component) {
         if (questions.length === 0) {
           return '';
         } else {
-          for (var i = 0; i < q; i++) {
-            var a = this.state.moreAnswersClicked === false ? 2 : questions[i].answers.length;
+          return questions.slice(0, q).map(function (question) {
             return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-              key: questions[i].question_id
-            }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "Q: ".concat(questions[i].question_body)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, 'A: '), questions[i].answers.length <= 2 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, questions[i].answers.map(function (answer) {
-              return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-                key: answer.answer_id
-              }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, answer.body));
-            })) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, Object.values(questions[i].answers).slice(0, a).map(function (answer) {
-              return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-                key: answer.answer_id
-              }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, answer.body));
-            })), this.state.moreAnswersClicked === false ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
-              onClick: this.moreAnswersHandler.bind(this)
-            }, 'LOAD MORE ANSWERS') : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
-              onClick: this.moreAnswersHandler.bind(this)
-            }, 'FOLD ANSWERS')));
-          }
+              key: question.question_id
+            }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "Q: ".concat(question.question_body)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_AnswersList_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+              question: question
+            })));
+          });
         }
       }
     }
@@ -20569,7 +20581,7 @@ var App = /*#__PURE__*/function (_React$Component) {
 
       axios__WEBPACK_IMPORTED_MODULE_3___default().get('/products').then(function (response) {
         _this2.setState({
-          products: response.data[0]
+          products: response.data[4]
         });
       })["catch"](function (err) {
         console.log(err);

@@ -44,6 +44,7 @@ class QnA extends React.Component {
   }
 
   render() {
+    console.log(this.state)
     return (<div>
       <h4>Questions {'&'} Answers</h4>
       <AnswersSearch />

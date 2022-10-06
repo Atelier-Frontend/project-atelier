@@ -11,7 +11,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      products: {}
+      products: {},
+      fav: []
     }
   }
 
@@ -35,7 +36,7 @@ class App extends React.Component {
       {Object.keys(this.state.products).length > 0 &&
       <Related products={this.state.products} />}
       {Object.keys(this.state.products).length > 0 &&
-      <Your products={this.state.products} />}
+      <Your products={this.state.fav} />}
     </div>)
   }
 }

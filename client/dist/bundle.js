@@ -622,7 +622,14 @@ var Cards = /*#__PURE__*/function (_React$Component) {
   _createClass(Cards, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "Cards"));
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("aside", {
+        "class": this.props["class"]
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        src: "",
+        width: "384",
+        height: "192",
+        alt: "header image"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, " "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("small", null, "Catagory"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("small", null, "Cost"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "summary"));
     }
   }]);
 
@@ -686,13 +693,33 @@ var Related = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       product: {}
     };
+    _this.list = _this.list.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(Related, [{
+    key: "list",
+    value: function list() {
+      var lists = [];
+      var i = 0;
+
+      while (i < 15) {
+        var elm = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Cards_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          item: this.props,
+          "class": "Related"
+        });
+        lists.push(elm);
+        i += 1;
+      }
+
+      return lists;
+    }
+  }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "Related"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Cards_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], null));
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "Related"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("section", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
+        "class": "test"
+      }, this.list())));
     }
   }]);
 
@@ -762,7 +789,11 @@ var Your = /*#__PURE__*/function (_React$Component) {
   _createClass(Your, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "Your"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Cards_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], null));
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "Your"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("section", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
+        "class": "test"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Cards_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        "class": "your"
+      }))));
     }
   }]);
 
@@ -20533,7 +20564,8 @@ var App = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      products: {}
+      products: {},
+      fav: []
     };
     return _this;
   }
@@ -20561,7 +20593,7 @@ var App = /*#__PURE__*/function (_React$Component) {
       }), Object.keys(this.state.products).length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Components_Related_Related_jsx__WEBPACK_IMPORTED_MODULE_6__["default"], {
         products: this.state.products
       }), Object.keys(this.state.products).length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Components_Related_Your_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        products: this.state.products
+        products: this.state.fav
       }));
     }
   }]);

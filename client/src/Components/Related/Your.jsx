@@ -12,8 +12,11 @@ class Your extends React.Component {
 
   render() {
     return (<div>
-      <h4>Your</h4>
-      <Cards />
+      <h4>Your</h4><section>
+        <ul class='test'>
+      <Cards class='your'/>
+      </ul>
+      </section>
     </div>)
   }
 };

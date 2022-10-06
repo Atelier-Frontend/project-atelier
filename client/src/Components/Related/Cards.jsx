@@ -10,9 +10,21 @@ class Cards extends React.Component {
   }
 
   render() {
-    return (<div>
-      <h4>Cards</h4>
-    </div>)
+    return (
+      <aside class={this.props.class}>
+  <img
+    src=""
+    width="384"
+    height="192"
+    alt="header image"
+  /><div> </div>
+  <small>Catagory
+  </small>
+  <h3>title</h3>
+  <small>Cost</small>
+  <p>summary
+  </p>
+</aside>)
   }
 };
 

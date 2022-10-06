@@ -14,7 +14,7 @@ class Related extends React.Component {
   list () {
     var lists = [];
     var i = 0;
-    while (i < 2) {
+    while (i < 15) {
       var elm = <Cards item={this.props} class='Related'/>
       lists.push(elm)
       i+=1;
@@ -26,7 +26,7 @@ class Related extends React.Component {
   render() {
     return (<div>
       <h4>Related</h4><section>
-      <ul>{this.list()}</ul>
+      <ul class='test'>{this.list()}</ul>
       </section>
     </div>)
   }

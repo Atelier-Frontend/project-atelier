@@ -1,8 +1,13 @@
-section {
-  display: inline-block;
-  flex-wrap: wrap;
-  justify-content: center;
+
+.test {
+  display: grid;
+  grid-auto-flow: column;
+  gap: var(--size-3);
+  grid-auto-columns: auto;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
 }
+
 section aside {
   border: 1px solid rebeccapurple;
   border-radius: 10px;

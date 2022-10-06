@@ -63,9 +63,102 @@ app.get('/products/product_id/related', (req, res) => {
 
 // ---- RATINGS & REVIEWS ROUTES ---- //
 
+// Returns a list of reviews for a particular product
+app.get('/reviews', (req, res) => {
+  axios.get(`${apiPath}/reviews?product_id=${req.body.id}`, header)
+    .then((response) => {
+      res.status(200).send(response.data)
+    })
+    .catch((err) => {
+      res.send(err)
+    })
+})
+
+// Returns review metadata for a given product
+app.get('/reviews/meta', (req, res) => {
+  axios.get(`${apiPath}/reviews/meta/?product_id=${req.body.id}`, header)
+    .then((response) => {
+      res.status(200).send(response.data)
+    })
+    .catch((err) => {
+      res.send(err)
+    })
+})
+
+// Adds a review for the given product
+app.post('/reviews', (req, res) => {
+  axios.post(`${apiPath}/reviews/meta/?product_id=${req.body.id}`, header)
+    .then(()=> {
+      res.sendStatus(201);
+    })
+    .catch((err) => {
+      res.send(err)
+    })
+})
+
+//Updates a review to show it was found helpful
+app.put('/reviews/:review_id/helpful', (req, res) => {
+  axios.put(`${apiPath}/reviews/meta/?review_id=${req.body.id}`, header)
+    .then(()=> {
+      res.sendStatus(204);
+    })
+    .catch((err) => {
+      res.send(err)
+    })
+})
+
+//Updates a review to show it was reported
+app.put('/reviews/:review_id/report', (req, res) => {
+  axios.put(`${apiPath}/reviews/meta/?review_id=${req.body.id}`, header)
+    .then(()=> {
+      res.sendStatus(204);
+    })
+    .catch((err) => {
+      res.send(err)
+    })
+})
 
 
 // ---- QUESTIONS & ANSWERS ROUTES ---- //
+//Retrieves a list of questions for a particular product.
+app.get('/qa/questions', (req, res) => {
+  res.end()
+});
+
+//Returns answers for a given question.
+app.get(`/qa/questions/:question_id/answers`, (req, res) => {
+  res.end()
+});
+
+//Adds a question for the given product.
+app.post('/qa/questions', (req, res) => {
+  res.end()
+});
+
+//Adds an answer for the given question.
+app.post(`/qa/questions/:question_id/answers`, (req, res) => {
+  res.end()
+});
+
+//Updates a question to show it was found helpful.
+app.put('/qa/questions/:question_id/helpful', (req, res) => {
+  res.end()
+});
+
+//Updates a question to show it was reported.
+app.put('/qa/questions/:question_id/report', (req, res) => {
+  res.end()
+});
+
+//Updates an answer to show it was found helpful.
+app.put('/qa/questions/:answer_id/helpful', (req, res) => {
+  res.end()
+});
+
+//Updates an answer to show it has been reported.
+app.put('/qa/answers/:answer_id/report', (req, res) => {
+  res.end()
+});
 
 
 

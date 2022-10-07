@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+// import mystyles from '../../../dist/styles.css'
+import '../../../dist/styles.css';
 import AnswersList from './AnswersList.jsx';
 
 class QuestionsList extends React.Component {
@@ -23,6 +25,10 @@ class QuestionsList extends React.Component {
               <h3>{`Q: ${question.question_body}`}</h3>
               <AnswersList question={question}/>
             </span>
+
+            <p className="helpful"> Helpful? </p>
+
+
           </div>)
         }))
       }

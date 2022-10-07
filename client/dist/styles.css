@@ -1,0 +1,7 @@
+/* Q&A styles: */
+
+.helpful {
+  flex: 0 0 50%;
+  display: flex;
+  justify-content: flex-end;
+}

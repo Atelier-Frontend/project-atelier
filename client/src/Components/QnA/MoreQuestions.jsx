@@ -14,11 +14,11 @@ class MoreQuestions extends React.Component {
 
 
   render() {
-    return (<div>
+    return (<div className="foldQuestions">
       {(this.props.moreQuestionsClicked === false) ?
-        (<button onClick={this.moreQuestions.bind(this)}>
+        (<button className="foldQuestionsBT" onClick={this.moreQuestions.bind(this)}>
           {'MORE ANSWERED QUESTIONS'}
-        </button>) : (<button onClick={this.moreQuestions.bind(this)}>
+        </button>) : (<button className="foldQuestionsBT" onClick={this.moreQuestions.bind(this)}>
           {'LESS ANSWERED QUESTIONS'}
         </button>)
       }

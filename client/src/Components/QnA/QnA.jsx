@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import '../../../dist/styles.css';
 import AnswersSearch from './AnswersSearch.jsx';
 import QuestionsList from './QuestionsList.jsx';
 import MoreQuestions from './MoreQuestions.jsx';
@@ -58,10 +59,12 @@ class QnA extends React.Component {
       <AnswersSearch />
       <QuestionsList questions={this.state.questions}
         moreQuestionsClicked={this.state.moreQuestionsClicked} />
-      {(this.state.questions.length > 2) &&
-      <MoreQuestions  moreQuestionsClicked={this.state.moreQuestionsClicked}
-        questionClickHandler={this.questionClickHandler.bind(this)}/>}
-      <AddQuestion />
+      <div className="containerRow">
+        {(this.state.questions.length > 2) &&
+        <MoreQuestions  moreQuestionsClicked={this.state.moreQuestionsClicked}
+          questionClickHandler={this.questionClickHandler.bind(this)}/>}
+        <AddQuestion />
+      </div>
     </div>)
   }
 };

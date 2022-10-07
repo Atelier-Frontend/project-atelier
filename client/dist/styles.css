@@ -73,3 +73,33 @@
   top: -5vh;
   left: 1.6vw;
 }
+
+.containerRow {
+  display:flex;
+  flex-direction:row;
+  position: relative;
+}
+
+.foldQuestions {
+  height: 10vh;
+
+}
+
+.addQuestion {
+  height: 10vh;
+
+  padding-left: 2vw;
+}
+
+.foldQuestionsBT, .addQuestionBT {
+  background-color: white;
+  color: black;
+  border: 2px solid #131313;
+  padding: 20px 15px;
+  transition-duration: 0.4s;
+}
+
+.foldQuestionsBT, .addQuestionBT:hover {
+  cursor: pointer
+}
+

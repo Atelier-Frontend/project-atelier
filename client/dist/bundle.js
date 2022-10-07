@@ -134,7 +134,11 @@ var AddQuestion = /*#__PURE__*/function (_React$Component) {
   _createClass(AddQuestion, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, 'ADD A QUESTION +'));
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "addQuestion"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        className: "addQuestionBT"
+      }, 'ADD A QUESTION +'));
     }
   }]);
 
@@ -394,9 +398,13 @@ var MoreQuestions = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.props.moreQuestionsClicked === false ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "foldQuestions"
+      }, this.props.moreQuestionsClicked === false ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        className: "foldQuestionsBT",
         onClick: this.moreQuestions.bind(this)
       }, 'MORE ANSWERED QUESTIONS') : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        className: "foldQuestionsBT",
         onClick: this.moreQuestions.bind(this)
       }, 'LESS ANSWERED QUESTIONS'));
     }
@@ -424,10 +432,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _AnswersSearch_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AnswersSearch.jsx */ "./client/src/Components/QnA/AnswersSearch.jsx");
-/* harmony import */ var _QuestionsList_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./QuestionsList.jsx */ "./client/src/Components/QnA/QuestionsList.jsx");
-/* harmony import */ var _MoreQuestions_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./MoreQuestions.jsx */ "./client/src/Components/QnA/MoreQuestions.jsx");
-/* harmony import */ var _AddQuestion_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./AddQuestion.jsx */ "./client/src/Components/QnA/AddQuestion.jsx");
+/* harmony import */ var _dist_styles_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../dist/styles.css */ "./client/dist/styles.css");
+/* harmony import */ var _AnswersSearch_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AnswersSearch.jsx */ "./client/src/Components/QnA/AnswersSearch.jsx");
+/* harmony import */ var _QuestionsList_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./QuestionsList.jsx */ "./client/src/Components/QnA/QuestionsList.jsx");
+/* harmony import */ var _MoreQuestions_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./MoreQuestions.jsx */ "./client/src/Components/QnA/MoreQuestions.jsx");
+/* harmony import */ var _AddQuestion_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./AddQuestion.jsx */ "./client/src/Components/QnA/AddQuestion.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -449,6 +458,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 
 
 
@@ -528,13 +538,15 @@ var QnA = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "Questions ", '&', " Answers"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_AnswersSearch_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_QuestionsList_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "Questions ", '&', " Answers"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_AnswersSearch_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_QuestionsList_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {
         questions: this.state.questions,
         moreQuestionsClicked: this.state.moreQuestionsClicked
-      }), this.state.questions.length > 2 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_MoreQuestions_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "containerRow"
+      }, this.state.questions.length > 2 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_MoreQuestions_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], {
         moreQuestionsClicked: this.state.moreQuestionsClicked,
         questionClickHandler: this.questionClickHandler.bind(this)
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_AddQuestion_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], null));
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_AddQuestion_jsx__WEBPACK_IMPORTED_MODULE_6__["default"], null)));
     }
   }]);
 
@@ -20651,7 +20663,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/* Q&A styles: */\n.question {\n  justify-content: space-evenly;\n  position: relative;\n  width: 100vw;\n  height: 20vh;\n}\n\n.questionBody {\n  font-size: medium;\n  font-weight: bold;\n  width: 75vw;\n}\n\n.helpful {\n  font-size: small;\n  position: absolute;\n  right: 10.3vw;\n  top: -1.5vh;\n}\n\n.Yes {\n  font-size: small;\n  position: absolute;\n  right: 8.5vw;\n  top: -1.5vh;\n  text-decoration-line: underline;\n}\n\n.helpfulness {\n  font-size: small;\n  position: absolute;\n  right: 6.7vw;\n  top: -1.5vh;\n}\n\n.divider {\n  font-size: small;\n  position: absolute;\n  right: 5.7vw;\n  top: -1.5vh;\n}\n\n.addAnswer {\n  font-size: small;\n  position: absolute;\n  right: 0vw;\n  top: -1.5vh;\n  text-decoration-line:underline;\n}\n\n.letterA {\n  font-size: medium;\n  font-weight: bold;\n}\n\n.answer {\n  font-size: medium;\n  width: 75vw;\n  position: relative;\n}\n\n.answerBody {\n  left: 1.6vw;\n  top: -4.6vh;\n  position: relative;\n}\n\n.foldAnswers {\n  font-size: small;\n  font-weight: bold;\n  position: relative;\n  top: -5vh;\n  left: 1.6vw;\n}", "",{"version":3,"sources":["webpack://./client/dist/styles.css"],"names":[],"mappings":"AAAA,gBAAgB;AAChB;EACE,6BAA6B;EAC7B,kBAAkB;EAClB,YAAY;EACZ,YAAY;AACd;;AAEA;EACE,iBAAiB;EACjB,iBAAiB;EACjB,WAAW;AACb;;AAEA;EACE,gBAAgB;EAChB,kBAAkB;EAClB,aAAa;EACb,WAAW;AACb;;AAEA;EACE,gBAAgB;EAChB,kBAAkB;EAClB,YAAY;EACZ,WAAW;EACX,+BAA+B;AACjC;;AAEA;EACE,gBAAgB;EAChB,kBAAkB;EAClB,YAAY;EACZ,WAAW;AACb;;AAEA;EACE,gBAAgB;EAChB,kBAAkB;EAClB,YAAY;EACZ,WAAW;AACb;;AAEA;EACE,gBAAgB;EAChB,kBAAkB;EAClB,UAAU;EACV,WAAW;EACX,8BAA8B;AAChC;;AAEA;EACE,iBAAiB;EACjB,iBAAiB;AACnB;;AAEA;EACE,iBAAiB;EACjB,WAAW;EACX,kBAAkB;AACpB;;AAEA;EACE,WAAW;EACX,WAAW;EACX,kBAAkB;AACpB;;AAEA;EACE,gBAAgB;EAChB,iBAAiB;EACjB,kBAAkB;EAClB,SAAS;EACT,WAAW;AACb","sourcesContent":["/* Q&A styles: */\n.question {\n  justify-content: space-evenly;\n  position: relative;\n  width: 100vw;\n  height: 20vh;\n}\n\n.questionBody {\n  font-size: medium;\n  font-weight: bold;\n  width: 75vw;\n}\n\n.helpful {\n  font-size: small;\n  position: absolute;\n  right: 10.3vw;\n  top: -1.5vh;\n}\n\n.Yes {\n  font-size: small;\n  position: absolute;\n  right: 8.5vw;\n  top: -1.5vh;\n  text-decoration-line: underline;\n}\n\n.helpfulness {\n  font-size: small;\n  position: absolute;\n  right: 6.7vw;\n  top: -1.5vh;\n}\n\n.divider {\n  font-size: small;\n  position: absolute;\n  right: 5.7vw;\n  top: -1.5vh;\n}\n\n.addAnswer {\n  font-size: small;\n  position: absolute;\n  right: 0vw;\n  top: -1.5vh;\n  text-decoration-line:underline;\n}\n\n.letterA {\n  font-size: medium;\n  font-weight: bold;\n}\n\n.answer {\n  font-size: medium;\n  width: 75vw;\n  position: relative;\n}\n\n.answerBody {\n  left: 1.6vw;\n  top: -4.6vh;\n  position: relative;\n}\n\n.foldAnswers {\n  font-size: small;\n  font-weight: bold;\n  position: relative;\n  top: -5vh;\n  left: 1.6vw;\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "/* Q&A styles: */\n.question {\n  justify-content: space-evenly;\n  position: relative;\n  width: 100vw;\n  height: 20vh;\n}\n\n.questionBody {\n  font-size: medium;\n  font-weight: bold;\n  width: 75vw;\n}\n\n.helpful {\n  font-size: small;\n  position: absolute;\n  right: 10.3vw;\n  top: -1.5vh;\n}\n\n.Yes {\n  font-size: small;\n  position: absolute;\n  right: 8.5vw;\n  top: -1.5vh;\n  text-decoration-line: underline;\n}\n\n.helpfulness {\n  font-size: small;\n  position: absolute;\n  right: 6.7vw;\n  top: -1.5vh;\n}\n\n.divider {\n  font-size: small;\n  position: absolute;\n  right: 5.7vw;\n  top: -1.5vh;\n}\n\n.addAnswer {\n  font-size: small;\n  position: absolute;\n  right: 0vw;\n  top: -1.5vh;\n  text-decoration-line:underline;\n}\n\n.letterA {\n  font-size: medium;\n  font-weight: bold;\n}\n\n.answer {\n  font-size: medium;\n  width: 75vw;\n  position: relative;\n}\n\n.answerBody {\n  left: 1.6vw;\n  top: -4.6vh;\n  position: relative;\n}\n\n.foldAnswers {\n  font-size: small;\n  font-weight: bold;\n  position: relative;\n  top: -5vh;\n  left: 1.6vw;\n}\n\n.containerRow {\n  display:flex;\n  flex-direction:row;\n  position: relative;\n}\n\n.foldQuestions {\n  height: 10vh;\n\n}\n\n.addQuestion {\n  height: 10vh;\n\n  padding-left: 2vw;\n}\n\n.foldQuestionsBT, .addQuestionBT {\n  background-color: white;\n  color: black;\n  border: 2px solid #131313;\n  padding: 20px 15px;\n  transition-duration: 0.4s;\n}\n\n.foldQuestionsBT, .addQuestionBT:hover {\n  cursor: pointer\n}\n\n", "",{"version":3,"sources":["webpack://./client/dist/styles.css"],"names":[],"mappings":"AAAA,gBAAgB;AAChB;EACE,6BAA6B;EAC7B,kBAAkB;EAClB,YAAY;EACZ,YAAY;AACd;;AAEA;EACE,iBAAiB;EACjB,iBAAiB;EACjB,WAAW;AACb;;AAEA;EACE,gBAAgB;EAChB,kBAAkB;EAClB,aAAa;EACb,WAAW;AACb;;AAEA;EACE,gBAAgB;EAChB,kBAAkB;EAClB,YAAY;EACZ,WAAW;EACX,+BAA+B;AACjC;;AAEA;EACE,gBAAgB;EAChB,kBAAkB;EAClB,YAAY;EACZ,WAAW;AACb;;AAEA;EACE,gBAAgB;EAChB,kBAAkB;EAClB,YAAY;EACZ,WAAW;AACb;;AAEA;EACE,gBAAgB;EAChB,kBAAkB;EAClB,UAAU;EACV,WAAW;EACX,8BAA8B;AAChC;;AAEA;EACE,iBAAiB;EACjB,iBAAiB;AACnB;;AAEA;EACE,iBAAiB;EACjB,WAAW;EACX,kBAAkB;AACpB;;AAEA;EACE,WAAW;EACX,WAAW;EACX,kBAAkB;AACpB;;AAEA;EACE,gBAAgB;EAChB,iBAAiB;EACjB,kBAAkB;EAClB,SAAS;EACT,WAAW;AACb;;AAEA;EACE,YAAY;EACZ,kBAAkB;EAClB,kBAAkB;AACpB;;AAEA;EACE,YAAY;;AAEd;;AAEA;EACE,YAAY;;EAEZ,iBAAiB;AACnB;;AAEA;EACE,uBAAuB;EACvB,YAAY;EACZ,yBAAyB;EACzB,kBAAkB;EAClB,yBAAyB;AAC3B;;AAEA;EACE;AACF","sourcesContent":["/* Q&A styles: */\n.question {\n  justify-content: space-evenly;\n  position: relative;\n  width: 100vw;\n  height: 20vh;\n}\n\n.questionBody {\n  font-size: medium;\n  font-weight: bold;\n  width: 75vw;\n}\n\n.helpful {\n  font-size: small;\n  position: absolute;\n  right: 10.3vw;\n  top: -1.5vh;\n}\n\n.Yes {\n  font-size: small;\n  position: absolute;\n  right: 8.5vw;\n  top: -1.5vh;\n  text-decoration-line: underline;\n}\n\n.helpfulness {\n  font-size: small;\n  position: absolute;\n  right: 6.7vw;\n  top: -1.5vh;\n}\n\n.divider {\n  font-size: small;\n  position: absolute;\n  right: 5.7vw;\n  top: -1.5vh;\n}\n\n.addAnswer {\n  font-size: small;\n  position: absolute;\n  right: 0vw;\n  top: -1.5vh;\n  text-decoration-line:underline;\n}\n\n.letterA {\n  font-size: medium;\n  font-weight: bold;\n}\n\n.answer {\n  font-size: medium;\n  width: 75vw;\n  position: relative;\n}\n\n.answerBody {\n  left: 1.6vw;\n  top: -4.6vh;\n  position: relative;\n}\n\n.foldAnswers {\n  font-size: small;\n  font-weight: bold;\n  position: relative;\n  top: -5vh;\n  left: 1.6vw;\n}\n\n.containerRow {\n  display:flex;\n  flex-direction:row;\n  position: relative;\n}\n\n.foldQuestions {\n  height: 10vh;\n\n}\n\n.addQuestion {\n  height: 10vh;\n\n  padding-left: 2vw;\n}\n\n.foldQuestionsBT, .addQuestionBT {\n  background-color: white;\n  color: black;\n  border: 2px solid #131313;\n  padding: 20px 15px;\n  transition-duration: 0.4s;\n}\n\n.foldQuestionsBT, .addQuestionBT:hover {\n  cursor: pointer\n}\n\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -20799,7 +20811,7 @@ var App = /*#__PURE__*/function (_React$Component) {
 
       axios__WEBPACK_IMPORTED_MODULE_3___default().get('/products').then(function (response) {
         _this2.setState({
-          products: response.data[0]
+          products: response.data[3]
         });
       })["catch"](function (err) {
         console.log(err);

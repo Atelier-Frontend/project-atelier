@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-// import mystyles from '../../../dist/styles.css'
 import '../../../dist/styles.css';
 import AnswersList from './AnswersList.jsx';
 
@@ -21,14 +20,18 @@ class QuestionsList extends React.Component {
       } else {
         return (questions.slice(0, q).map((question)=>{
           return(<div key={question.question_id}>
-            <span>
-              <h3>{`Q: ${question.question_body}`}</h3>
-              <AnswersList question={question}/>
+            <span className="question">
+              <p className="questionBody">{`Q: ${question.question_body}`}</p>
+              <p className="helpful"> Helpful? </p>
+              <p className="Yes"> Yes </p>
+              <p className="helpfulness"
+                  >
+                  {`(${question.question_helpfulness})`}
+              </p>
+              <p className="divider"> | </p>
+              <p className="addAnswer"> Add Answer </p>
             </span>
-
-            <p className="helpful"> Helpful? </p>
-
-
+            <AnswersList question={question}/>
           </div>)
         }))
       }

@@ -1,7 +1,75 @@
 /* Q&A styles: */
+.question {
+  justify-content: space-evenly;
+  position: relative;
+  width: 100vw;
+  height: 20vh;
+}
+
+.questionBody {
+  font-size: medium;
+  font-weight: bold;
+  width: 75vw;
+}
 
 .helpful {
-  flex: 0 0 50%;
-  display: flex;
-  justify-content: flex-end;
+  font-size: small;
+  position: absolute;
+  right: 10.3vw;
+  top: -1.5vh;
+}
+
+.Yes {
+  font-size: small;
+  position: absolute;
+  right: 8.5vw;
+  top: -1.5vh;
+  text-decoration-line: underline;
+}
+
+.helpfulness {
+  font-size: small;
+  position: absolute;
+  right: 6.7vw;
+  top: -1.5vh;
+}
+
+.divider {
+  font-size: small;
+  position: absolute;
+  right: 5.7vw;
+  top: -1.5vh;
+}
+
+.addAnswer {
+  font-size: small;
+  position: absolute;
+  right: 0vw;
+  top: -1.5vh;
+  text-decoration-line:underline;
+}
+
+.letterA {
+  font-size: medium;
+  font-weight: bold;
+}
+
+.answer {
+  font-size: medium;
+  width: 75vw;
+  position: relative;
+}
+
+.answerBody {
+  left: 1.6vw;
+  top: -4.6vh;
+  position: relative;
+}
+
+.foldAnswers {
+  font-size: small;
+  font-weight: bold;
+  position: relative;
+  top: -5vh;
+  left: 1.6vw;
 }

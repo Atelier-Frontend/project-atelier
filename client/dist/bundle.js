@@ -160,6 +160,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _dist_styles_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../dist/styles.css */ "./client/dist/styles.css");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -183,6 +184,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 
 
 
@@ -224,23 +226,31 @@ var AnswersList = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      console.log('ooo....>>>', this.props.question.answers);
-      var answers = this.props.question.answers; // let a = (this.state[this.props.question.question_id] === false) ? 2 : answers.length;
-
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, 'A: '), Object.keys(answers).length <= 2 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, Object.values(answers).map(function (answer) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      var answers = this.props.question.answers;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "answer"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+        className: "letterA"
+      }, 'A: '), Object.keys(answers).length <= 2 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, Object.values(answers).map(function (answer) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
           key: answer.id
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, answer.body));
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+          className: "answerBody"
+        }, answer.body));
       })) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, Object.values(answers).slice(0, this.state.a).map(function (answer) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
           key: answer.id
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, answer.body));
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+          className: "answerBody"
+        }, answer.body));
       })), Object.keys(answers).length > 2 ? this.state[this.props.question.question_id] === false ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         id: this.props.question.question_id,
-        onClick: this.moreAnswersHandler.bind(this)
+        onClick: this.moreAnswersHandler.bind(this),
+        className: "foldAnswers"
       }, 'LOAD MORE ANSWERS') : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         id: this.props.question.question_id,
-        onClick: this.moreAnswersHandler.bind(this)
+        onClick: this.moreAnswersHandler.bind(this),
+        className: "foldAnswers"
       }, 'FOLD ANSWERS') : '');
     }
   }]);
@@ -518,7 +528,6 @@ var QnA = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      console.log(this.state);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "Questions ", '&', " Answers"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_AnswersSearch_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_QuestionsList_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
         questions: this.state.questions,
         moreQuestionsClicked: this.state.moreQuestionsClicked
@@ -576,7 +585,6 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 
- // import mystyles from '../../../dist/styles.css'
 
 
 
@@ -610,11 +618,23 @@ var QuestionsList = /*#__PURE__*/function (_React$Component) {
           return questions.slice(0, q).map(function (question) {
             return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
               key: question.question_id
-            }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "Q: ".concat(question.question_body)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_AnswersList_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
-              question: question
-            })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+            }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+              className: "question"
+            }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+              className: "questionBody"
+            }, "Q: ".concat(question.question_body)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
               className: "helpful"
-            }, " Helpful? "));
+            }, " Helpful? "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+              className: "Yes"
+            }, " Yes "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+              className: "helpfulness"
+            }, "(".concat(question.question_helpfulness, ")")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+              className: "divider"
+            }, " | "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+              className: "addAnswer"
+            }, " Add Answer ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_AnswersList_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
+              question: question
+            }));
           });
         }
       }
@@ -20631,7 +20651,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/* Q&A styles: */\n\n.helpful {\n  flex: 0 0 50%;\n  display: flex;\n  justify-content: flex-end;\n}\n", "",{"version":3,"sources":["webpack://./client/dist/styles.css"],"names":[],"mappings":"AAAA,gBAAgB;;AAEhB;EACE,aAAa;EACb,aAAa;EACb,yBAAyB;AAC3B","sourcesContent":["/* Q&A styles: */\n\n.helpful {\n  flex: 0 0 50%;\n  display: flex;\n  justify-content: flex-end;\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "/* Q&A styles: */\n.question {\n  justify-content: space-evenly;\n  position: relative;\n  width: 100vw;\n  height: 20vh;\n}\n\n.questionBody {\n  font-size: medium;\n  font-weight: bold;\n  width: 75vw;\n}\n\n.helpful {\n  font-size: small;\n  position: absolute;\n  right: 10.3vw;\n  top: -1.5vh;\n}\n\n.Yes {\n  font-size: small;\n  position: absolute;\n  right: 8.5vw;\n  top: -1.5vh;\n  text-decoration-line: underline;\n}\n\n.helpfulness {\n  font-size: small;\n  position: absolute;\n  right: 6.7vw;\n  top: -1.5vh;\n}\n\n.divider {\n  font-size: small;\n  position: absolute;\n  right: 5.7vw;\n  top: -1.5vh;\n}\n\n.addAnswer {\n  font-size: small;\n  position: absolute;\n  right: 0vw;\n  top: -1.5vh;\n  text-decoration-line:underline;\n}\n\n.letterA {\n  font-size: medium;\n  font-weight: bold;\n}\n\n.answer {\n  font-size: medium;\n  width: 75vw;\n  position: relative;\n}\n\n.answerBody {\n  left: 1.6vw;\n  top: -4.6vh;\n  position: relative;\n}\n\n.foldAnswers {\n  font-size: small;\n  font-weight: bold;\n  position: relative;\n  top: -5vh;\n  left: 1.6vw;\n}", "",{"version":3,"sources":["webpack://./client/dist/styles.css"],"names":[],"mappings":"AAAA,gBAAgB;AAChB;EACE,6BAA6B;EAC7B,kBAAkB;EAClB,YAAY;EACZ,YAAY;AACd;;AAEA;EACE,iBAAiB;EACjB,iBAAiB;EACjB,WAAW;AACb;;AAEA;EACE,gBAAgB;EAChB,kBAAkB;EAClB,aAAa;EACb,WAAW;AACb;;AAEA;EACE,gBAAgB;EAChB,kBAAkB;EAClB,YAAY;EACZ,WAAW;EACX,+BAA+B;AACjC;;AAEA;EACE,gBAAgB;EAChB,kBAAkB;EAClB,YAAY;EACZ,WAAW;AACb;;AAEA;EACE,gBAAgB;EAChB,kBAAkB;EAClB,YAAY;EACZ,WAAW;AACb;;AAEA;EACE,gBAAgB;EAChB,kBAAkB;EAClB,UAAU;EACV,WAAW;EACX,8BAA8B;AAChC;;AAEA;EACE,iBAAiB;EACjB,iBAAiB;AACnB;;AAEA;EACE,iBAAiB;EACjB,WAAW;EACX,kBAAkB;AACpB;;AAEA;EACE,WAAW;EACX,WAAW;EACX,kBAAkB;AACpB;;AAEA;EACE,gBAAgB;EAChB,iBAAiB;EACjB,kBAAkB;EAClB,SAAS;EACT,WAAW;AACb","sourcesContent":["/* Q&A styles: */\n.question {\n  justify-content: space-evenly;\n  position: relative;\n  width: 100vw;\n  height: 20vh;\n}\n\n.questionBody {\n  font-size: medium;\n  font-weight: bold;\n  width: 75vw;\n}\n\n.helpful {\n  font-size: small;\n  position: absolute;\n  right: 10.3vw;\n  top: -1.5vh;\n}\n\n.Yes {\n  font-size: small;\n  position: absolute;\n  right: 8.5vw;\n  top: -1.5vh;\n  text-decoration-line: underline;\n}\n\n.helpfulness {\n  font-size: small;\n  position: absolute;\n  right: 6.7vw;\n  top: -1.5vh;\n}\n\n.divider {\n  font-size: small;\n  position: absolute;\n  right: 5.7vw;\n  top: -1.5vh;\n}\n\n.addAnswer {\n  font-size: small;\n  position: absolute;\n  right: 0vw;\n  top: -1.5vh;\n  text-decoration-line:underline;\n}\n\n.letterA {\n  font-size: medium;\n  font-weight: bold;\n}\n\n.answer {\n  font-size: medium;\n  width: 75vw;\n  position: relative;\n}\n\n.answerBody {\n  left: 1.6vw;\n  top: -4.6vh;\n  position: relative;\n}\n\n.foldAnswers {\n  font-size: small;\n  font-weight: bold;\n  position: relative;\n  top: -5vh;\n  left: 1.6vw;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -20779,7 +20799,7 @@ var App = /*#__PURE__*/function (_React$Component) {
 
       axios__WEBPACK_IMPORTED_MODULE_3___default().get('/products').then(function (response) {
         _this2.setState({
-          products: response.data[3]
+          products: response.data[0]
         });
       })["catch"](function (err) {
         console.log(err);

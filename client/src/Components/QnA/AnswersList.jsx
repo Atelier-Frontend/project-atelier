@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import '../../../dist/styles.css';
 
 class AnswersList extends React.Component {
   constructor(props) {
@@ -35,33 +36,38 @@ class AnswersList extends React.Component {
 
 
   render() {
-    console.log('ooo....>>>', this.props.question.answers)
     let answers = this.props.question.answers;
-    // let a = (this.state[this.props.question.question_id] === false) ? 2 : answers.length;
-    return(<div>
-      <h3>{'A: '}</h3>
+    return(<div className="answer">
+      <p className="letterA">{'A: '}</p>
       {Object.keys(answers).length <= 2 ? (
-        <div>
+        <span>
           {Object.values(answers).map((answer) => (
-            <div key={answer.id}>
-              <span>{answer.body}</span>
-            </div>
+            <span key={answer.id}>
+              <p className="answerBody">{answer.body}</p>
+            </span>
           ))}
-        </div>
+        </span>
       ) : (
         <div>
           {Object.values(answers).slice(0,this.state.a).map((answer) => (
-            <div key={answer.id}>
-              <span>{answer.body}</span>
-            </div>
+            <span key={answer.id}>
+              <p className="answerBody">{answer.body}</p>
+            </span>
           ))}
         </div>
       )}
       {(Object.keys(answers).length > 2) ? (
         (this.state[this.props.question.question_id] === false) ? (
-          <span id={this.props.question.question_id} onClick={this.moreAnswersHandler.bind(this)}>{'LOAD MORE ANSWERS'}</span>
-        ) : <span id={this.props.question.question_id} onClick={this.moreAnswersHandler.bind(this)}>{'FOLD ANSWERS'}</span>
-      ) : ''}
+          <span id={this.props.question.question_id}
+                onClick={this.moreAnswersHandler.bind(this)}
+                className="foldAnswers">
+            {'LOAD MORE ANSWERS'}
+          </span>
+        ) : <span id={this.props.question.question_id}
+                  onClick={this.moreAnswersHandler.bind(this)}
+                  className="foldAnswers">
+                    {'FOLD ANSWERS'}
+            </span>) : ''}
     </div>)
   }
 };

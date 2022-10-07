@@ -6,26 +6,25 @@ class QuestionsList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      moreQuestionsClicked: false,
       questions: []
     }
   }
 
   render() {
     let questions = this.props.questions;
-    let q = (this.state.moreQuestionsClicked === false) ? 2 : this.props.questions.length;
+    let q = (this.props.moreQuestionsClicked === false) ? 2 : this.props.questions.length;
     {
       if (questions.length === 0) {
-        return ('')
+        return ''
       } else {
-        return questions.slice(0, q).map((question)=>{
+        return (questions.slice(0, q).map((question)=>{
           return(<div key={question.question_id}>
             <span>
               <h3>{`Q: ${question.question_body}`}</h3>
               <AnswersList question={question}/>
             </span>
           </div>)
-        })
+        }))
       }
     }
   }

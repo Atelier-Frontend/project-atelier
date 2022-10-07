@@ -8,10 +8,20 @@ class MoreQuestions extends React.Component {
     }
   }
 
+  moreQuestions() {
+    this.props.questionClickHandler()
+  }
+
+
   render() {
     return (<div>
-      {/* only show up when questions are over two */}
-      <button>{'MORE ANSWERED QUESTIONS'}</button>
+      {(this.props.moreQuestionsClicked === false) ?
+        (<button onClick={this.moreQuestions.bind(this)}>
+          {'MORE ANSWERED QUESTIONS'}
+        </button>) : (<button onClick={this.moreQuestions.bind(this)}>
+          {'LESS ANSWERED QUESTIONS'}
+        </button>)
+      }
     </div>)
   }
 };

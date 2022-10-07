@@ -10,7 +10,8 @@ class QnA extends React.Component {
     super(props);
     this.state = {
       questions: [],
-      answers: []
+      answers: [],
+      moreQuestionsClicked: false
     }
   }
 
@@ -43,13 +44,24 @@ class QnA extends React.Component {
       })
   }
 
+  questionClickHandler() {
+    (this.state.moreQuestionsClicked === false) ? this.setState({
+      moreQuestionsClicked: true
+    }) : this.setState({
+      moreQuestionsClicked: false
+    })
+  }
+
   render() {
     console.log(this.state)
     return (<div>
       <h4>Questions {'&'} Answers</h4>
       <AnswersSearch />
-      <QuestionsList questions={this.state.questions} />
-      <MoreQuestions />
+      <QuestionsList questions={this.state.questions}
+        moreQuestionsClicked={this.state.moreQuestionsClicked} />
+      {(this.state.questions.length > 2) &&
+      <MoreQuestions  moreQuestionsClicked={this.state.moreQuestionsClicked}
+        questionClickHandler={this.questionClickHandler.bind(this)}/>}
       <AddQuestion />
     </div>)
   }

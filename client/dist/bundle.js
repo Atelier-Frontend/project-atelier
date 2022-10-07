@@ -224,10 +224,10 @@ var AnswersList = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      console.log(this.state);
+      console.log('ooo....>>>', this.props.question.answers);
       var answers = this.props.question.answers; // let a = (this.state[this.props.question.question_id] === false) ? 2 : answers.length;
 
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, 'A: '), answers.length <= 2 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, answers.map(function (answer) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, 'A: '), Object.keys(answers).length <= 2 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, Object.values(answers).map(function (answer) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           key: answer.id
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, answer.body));
@@ -235,13 +235,13 @@ var AnswersList = /*#__PURE__*/function (_React$Component) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           key: answer.id
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, answer.body));
-      })), this.state[this.props.question.question_id] === false ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+      })), Object.keys(answers).length > 2 ? this.state[this.props.question.question_id] === false ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         id: this.props.question.question_id,
         onClick: this.moreAnswersHandler.bind(this)
       }, 'LOAD MORE ANSWERS') : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         id: this.props.question.question_id,
         onClick: this.moreAnswersHandler.bind(this)
-      }, 'FOLD ANSWERS'));
+      }, 'FOLD ANSWERS') : '');
     }
   }]);
 
@@ -377,9 +377,18 @@ var MoreQuestions = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(MoreQuestions, [{
+    key: "moreQuestions",
+    value: function moreQuestions() {
+      this.props.questionClickHandler();
+    }
+  }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, 'MORE ANSWERED QUESTIONS'));
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.props.moreQuestionsClicked === false ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        onClick: this.moreQuestions.bind(this)
+      }, 'MORE ANSWERED QUESTIONS') : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        onClick: this.moreQuestions.bind(this)
+      }, 'LESS ANSWERED QUESTIONS'));
     }
   }]);
 
@@ -451,7 +460,8 @@ var QnA = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props);
     _this.state = {
       questions: [],
-      answers: []
+      answers: [],
+      moreQuestionsClicked: false
     };
     return _this;
   }
@@ -497,12 +507,25 @@ var QnA = /*#__PURE__*/function (_React$Component) {
       });
     }
   }, {
+    key: "questionClickHandler",
+    value: function questionClickHandler() {
+      this.state.moreQuestionsClicked === false ? this.setState({
+        moreQuestionsClicked: true
+      }) : this.setState({
+        moreQuestionsClicked: false
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       console.log(this.state);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "Questions ", '&', " Answers"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_AnswersSearch_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_QuestionsList_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        questions: this.state.questions
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_MoreQuestions_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_AddQuestion_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], null));
+        questions: this.state.questions,
+        moreQuestionsClicked: this.state.moreQuestionsClicked
+      }), this.state.questions.length > 2 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_MoreQuestions_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        moreQuestionsClicked: this.state.moreQuestionsClicked,
+        questionClickHandler: this.questionClickHandler.bind(this)
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_AddQuestion_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], null));
     }
   }]);
 
@@ -567,7 +590,6 @@ var QuestionsList = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      moreQuestionsClicked: false,
       questions: []
     };
     return _this;
@@ -577,7 +599,7 @@ var QuestionsList = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       var questions = this.props.questions;
-      var q = this.state.moreQuestionsClicked === false ? 2 : this.props.questions.length;
+      var q = this.props.moreQuestionsClicked === false ? 2 : this.props.questions.length;
       {
         if (questions.length === 0) {
           return '';
@@ -20581,7 +20603,7 @@ var App = /*#__PURE__*/function (_React$Component) {
 
       axios__WEBPACK_IMPORTED_MODULE_3___default().get('/products').then(function (response) {
         _this2.setState({
-          products: response.data[4]
+          products: response.data[3]
         });
       })["catch"](function (err) {
         console.log(err);

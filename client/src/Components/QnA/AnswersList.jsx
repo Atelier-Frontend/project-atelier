@@ -35,14 +35,14 @@ class AnswersList extends React.Component {
 
 
   render() {
-    console.log(this.state)
+    console.log('ooo....>>>', this.props.question.answers)
     let answers = this.props.question.answers;
     // let a = (this.state[this.props.question.question_id] === false) ? 2 : answers.length;
     return(<div>
       <h3>{'A: '}</h3>
-      {answers.length <= 2 ? (
+      {Object.keys(answers).length <= 2 ? (
         <div>
-          {answers.map((answer) => (
+          {Object.values(answers).map((answer) => (
             <div key={answer.id}>
               <span>{answer.body}</span>
             </div>
@@ -57,9 +57,11 @@ class AnswersList extends React.Component {
           ))}
         </div>
       )}
-      {(this.state[this.props.question.question_id] === false) ? (
-        <span id={this.props.question.question_id} onClick={this.moreAnswersHandler.bind(this)}>{'LOAD MORE ANSWERS'}</span>
-        ) : <span id={this.props.question.question_id} onClick={this.moreAnswersHandler.bind(this)}>{'FOLD ANSWERS'}</span>}
+      {(Object.keys(answers).length > 2) ? (
+        (this.state[this.props.question.question_id] === false) ? (
+          <span id={this.props.question.question_id} onClick={this.moreAnswersHandler.bind(this)}>{'LOAD MORE ANSWERS'}</span>
+        ) : <span id={this.props.question.question_id} onClick={this.moreAnswersHandler.bind(this)}>{'FOLD ANSWERS'}</span>
+      ) : ''}
     </div>)
   }
 };

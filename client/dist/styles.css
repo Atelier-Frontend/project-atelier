@@ -16,6 +16,35 @@ section aside {
   padding: 1.25rem;
   width: 100px;
 }
+asside small {
+  display: inline-block;
+}
+#red-bg {
+  display: inline;
+  position: fixed;
+
+}
+
+ion-icon{
+  float: right;
+  fill:transparent;
+  stroke:black;
+  stroke-width:30;
+  transition:all 0.5s;
+}
+ion-icon.active{
+  float: right;
+  animation:like 0.5s 1;
+  fill:red;
+  stroke:none;
+}
+
+
+@-webkit-keyframes like {
+  0%   { transform: scale(1); }
+  90%   { transform: scale(1.2); }
+  100% { transform: scale(1.1); }
+}
 
 section aside img{
   margin-top: -1.25rem;
@@ -24,6 +53,10 @@ section aside img{
   object-fit: cover;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
+}
+
+section aside div {
+  align-self: baseline;
 }
 
 section aside:hover {

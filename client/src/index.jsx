@@ -32,11 +32,11 @@ class App extends React.Component {
       {Object.keys(this.state.products).length > 0 &&
         <ProductOverview products={this.state.products} />}
       {Object.keys(this.state.products).length > 0 &&
-        <QnA products={this.state.products} />}
-      {Object.keys(this.state.products).length > 0 &&
       <Related products={this.state.products} />}
       {Object.keys(this.state.products).length > 0 &&
       <Your products={this.state.fav} />}
+      {Object.keys(this.state.products).length > 0 &&
+        <QnA products={this.state.products} />}
     </div>)
   }
 }

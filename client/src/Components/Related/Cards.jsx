@@ -21,8 +21,14 @@ componentDidMount () {
   }
 
   render() {
+    // console.log(this.state.product);
+    // if (JSON.stringify(this.state.product) === '{}') {
+    //   var update = console.log
+    // } else {
+    //   var update = this.props.update
+    // }
     return (
-      <aside className={this.props.class}>
+      <aside className={this.props.class} onClick={()=> this.props.update(this.state.product.id)}>
   <img
     src="https://images.pexels.com/photos/2562992/pexels-photo-2562992.png"
     width="384"

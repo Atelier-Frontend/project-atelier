@@ -648,8 +648,19 @@ var Cards = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this3 = this;
+
+      // console.log(this.state.product);
+      // if (JSON.stringify(this.state.product) === '{}') {
+      //   var update = console.log
+      // } else {
+      //   var update = this.props.update
+      // }
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("aside", {
-        className: this.props["class"]
+        className: this.props["class"],
+        onClick: function onClick() {
+          return _this3.props.update(_this3.state.product.id);
+        }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         src: "https://images.pexels.com/photos/2562992/pexels-photo-2562992.png",
         width: "384",
@@ -754,7 +765,8 @@ var Related = /*#__PURE__*/function (_React$Component) {
           var elm = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Cards_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
             key: data.data[i],
             item: data.data[i],
-            "class": "Related"
+            "class": "Related",
+            update: _this2.props.update
           });
           lists.push(elm);
           i += 1;
@@ -20623,6 +20635,7 @@ var App = /*#__PURE__*/function (_React$Component) {
       products: {},
       fav: []
     };
+    _this.update = _this.update.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -20631,12 +20644,34 @@ var App = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_3___default().get('/products').then(function (response) {
-        _this2.setState({
-          products: response.data[0]
+      if (JSON.stringify(this.state.products) === '{}') {
+        axios__WEBPACK_IMPORTED_MODULE_3___default().get('/products').then(function (response) {
+          _this2.setState({
+            products: response.data[0]
+          });
+        })["catch"](function (err) {
+          console.log(err);
         });
-      })["catch"](function (err) {
-        console.log(err);
+      } else {
+        console.log(this);
+        this.update(this.products.id);
+      }
+    }
+  }, {
+    key: "update",
+    value: function update(state_id) {
+      var _this3 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_3___default().get('/products/product_id', {
+        params: {
+          id: state_id
+        }
+      }).then(function (response) {
+        console.log(response.data);
+
+        _this3.setState({
+          products: response.data
+        });
       });
     }
   }, {
@@ -20645,7 +20680,8 @@ var App = /*#__PURE__*/function (_React$Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Project Atelier"), Object.keys(this.state.products).length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Components_ProductOverview_ProductOverview_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {
         products: this.state.products
       }), Object.keys(this.state.products).length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Components_Related_Related_jsx__WEBPACK_IMPORTED_MODULE_6__["default"], {
-        products: this.state.products
+        products: this.state.products,
+        update: this.update
       }), Object.keys(this.state.products).length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Components_Related_Your_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], {
         products: this.state.fav
       }), Object.keys(this.state.products).length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Components_QnA_QnA_jsx__WEBPACK_IMPORTED_MODULE_7__["default"], {

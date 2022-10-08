@@ -693,12 +693,18 @@ var QnA = /*#__PURE__*/function (_React$Component) {
   _createClass(QnA, [{
     key: "componentDidMount",
     value: function componentDidMount(props) {
-      this.getQuestionsList(props);
-      this.getAnswersList(642681);
+      this.getQuestionsList(props); // this.getAnswersList(642681)
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      if (this.props.products.id !== prevProps.products.id) {
+        this.getQuestionsList();
+      }
     }
   }, {
     key: "getQuestionsList",
-    value: function getQuestionsList(props) {
+    value: function getQuestionsList() {
       var _this2 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_1___default().get('/qa/questions', {
@@ -712,24 +718,18 @@ var QnA = /*#__PURE__*/function (_React$Component) {
       })["catch"](function (err) {
         console.log('failed to get questions list');
       });
-    }
-  }, {
-    key: "getAnswersList",
-    value: function getAnswersList(question_id) {
-      var _this3 = this;
+    } // getAnswersList(question_id) {
+    //   axios.get(`/qa/questions/:question_id/answers`, {params: {question_id}})
+    //     .then((response) => {
+    //       this.setState({
+    //         answers: response.data.results
+    //       })
+    //     })
+    //     .catch((err) => {
+    //       console.log('failed to get answers list')
+    //     })
+    // }
 
-      axios__WEBPACK_IMPORTED_MODULE_1___default().get("/qa/questions/:question_id/answers", {
-        params: {
-          question_id: question_id
-        }
-      }).then(function (response) {
-        _this3.setState({
-          answers: response.data.results
-        });
-      })["catch"](function (err) {
-        console.log('failed to get answers list');
-      });
-    }
   }, {
     key: "questionClickHandler",
     value: function questionClickHandler() {
@@ -742,6 +742,8 @@ var QnA = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      console.log('this.state.id>>>', this.props.products.id);
+      console.log('current product>>>', this.props.products);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "Questions ", '&', " Answers"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_AnswersSearch_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_QuestionsList_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {
         questions: this.state.questions,
         moreQuestionsClicked: this.state.moreQuestionsClicked
@@ -833,7 +835,6 @@ var QuestionsList = /*#__PURE__*/function (_React$Component) {
       var questions = this.props.questions;
       questions.sort(this.sortQuestions);
       var q = this.props.moreQuestionsClicked === false ? 2 : this.props.questions.length;
-      console.log(questions);
       {
         if (questions.length === 0) {
           return '';
@@ -969,12 +970,7 @@ var Cards = /*#__PURE__*/function (_React$Component) {
         onClick: function onClick() {
           return _this3.props.update(_this3.state.product.id);
         }
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        src: "https://images.pexels.com/photos/2562992/pexels-photo-2562992.png",
-        width: "384",
-        height: "192",
-        alt: "header image"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("small", null, this.state.product.category), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, this.state.product.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("small", null, this.state.product.default_price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "stars"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("small", null, this.state.product.category), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, this.state.product.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("small", null, this.state.product.default_price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "stars"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         "class": "large-font text-center top-20"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ion-icon", {
         name: "heart"
@@ -21126,7 +21122,7 @@ var App = /*#__PURE__*/function (_React$Component) {
       if (JSON.stringify(this.state.products) === '{}') {
         axios__WEBPACK_IMPORTED_MODULE_3___default().get('/products').then(function (response) {
           _this2.setState({
-            products: response.data[1]
+            products: response.data[3]
           });
         })["catch"](function (err) {
           console.log(err);
@@ -21146,8 +21142,6 @@ var App = /*#__PURE__*/function (_React$Component) {
           id: state_id
         }
       }).then(function (response) {
-        console.log(response.data);
-
         _this3.setState({
           products: response.data
         });

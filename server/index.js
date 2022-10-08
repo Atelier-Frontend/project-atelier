@@ -125,6 +125,7 @@ app.put('/reviews/:review_id/report', (req, res) => {
 app.get('/qa/questions', (req, res) => {
   axios.get(`${apiPath}/qa/questions?${req._parsedOriginalUrl.query}`, header)
     .then((response) => {
+      console.log('response data>>>', response)
       res.send(response.data);
     })
     .catch((err) => {

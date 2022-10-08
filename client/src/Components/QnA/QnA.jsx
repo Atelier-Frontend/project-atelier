@@ -12,16 +12,23 @@ class QnA extends React.Component {
     this.state = {
       questions: [],
       answers: [],
-      moreQuestionsClicked: false
+      moreQuestionsClicked: false,
     }
   }
 
   componentDidMount(props) {
     this.getQuestionsList(props)
-    this.getAnswersList(642681)
+    // this.getAnswersList(642681)
   }
 
-  getQuestionsList(props) {
+  componentDidUpdate(prevProps) {
+    if(this.props.products.id !== prevProps.products.id)
+    {
+      this.getQuestionsList();
+    }
+  }
+
+  getQuestionsList() {
     axios.get('/qa/questions', {params: {product_id: this.props.products.id}})
       .then((response) => {
         this.setState({
@@ -33,17 +40,17 @@ class QnA extends React.Component {
       })
   }
 
-  getAnswersList(question_id) {
-    axios.get(`/qa/questions/:question_id/answers`, {params: {question_id}})
-      .then((response) => {
-        this.setState({
-          answers: response.data.results
-        })
-      })
-      .catch((err) => {
-        console.log('failed to get answers list')
-      })
-  }
+  // getAnswersList(question_id) {
+  //   axios.get(`/qa/questions/:question_id/answers`, {params: {question_id}})
+  //     .then((response) => {
+  //       this.setState({
+  //         answers: response.data.results
+  //       })
+  //     })
+  //     .catch((err) => {
+  //       console.log('failed to get answers list')
+  //     })
+  // }
 
   questionClickHandler() {
     (this.state.moreQuestionsClicked === false) ? this.setState({
@@ -54,6 +61,8 @@ class QnA extends React.Component {
   }
 
   render() {
+    console.log('this.state.id>>>', this.props.products.id);
+    console.log('current product>>>', this.props.products)
     return (<div>
       <h4>Questions {'&'} Answers</h4>
       <AnswersSearch />

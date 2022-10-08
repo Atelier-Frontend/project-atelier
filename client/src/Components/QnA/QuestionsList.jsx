@@ -19,7 +19,6 @@ class QuestionsList extends React.Component {
     let questions = this.props.questions;
     questions.sort(this.sortQuestions);
     let q = (this.props.moreQuestionsClicked === false) ? 2 : this.props.questions.length;
-    console.log(questions)
     {
       if (questions.length === 0) {
         return ''

@@ -18,7 +18,7 @@ class App extends React.Component {
   componentDidMount() {
     axios.get('/products')
       .then((response) => {
-        this.setState({ products: response.data[3] })
+        this.setState({ products: response.data[1] })
       })
       .catch((err) => {
         console.log(err)

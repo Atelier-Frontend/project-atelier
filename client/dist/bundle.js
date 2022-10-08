@@ -619,10 +619,17 @@ var QuestionsList = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(QuestionsList, [{
+    key: "sortQuestions",
+    value: function sortQuestions(a, b) {
+      return a.question_helpfulness < b.question_helpfulness ? 1 : -1;
+    }
+  }, {
     key: "render",
     value: function render() {
       var questions = this.props.questions;
+      questions.sort(this.sortQuestions);
       var q = this.props.moreQuestionsClicked === false ? 2 : this.props.questions.length;
+      console.log(questions);
       {
         if (questions.length === 0) {
           return '';
@@ -20813,7 +20820,7 @@ var App = /*#__PURE__*/function (_React$Component) {
 
       axios__WEBPACK_IMPORTED_MODULE_3___default().get('/products').then(function (response) {
         _this2.setState({
-          products: response.data[3]
+          products: response.data[1]
         });
       })["catch"](function (err) {
         console.log(err);

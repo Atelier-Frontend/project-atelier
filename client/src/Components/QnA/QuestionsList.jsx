@@ -11,9 +11,15 @@ class QuestionsList extends React.Component {
     }
   }
 
+  sortQuestions(a, b) {
+    return ( a.question_helpfulness < b.question_helpfulness ) ? 1 : -1;
+  }
+
   render() {
     let questions = this.props.questions;
+    questions.sort(this.sortQuestions);
     let q = (this.props.moreQuestionsClicked === false) ? 2 : this.props.questions.length;
+    console.log(questions)
     {
       if (questions.length === 0) {
         return ''

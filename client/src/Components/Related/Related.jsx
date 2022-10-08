@@ -22,7 +22,7 @@ class Related extends React.Component {
         var lists = [];
         var i = 0;
         while (i < data.data.length) {
-          var elm = <Cards key={data.data[i]} item={data.data[i]} class='Related'/>
+          var elm = <Cards key={data.data[i]} item={data.data[i]} class='Related' update={this.props.update}/>
           lists.push(elm)
           i+=1;
         }

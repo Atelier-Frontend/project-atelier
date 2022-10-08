@@ -11,11 +11,14 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      products: {}
+      products: {},
+      fav: []
     }
+    this.update = this.update.bind(this);
   }
 
   componentDidMount() {
+    if(JSON.stringify(this.state.products) === '{}') {
     axios.get('/products')
       .then((response) => {
         this.setState({ products: response.data[1] })
@@ -23,6 +26,21 @@ class App extends React.Component {
       .catch((err) => {
         console.log(err)
       });
+    } else {
+      console.log(this);
+      this.update(this.products.id);
+    }
+  }
+
+
+  update (state_id) {
+
+    axios.get('/products/product_id', {params: {id: state_id}})
+      .then((response)=> {
+        console.log(response.data)
+        this.setState({products: response.data})
+      })
+
   }
 
   render () {
@@ -31,11 +49,11 @@ class App extends React.Component {
       {Object.keys(this.state.products).length > 0 &&
         <ProductOverview products={this.state.products} />}
       {Object.keys(this.state.products).length > 0 &&
+      <Related products={this.state.products} update={this.update}/>}
+      {Object.keys(this.state.products).length > 0 &&
+      <Your products={this.state.fav} />}
+      {Object.keys(this.state.products).length > 0 &&
         <QnA products={this.state.products} />}
-      {Object.keys(this.state.products).length > 0 &&
-      <Related products={this.state.products} />}
-      {Object.keys(this.state.products).length > 0 &&
-      <Your products={this.state.products} />}
     </div>)
   }
 }

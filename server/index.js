@@ -29,7 +29,8 @@ app.get('/products', (req, res) => {
 
 // return all product level information for a specified id
 app.get('/products/product_id', (req, res) => {
-  axios.get(`${apiPath}/products/${req.body.id}`, header)
+  console.log(req.query.id);
+  axios.get(`${apiPath}/products/${req.query.id}`, header)
     .then((response) => {
       res.send(response.data);
     })
@@ -40,7 +41,7 @@ app.get('/products/product_id', (req, res) => {
 
 // return all styles available for a given product
 app.get('/products/product_id/styles', (req, res) => {
-  axios.get(`${apiPath}/products/${req.body.id}/styles`, header)
+  axios.get(`${apiPath}/products/${req.query.id}/styles`, header)
     .then((response) => {
       res.send(response.data);
     })
@@ -51,7 +52,7 @@ app.get('/products/product_id/styles', (req, res) => {
 
 // return the ID's of products related to specified product_id
 app.get('/products/product_id/related', (req, res) => {
-  axios.get(`${apiPath}/products/${req.body.id}/related`, header)
+  axios.get(`${apiPath}/products/${req.query.id}/related`, header)
     .then((response) => {
       res.send(response.data);
     })

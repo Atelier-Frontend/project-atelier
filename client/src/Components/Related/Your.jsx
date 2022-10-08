@@ -11,10 +11,22 @@ class Your extends React.Component {
   }
 
   render() {
+    if(this.props.length > 0) {
+    console.log(this.props)
     return (<div>
-      <h4>Your</h4>
-      <Cards />
+      <h4>Your</h4><section>
+        <ul className='test'>
+      <Cards class='your'/>
+      </ul>
+      </section>
     </div>)
+  } else {
+  return (
+    <div><h4>Your</h4>
+    <div>Loading...</div>
+    </div>
+  )
+}
   }
 };
 

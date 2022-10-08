@@ -1,9 +1,17 @@
 /* Q&A styles: */
 .question {
-  justify-content: space-evenly;
-  position: relative;
+  display:flex;
+  flex-direction:row;
   width: 100vw;
-  height: 20vh;
+  height: 10vh;
+  position: relative;
+}
+
+.container1 {
+  top: 0.7vh;
+  position: absolute;
+  display:flex;
+  flex-direction:row;
 }
 
 .questionBody {
@@ -14,39 +22,29 @@
 
 .helpful {
   font-size: small;
-  position: absolute;
-  right: 10.3vw;
-  top: -1.5vh;
+  padding-left: 77vw;
 }
 
 .Yes {
   font-size: small;
-  position: absolute;
-  right: 8.5vw;
-  top: -1.5vh;
+  padding-left: 0.8vw;
   text-decoration-line: underline;
 }
 
 .helpfulness {
   font-size: small;
-  position: absolute;
-  right: 6.7vw;
-  top: -1.5vh;
+  padding-left: 0.2vw;
 }
 
 .divider {
   font-size: small;
-  position: absolute;
-  right: 5.7vw;
-  top: -1.5vh;
+  padding-left: 1.2vw;
 }
 
 .addAnswer {
   font-size: small;
-  position: absolute;
-  right: 0vw;
-  top: -1.5vh;
-  text-decoration-line:underline;
+  text-decoration-line: underline;
+  padding-left: 1.2vw;
 }
 
 .letterA {
@@ -87,7 +85,6 @@
 
 .addQuestion {
   height: 10vh;
-
   padding-left: 2vw;
 }
 
@@ -102,4 +99,5 @@
 .foldQuestionsBT, .addQuestionBT:hover {
   cursor: pointer
 }
+
 

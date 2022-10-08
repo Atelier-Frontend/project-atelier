@@ -22,14 +22,16 @@ class QuestionsList extends React.Component {
           return(<div key={question.question_id}>
             <span className="question">
               <p className="questionBody">{`Q: ${question.question_body}`}</p>
-              <p className="helpful"> Helpful? </p>
-              <p className="Yes"> Yes </p>
-              <p className="helpfulness"
-                  >
-                  {`(${question.question_helpfulness})`}
-              </p>
-              <p className="divider"> | </p>
-              <p className="addAnswer"> Add Answer </p>
+              <span className="container1">
+                <p className="helpful"> Helpful? </p>
+                <p className="Yes"> Yes </p>
+                <p className="helpfulness"
+                    >
+                    {`(${question.question_helpfulness})`}
+                </p>
+                <p className="divider"> | </p>
+                <p className="addAnswer"> Add Answer </p>
+              </span>
             </span>
             <AnswersList question={question}/>
           </div>)

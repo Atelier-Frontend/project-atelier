@@ -11,7 +11,7 @@ class AnswersList extends React.Component {
   }
 
   componentDidMount(props) {
-    this.hahaha(this.props.question)
+    this.moreQuestionsState(this.props.question)
   }
 
   moreAnswersHandler(e) {
@@ -28,7 +28,7 @@ class AnswersList extends React.Component {
     )
   }
 
-  hahaha(questionObj) {
+  moreQuestionsState(questionObj) {
     this.setState({
       [questionObj.question_id]: false
     })
@@ -37,25 +37,60 @@ class AnswersList extends React.Component {
 
   render() {
     let answers = this.props.question.answers;
-    return(<div className="answer">
-      <p className="letterA">{'A: '}</p>
-      {Object.keys(answers).length <= 2 ? (
-        <span>
-          {Object.values(answers).map((answer) => (
-            <span key={answer.id}>
-              <p className="answerBody">{answer.body}</p>
-            </span>
-          ))}
-        </span>
-      ) : (
-        <div>
-          {Object.values(answers).slice(0,this.state.a).map((answer) => (
-            <span key={answer.id}>
-              <p className="answerBody">{answer.body}</p>
-            </span>
-          ))}
-        </div>
-      )}
+    console.log('>>>', answers)
+    return(<div>
+      <div className="answer">
+        <p className="letterA">{'A: '}</p>
+        {Object.keys(answers).length <= 2 ? (
+          <span>
+            {Object.values(answers).map((answer) => (
+              <span key={answer.id}>
+                <p className="answerBody">{answer.body}</p>
+                <span className="container2">
+                  <p className="Auser">{`by ${answer.answerer_name}`}</p>
+                  {(answer.answerer_name==='Seller') ?
+                    <p className="Aseller">{'- Seller,'}</p> : <p>,</p>}
+                  <p className="Adate">
+                    {`${new Date(answer.date).toDateString().slice(4).replace(' 2022', ', 2022')}`}
+                  </p>
+                  <p className="Adivider"> | </p>
+                  <p className="Ahelpful"> Helpful? </p>
+                  <p className="AYes"> Yes </p>
+                  <p className="Ahelpfulness">
+                    {`(${answer.helpfulness})`}
+                  </p>
+                  <p className="Adivider"> | </p>
+                  <p className="report"> Report </p>
+                </span>
+              </span>
+            ))}
+          </span>
+        ) : (
+          <div>
+            {Object.values(answers).slice(0,this.state.a).map((answer) => (
+              <span key={answer.id}>
+                <p className="answerBody">{answer.body}</p>
+                <span className="container2">
+                  <p className="Auser">{`by ${answer.answerer_name}`}</p>
+                  {(answer.answerer_name==='Seller') ?
+                    <p className="Aseller">{'- Seller,'}</p> : <p>,</p>}
+                   <p className="Adate">
+                    {`${new Date(answer.date).toDateString().slice(4).replace(' 2022', ', 2022')}`}
+                  </p>
+                  <p className="Adivider"> | </p>
+                  <p className="Ahelpful"> Helpful? </p>
+                  <p className="AYes"> Yes </p>
+                  <p className="Ahelpfulness">
+                    {`(${answer.helpfulness})`}
+                  </p>
+                  <p className="Adivider"> | </p>
+                  <p className="report"> Report </p>
+                </span>
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
       {(Object.keys(answers).length > 2) ? (
         (this.state[this.props.question.question_id] === false) ? (
           <span id={this.props.question.question_id}
@@ -67,7 +102,8 @@ class AnswersList extends React.Component {
                   onClick={this.moreAnswersHandler.bind(this)}
                   className="foldAnswers">
                     {'FOLD ANSWERS'}
-            </span>) : ''}
+            </span>
+      ) : ''}
     </div>)
   }
 };

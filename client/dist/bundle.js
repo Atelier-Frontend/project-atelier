@@ -59,15 +59,18 @@ var ProductOverview = /*#__PURE__*/function (_React$Component) {
   _createClass(ProductOverview, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      var currentProduct = this.props.products[0];
+      console.log('props', this.props.products);
+      var currentProduct = this.props.products;
       this.setState({
-        product: currentProduct
+        product: this.props.products
       });
     }
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_productInfo_ProductInfo_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], null));
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, Object.keys(this.state.product).length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_productInfo_ProductInfo_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        product: this.state.product
+      }));
     }
   }]);
 
@@ -157,8 +160,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _StarRating_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./StarRating.jsx */ "./client/src/Components/ProductOverview/productInfo/StarRating.jsx");
-/* harmony import */ var _Price_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Price.jsx */ "./client/src/Components/ProductOverview/productInfo/Price.jsx");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _StarRating_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./StarRating.jsx */ "./client/src/Components/ProductOverview/productInfo/StarRating.jsx");
+/* harmony import */ var _Price_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Price.jsx */ "./client/src/Components/ProductOverview/productInfo/Price.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -185,6 +190,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var ProductInfo = /*#__PURE__*/function (_React$Component) {
   _inherits(ProductInfo, _React$Component);
 
@@ -196,14 +202,44 @@ var ProductInfo = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, ProductInfo);
 
     _this = _super.call(this, props);
-    _this.state = {};
+    _this.state = {
+      id: '',
+      name: '',
+      category: '',
+      price: '',
+      text: ''
+    };
     return _this;
   }
 
   _createClass(ProductInfo, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get('/products/product_id', {
+        params: {
+          id: this.props.product.id
+        }
+      }).then(function (response) {
+        _this2.setState({
+          id: response.data.id,
+          name: response.data.name,
+          category: response.data.category,
+          price: response.data.default_price,
+          text: response.data.description
+        });
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_StarRating_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "Product Category"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "Product Title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Price_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "Product Overview Text"));
+      console.log('info state', this.state.id);
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.state.id > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_StarRating_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        id: this.state.id
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "Category: ", this.state.category), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "Name: ", this.state.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "Price: ", this.state.price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "Overview: ", this.state.text));
     }
   }]);
 
@@ -267,6 +303,11 @@ var StarRating = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(StarRating, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      console.log('star', this.props);
+    }
+  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "Star Rating"));

@@ -29,7 +29,7 @@ app.get('/products', (req, res) => {
 
 // return all product level information for a specified id
 app.get('/products/product_id', (req, res) => {
-  axios.get(`${apiPath}/products/${req.body.id}`, header)
+  axios.get(`${apiPath}/products/${req.query.id}`, header)
     .then((response) => {
       res.send(response.data);
     })
@@ -40,7 +40,7 @@ app.get('/products/product_id', (req, res) => {
 
 // return all styles available for a given product
 app.get('/products/product_id/styles', (req, res) => {
-  axios.get(`${apiPath}/products/${req.body.id}/styles`, header)
+  axios.get(`${apiPath}/products/${req.query.id}/styles`, header)
     .then((response) => {
       res.send(response.data);
     })
@@ -51,7 +51,7 @@ app.get('/products/product_id/styles', (req, res) => {
 
 // return the ID's of products related to specified product_id
 app.get('/products/product_id/related', (req, res) => {
-  axios.get(`${apiPath}/products/${req.body.id}/related`, header)
+  axios.get(`${apiPath}/products/${req.query.id}/related`, header)
     .then((response) => {
       res.send(response.data);
     })
@@ -65,7 +65,7 @@ app.get('/products/product_id/related', (req, res) => {
 
 // Returns a list of reviews for a particular product
 app.get('/reviews', (req, res) => {
-  axios.get(`${apiPath}/reviews?product_id=${req.body.id}`, header)
+  axios.get(`${apiPath}/reviews?product_id=${req.query.id}`, header)
     .then((response) => {
       res.status(200).send(response.data)
     })
@@ -76,7 +76,7 @@ app.get('/reviews', (req, res) => {
 
 // Returns review metadata for a given product
 app.get('/reviews/meta', (req, res) => {
-  axios.get(`${apiPath}/reviews/meta/?product_id=${req.body.id}`, header)
+  axios.get(`${apiPath}/reviews/meta/?product_id=${req.query.id}`, header)
     .then((response) => {
       res.status(200).send(response.data)
     })

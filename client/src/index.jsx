@@ -27,7 +27,6 @@ class App extends React.Component {
         console.log(err)
       });
     } else {
-      console.log(this);
       this.update(this.products.id);
     }
   }

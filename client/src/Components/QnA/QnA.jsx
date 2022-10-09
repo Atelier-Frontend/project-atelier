@@ -61,8 +61,6 @@ class QnA extends React.Component {
   }
 
   render() {
-    console.log('this.state.id>>>', this.props.products.id);
-    console.log('current product>>>', this.props.products)
     return (<div>
       <h4>Questions {'&'} Answers</h4>
       <AnswersSearch />

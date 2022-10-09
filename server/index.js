@@ -29,7 +29,6 @@ app.get('/products', (req, res) => {
 
 // return all product level information for a specified id
 app.get('/products/product_id', (req, res) => {
-  console.log(req.query.id);
   axios.get(`${apiPath}/products/${req.query.id}`, header)
     .then((response) => {
       res.send(response.data);
@@ -125,7 +124,6 @@ app.put('/reviews/:review_id/report', (req, res) => {
 app.get('/qa/questions', (req, res) => {
   axios.get(`${apiPath}/qa/questions?${req._parsedOriginalUrl.query}`, header)
     .then((response) => {
-      console.log('response data>>>', response)
       res.send(response.data);
     })
     .catch((err) => {

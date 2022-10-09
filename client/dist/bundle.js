@@ -432,15 +432,30 @@ var AnswersList = /*#__PURE__*/function (_React$Component) {
       this.setState(_defineProperty({}, questionObj.question_id, false));
     }
   }, {
+    key: "sortAnswers",
+    value: function sortAnswers(a, b) {
+      return a.helpfulness < b.helpfulness ? 1 : -1;
+    }
+  }, {
+    key: "sortSeller",
+    value: function sortSeller(arr) {
+      var arr1 = [];
+      var arr2 = [];
+      arr.map(function (e) {
+        e.answerer_name === 'Seller' ? arr1.push(e) : arr2.push(e);
+      });
+      return arr1.concat(arr2);
+    }
+  }, {
     key: "render",
     value: function render() {
-      var answers = this.props.question.answers;
-      console.log('>>>', answers);
+      var answers = Object.values(this.props.question.answers);
+      answers = this.sortSeller(answers.sort(this.sortAnswers));
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "answer"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         className: "letterA"
-      }, 'A: '), Object.keys(answers).length <= 2 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, Object.values(answers).map(function (answer) {
+      }, 'A: '), answers.length <= 2 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, answers.map(function (answer) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
           key: answer.id
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
@@ -466,7 +481,7 @@ var AnswersList = /*#__PURE__*/function (_React$Component) {
         }, " | "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
           className: "report"
         }, " Report ")));
-      })) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, Object.values(answers).slice(0, this.state.a).map(function (answer) {
+      })) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, answers.slice(0, this.state.a).map(function (answer) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
           key: answer.id
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
@@ -492,7 +507,7 @@ var AnswersList = /*#__PURE__*/function (_React$Component) {
         }, " | "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
           className: "report"
         }, " Report ")));
-      }))), Object.keys(answers).length > 2 ? this.state[this.props.question.question_id] === false ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+      }))), answers.length > 2 ? this.state[this.props.question.question_id] === false ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         id: this.props.question.question_id,
         onClick: this.moreAnswersHandler.bind(this),
         className: "foldAnswers"
@@ -783,8 +798,6 @@ var QnA = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      console.log('this.state.id>>>', this.props.products.id);
-      console.log('current product>>>', this.props.products);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "Questions ", '&', " Answers"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_AnswersSearch_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_QuestionsList_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {
         questions: this.state.questions,
         moreQuestionsClicked: this.state.moreQuestionsClicked
@@ -1198,7 +1211,6 @@ var Your = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       if (this.props.length > 0) {
-        console.log(this.props);
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "Your"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("section", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
           className: "test"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Cards_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -21169,7 +21181,6 @@ var App = /*#__PURE__*/function (_React$Component) {
           console.log(err);
         });
       } else {
-        console.log(this);
         this.update(this.products.id);
       }
     }

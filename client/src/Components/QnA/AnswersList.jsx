@@ -34,16 +34,28 @@ class AnswersList extends React.Component {
     })
   }
 
+  sortAnswers(a, b) {
+   return ( a.helpfulness < b.helpfulness ) ? 1 : -1;
+  }
+
+  sortSeller(arr) {
+    let arr1 = [];
+    let arr2 = [];
+    arr.map((e) => {
+      (e.answerer_name==='Seller') ? arr1.push(e) : arr2.push(e)
+    })
+    return arr1.concat(arr2)
+   }
 
   render() {
-    let answers = this.props.question.answers;
-    console.log('>>>', answers)
+    let answers = Object.values(this.props.question.answers);
+    answers = this.sortSeller(answers.sort(this.sortAnswers))
     return(<div>
       <div className="answer">
         <p className="letterA">{'A: '}</p>
-        {Object.keys(answers).length <= 2 ? (
+        {answers.length <= 2 ? (
           <span>
-            {Object.values(answers).map((answer) => (
+            {answers.map((answer) => (
               <span key={answer.id}>
                 <p className="answerBody">{answer.body}</p>
                 <span className="container2">
@@ -67,7 +79,7 @@ class AnswersList extends React.Component {
           </span>
         ) : (
           <div>
-            {Object.values(answers).slice(0,this.state.a).map((answer) => (
+            {answers.slice(0,this.state.a).map((answer) => (
               <span key={answer.id}>
                 <p className="answerBody">{answer.body}</p>
                 <span className="container2">
@@ -91,7 +103,7 @@ class AnswersList extends React.Component {
           </div>
         )}
       </div>
-      {(Object.keys(answers).length > 2) ? (
+      {(answers.length > 2) ? (
         (this.state[this.props.question.question_id] === false) ? (
           <span id={this.props.question.question_id}
                 onClick={this.moreAnswersHandler.bind(this)}

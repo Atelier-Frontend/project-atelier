@@ -22,7 +22,7 @@ class QuantitySelector extends React.Component {
   }
 
   render() {
-    return (<div>
+    return (<div className='quantity'>
       <label>
         Quantity:
         <select name='quantity'>

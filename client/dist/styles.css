@@ -64,16 +64,23 @@ section aside:hover {
   cursor: pointer;
 }
 
-.image-gallery {
+.style-gallery {
   display: flex;
-  flex-wrap: wrap;
+  flex: 20%;
+  flex-flow: row wrap;
+  padding: 5px; 
 }
 
-.image-gallery .style-image {
-  padding: 5px;
-  flex: 0 0 20%;
+.style-gallery .style-image {
+  width: 100px; 
+  height: 100px;
+  margin: 5px;
+  object-fit: cover;
+  flex-basis: 0 0 100px;
+  align-self: start;
 }
 
 .selectors {
-  display: flex
+  display: flex;
+  padding: 5px;
 }

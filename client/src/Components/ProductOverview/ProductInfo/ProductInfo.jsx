@@ -40,7 +40,7 @@ class ProductInfo extends React.Component {
         <StarRating id={this.state.id}/>}
         <h4>Category: {this.state.category}</h4>
         <h4>Name: {this.state.name}</h4>
-        <h4>Price: {this.state.price}</h4>
+        <h4>Price: ${this.state.price}</h4>
         <h4>Overview: {this.state.text}</h4>
     </div>)
   }

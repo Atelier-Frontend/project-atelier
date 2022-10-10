@@ -32,7 +32,6 @@ class Cart extends React.Component {
   }
 
   render() {
-    console.log(this.state.quantity[0])
     return (<div>
         <SizeSelector sizes={this.state.sizes} quantity={this.state.quantity[0]} />
         {this.state.quantity.length > 0 &&

@@ -30,6 +30,6 @@ class SizeSelector extends React.Component {
       </label>
     </div>)
   }
-}
+};
 
 export default SizeSelector;

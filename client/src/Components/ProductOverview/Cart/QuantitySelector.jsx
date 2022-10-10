@@ -4,9 +4,17 @@ class QuantitySelector extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      quantityLeft: []
+      quantity: []
     }
     this.handleChange.bind(this);
+  }
+
+  componentDidMount() {
+    if (this.props.quantity <= 15) {
+      this.setState({ quantity: this.props.quantity });
+    } else {
+      this.setState({ quantity: 15});
+    }
   }
 
   handleChange(event) {
@@ -18,8 +26,8 @@ class QuantitySelector extends React.Component {
       <label>
         Quantity:
         <select name='quantity'>
-          {[...Array(this.props.quantity[0])].map((e, i) => (
-            <option key={i}>{i}</option>
+          {[...Array(this.state.quantity)].map((e, i) => (
+            <option key={i}>{i + 1}</option>
           ))}          
         </select>
       </label>

@@ -17,12 +17,16 @@ class SizeSelector extends React.Component {
     return (<div>
       <label>
         Size:
-        <select name='sizes' defaultValue={'DEFAULT'} >
-          <option value='DEFAULT' disabled>Select Size</option>
-          {this.props.sizes.map((size, index) => (
-            <option key={index}>{size}</option>
-          ))}
-        </select>
+        {this.props.quantity > 0 &&
+          <select name='sizes' defaultValue={'DEFAULT'} >
+            <option value='DEFAULT' disabled>Select Size</option>
+            {this.props.sizes.map((size, index) => (
+              <option key={index}>{size}</option>
+            ))}
+          </select>}
+        {this.props.quantity === 0 && 
+          <span>OUT OF STOCK</span>
+        }  
       </label>
     </div>)
   }

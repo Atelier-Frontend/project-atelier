@@ -17,7 +17,8 @@ class SizeSelector extends React.Component {
     return (<div>
       <label>
         Size:
-        <select name='sizes'>
+        <select name='sizes' defaultValue={'DEFAULT'} >
+          <option value='DEFAULT' disabled>Select Size</option>
           {this.props.sizes.map((size, index) => (
             <option key={index}>{size}</option>
           ))}

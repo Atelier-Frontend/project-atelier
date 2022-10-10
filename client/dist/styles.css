@@ -73,3 +73,7 @@ section aside:hover {
   padding: 5px;
   flex: 0 0 20%;
 }
+
+.selectors {
+  display: flex
+}

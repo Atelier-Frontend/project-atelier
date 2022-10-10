@@ -10,10 +10,10 @@ class StyleSelector extends React.Component {
 
   render() {
     return (<div>
-      <h4>Style > {this.props.styles[0].name}</h4>
+      <div>Style > {this.props.styles[0].name}</div>
       <div className='image-gallery'>
         {this.props.styles.map((style, index) => (
-          <img className='style-image' key={index} src={style.photos[0].thumbnail_url} style={{width: '100px', height: '200px'}}/>
+          <img className='style-image' key={index} src={style.photos[0].thumbnail_url} style={{width: '50px', height: '100px', objectFit: 'cover'}}/>
         ))}
       </div>
     </div>)

@@ -37,10 +37,10 @@ class ProductInfo extends React.Component {
     return (<div>
         {this.state.id > 0 &&
         <StarRating id={this.state.id}/>}
-        <h4>Category: {this.state.category}</h4>
-        <h4>Name: {this.state.name}</h4>
-        <h4>Price: ${this.state.price}</h4>
-        <h4>Overview: {this.state.text}</h4>
+        <div>Category: {this.state.category}</div>
+        <div>Name: {this.state.name}</div>
+        <div>Price: ${this.state.price}</div>
+        <div>Overview: {this.state.text}</div>
     </div>)
   }
 };

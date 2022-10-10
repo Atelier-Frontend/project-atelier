@@ -8,10 +8,6 @@ class StarRating extends React.Component {
     }
   }
 
-  componentDidMount() {
-    console.log('star', this.props)
-  }
-
   render() {
     return (<div>
       <h4>Star Rating</h4>

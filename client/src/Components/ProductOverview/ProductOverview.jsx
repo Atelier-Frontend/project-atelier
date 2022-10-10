@@ -25,7 +25,6 @@ class ProductOverview extends React.Component {
   }
 
   render() {
-    console.log('render', this.state)
     return (<div>
       {Object.keys(this.state.product).length > 0 &&
         <ProductInfo product={this.state.product} />

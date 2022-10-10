@@ -34,7 +34,6 @@ class ProductInfo extends React.Component {
   }
 
   render() {
-    console.log('info state', this.state.id)
     return (<div>
         {this.state.id > 0 &&
         <StarRating id={this.state.id}/>}

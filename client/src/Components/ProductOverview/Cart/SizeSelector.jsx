@@ -9,15 +9,11 @@ class SizeSelector extends React.Component {
     this.handleChange.bind(this);
   }
 
-  componentDidMount() {
-    console.log(this.props)
-  }
   handleChange(event) {
     this.setState({selectValue: event.target.value});
   }
 
   render() {
-    console.log(this.props)
     return (<div>
       <label>
         Size:

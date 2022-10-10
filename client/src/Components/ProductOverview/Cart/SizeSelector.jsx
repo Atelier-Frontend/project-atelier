@@ -26,7 +26,6 @@ class SizeSelector extends React.Component {
   }
 
   render() {
-    console.log(this.state.styleSizes)
     return (<div>
       <label>
         Size:

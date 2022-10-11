@@ -65,7 +65,7 @@ app.get('/products/product_id/related', (req, res) => {
 
 // Returns a list of reviews for a particular product
 app.get('/reviews', (req, res) => {
-  axios.get(`${apiPath}/reviews?product_id=${req.body.id}`, header)
+  axios.get(`${apiPath}/reviews?product_id=${req.query.id}`, header)
     .then((response) => {
       res.status(200).send(response.data)
     })
@@ -76,7 +76,7 @@ app.get('/reviews', (req, res) => {
 
 // Returns review metadata for a given product
 app.get('/reviews/meta', (req, res) => {
-  axios.get(`${apiPath}/reviews/meta/?product_id=${req.body.id}`, header)
+  axios.get(`${apiPath}/reviews/meta/?product_id=${req.query.id}`, header)
     .then((response) => {
       res.status(200).send(response.data)
     })

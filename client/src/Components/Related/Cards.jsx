@@ -42,7 +42,7 @@ componentDidMount () {
   <small>{this.state.product.default_price}</small>
   <p>stars
   </p>
-  <div class='large-font text-center top-20'>
+  <div className='large-font text-center top-20'>
   <ion-icon name="heart">
     <div id='red-bg'></div>
   </ion-icon>

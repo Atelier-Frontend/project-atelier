@@ -4,13 +4,13 @@ class StarRating extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      
     }
   }
 
   render() {
     return (<div>
-      <h4>Star Rating</h4>
+      <div>Star Rating: FILL IN</div>
     </div>)
   }
 };

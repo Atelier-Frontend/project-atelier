@@ -1,10 +1,10 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./client/src/Components/ProductOverview/ProductOverview.jsx":
-/*!*******************************************************************!*\
-  !*** ./client/src/Components/ProductOverview/ProductOverview.jsx ***!
-  \*******************************************************************/
+/***/ "./client/src/Components/ProductOverview/Cart/AddToCart.jsx":
+/*!******************************************************************!*\
+  !*** ./client/src/Components/ProductOverview/Cart/AddToCart.jsx ***!
+  \******************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -13,7 +13,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _productInfo_ProductInfo_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./productInfo/ProductInfo.jsx */ "./client/src/Components/ProductOverview/productInfo/ProductInfo.jsx");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _QuantitySelector_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./QuantitySelector.jsx */ "./client/src/Components/ProductOverview/Cart/QuantitySelector.jsx");
+/* harmony import */ var _SizeSelector_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./SizeSelector.jsx */ "./client/src/Components/ProductOverview/Cart/SizeSelector.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -39,49 +42,344 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-var ProductOverview = /*#__PURE__*/function (_React$Component) {
-  _inherits(ProductOverview, _React$Component);
 
-  var _super = _createSuper(ProductOverview);
 
-  function ProductOverview(props) {
+var Cart = /*#__PURE__*/function (_React$Component) {
+  _inherits(Cart, _React$Component);
+
+  var _super = _createSuper(Cart);
+
+  function Cart(props) {
     var _this;
 
-    _classCallCheck(this, ProductOverview);
+    _classCallCheck(this, Cart);
 
     _this = _super.call(this, props);
     _this.state = {
-      product: {}
+      styles: [],
+      sizes: [],
+      quantity: []
     };
     return _this;
   }
 
-  _createClass(ProductOverview, [{
+  _createClass(Cart, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      var currentProduct = this.props.products[0];
+      var skus = this.props.styles[0].skus;
+      var sizeArray = [];
+      var quanittyArray = [];
+
+      for (var key in skus) {
+        if (skus[key].quantity > 0) {
+          sizeArray.push(skus[key].size);
+          quanittyArray.push(skus[key].quantity);
+        }
+      }
+
       this.setState({
-        product: currentProduct
+        sizes: sizeArray,
+        quantity: quanittyArray
       });
     }
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_productInfo_ProductInfo_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], null));
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "selectors"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_SizeSelector_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        sizes: this.state.sizes,
+        quantity: this.state.quantity[0]
+      }), this.state.quantity.length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_QuantitySelector_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        quantity: this.state.quantity[0]
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, "Add to Cart"));
     }
   }]);
 
-  return ProductOverview;
+  return Cart;
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
 ;
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProductOverview);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Cart);
 
 /***/ }),
 
-/***/ "./client/src/Components/ProductOverview/productInfo/Price.jsx":
+/***/ "./client/src/Components/ProductOverview/Cart/QuantitySelector.jsx":
+/*!*************************************************************************!*\
+  !*** ./client/src/Components/ProductOverview/Cart/QuantitySelector.jsx ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+var QuantitySelector = /*#__PURE__*/function (_React$Component) {
+  _inherits(QuantitySelector, _React$Component);
+
+  var _super = _createSuper(QuantitySelector);
+
+  function QuantitySelector(props) {
+    var _this;
+
+    _classCallCheck(this, QuantitySelector);
+
+    _this = _super.call(this, props);
+    _this.state = {
+      quantity: []
+    };
+
+    _this.handleChange.bind(_assertThisInitialized(_this));
+
+    return _this;
+  }
+
+  _createClass(QuantitySelector, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      if (this.props.quantity <= 15) {
+        this.setState({
+          quantity: this.props.quantity
+        });
+      } else {
+        this.setState({
+          quantity: 15
+        });
+      }
+    }
+  }, {
+    key: "handleChange",
+    value: function handleChange(event) {
+      this.setState({
+        selectValue: event.target.value
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "quantity"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Quantity:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
+        name: "quantity"
+      }, _toConsumableArray(Array(this.state.quantity)).map(function (e, i) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
+          key: i
+        }, i + 1);
+      }))));
+    }
+  }]);
+
+  return QuantitySelector;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (QuantitySelector);
+
+/***/ }),
+
+/***/ "./client/src/Components/ProductOverview/Cart/SizeSelector.jsx":
 /*!*********************************************************************!*\
-  !*** ./client/src/Components/ProductOverview/productInfo/Price.jsx ***!
+  !*** ./client/src/Components/ProductOverview/Cart/SizeSelector.jsx ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+var SizeSelector = /*#__PURE__*/function (_React$Component) {
+  _inherits(SizeSelector, _React$Component);
+
+  var _super = _createSuper(SizeSelector);
+
+  function SizeSelector(props) {
+    var _this;
+
+    _classCallCheck(this, SizeSelector);
+
+    _this = _super.call(this, props);
+    _this.state = {
+      styleSizes: []
+    };
+
+    _this.handleChange.bind(_assertThisInitialized(_this));
+
+    return _this;
+  }
+
+  _createClass(SizeSelector, [{
+    key: "handleChange",
+    value: function handleChange(event) {
+      this.setState({
+        selectValue: event.target.value
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "size"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Size:", this.props.quantity > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
+        name: "sizes",
+        defaultValue: 'DEFAULT'
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
+        value: "DEFAULT",
+        disabled: true
+      }, "Select Size"), this.props.sizes.map(function (size, index) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
+          key: index
+        }, size);
+      })), this.props.quantity === 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "OUT OF STOCK")));
+    }
+  }]);
+
+  return SizeSelector;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SizeSelector);
+
+/***/ }),
+
+/***/ "./client/src/Components/ProductOverview/ImageGallery.jsx":
+/*!****************************************************************!*\
+  !*** ./client/src/Components/ProductOverview/ImageGallery.jsx ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+var ImageGallery = /*#__PURE__*/function (_React$Component) {
+  _inherits(ImageGallery, _React$Component);
+
+  var _super = _createSuper(ImageGallery);
+
+  function ImageGallery(props) {
+    var _this;
+
+    _classCallCheck(this, ImageGallery);
+
+    _this = _super.call(this, props);
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(ImageGallery, [{
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        src: this.props.style.photos[0].url,
+        style: {
+          width: '25%',
+          height: '25%'
+        }
+      }));
+    }
+  }]);
+
+  return ImageGallery;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ImageGallery);
+
+/***/ }),
+
+/***/ "./client/src/Components/ProductOverview/ProductInfo/Price.jsx":
+/*!*********************************************************************!*\
+  !*** ./client/src/Components/ProductOverview/ProductInfo/Price.jsx ***!
   \*********************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -145,9 +443,9 @@ var Price = /*#__PURE__*/function (_React$Component) {
 
 /***/ }),
 
-/***/ "./client/src/Components/ProductOverview/productInfo/ProductInfo.jsx":
+/***/ "./client/src/Components/ProductOverview/ProductInfo/ProductInfo.jsx":
 /*!***************************************************************************!*\
-  !*** ./client/src/Components/ProductOverview/productInfo/ProductInfo.jsx ***!
+  !*** ./client/src/Components/ProductOverview/ProductInfo/ProductInfo.jsx ***!
   \***************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -157,8 +455,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _StarRating_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./StarRating.jsx */ "./client/src/Components/ProductOverview/productInfo/StarRating.jsx");
-/* harmony import */ var _Price_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Price.jsx */ "./client/src/Components/ProductOverview/productInfo/Price.jsx");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _StarRating_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./StarRating.jsx */ "./client/src/Components/ProductOverview/ProductInfo/StarRating.jsx");
+/* harmony import */ var _Price_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Price.jsx */ "./client/src/Components/ProductOverview/ProductInfo/Price.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -185,6 +485,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var ProductInfo = /*#__PURE__*/function (_React$Component) {
   _inherits(ProductInfo, _React$Component);
 
@@ -196,14 +497,43 @@ var ProductInfo = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, ProductInfo);
 
     _this = _super.call(this, props);
-    _this.state = {};
+    _this.state = {
+      id: '',
+      name: '',
+      category: '',
+      price: '',
+      text: ''
+    };
     return _this;
   }
 
   _createClass(ProductInfo, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get('/products/product_id', {
+        params: {
+          id: this.props.product.id
+        }
+      }).then(function (response) {
+        _this2.setState({
+          id: response.data.id,
+          name: response.data.name,
+          category: response.data.category,
+          price: response.data.default_price,
+          text: response.data.description
+        });
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_StarRating_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "Product Category"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "Product Title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Price_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "Product Overview Text"));
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.state.id > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_StarRating_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        id: this.state.id
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Category: ", this.state.category), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Name: ", this.state.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Price: $", this.state.price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Overview: ", this.state.text));
     }
   }]);
 
@@ -215,9 +545,9 @@ var ProductInfo = /*#__PURE__*/function (_React$Component) {
 
 /***/ }),
 
-/***/ "./client/src/Components/ProductOverview/productInfo/StarRating.jsx":
+/***/ "./client/src/Components/ProductOverview/ProductInfo/StarRating.jsx":
 /*!**************************************************************************!*\
-  !*** ./client/src/Components/ProductOverview/productInfo/StarRating.jsx ***!
+  !*** ./client/src/Components/ProductOverview/ProductInfo/StarRating.jsx ***!
   \**************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -269,7 +599,7 @@ var StarRating = /*#__PURE__*/function (_React$Component) {
   _createClass(StarRating, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "Star Rating"));
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Star Rating: FILL IN"));
     }
   }]);
 
@@ -278,6 +608,189 @@ var StarRating = /*#__PURE__*/function (_React$Component) {
 
 ;
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (StarRating);
+
+/***/ }),
+
+/***/ "./client/src/Components/ProductOverview/ProductOverview.jsx":
+/*!*******************************************************************!*\
+  !*** ./client/src/Components/ProductOverview/ProductOverview.jsx ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _ProductInfo_ProductInfo_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ProductInfo/ProductInfo.jsx */ "./client/src/Components/ProductOverview/ProductInfo/ProductInfo.jsx");
+/* harmony import */ var _Cart_AddToCart_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Cart/AddToCart.jsx */ "./client/src/Components/ProductOverview/Cart/AddToCart.jsx");
+/* harmony import */ var _StyleSelector_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./StyleSelector.jsx */ "./client/src/Components/ProductOverview/StyleSelector.jsx");
+/* harmony import */ var _ImageGallery_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ImageGallery.jsx */ "./client/src/Components/ProductOverview/ImageGallery.jsx");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+
+
+
+var ProductOverview = /*#__PURE__*/function (_React$Component) {
+  _inherits(ProductOverview, _React$Component);
+
+  var _super = _createSuper(ProductOverview);
+
+  function ProductOverview(props) {
+    var _this;
+
+    _classCallCheck(this, ProductOverview);
+
+    _this = _super.call(this, props);
+    _this.state = {
+      product: {},
+      styles: []
+    };
+    return _this;
+  }
+
+  _createClass(ProductOverview, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      var currentProduct = this.props.products;
+      this.setState({
+        product: this.props.products
+      });
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get('/products/product_id/styles', {
+        params: {
+          id: this.props.products.id
+        }
+      }).then(function (response) {
+        _this2.setState({
+          styles: response.data.results
+        });
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "productOverview"
+      }, this.state.styles.length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_ImageGallery_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        style: this.state.styles[0]
+      }), Object.keys(this.state.product).length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_ProductInfo_ProductInfo_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        product: this.state.product
+      }), this.state.styles.length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_StyleSelector_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        styles: this.state.styles
+      }), this.state.styles.length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Cart_AddToCart_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        styles: this.state.styles
+      }));
+    }
+  }]);
+
+  return ProductOverview;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProductOverview);
+
+/***/ }),
+
+/***/ "./client/src/Components/ProductOverview/StyleSelector.jsx":
+/*!*****************************************************************!*\
+  !*** ./client/src/Components/ProductOverview/StyleSelector.jsx ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+var StyleSelector = /*#__PURE__*/function (_React$Component) {
+  _inherits(StyleSelector, _React$Component);
+
+  var _super = _createSuper(StyleSelector);
+
+  function StyleSelector(props) {
+    var _this;
+
+    _classCallCheck(this, StyleSelector);
+
+    _this = _super.call(this, props);
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(StyleSelector, [{
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Style > ", this.props.styles[0].name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "style-gallery"
+      }, this.props.styles.map(function (style, index) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+          className: "style-image",
+          key: index,
+          src: style.photos[0].thumbnail_url
+        });
+      })));
+    }
+  }]);
+
+  return StyleSelector;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (StyleSelector);
 
 /***/ }),
 
@@ -1223,7 +1736,7 @@ var Cards = /*#__PURE__*/function (_React$Component) {
           return _this3.props.update(_this3.state.product.id);
         }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("small", null, this.state.product.category), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, this.state.product.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("small", null, this.state.product.default_price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "stars"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        "class": "large-font text-center top-20"
+        className: "large-font text-center top-20"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ion-icon", {
         name: "heart"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -21222,7 +21735,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.test {\n  display: grid;\n  grid-auto-flow: column;\n  gap: var(--size-3);\n  grid-auto-columns: auto;\n  overflow-x: auto;\n  overscroll-behavior-inline: contain;\n}\n\nsection aside {\n  border: 1px solid rebeccapurple;\n  border-radius: 10px;\n  box-shadow: 2px 2px 10px #f4f4f4;\n  margin: 1rem;\n  padding: 1.25rem;\n  width: 100px;\n}\nasside small {\n  display: inline-block;\n}\n#red-bg {\n  display: inline;\n  position: fixed;\n}\n\nion-icon{\n  float: right;\n  fill:transparent;\n  stroke:black;\n  stroke-width:30;\n  transition:all 0.5s;\n}\nion-icon.active{\n  float: right;\n  animation:like 0.5s 1;\n  fill:red;\n  stroke:none;\n}\n\n\n@-webkit-keyframes like {\n  0%   { transform: scale(1); }\n  90%   { transform: scale(1.2); }\n  100% { transform: scale(1.1); }\n}\n\nsection aside img{\n  margin-top: -1.25rem;\n  margin-left: -1.25rem;\n  width: calc(100% + 2.5rem);\n  object-fit: cover;\n  border-top-left-radius: 8px;\n  border-top-right-radius: 8px;\n}\n\nsection aside div {\n  align-self: baseline;\n}\n\nsection aside:hover {\n  box-shadow: 2px 2px 10px #e9e9e9;\n  cursor: pointer;\n}\n\n\n\n/* Q&A styles: */\n.question {\n  display:flex;\n  flex-direction:row;\n  width: 100vw;\n  height: 5vh;\n  position: relative;\n}\n\n.container1 {\n  top: 0.7vh;\n  position: absolute;\n  display:flex;\n  flex-direction:row;\n}\n\n.questionBody {\n  font-size: medium;\n  font-weight: bold;\n  width: 75vw;\n}\n\n.helpful {\n  font-size: small;\n  padding-left: 77vw;\n}\n\n.Yes {\n  font-size: small;\n  padding-left: 0.8vw;\n  text-decoration-line: underline;\n}\n\n.helpfulness {\n  font-size: small;\n  padding-left: 0.2vw;\n}\n\n.divider {\n  font-size: small;\n  padding-left: 1.2vw;\n}\n\n.addAnswer {\n  font-size: small;\n  text-decoration-line: underline;\n  padding-left: 1.2vw;\n}\n\n.letterA {\n  font-size: medium;\n  font-weight: bold;\n}\n\n.answer {\n  font-size: medium;\n  display:flex;\n  flex-direction:row;\n  width: 75vw;\n  position: relative;\n}\n\n.answerBody {\n  padding-left: 0.4vw;\n}\n\n.foldAnswers {\n  font-size: small;\n  font-weight: bold;\n  padding-left: 1.8vw;\n}\n\n.containerRow {\n  display:flex;\n  flex-direction:row;\n  position: relative;\n}\n\n.foldQuestions {\n  height: 10vh;\n}\n\n.addQuestion {\n  height: 10vh;\n  padding-left: 2vw;\n}\n\n.foldQuestionsBT, .addQuestionBT {\n  background-color: white;\n  color: black;\n  border: 2px solid #131313;\n  padding: 20px 15px;\n  transition-duration: 0.4s;\n}\n\n.foldQuestionsBT, .addQuestionBT, .foldAnswers, .Yes,\n.addAnswer, .AYes, .report:hover {\n  cursor: pointer\n}\n\n.container2 {\n  font-size: small;\n  display:flex;\n  flex-direction:row;\n}\n\n.Auser {\n  font-size: small;\n  padding-left: 0.4vw;\n}\n\n.Aseller {\n  font-size: small;\n  font-weight: bold;\n  padding-left: 0.3vw;\n}\n\n.Adate {\n  font-size: small;\n  padding-left: 0.4vw;\n}\n\n.Ahelpful {\n  font-size: small;\n  padding-left: 0.8vw;\n}\n\n.AYes {\n  font-size: small;\n  padding-left: 0.8vw;\n  text-decoration-line: underline;\n}\n\n.Ahelpfulness {\n  font-size: small;\n  padding-left: 0.2vw;\n}\n\n.Adivider {\n  font-size: small;\n  padding-left: 1.2vw;\n}\n\n.report {\n  font-size: small;\n  padding-left: 1.2vw;\n  text-decoration-line: underline;\n}\n\n/* Form Styles */\n.form-container {\n  position: fixed;\n  top: 5vh;\n  bottom: 30vh;\n  left: 20vw;\n  right: 20vw;\n  background: rgba(0, 0, 0, 0);\n  border-radius: 5px;\n  padding: 20px;\n  background-color: #e7e7e7;\n}\n\n.form-wrapper {\n  position: absolute;\n  display: flex;\n  flex-direction: column;\n  top: 20px;\n  right: 45px;\n  transition: all 200ms;\n  font-weight: bold;\n  text-decoration: none;\n  color: #333;\n}\n\n.formTitle {\n  text-align: center;\n  color:#413b3b;\n  font-weight: bold;\n  text-transform: uppercase;\n  font-size: 30px;\n  font-family: zen tokyo zoo;\n}\n\n.formSubtitle {\n  text-align: center;\n  color:#82807f;\n  position: relative;\n}\n\n.submitAnswerBTN, .cancelAnswerBTN {\n  color: #fff;\n  text-decoration: none;\n  cursor: pointer;\n  transition: all 0.3s ease-out;\n  background: #403e3d;\n  border-radius: 10px;\n}\n\n.formBTN-wrapper {\n  display:flex;\n  flex-direction:row;\n  position: relative;\n  padding-top: 3vh;\n  justify-content: space-evenly;\n}", "",{"version":3,"sources":["webpack://./client/dist/styles.css"],"names":[],"mappings":";AACA;EACE,aAAa;EACb,sBAAsB;EACtB,kBAAkB;EAClB,uBAAuB;EACvB,gBAAgB;EAChB,mCAAmC;AACrC;;AAEA;EACE,+BAA+B;EAC/B,mBAAmB;EACnB,gCAAgC;EAChC,YAAY;EACZ,gBAAgB;EAChB,YAAY;AACd;AACA;EACE,qBAAqB;AACvB;AACA;EACE,eAAe;EACf,eAAe;AACjB;;AAEA;EACE,YAAY;EACZ,gBAAgB;EAChB,YAAY;EACZ,eAAe;EACf,mBAAmB;AACrB;AACA;EACE,YAAY;EACZ,qBAAqB;EACrB,QAAQ;EACR,WAAW;AACb;;;AAGA;EACE,OAAO,mBAAmB,EAAE;EAC5B,QAAQ,qBAAqB,EAAE;EAC/B,OAAO,qBAAqB,EAAE;AAChC;;AAEA;EACE,oBAAoB;EACpB,qBAAqB;EACrB,0BAA0B;EAC1B,iBAAiB;EACjB,2BAA2B;EAC3B,4BAA4B;AAC9B;;AAEA;EACE,oBAAoB;AACtB;;AAEA;EACE,gCAAgC;EAChC,eAAe;AACjB;;;;AAIA,gBAAgB;AAChB;EACE,YAAY;EACZ,kBAAkB;EAClB,YAAY;EACZ,WAAW;EACX,kBAAkB;AACpB;;AAEA;EACE,UAAU;EACV,kBAAkB;EAClB,YAAY;EACZ,kBAAkB;AACpB;;AAEA;EACE,iBAAiB;EACjB,iBAAiB;EACjB,WAAW;AACb;;AAEA;EACE,gBAAgB;EAChB,kBAAkB;AACpB;;AAEA;EACE,gBAAgB;EAChB,mBAAmB;EACnB,+BAA+B;AACjC;;AAEA;EACE,gBAAgB;EAChB,mBAAmB;AACrB;;AAEA;EACE,gBAAgB;EAChB,mBAAmB;AACrB;;AAEA;EACE,gBAAgB;EAChB,+BAA+B;EAC/B,mBAAmB;AACrB;;AAEA;EACE,iBAAiB;EACjB,iBAAiB;AACnB;;AAEA;EACE,iBAAiB;EACjB,YAAY;EACZ,kBAAkB;EAClB,WAAW;EACX,kBAAkB;AACpB;;AAEA;EACE,mBAAmB;AACrB;;AAEA;EACE,gBAAgB;EAChB,iBAAiB;EACjB,mBAAmB;AACrB;;AAEA;EACE,YAAY;EACZ,kBAAkB;EAClB,kBAAkB;AACpB;;AAEA;EACE,YAAY;AACd;;AAEA;EACE,YAAY;EACZ,iBAAiB;AACnB;;AAEA;EACE,uBAAuB;EACvB,YAAY;EACZ,yBAAyB;EACzB,kBAAkB;EAClB,yBAAyB;AAC3B;;AAEA;;EAEE;AACF;;AAEA;EACE,gBAAgB;EAChB,YAAY;EACZ,kBAAkB;AACpB;;AAEA;EACE,gBAAgB;EAChB,mBAAmB;AACrB;;AAEA;EACE,gBAAgB;EAChB,iBAAiB;EACjB,mBAAmB;AACrB;;AAEA;EACE,gBAAgB;EAChB,mBAAmB;AACrB;;AAEA;EACE,gBAAgB;EAChB,mBAAmB;AACrB;;AAEA;EACE,gBAAgB;EAChB,mBAAmB;EACnB,+BAA+B;AACjC;;AAEA;EACE,gBAAgB;EAChB,mBAAmB;AACrB;;AAEA;EACE,gBAAgB;EAChB,mBAAmB;AACrB;;AAEA;EACE,gBAAgB;EAChB,mBAAmB;EACnB,+BAA+B;AACjC;;AAEA,gBAAgB;AAChB;EACE,eAAe;EACf,QAAQ;EACR,YAAY;EACZ,UAAU;EACV,WAAW;EACX,4BAA4B;EAC5B,kBAAkB;EAClB,aAAa;EACb,yBAAyB;AAC3B;;AAEA;EACE,kBAAkB;EAClB,aAAa;EACb,sBAAsB;EACtB,SAAS;EACT,WAAW;EACX,qBAAqB;EACrB,iBAAiB;EACjB,qBAAqB;EACrB,WAAW;AACb;;AAEA;EACE,kBAAkB;EAClB,aAAa;EACb,iBAAiB;EACjB,yBAAyB;EACzB,eAAe;EACf,0BAA0B;AAC5B;;AAEA;EACE,kBAAkB;EAClB,aAAa;EACb,kBAAkB;AACpB;;AAEA;EACE,WAAW;EACX,qBAAqB;EACrB,eAAe;EACf,6BAA6B;EAC7B,mBAAmB;EACnB,mBAAmB;AACrB;;AAEA;EACE,YAAY;EACZ,kBAAkB;EAClB,kBAAkB;EAClB,gBAAgB;EAChB,6BAA6B;AAC/B","sourcesContent":["\n.test {\n  display: grid;\n  grid-auto-flow: column;\n  gap: var(--size-3);\n  grid-auto-columns: auto;\n  overflow-x: auto;\n  overscroll-behavior-inline: contain;\n}\n\nsection aside {\n  border: 1px solid rebeccapurple;\n  border-radius: 10px;\n  box-shadow: 2px 2px 10px #f4f4f4;\n  margin: 1rem;\n  padding: 1.25rem;\n  width: 100px;\n}\nasside small {\n  display: inline-block;\n}\n#red-bg {\n  display: inline;\n  position: fixed;\n}\n\nion-icon{\n  float: right;\n  fill:transparent;\n  stroke:black;\n  stroke-width:30;\n  transition:all 0.5s;\n}\nion-icon.active{\n  float: right;\n  animation:like 0.5s 1;\n  fill:red;\n  stroke:none;\n}\n\n\n@-webkit-keyframes like {\n  0%   { transform: scale(1); }\n  90%   { transform: scale(1.2); }\n  100% { transform: scale(1.1); }\n}\n\nsection aside img{\n  margin-top: -1.25rem;\n  margin-left: -1.25rem;\n  width: calc(100% + 2.5rem);\n  object-fit: cover;\n  border-top-left-radius: 8px;\n  border-top-right-radius: 8px;\n}\n\nsection aside div {\n  align-self: baseline;\n}\n\nsection aside:hover {\n  box-shadow: 2px 2px 10px #e9e9e9;\n  cursor: pointer;\n}\n\n\n\n/* Q&A styles: */\n.question {\n  display:flex;\n  flex-direction:row;\n  width: 100vw;\n  height: 5vh;\n  position: relative;\n}\n\n.container1 {\n  top: 0.7vh;\n  position: absolute;\n  display:flex;\n  flex-direction:row;\n}\n\n.questionBody {\n  font-size: medium;\n  font-weight: bold;\n  width: 75vw;\n}\n\n.helpful {\n  font-size: small;\n  padding-left: 77vw;\n}\n\n.Yes {\n  font-size: small;\n  padding-left: 0.8vw;\n  text-decoration-line: underline;\n}\n\n.helpfulness {\n  font-size: small;\n  padding-left: 0.2vw;\n}\n\n.divider {\n  font-size: small;\n  padding-left: 1.2vw;\n}\n\n.addAnswer {\n  font-size: small;\n  text-decoration-line: underline;\n  padding-left: 1.2vw;\n}\n\n.letterA {\n  font-size: medium;\n  font-weight: bold;\n}\n\n.answer {\n  font-size: medium;\n  display:flex;\n  flex-direction:row;\n  width: 75vw;\n  position: relative;\n}\n\n.answerBody {\n  padding-left: 0.4vw;\n}\n\n.foldAnswers {\n  font-size: small;\n  font-weight: bold;\n  padding-left: 1.8vw;\n}\n\n.containerRow {\n  display:flex;\n  flex-direction:row;\n  position: relative;\n}\n\n.foldQuestions {\n  height: 10vh;\n}\n\n.addQuestion {\n  height: 10vh;\n  padding-left: 2vw;\n}\n\n.foldQuestionsBT, .addQuestionBT {\n  background-color: white;\n  color: black;\n  border: 2px solid #131313;\n  padding: 20px 15px;\n  transition-duration: 0.4s;\n}\n\n.foldQuestionsBT, .addQuestionBT, .foldAnswers, .Yes,\n.addAnswer, .AYes, .report:hover {\n  cursor: pointer\n}\n\n.container2 {\n  font-size: small;\n  display:flex;\n  flex-direction:row;\n}\n\n.Auser {\n  font-size: small;\n  padding-left: 0.4vw;\n}\n\n.Aseller {\n  font-size: small;\n  font-weight: bold;\n  padding-left: 0.3vw;\n}\n\n.Adate {\n  font-size: small;\n  padding-left: 0.4vw;\n}\n\n.Ahelpful {\n  font-size: small;\n  padding-left: 0.8vw;\n}\n\n.AYes {\n  font-size: small;\n  padding-left: 0.8vw;\n  text-decoration-line: underline;\n}\n\n.Ahelpfulness {\n  font-size: small;\n  padding-left: 0.2vw;\n}\n\n.Adivider {\n  font-size: small;\n  padding-left: 1.2vw;\n}\n\n.report {\n  font-size: small;\n  padding-left: 1.2vw;\n  text-decoration-line: underline;\n}\n\n/* Form Styles */\n.form-container {\n  position: fixed;\n  top: 5vh;\n  bottom: 30vh;\n  left: 20vw;\n  right: 20vw;\n  background: rgba(0, 0, 0, 0);\n  border-radius: 5px;\n  padding: 20px;\n  background-color: #e7e7e7;\n}\n\n.form-wrapper {\n  position: absolute;\n  display: flex;\n  flex-direction: column;\n  top: 20px;\n  right: 45px;\n  transition: all 200ms;\n  font-weight: bold;\n  text-decoration: none;\n  color: #333;\n}\n\n.formTitle {\n  text-align: center;\n  color:#413b3b;\n  font-weight: bold;\n  text-transform: uppercase;\n  font-size: 30px;\n  font-family: zen tokyo zoo;\n}\n\n.formSubtitle {\n  text-align: center;\n  color:#82807f;\n  position: relative;\n}\n\n.submitAnswerBTN, .cancelAnswerBTN {\n  color: #fff;\n  text-decoration: none;\n  cursor: pointer;\n  transition: all 0.3s ease-out;\n  background: #403e3d;\n  border-radius: 10px;\n}\n\n.formBTN-wrapper {\n  display:flex;\n  flex-direction:row;\n  position: relative;\n  padding-top: 3vh;\n  justify-content: space-evenly;\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.test {\n  display: grid;\n  grid-auto-flow: column;\n  gap: var(--size-3);\n  grid-auto-columns: auto;\n  overflow-x: auto;\n  overscroll-behavior-inline: contain;\n}\n\nsection aside {\n  border: 1px solid rebeccapurple;\n  border-radius: 10px;\n  box-shadow: 2px 2px 10px #f4f4f4;\n  margin: 1rem;\n  padding: 1.25rem;\n  width: 100px;\n}\nasside small {\n  display: inline-block;\n}\n#red-bg {\n  display: inline;\n  position: fixed;\n}\n\nion-icon{\n  float: right;\n  fill:transparent;\n  stroke:black;\n  stroke-width:30;\n  transition:all 0.5s;\n}\nion-icon.active{\n  float: right;\n  animation:like 0.5s 1;\n  fill:red;\n  stroke:none;\n}\n\n\n@-webkit-keyframes like {\n  0%   { transform: scale(1); }\n  90%   { transform: scale(1.2); }\n  100% { transform: scale(1.1); }\n}\n\nsection aside img{\n  margin-top: -1.25rem;\n  margin-left: -1.25rem;\n  width: calc(100% + 2.5rem);\n  object-fit: cover;\n  border-top-left-radius: 8px;\n  border-top-right-radius: 8px;\n}\n\nsection aside div {\n  align-self: baseline;\n}\n\nsection aside:hover {\n  box-shadow: 2px 2px 10px #e9e9e9;\n  cursor: pointer;\n}\n\n.style-gallery {\n  display: flex;\n  flex: 20%;\n  flex-flow: row wrap;\n  padding: 5px;\n}\n\n.style-gallery .style-image {\n  width: 100px;\n  height: 100px;\n  margin: 5px;\n  object-fit: cover;\n  flex-basis: 0 0 100px;\n  align-self: start;\n}\n\n.selectors {\n  display: flex;\n  padding: 5px;\n}\n\n\n/* Q&A styles: */\n.question {\n  display:flex;\n  flex-direction:row;\n  width: 100vw;\n  height: 5vh;\n  position: relative;\n}\n\n.container1 {\n  top: 0.7vh;\n  position: absolute;\n  display:flex;\n  flex-direction:row;\n}\n\n.questionBody {\n  font-size: medium;\n  font-weight: bold;\n  width: 75vw;\n}\n\n.helpful {\n  font-size: small;\n  padding-left: 77vw;\n}\n\n.Yes {\n  font-size: small;\n  padding-left: 0.8vw;\n  text-decoration-line: underline;\n}\n\n.helpfulness {\n  font-size: small;\n  padding-left: 0.2vw;\n}\n\n.divider {\n  font-size: small;\n  padding-left: 1.2vw;\n}\n\n.addAnswer {\n  font-size: small;\n  text-decoration-line: underline;\n  padding-left: 1.2vw;\n}\n\n.letterA {\n  font-size: medium;\n  font-weight: bold;\n}\n\n.answer {\n  font-size: medium;\n  display:flex;\n  flex-direction:row;\n  width: 75vw;\n  position: relative;\n}\n\n.answerBody {\n  padding-left: 0.4vw;\n}\n\n.foldAnswers {\n  font-size: small;\n  font-weight: bold;\n  padding-left: 1.8vw;\n}\n\n.containerRow {\n  display:flex;\n  flex-direction:row;\n  position: relative;\n}\n\n.foldQuestions {\n  height: 10vh;\n}\n\n.addQuestion {\n  height: 10vh;\n  padding-left: 2vw;\n}\n\n.foldQuestionsBT, .addQuestionBT {\n  background-color: white;\n  color: black;\n  border: 2px solid #131313;\n  padding: 20px 15px;\n  transition-duration: 0.4s;\n}\n\n.foldQuestionsBT, .addQuestionBT, .foldAnswers, .Yes,\n.addAnswer, .AYes, .report:hover {\n  cursor: pointer\n}\n\n.container2 {\n  font-size: small;\n  display:flex;\n  flex-direction:row;\n}\n\n.Auser {\n  font-size: small;\n  padding-left: 0.4vw;\n}\n\n.Aseller {\n  font-size: small;\n  font-weight: bold;\n  padding-left: 0.3vw;\n}\n\n.Adate {\n  font-size: small;\n  padding-left: 0.4vw;\n}\n\n.Ahelpful {\n  font-size: small;\n  padding-left: 0.8vw;\n}\n\n.AYes {\n  font-size: small;\n  padding-left: 0.8vw;\n  text-decoration-line: underline;\n}\n\n.Ahelpfulness {\n  font-size: small;\n  padding-left: 0.2vw;\n}\n\n.Adivider {\n  font-size: small;\n  padding-left: 1.2vw;\n}\n\n.report {\n  font-size: small;\n  padding-left: 1.2vw;\n  text-decoration-line: underline;\n}\n\n/* Form Styles */\n.form-container {\n  position: fixed;\n  top: 5vh;\n  bottom: 30vh;\n  left: 20vw;\n  right: 20vw;\n  background: rgba(0, 0, 0, 0);\n  border-radius: 5px;\n  padding: 20px;\n  background-color: #e7e7e7;\n}\n\n.form-wrapper {\n  position: absolute;\n  display: flex;\n  flex-direction: column;\n  top: 20px;\n  right: 45px;\n  transition: all 200ms;\n  font-weight: bold;\n  text-decoration: none;\n  color: #333;\n}\n\n.formTitle {\n  text-align: center;\n  color:#413b3b;\n  font-weight: bold;\n  text-transform: uppercase;\n  font-size: 30px;\n  font-family: zen tokyo zoo;\n}\n\n.formSubtitle {\n  text-align: center;\n  color:#82807f;\n  position: relative;\n}\n\n.submitAnswerBTN, .cancelAnswerBTN {\n  color: #fff;\n  text-decoration: none;\n  cursor: pointer;\n  transition: all 0.3s ease-out;\n  background: #403e3d;\n  border-radius: 10px;\n}\n\n.formBTN-wrapper {\n  display:flex;\n  flex-direction:row;\n  position: relative;\n  padding-top: 3vh;\n  justify-content: space-evenly;\n}", "",{"version":3,"sources":["webpack://./client/dist/styles.css"],"names":[],"mappings":"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","sourcesContent":["\n.test {\n  display: grid;\n  grid-auto-flow: column;\n  gap: var(--size-3);\n  grid-auto-columns: auto;\n  overflow-x: auto;\n  overscroll-behavior-inline: contain;\n}\n\nsection aside {\n  border: 1px solid rebeccapurple;\n  border-radius: 10px;\n  box-shadow: 2px 2px 10px #f4f4f4;\n  margin: 1rem;\n  padding: 1.25rem;\n  width: 100px;\n}\nasside small {\n  display: inline-block;\n}\n#red-bg {\n  display: inline;\n  position: fixed;\n}\n\nion-icon{\n  float: right;\n  fill:transparent;\n  stroke:black;\n  stroke-width:30;\n  transition:all 0.5s;\n}\nion-icon.active{\n  float: right;\n  animation:like 0.5s 1;\n  fill:red;\n  stroke:none;\n}\n\n\n@-webkit-keyframes like {\n  0%   { transform: scale(1); }\n  90%   { transform: scale(1.2); }\n  100% { transform: scale(1.1); }\n}\n\nsection aside img{\n  margin-top: -1.25rem;\n  margin-left: -1.25rem;\n  width: calc(100% + 2.5rem);\n  object-fit: cover;\n  border-top-left-radius: 8px;\n  border-top-right-radius: 8px;\n}\n\nsection aside div {\n  align-self: baseline;\n}\n\nsection aside:hover {\n  box-shadow: 2px 2px 10px #e9e9e9;\n  cursor: pointer;\n}\n\n.style-gallery {\n  display: flex;\n  flex: 20%;\n  flex-flow: row wrap;\n  padding: 5px;\n}\n\n.style-gallery .style-image {\n  width: 100px;\n  height: 100px;\n  margin: 5px;\n  object-fit: cover;\n  flex-basis: 0 0 100px;\n  align-self: start;\n}\n\n.selectors {\n  display: flex;\n  padding: 5px;\n}\n\n\n/* Q&A styles: */\n.question {\n  display:flex;\n  flex-direction:row;\n  width: 100vw;\n  height: 5vh;\n  position: relative;\n}\n\n.container1 {\n  top: 0.7vh;\n  position: absolute;\n  display:flex;\n  flex-direction:row;\n}\n\n.questionBody {\n  font-size: medium;\n  font-weight: bold;\n  width: 75vw;\n}\n\n.helpful {\n  font-size: small;\n  padding-left: 77vw;\n}\n\n.Yes {\n  font-size: small;\n  padding-left: 0.8vw;\n  text-decoration-line: underline;\n}\n\n.helpfulness {\n  font-size: small;\n  padding-left: 0.2vw;\n}\n\n.divider {\n  font-size: small;\n  padding-left: 1.2vw;\n}\n\n.addAnswer {\n  font-size: small;\n  text-decoration-line: underline;\n  padding-left: 1.2vw;\n}\n\n.letterA {\n  font-size: medium;\n  font-weight: bold;\n}\n\n.answer {\n  font-size: medium;\n  display:flex;\n  flex-direction:row;\n  width: 75vw;\n  position: relative;\n}\n\n.answerBody {\n  padding-left: 0.4vw;\n}\n\n.foldAnswers {\n  font-size: small;\n  font-weight: bold;\n  padding-left: 1.8vw;\n}\n\n.containerRow {\n  display:flex;\n  flex-direction:row;\n  position: relative;\n}\n\n.foldQuestions {\n  height: 10vh;\n}\n\n.addQuestion {\n  height: 10vh;\n  padding-left: 2vw;\n}\n\n.foldQuestionsBT, .addQuestionBT {\n  background-color: white;\n  color: black;\n  border: 2px solid #131313;\n  padding: 20px 15px;\n  transition-duration: 0.4s;\n}\n\n.foldQuestionsBT, .addQuestionBT, .foldAnswers, .Yes,\n.addAnswer, .AYes, .report:hover {\n  cursor: pointer\n}\n\n.container2 {\n  font-size: small;\n  display:flex;\n  flex-direction:row;\n}\n\n.Auser {\n  font-size: small;\n  padding-left: 0.4vw;\n}\n\n.Aseller {\n  font-size: small;\n  font-weight: bold;\n  padding-left: 0.3vw;\n}\n\n.Adate {\n  font-size: small;\n  padding-left: 0.4vw;\n}\n\n.Ahelpful {\n  font-size: small;\n  padding-left: 0.8vw;\n}\n\n.AYes {\n  font-size: small;\n  padding-left: 0.8vw;\n  text-decoration-line: underline;\n}\n\n.Ahelpfulness {\n  font-size: small;\n  padding-left: 0.2vw;\n}\n\n.Adivider {\n  font-size: small;\n  padding-left: 1.2vw;\n}\n\n.report {\n  font-size: small;\n  padding-left: 1.2vw;\n  text-decoration-line: underline;\n}\n\n/* Form Styles */\n.form-container {\n  position: fixed;\n  top: 5vh;\n  bottom: 30vh;\n  left: 20vw;\n  right: 20vw;\n  background: rgba(0, 0, 0, 0);\n  border-radius: 5px;\n  padding: 20px;\n  background-color: #e7e7e7;\n}\n\n.form-wrapper {\n  position: absolute;\n  display: flex;\n  flex-direction: column;\n  top: 20px;\n  right: 45px;\n  transition: all 200ms;\n  font-weight: bold;\n  text-decoration: none;\n  color: #333;\n}\n\n.formTitle {\n  text-align: center;\n  color:#413b3b;\n  font-weight: bold;\n  text-transform: uppercase;\n  font-size: 30px;\n  font-family: zen tokyo zoo;\n}\n\n.formSubtitle {\n  text-align: center;\n  color:#82807f;\n  position: relative;\n}\n\n.submitAnswerBTN, .cancelAnswerBTN {\n  color: #fff;\n  text-decoration: none;\n  cursor: pointer;\n  transition: all 0.3s ease-out;\n  background: #403e3d;\n  border-radius: 10px;\n}\n\n.formBTN-wrapper {\n  display:flex;\n  flex-direction:row;\n  position: relative;\n  padding-top: 3vh;\n  justify-content: space-evenly;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

@@ -213,3 +213,60 @@ section aside:hover {
   padding-left: 1.2vw;
   text-decoration-line: underline;
 }
+
+/* Form Styles */
+.form-container {
+  position: fixed;
+  top: 5vh;
+  bottom: 30vh;
+  left: 20vw;
+  right: 20vw;
+  background: rgba(0, 0, 0, 0);
+  border-radius: 5px;
+  padding: 20px;
+  background-color: #e7e7e7;
+}
+
+.form-wrapper {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 20px;
+  right: 45px;
+  transition: all 200ms;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+
+.formTitle {
+  text-align: center;
+  color:#413b3b;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 30px;
+  font-family: zen tokyo zoo;
+}
+
+.formSubtitle {
+  text-align: center;
+  color:#82807f;
+  position: relative;
+}
+
+.submitAnswerBTN, .cancelAnswerBTN {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+  background: #403e3d;
+  border-radius: 10px;
+}
+
+.formBTN-wrapper {
+  display:flex;
+  flex-direction:row;
+  position: relative;
+  padding-top: 3vh;
+  justify-content: space-evenly;
+}

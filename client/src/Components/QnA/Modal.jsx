@@ -1,0 +1,67 @@
+import React from 'react';
+import axios from 'axios';
+
+
+class Modal extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      YourAnswer: '',
+      name: '',
+      email: '',
+      photos: ''
+    }
+  }
+
+  onChange(e) {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
+
+  submitForm(e) {
+     axios.post('/qa/questions/:question_id/answers',
+     {question_id: this.props.currentQ.split('@@@$$$@@@')[0],
+      body: {body: this.state.YourAnswer,
+             name: this.state.name,
+             email: this.state.email,
+             photos: this.state.photos}})
+      .then((response) => {
+        console.log('..>>>>>', response)
+      })
+      .catch((err) => {
+        console.log('failed')
+      })
+  }
+
+  render() {
+    return (<div className="form-container">
+      <form react mailto='' className="answer-form" >
+        <div className="form-wrapper">
+          <p className="formTitle">Submit your Answer</p>
+          <p className="formSubtitle">{`${this.props.product.name}: ${this.props.currentQ.split('@@@$$$@@@')[1]}`}</p>
+          <label for="YourAnswer">Your Answer</label>
+          <textarea type="text" placeholder={"Type your answer here..."}
+                    name={"YourAnswer"} maxLength={"1000"} rows={"7"}
+                    style={{ marginBottom: '1rem' }}
+                    onChange={this.onChange.bind(this)} required />
+          <label for={"name"}>What is your nickname?</label>
+          <input type={"text"} placeholder="Example: jack543!" name={"name"}
+                 maxLength={"60"} style={{ marginBottom: '1rem' }}
+                 onChange={this.onChange.bind(this)} required />
+          <label for={"email"}>Your email</label>
+          <input type={"text"} placeholder="Example: jack@email.com" name={"email"}
+                 maxLength={"60"} style={{ marginBottom: '1rem' }}
+                 onChange={this.onChange.bind(this)} required />
+          <div className="formBTN-wrapper">
+            <button type="button" onClick={this.submitForm.bind(this)} className={"submitAnswerBTN"}>Submit</button>
+            <button onClick={this.props.closeModal.bind(this)} className={"cancelAnswerBTN"}>Close</button>
+          </div>
+        </div>
+      </form>
+    </div>
+   )
+  }
+}
+
+export default Modal;

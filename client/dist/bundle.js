@@ -596,6 +596,161 @@ var AnswersSearch = /*#__PURE__*/function (_React$Component) {
 
 /***/ }),
 
+/***/ "./client/src/Components/QnA/Modal.jsx":
+/*!*********************************************!*\
+  !*** ./client/src/Components/QnA/Modal.jsx ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+var Modal = /*#__PURE__*/function (_React$Component) {
+  _inherits(Modal, _React$Component);
+
+  var _super = _createSuper(Modal);
+
+  function Modal(props) {
+    var _this;
+
+    _classCallCheck(this, Modal);
+
+    _this = _super.call(this, props);
+    _this.state = {
+      YourAnswer: '',
+      name: '',
+      email: '',
+      photos: ''
+    };
+    return _this;
+  }
+
+  _createClass(Modal, [{
+    key: "onChange",
+    value: function onChange(e) {
+      this.setState(_defineProperty({}, e.target.name, e.target.value));
+    }
+  }, {
+    key: "submitForm",
+    value: function submitForm(e) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default().post('/qa/questions/:question_id/answers', {
+        question_id: this.props.currentQ.split('@@@$$$@@@')[0],
+        body: {
+          body: this.state.YourAnswer,
+          name: this.state.name,
+          email: this.state.email,
+          photos: this.state.photos
+        }
+      }).then(function (response) {
+        console.log('..>>>>>', response);
+      })["catch"](function (err) {
+        console.log('failed');
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "form-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
+        react: true,
+        mailto: "",
+        className: "answer-form"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "form-wrapper"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+        className: "formTitle"
+      }, "Submit your Answer"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+        className: "formSubtitle"
+      }, "".concat(this.props.product.name, ": ").concat(this.props.currentQ.split('@@@$$$@@@')[1])), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
+        "for": "YourAnswer"
+      }, "Your Answer"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("textarea", {
+        type: "text",
+        placeholder: "Type your answer here...",
+        name: "YourAnswer",
+        maxLength: "1000",
+        rows: "7",
+        style: {
+          marginBottom: '1rem'
+        },
+        onChange: this.onChange.bind(this),
+        required: true
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
+        "for": "name"
+      }, "What is your nickname?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+        type: "text",
+        placeholder: "Example: jack543!",
+        name: "name",
+        maxLength: "60",
+        style: {
+          marginBottom: '1rem'
+        },
+        onChange: this.onChange.bind(this),
+        required: true
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
+        "for": "email"
+      }, "Your email"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+        type: "text",
+        placeholder: "Example: jack@email.com",
+        name: "email",
+        maxLength: "60",
+        style: {
+          marginBottom: '1rem'
+        },
+        onChange: this.onChange.bind(this),
+        required: true
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "formBTN-wrapper"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        type: "button",
+        onClick: this.submitForm.bind(this),
+        className: "submitAnswerBTN"
+      }, "Submit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        onClick: this.props.closeModal.bind(this),
+        className: "cancelAnswerBTN"
+      }, "Close")))));
+    }
+  }]);
+
+  return Modal;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Modal);
+
+/***/ }),
+
 /***/ "./client/src/Components/QnA/MoreQuestions.jsx":
 /*!*****************************************************!*\
   !*** ./client/src/Components/QnA/MoreQuestions.jsx ***!
@@ -800,6 +955,7 @@ var QnA = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "Questions ", '&', " Answers"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_AnswersSearch_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_QuestionsList_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {
         questions: this.state.questions,
+        product: this.props.products,
         moreQuestionsClicked: this.state.moreQuestionsClicked
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "containerRow"
@@ -834,6 +990,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _dist_styles_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../dist/styles.css */ "./client/dist/styles.css");
 /* harmony import */ var _AnswersList_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AnswersList.jsx */ "./client/src/Components/QnA/AnswersList.jsx");
+/* harmony import */ var _Modal_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Modal.jsx */ "./client/src/Components/QnA/Modal.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -861,6 +1018,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var QuestionsList = /*#__PURE__*/function (_React$Component) {
   _inherits(QuestionsList, _React$Component);
 
@@ -873,7 +1031,8 @@ var QuestionsList = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      questions: []
+      showModal: false,
+      currentQ: ''
     };
     return _this;
   }
@@ -882,10 +1041,41 @@ var QuestionsList = /*#__PURE__*/function (_React$Component) {
     key: "sortQuestions",
     value: function sortQuestions(a, b) {
       return a.question_helpfulness < b.question_helpfulness ? 1 : -1;
+    } //******************** Need to be fixed, not working ********************//
+
+  }, {
+    key: "questionHelpfulness",
+    value: function questionHelpfulness(e) {
+      console.log('targete', e.target.id);
+      axios__WEBPACK_IMPORTED_MODULE_1___default().put('/qa/questions/:question_id/helpful', {
+        question_id: e.target.id
+      }).then(function (response) {
+        console.log('..>>>>>', response);
+      })["catch"](function (err) {
+        console.log('failed');
+      });
+    }
+  }, {
+    key: "showModal",
+    value: function showModal(e) {
+      console.log('>>>', e.target);
+      this.setState({
+        showModal: true,
+        currentQ: e.target.id
+      });
+    }
+  }, {
+    key: "closeModal",
+    value: function closeModal() {
+      this.setState({
+        showModal: false
+      });
     }
   }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       var questions = this.props.questions;
       questions.sort(this.sortQuestions);
       var q = this.props.moreQuestionsClicked === false ? 2 : this.props.questions.length;
@@ -905,14 +1095,22 @@ var QuestionsList = /*#__PURE__*/function (_React$Component) {
             }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
               className: "helpful"
             }, " Helpful? "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-              className: "Yes"
-            }, " Yes "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+              className: "Yes",
+              id: question.question_id,
+              onClick: _this2.questionHelpfulness.bind(_this2)
+            }, "Yes"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
               className: "helpfulness"
             }, "(".concat(question.question_helpfulness, ")")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
               className: "divider"
             }, " | "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-              className: "addAnswer"
-            }, " Add Answer "))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_AnswersList_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
+              className: "addAnswer",
+              id: "".concat(question.question_id, "@@@$$$@@@").concat(question.question_body),
+              onClick: _this2.showModal.bind(_this2)
+            }, "Add Answer"), _this2.state.showModal ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Modal_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {
+              product: _this2.props.product,
+              currentQ: _this2.state.currentQ,
+              closeModal: _this2.closeModal.bind(_this2)
+            }) : null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_AnswersList_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
               question: question
             }));
           });
@@ -21024,7 +21222,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.test {\n  display: grid;\n  grid-auto-flow: column;\n  gap: var(--size-3);\n  grid-auto-columns: auto;\n  overflow-x: auto;\n  overscroll-behavior-inline: contain;\n}\n\nsection aside {\n  border: 1px solid rebeccapurple;\n  border-radius: 10px;\n  box-shadow: 2px 2px 10px #f4f4f4;\n  margin: 1rem;\n  padding: 1.25rem;\n  width: 100px;\n}\nasside small {\n  display: inline-block;\n}\n#red-bg {\n  display: inline;\n  position: fixed;\n}\n\nion-icon{\n  float: right;\n  fill:transparent;\n  stroke:black;\n  stroke-width:30;\n  transition:all 0.5s;\n}\nion-icon.active{\n  float: right;\n  animation:like 0.5s 1;\n  fill:red;\n  stroke:none;\n}\n\n\n@-webkit-keyframes like {\n  0%   { transform: scale(1); }\n  90%   { transform: scale(1.2); }\n  100% { transform: scale(1.1); }\n}\n\nsection aside img{\n  margin-top: -1.25rem;\n  margin-left: -1.25rem;\n  width: calc(100% + 2.5rem);\n  object-fit: cover;\n  border-top-left-radius: 8px;\n  border-top-right-radius: 8px;\n}\n\nsection aside div {\n  align-self: baseline;\n}\n\nsection aside:hover {\n  box-shadow: 2px 2px 10px #e9e9e9;\n  cursor: pointer;\n}\n\n\n\n/* Q&A styles: */\n.question {\n  display:flex;\n  flex-direction:row;\n  width: 100vw;\n  height: 5vh;\n  position: relative;\n}\n\n.container1 {\n  top: 0.7vh;\n  position: absolute;\n  display:flex;\n  flex-direction:row;\n}\n\n.questionBody {\n  font-size: medium;\n  font-weight: bold;\n  width: 75vw;\n}\n\n.helpful {\n  font-size: small;\n  padding-left: 77vw;\n}\n\n.Yes {\n  font-size: small;\n  padding-left: 0.8vw;\n  text-decoration-line: underline;\n}\n\n.helpfulness {\n  font-size: small;\n  padding-left: 0.2vw;\n}\n\n.divider {\n  font-size: small;\n  padding-left: 1.2vw;\n}\n\n.addAnswer {\n  font-size: small;\n  text-decoration-line: underline;\n  padding-left: 1.2vw;\n}\n\n.letterA {\n  font-size: medium;\n  font-weight: bold;\n}\n\n.answer {\n  font-size: medium;\n  display:flex;\n  flex-direction:row;\n  width: 75vw;\n  position: relative;\n}\n\n.answerBody {\n  padding-left: 0.4vw;\n}\n\n.foldAnswers {\n  font-size: small;\n  font-weight: bold;\n  padding-left: 1.8vw;\n}\n\n.containerRow {\n  display:flex;\n  flex-direction:row;\n  position: relative;\n}\n\n.foldQuestions {\n  height: 10vh;\n}\n\n.addQuestion {\n  height: 10vh;\n  padding-left: 2vw;\n}\n\n.foldQuestionsBT, .addQuestionBT {\n  background-color: white;\n  color: black;\n  border: 2px solid #131313;\n  padding: 20px 15px;\n  transition-duration: 0.4s;\n}\n\n.foldQuestionsBT, .addQuestionBT, .foldAnswers, .Yes,\n.addAnswer, .AYes, .report:hover {\n  cursor: pointer\n}\n\n.container2 {\n  font-size: small;\n  display:flex;\n  flex-direction:row;\n}\n\n.Auser {\n  font-size: small;\n  padding-left: 0.4vw;\n}\n\n.Aseller {\n  font-size: small;\n  font-weight: bold;\n  padding-left: 0.3vw;\n}\n\n.Adate {\n  font-size: small;\n  padding-left: 0.4vw;\n}\n\n.Ahelpful {\n  font-size: small;\n  padding-left: 0.8vw;\n}\n\n.AYes {\n  font-size: small;\n  padding-left: 0.8vw;\n  text-decoration-line: underline;\n}\n\n.Ahelpfulness {\n  font-size: small;\n  padding-left: 0.2vw;\n}\n\n.Adivider {\n  font-size: small;\n  padding-left: 1.2vw;\n}\n\n.report {\n  font-size: small;\n  padding-left: 1.2vw;\n  text-decoration-line: underline;\n}\n", "",{"version":3,"sources":["webpack://./client/dist/styles.css"],"names":[],"mappings":";AACA;EACE,aAAa;EACb,sBAAsB;EACtB,kBAAkB;EAClB,uBAAuB;EACvB,gBAAgB;EAChB,mCAAmC;AACrC;;AAEA;EACE,+BAA+B;EAC/B,mBAAmB;EACnB,gCAAgC;EAChC,YAAY;EACZ,gBAAgB;EAChB,YAAY;AACd;AACA;EACE,qBAAqB;AACvB;AACA;EACE,eAAe;EACf,eAAe;AACjB;;AAEA;EACE,YAAY;EACZ,gBAAgB;EAChB,YAAY;EACZ,eAAe;EACf,mBAAmB;AACrB;AACA;EACE,YAAY;EACZ,qBAAqB;EACrB,QAAQ;EACR,WAAW;AACb;;;AAGA;EACE,OAAO,mBAAmB,EAAE;EAC5B,QAAQ,qBAAqB,EAAE;EAC/B,OAAO,qBAAqB,EAAE;AAChC;;AAEA;EACE,oBAAoB;EACpB,qBAAqB;EACrB,0BAA0B;EAC1B,iBAAiB;EACjB,2BAA2B;EAC3B,4BAA4B;AAC9B;;AAEA;EACE,oBAAoB;AACtB;;AAEA;EACE,gCAAgC;EAChC,eAAe;AACjB;;;;AAIA,gBAAgB;AAChB;EACE,YAAY;EACZ,kBAAkB;EAClB,YAAY;EACZ,WAAW;EACX,kBAAkB;AACpB;;AAEA;EACE,UAAU;EACV,kBAAkB;EAClB,YAAY;EACZ,kBAAkB;AACpB;;AAEA;EACE,iBAAiB;EACjB,iBAAiB;EACjB,WAAW;AACb;;AAEA;EACE,gBAAgB;EAChB,kBAAkB;AACpB;;AAEA;EACE,gBAAgB;EAChB,mBAAmB;EACnB,+BAA+B;AACjC;;AAEA;EACE,gBAAgB;EAChB,mBAAmB;AACrB;;AAEA;EACE,gBAAgB;EAChB,mBAAmB;AACrB;;AAEA;EACE,gBAAgB;EAChB,+BAA+B;EAC/B,mBAAmB;AACrB;;AAEA;EACE,iBAAiB;EACjB,iBAAiB;AACnB;;AAEA;EACE,iBAAiB;EACjB,YAAY;EACZ,kBAAkB;EAClB,WAAW;EACX,kBAAkB;AACpB;;AAEA;EACE,mBAAmB;AACrB;;AAEA;EACE,gBAAgB;EAChB,iBAAiB;EACjB,mBAAmB;AACrB;;AAEA;EACE,YAAY;EACZ,kBAAkB;EAClB,kBAAkB;AACpB;;AAEA;EACE,YAAY;AACd;;AAEA;EACE,YAAY;EACZ,iBAAiB;AACnB;;AAEA;EACE,uBAAuB;EACvB,YAAY;EACZ,yBAAyB;EACzB,kBAAkB;EAClB,yBAAyB;AAC3B;;AAEA;;EAEE;AACF;;AAEA;EACE,gBAAgB;EAChB,YAAY;EACZ,kBAAkB;AACpB;;AAEA;EACE,gBAAgB;EAChB,mBAAmB;AACrB;;AAEA;EACE,gBAAgB;EAChB,iBAAiB;EACjB,mBAAmB;AACrB;;AAEA;EACE,gBAAgB;EAChB,mBAAmB;AACrB;;AAEA;EACE,gBAAgB;EAChB,mBAAmB;AACrB;;AAEA;EACE,gBAAgB;EAChB,mBAAmB;EACnB,+BAA+B;AACjC;;AAEA;EACE,gBAAgB;EAChB,mBAAmB;AACrB;;AAEA;EACE,gBAAgB;EAChB,mBAAmB;AACrB;;AAEA;EACE,gBAAgB;EAChB,mBAAmB;EACnB,+BAA+B;AACjC","sourcesContent":["\n.test {\n  display: grid;\n  grid-auto-flow: column;\n  gap: var(--size-3);\n  grid-auto-columns: auto;\n  overflow-x: auto;\n  overscroll-behavior-inline: contain;\n}\n\nsection aside {\n  border: 1px solid rebeccapurple;\n  border-radius: 10px;\n  box-shadow: 2px 2px 10px #f4f4f4;\n  margin: 1rem;\n  padding: 1.25rem;\n  width: 100px;\n}\nasside small {\n  display: inline-block;\n}\n#red-bg {\n  display: inline;\n  position: fixed;\n}\n\nion-icon{\n  float: right;\n  fill:transparent;\n  stroke:black;\n  stroke-width:30;\n  transition:all 0.5s;\n}\nion-icon.active{\n  float: right;\n  animation:like 0.5s 1;\n  fill:red;\n  stroke:none;\n}\n\n\n@-webkit-keyframes like {\n  0%   { transform: scale(1); }\n  90%   { transform: scale(1.2); }\n  100% { transform: scale(1.1); }\n}\n\nsection aside img{\n  margin-top: -1.25rem;\n  margin-left: -1.25rem;\n  width: calc(100% + 2.5rem);\n  object-fit: cover;\n  border-top-left-radius: 8px;\n  border-top-right-radius: 8px;\n}\n\nsection aside div {\n  align-self: baseline;\n}\n\nsection aside:hover {\n  box-shadow: 2px 2px 10px #e9e9e9;\n  cursor: pointer;\n}\n\n\n\n/* Q&A styles: */\n.question {\n  display:flex;\n  flex-direction:row;\n  width: 100vw;\n  height: 5vh;\n  position: relative;\n}\n\n.container1 {\n  top: 0.7vh;\n  position: absolute;\n  display:flex;\n  flex-direction:row;\n}\n\n.questionBody {\n  font-size: medium;\n  font-weight: bold;\n  width: 75vw;\n}\n\n.helpful {\n  font-size: small;\n  padding-left: 77vw;\n}\n\n.Yes {\n  font-size: small;\n  padding-left: 0.8vw;\n  text-decoration-line: underline;\n}\n\n.helpfulness {\n  font-size: small;\n  padding-left: 0.2vw;\n}\n\n.divider {\n  font-size: small;\n  padding-left: 1.2vw;\n}\n\n.addAnswer {\n  font-size: small;\n  text-decoration-line: underline;\n  padding-left: 1.2vw;\n}\n\n.letterA {\n  font-size: medium;\n  font-weight: bold;\n}\n\n.answer {\n  font-size: medium;\n  display:flex;\n  flex-direction:row;\n  width: 75vw;\n  position: relative;\n}\n\n.answerBody {\n  padding-left: 0.4vw;\n}\n\n.foldAnswers {\n  font-size: small;\n  font-weight: bold;\n  padding-left: 1.8vw;\n}\n\n.containerRow {\n  display:flex;\n  flex-direction:row;\n  position: relative;\n}\n\n.foldQuestions {\n  height: 10vh;\n}\n\n.addQuestion {\n  height: 10vh;\n  padding-left: 2vw;\n}\n\n.foldQuestionsBT, .addQuestionBT {\n  background-color: white;\n  color: black;\n  border: 2px solid #131313;\n  padding: 20px 15px;\n  transition-duration: 0.4s;\n}\n\n.foldQuestionsBT, .addQuestionBT, .foldAnswers, .Yes,\n.addAnswer, .AYes, .report:hover {\n  cursor: pointer\n}\n\n.container2 {\n  font-size: small;\n  display:flex;\n  flex-direction:row;\n}\n\n.Auser {\n  font-size: small;\n  padding-left: 0.4vw;\n}\n\n.Aseller {\n  font-size: small;\n  font-weight: bold;\n  padding-left: 0.3vw;\n}\n\n.Adate {\n  font-size: small;\n  padding-left: 0.4vw;\n}\n\n.Ahelpful {\n  font-size: small;\n  padding-left: 0.8vw;\n}\n\n.AYes {\n  font-size: small;\n  padding-left: 0.8vw;\n  text-decoration-line: underline;\n}\n\n.Ahelpfulness {\n  font-size: small;\n  padding-left: 0.2vw;\n}\n\n.Adivider {\n  font-size: small;\n  padding-left: 1.2vw;\n}\n\n.report {\n  font-size: small;\n  padding-left: 1.2vw;\n  text-decoration-line: underline;\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.test {\n  display: grid;\n  grid-auto-flow: column;\n  gap: var(--size-3);\n  grid-auto-columns: auto;\n  overflow-x: auto;\n  overscroll-behavior-inline: contain;\n}\n\nsection aside {\n  border: 1px solid rebeccapurple;\n  border-radius: 10px;\n  box-shadow: 2px 2px 10px #f4f4f4;\n  margin: 1rem;\n  padding: 1.25rem;\n  width: 100px;\n}\nasside small {\n  display: inline-block;\n}\n#red-bg {\n  display: inline;\n  position: fixed;\n}\n\nion-icon{\n  float: right;\n  fill:transparent;\n  stroke:black;\n  stroke-width:30;\n  transition:all 0.5s;\n}\nion-icon.active{\n  float: right;\n  animation:like 0.5s 1;\n  fill:red;\n  stroke:none;\n}\n\n\n@-webkit-keyframes like {\n  0%   { transform: scale(1); }\n  90%   { transform: scale(1.2); }\n  100% { transform: scale(1.1); }\n}\n\nsection aside img{\n  margin-top: -1.25rem;\n  margin-left: -1.25rem;\n  width: calc(100% + 2.5rem);\n  object-fit: cover;\n  border-top-left-radius: 8px;\n  border-top-right-radius: 8px;\n}\n\nsection aside div {\n  align-self: baseline;\n}\n\nsection aside:hover {\n  box-shadow: 2px 2px 10px #e9e9e9;\n  cursor: pointer;\n}\n\n\n\n/* Q&A styles: */\n.question {\n  display:flex;\n  flex-direction:row;\n  width: 100vw;\n  height: 5vh;\n  position: relative;\n}\n\n.container1 {\n  top: 0.7vh;\n  position: absolute;\n  display:flex;\n  flex-direction:row;\n}\n\n.questionBody {\n  font-size: medium;\n  font-weight: bold;\n  width: 75vw;\n}\n\n.helpful {\n  font-size: small;\n  padding-left: 77vw;\n}\n\n.Yes {\n  font-size: small;\n  padding-left: 0.8vw;\n  text-decoration-line: underline;\n}\n\n.helpfulness {\n  font-size: small;\n  padding-left: 0.2vw;\n}\n\n.divider {\n  font-size: small;\n  padding-left: 1.2vw;\n}\n\n.addAnswer {\n  font-size: small;\n  text-decoration-line: underline;\n  padding-left: 1.2vw;\n}\n\n.letterA {\n  font-size: medium;\n  font-weight: bold;\n}\n\n.answer {\n  font-size: medium;\n  display:flex;\n  flex-direction:row;\n  width: 75vw;\n  position: relative;\n}\n\n.answerBody {\n  padding-left: 0.4vw;\n}\n\n.foldAnswers {\n  font-size: small;\n  font-weight: bold;\n  padding-left: 1.8vw;\n}\n\n.containerRow {\n  display:flex;\n  flex-direction:row;\n  position: relative;\n}\n\n.foldQuestions {\n  height: 10vh;\n}\n\n.addQuestion {\n  height: 10vh;\n  padding-left: 2vw;\n}\n\n.foldQuestionsBT, .addQuestionBT {\n  background-color: white;\n  color: black;\n  border: 2px solid #131313;\n  padding: 20px 15px;\n  transition-duration: 0.4s;\n}\n\n.foldQuestionsBT, .addQuestionBT, .foldAnswers, .Yes,\n.addAnswer, .AYes, .report:hover {\n  cursor: pointer\n}\n\n.container2 {\n  font-size: small;\n  display:flex;\n  flex-direction:row;\n}\n\n.Auser {\n  font-size: small;\n  padding-left: 0.4vw;\n}\n\n.Aseller {\n  font-size: small;\n  font-weight: bold;\n  padding-left: 0.3vw;\n}\n\n.Adate {\n  font-size: small;\n  padding-left: 0.4vw;\n}\n\n.Ahelpful {\n  font-size: small;\n  padding-left: 0.8vw;\n}\n\n.AYes {\n  font-size: small;\n  padding-left: 0.8vw;\n  text-decoration-line: underline;\n}\n\n.Ahelpfulness {\n  font-size: small;\n  padding-left: 0.2vw;\n}\n\n.Adivider {\n  font-size: small;\n  padding-left: 1.2vw;\n}\n\n.report {\n  font-size: small;\n  padding-left: 1.2vw;\n  text-decoration-line: underline;\n}\n\n/* Form Styles */\n.form-container {\n  position: fixed;\n  top: 5vh;\n  bottom: 30vh;\n  left: 20vw;\n  right: 20vw;\n  background: rgba(0, 0, 0, 0);\n  border-radius: 5px;\n  padding: 20px;\n  background-color: #e7e7e7;\n}\n\n.form-wrapper {\n  position: absolute;\n  display: flex;\n  flex-direction: column;\n  top: 20px;\n  right: 45px;\n  transition: all 200ms;\n  font-weight: bold;\n  text-decoration: none;\n  color: #333;\n}\n\n.formTitle {\n  text-align: center;\n  color:#413b3b;\n  font-weight: bold;\n  text-transform: uppercase;\n  font-size: 30px;\n  font-family: zen tokyo zoo;\n}\n\n.formSubtitle {\n  text-align: center;\n  color:#82807f;\n  position: relative;\n}\n\n.submitAnswerBTN, .cancelAnswerBTN {\n  color: #fff;\n  text-decoration: none;\n  cursor: pointer;\n  transition: all 0.3s ease-out;\n  background: #403e3d;\n  border-radius: 10px;\n}\n\n.formBTN-wrapper {\n  display:flex;\n  flex-direction:row;\n  position: relative;\n  padding-top: 3vh;\n  justify-content: space-evenly;\n}", "",{"version":3,"sources":["webpack://./client/dist/styles.css"],"names":[],"mappings":"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","sourcesContent":["\n.test {\n  display: grid;\n  grid-auto-flow: column;\n  gap: var(--size-3);\n  grid-auto-columns: auto;\n  overflow-x: auto;\n  overscroll-behavior-inline: contain;\n}\n\nsection aside {\n  border: 1px solid rebeccapurple;\n  border-radius: 10px;\n  box-shadow: 2px 2px 10px #f4f4f4;\n  margin: 1rem;\n  padding: 1.25rem;\n  width: 100px;\n}\nasside small {\n  display: inline-block;\n}\n#red-bg {\n  display: inline;\n  position: fixed;\n}\n\nion-icon{\n  float: right;\n  fill:transparent;\n  stroke:black;\n  stroke-width:30;\n  transition:all 0.5s;\n}\nion-icon.active{\n  float: right;\n  animation:like 0.5s 1;\n  fill:red;\n  stroke:none;\n}\n\n\n@-webkit-keyframes like {\n  0%   { transform: scale(1); }\n  90%   { transform: scale(1.2); }\n  100% { transform: scale(1.1); }\n}\n\nsection aside img{\n  margin-top: -1.25rem;\n  margin-left: -1.25rem;\n  width: calc(100% + 2.5rem);\n  object-fit: cover;\n  border-top-left-radius: 8px;\n  border-top-right-radius: 8px;\n}\n\nsection aside div {\n  align-self: baseline;\n}\n\nsection aside:hover {\n  box-shadow: 2px 2px 10px #e9e9e9;\n  cursor: pointer;\n}\n\n\n\n/* Q&A styles: */\n.question {\n  display:flex;\n  flex-direction:row;\n  width: 100vw;\n  height: 5vh;\n  position: relative;\n}\n\n.container1 {\n  top: 0.7vh;\n  position: absolute;\n  display:flex;\n  flex-direction:row;\n}\n\n.questionBody {\n  font-size: medium;\n  font-weight: bold;\n  width: 75vw;\n}\n\n.helpful {\n  font-size: small;\n  padding-left: 77vw;\n}\n\n.Yes {\n  font-size: small;\n  padding-left: 0.8vw;\n  text-decoration-line: underline;\n}\n\n.helpfulness {\n  font-size: small;\n  padding-left: 0.2vw;\n}\n\n.divider {\n  font-size: small;\n  padding-left: 1.2vw;\n}\n\n.addAnswer {\n  font-size: small;\n  text-decoration-line: underline;\n  padding-left: 1.2vw;\n}\n\n.letterA {\n  font-size: medium;\n  font-weight: bold;\n}\n\n.answer {\n  font-size: medium;\n  display:flex;\n  flex-direction:row;\n  width: 75vw;\n  position: relative;\n}\n\n.answerBody {\n  padding-left: 0.4vw;\n}\n\n.foldAnswers {\n  font-size: small;\n  font-weight: bold;\n  padding-left: 1.8vw;\n}\n\n.containerRow {\n  display:flex;\n  flex-direction:row;\n  position: relative;\n}\n\n.foldQuestions {\n  height: 10vh;\n}\n\n.addQuestion {\n  height: 10vh;\n  padding-left: 2vw;\n}\n\n.foldQuestionsBT, .addQuestionBT {\n  background-color: white;\n  color: black;\n  border: 2px solid #131313;\n  padding: 20px 15px;\n  transition-duration: 0.4s;\n}\n\n.foldQuestionsBT, .addQuestionBT, .foldAnswers, .Yes,\n.addAnswer, .AYes, .report:hover {\n  cursor: pointer\n}\n\n.container2 {\n  font-size: small;\n  display:flex;\n  flex-direction:row;\n}\n\n.Auser {\n  font-size: small;\n  padding-left: 0.4vw;\n}\n\n.Aseller {\n  font-size: small;\n  font-weight: bold;\n  padding-left: 0.3vw;\n}\n\n.Adate {\n  font-size: small;\n  padding-left: 0.4vw;\n}\n\n.Ahelpful {\n  font-size: small;\n  padding-left: 0.8vw;\n}\n\n.AYes {\n  font-size: small;\n  padding-left: 0.8vw;\n  text-decoration-line: underline;\n}\n\n.Ahelpfulness {\n  font-size: small;\n  padding-left: 0.2vw;\n}\n\n.Adivider {\n  font-size: small;\n  padding-left: 1.2vw;\n}\n\n.report {\n  font-size: small;\n  padding-left: 1.2vw;\n  text-decoration-line: underline;\n}\n\n/* Form Styles */\n.form-container {\n  position: fixed;\n  top: 5vh;\n  bottom: 30vh;\n  left: 20vw;\n  right: 20vw;\n  background: rgba(0, 0, 0, 0);\n  border-radius: 5px;\n  padding: 20px;\n  background-color: #e7e7e7;\n}\n\n.form-wrapper {\n  position: absolute;\n  display: flex;\n  flex-direction: column;\n  top: 20px;\n  right: 45px;\n  transition: all 200ms;\n  font-weight: bold;\n  text-decoration: none;\n  color: #333;\n}\n\n.formTitle {\n  text-align: center;\n  color:#413b3b;\n  font-weight: bold;\n  text-transform: uppercase;\n  font-size: 30px;\n  font-family: zen tokyo zoo;\n}\n\n.formSubtitle {\n  text-align: center;\n  color:#82807f;\n  position: relative;\n}\n\n.submitAnswerBTN, .cancelAnswerBTN {\n  color: #fff;\n  text-decoration: none;\n  cursor: pointer;\n  transition: all 0.3s ease-out;\n  background: #403e3d;\n  border-radius: 10px;\n}\n\n.formBTN-wrapper {\n  display:flex;\n  flex-direction:row;\n  position: relative;\n  padding-top: 3vh;\n  justify-content: space-evenly;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

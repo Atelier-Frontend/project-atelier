@@ -64,7 +64,9 @@ class QnA extends React.Component {
     return (<div>
       <h4>Questions {'&'} Answers</h4>
       <AnswersSearch />
-      <QuestionsList questions={this.state.questions}
+      <QuestionsList
+        questions={this.state.questions}
+        product={this.props.products}
         moreQuestionsClicked={this.state.moreQuestionsClicked} />
       <div className="containerRow">
         {(this.state.questions.length > 2) &&

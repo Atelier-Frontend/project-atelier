@@ -2,17 +2,45 @@ import React from 'react';
 import axios from 'axios';
 import '../../../dist/styles.css';
 import AnswersList from './AnswersList.jsx';
+import Modal from './Modal.jsx';
 
 class QuestionsList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      questions: []
+      showModal: false,
+      currentQ: '',
     }
   }
 
   sortQuestions(a, b) {
     return ( a.question_helpfulness < b.question_helpfulness ) ? 1 : -1;
+  }
+
+  //******************** Need to be fixed, not working ********************//
+  questionHelpfulness(e) {
+    console.log('targete', e.target.id)
+    axios.put('/qa/questions/:question_id/helpful', {question_id: e.target.id})
+      .then((response) => {
+        console.log('..>>>>>', response)
+      })
+      .catch((err) => {
+        console.log('failed')
+      })
+  }
+
+  showModal(e) {
+    console.log('>>>', e.target)
+    this.setState({
+      showModal: true,
+      currentQ: e.target.id
+    })
+  }
+
+  closeModal() {
+    this.setState({
+      showModal: false
+    })
   }
 
   render() {
@@ -29,13 +57,25 @@ class QuestionsList extends React.Component {
               <p className="questionBody">{`Q: ${question.question_body}`}</p>
               <span className="container1">
                 <p className="helpful"> Helpful? </p>
-                <p className="Yes"> Yes </p>
-                <p className="helpfulness"
-                    >
+                <p className="Yes"
+                   id={question.question_id}
+                   onClick={this.questionHelpfulness.bind(this)}>
+                    Yes
+                </p>
+                <p className="helpfulness">
                     {`(${question.question_helpfulness})`}
                 </p>
                 <p className="divider"> | </p>
-                <p className="addAnswer"> Add Answer </p>
+                <p className="addAnswer"
+                   id={`${question.question_id}@@@$$$@@@${question.question_body}`}
+                   onClick={this.showModal.bind(this)}>
+                    Add Answer
+                </p>
+                {(this.state.showModal) ?
+                <Modal product={this.props.product}
+                       currentQ={this.state.currentQ}
+                       closeModal={this.closeModal.bind(this)}
+                /> : null}
               </span>
             </span>
             <AnswersList question={question}/>

@@ -84,3 +84,12 @@ section aside:hover {
   display: flex;
   padding: 5px;
 }
+
+.star-rating {
+  display: flex;
+}
+
+.star-rating .stars {
+  display: flex;
+  margin: 5px;
+}

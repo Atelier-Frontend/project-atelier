@@ -40,7 +40,7 @@ class ProductInfo extends React.Component {
         <div>Category: {this.state.category}</div>
         <div>Name: {this.state.name}</div>
         <div>Price: ${this.state.price}</div>
-        <div>Overview: {this.state.text}</div>
+        <div>Overview Text: {this.state.text}</div>
     </div>)
   }
 };

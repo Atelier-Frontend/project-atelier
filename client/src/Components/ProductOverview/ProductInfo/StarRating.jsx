@@ -10,7 +10,7 @@ class StarRating extends React.Component {
 
   render() {
     return (<div>
-      <h4>Star Rating</h4>
+      <div>Star Rating: FILL IN</div>
     </div>)
   }
 };

@@ -32,11 +32,11 @@ class Cart extends React.Component {
   }
 
   render() {
-    return (<div>
+    return (<div className='selectors'>
         <SizeSelector sizes={this.state.sizes} quantity={this.state.quantity[0]} />
         {this.state.quantity.length > 0 &&
           <QuantitySelector quantity={this.state.quantity[0]} />}
-      <button>Add to Cart</button>
+        <button>Add to Cart</button>
     </div>)
   }
 };

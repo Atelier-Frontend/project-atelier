@@ -14,7 +14,7 @@ class SizeSelector extends React.Component {
   }
 
   render() {
-    return (<div>
+    return (<div className='size'>
       <label>
         Size:
         {this.props.quantity > 0 &&

@@ -3,6 +3,7 @@ import axios from 'axios';
 import ProductInfo from './ProductInfo/ProductInfo.jsx';
 import Cart from './Cart/AddToCart.jsx';
 import StyleSelector from './StyleSelector.jsx';
+import ImageGallery from './ImageGallery.jsx';
 
 class ProductOverview extends React.Component {
   constructor(props) {
@@ -26,7 +27,10 @@ class ProductOverview extends React.Component {
   }
 
   render() {
-    return (<div>
+    return (<div className='productOverview'>
+      {this.state.styles.length > 0 &&
+        <ImageGallery style={this.state.styles[0]} />
+      }
       {Object.keys(this.state.product).length > 0 &&
         <ProductInfo product={this.state.product} />
       }

@@ -290,3 +290,21 @@ section aside:hover {
   padding-top: 3vh;
   justify-content: space-evenly;
 }
+
+.answer-search-field {
+  display:flex;
+  flex-direction:row;
+}
+
+.search-button {
+  background: transparent;
+  border: none;
+  outline: none;
+  margin-left: -33px;
+}
+
+.search-button img {
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+}

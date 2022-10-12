@@ -1086,10 +1086,10 @@ var IndividualAnswer = /*#__PURE__*/function (_React$Component) {
 
 /***/ }),
 
-/***/ "./client/src/Components/QnA/Modal.jsx":
-/*!*********************************************!*\
-  !*** ./client/src/Components/QnA/Modal.jsx ***!
-  \*********************************************/
+/***/ "./client/src/Components/QnA/ModalQ.jsx":
+/*!**********************************************!*\
+  !*** ./client/src/Components/QnA/ModalQ.jsx ***!
+  \**********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1127,47 +1127,63 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-var Modal = /*#__PURE__*/function (_React$Component) {
-  _inherits(Modal, _React$Component);
+var ModalQ = /*#__PURE__*/function (_React$Component) {
+  _inherits(ModalQ, _React$Component);
 
-  var _super = _createSuper(Modal);
+  var _super = _createSuper(ModalQ);
 
-  function Modal(props) {
+  function ModalQ(props) {
     var _this;
 
-    _classCallCheck(this, Modal);
+    _classCallCheck(this, ModalQ);
 
     _this = _super.call(this, props);
     _this.state = {
+      isValidEmail: true,
       YourAnswer: '',
       name: '',
       email: '',
-      photos: ''
+      photos: []
     };
     return _this;
   }
 
-  _createClass(Modal, [{
+  _createClass(ModalQ, [{
     key: "onChange",
     value: function onChange(e) {
       this.setState(_defineProperty({}, e.target.name, e.target.value));
     }
   }, {
+    key: "isValidEmail",
+    value: function isValidEmail(email) {
+      return /\S+@\S+\.\S+/.test(email);
+    }
+  }, {
     key: "submitForm",
-    value: function submitForm(e) {
-      axios__WEBPACK_IMPORTED_MODULE_1___default().post('/qa/questions/:question_id/answers', {
-        question_id: this.props.currentQ.split('@@@$$$@@@')[0],
-        body: {
-          body: this.state.YourAnswer,
-          name: this.state.name,
-          email: this.state.email,
-          photos: this.state.photos
-        }
-      }).then(function (response) {
-        console.log('..>>>>>', response);
-      })["catch"](function (err) {
-        console.log('failed');
-      });
+    value: function submitForm() {
+      var _this2 = this;
+
+      if (!this.isValidEmail(this.state.email)) {
+        this.setState({
+          isValidEmail: false
+        });
+      } else {
+        axios__WEBPACK_IMPORTED_MODULE_1___default().post('/qa/questions/:question_id/answers', {
+          question_id: this.props.currentQ.split('@@@$$$@@@')[0],
+          body: {
+            body: this.state.YourAnswer,
+            name: this.state.name,
+            email: this.state.email,
+            photos: this.state.photos
+          }
+        }).then(function () {
+          _this2.props.closeModal();
+
+          alert('Answer added! Refresh the page to see it!');
+        })["catch"](function (err) {
+          console.log('failed');
+        });
+      }
     }
   }, {
     key: "render",
@@ -1184,9 +1200,7 @@ var Modal = /*#__PURE__*/function (_React$Component) {
         className: "formTitle"
       }, "Submit your Answer"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         className: "formSubtitle"
-      }, "".concat(this.props.product.name, ": ").concat(this.props.currentQ.split('@@@$$$@@@')[1])), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
-        "for": "YourAnswer"
-      }, "Your Answer"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("textarea", {
+      }, "".concat(this.props.product.name, ": ").concat(this.props.currentQ.split('@@@$$$@@@')[1])), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Your Answer"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("textarea", {
         type: "text",
         placeholder: "Type your answer here...",
         name: "YourAnswer",
@@ -1197,9 +1211,7 @@ var Modal = /*#__PURE__*/function (_React$Component) {
         },
         onChange: this.onChange.bind(this),
         required: true
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
-        "for": "name"
-      }, "What is your nickname?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "What is your nickname?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         type: "text",
         placeholder: "Example: jack543!",
         name: "name",
@@ -1209,19 +1221,16 @@ var Modal = /*#__PURE__*/function (_React$Component) {
         },
         onChange: this.onChange.bind(this),
         required: true
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
-        "for": "email"
-      }, "Your email"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Your email"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         type: "text",
         placeholder: "Example: jack@email.com",
         name: "email",
         maxLength: "60",
-        style: {
-          marginBottom: '1rem'
-        },
         onChange: this.onChange.bind(this),
         required: true
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }), !this.state.isValidEmail ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+        className: "emailValidation"
+      }, "Email is invalid!") : "", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "formBTN-wrapper"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         type: "button",
@@ -1234,10 +1243,10 @@ var Modal = /*#__PURE__*/function (_React$Component) {
     }
   }]);
 
-  return Modal;
+  return ModalQ;
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Modal);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ModalQ);
 
 /***/ }),
 
@@ -1478,7 +1487,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _AnswersList_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AnswersList.jsx */ "./client/src/Components/QnA/AnswersList.jsx");
-/* harmony import */ var _Modal_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Modal.jsx */ "./client/src/Components/QnA/Modal.jsx");
+/* harmony import */ var _ModalQ_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ModalQ.jsx */ "./client/src/Components/QnA/ModalQ.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
@@ -1565,7 +1574,6 @@ var QuestionsList = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "showModal",
     value: function showModal(e) {
-      console.log('>>>', e.target);
       this.setState({
         showModal: true,
         currentQ: e.target.id
@@ -1613,7 +1621,7 @@ var QuestionsList = /*#__PURE__*/function (_React$Component) {
               className: "addAnswer",
               id: "".concat(question.question_id, "@@@$$$@@@").concat(question.question_body),
               onClick: _this3.showModal.bind(_this3)
-            }, "Add Answer"), _this3.state.showModal ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Modal_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
+            }, "Add Answer"), _this3.state.showModal ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_ModalQ_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
               product: _this3.props.product,
               currentQ: _this3.state.currentQ,
               closeModal: _this3.closeModal.bind(_this3)

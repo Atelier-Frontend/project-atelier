@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import AnswersList from './AnswersList.jsx';
-import Modal from './Modal.jsx';
+import ModalQ from './ModalQ.jsx';
 
 class QuestionsList extends React.Component {
   constructor(props) {
@@ -33,7 +33,6 @@ class QuestionsList extends React.Component {
   }
 
   showModal(e) {
-    console.log('>>>', e.target)
     this.setState({
       showModal: true,
       currentQ: e.target.id
@@ -75,9 +74,9 @@ class QuestionsList extends React.Component {
                     Add Answer
                 </p>
                 {(this.state.showModal) ?
-                <Modal product={this.props.product}
-                       currentQ={this.state.currentQ}
-                       closeModal={this.closeModal.bind(this)}
+                <ModalQ product={this.props.product}
+                        currentQ={this.state.currentQ}
+                        closeModal={this.closeModal.bind(this)}
                 /> : null}
               </span>
             </span>

@@ -308,3 +308,9 @@ section aside:hover {
   height: 20px;
   object-fit: cover;
 }
+
+.emailValidation {
+  font-size: small;
+  color: rgb(157, 5, 5);
+  padding-top: -15px;
+}

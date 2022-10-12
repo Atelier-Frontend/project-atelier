@@ -149,13 +149,14 @@ app.post('/qa/questions', (req, res) => {
 
 //Adds an answer for the given question.
 app.post(`/qa/questions/:question_id/answers`, (req, res) => {
-  axios.post(`${apiPath}/qa/questions/${req.body.question_id}/answers`, header, {params: req.body.body})
-  .then((response) => {
-    res.status(204).send('NO CONTENT')
-  })
-  .catch((err) => {
-    res.send(err)
-  })
+  axios.defaults.headers.common['Authorization'] = process.env.TOKEN;
+  axios.post(`${apiPath}/qa/questions/${req.body.question_id}/answers`, req.body.body)
+    .then((response) => {
+      res.status(204).send('Answer added')
+    })
+    .catch((err) => {
+      res.send(err)
+    })
 });
 
 //Updates a question to show it was found helpful.

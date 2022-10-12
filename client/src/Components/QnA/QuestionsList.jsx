@@ -17,8 +17,7 @@ class QuestionsList extends React.Component {
     return ( a.question_helpfulness < b.question_helpfulness ) ? 1 : -1;
   }
 
-  //******************** Need to be fixed, not working ********************//
-  questionHelpfulness(e) {
+    questionHelpfulness(e) {
     if (this.state.QVoted.includes(e.target.id)) {
       (alert("You have voted for this question!"))
     } else {

@@ -1541,8 +1541,7 @@ var QuestionsList = /*#__PURE__*/function (_React$Component) {
     key: "sortQuestions",
     value: function sortQuestions(a, b) {
       return a.question_helpfulness < b.question_helpfulness ? 1 : -1;
-    } //******************** Need to be fixed, not working ********************//
-
+    }
   }, {
     key: "questionHelpfulness",
     value: function questionHelpfulness(e) {

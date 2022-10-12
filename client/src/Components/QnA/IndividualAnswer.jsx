@@ -5,6 +5,11 @@ class IndividualAnswer extends React.Component {
     super(props)
   }
 
+  timeFormatting(date) {
+    return (new Date(date).toDateString().slice(4,10) +
+    ", " + new Date(date).toDateString().slice(11))
+  }
+
   render() {
     let answers = this.props.answers;
     return(<span>
@@ -16,7 +21,7 @@ class IndividualAnswer extends React.Component {
             {(answer.answerer_name==='Seller') ?
               <p className="Aseller">{'- Seller,'}</p> : <p>,</p>}
             <p className="Adate">
-              {`${new Date(answer.date).toDateString().slice(4).replace(' 2022', ', 2022')}`}
+              {`${this.timeFormatting(answer.date)}`}
             </p>
             <p className="Adivider"> | </p>
             <p className="Ahelpful"> Helpful? </p>

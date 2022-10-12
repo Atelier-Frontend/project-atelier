@@ -1039,8 +1039,15 @@ var IndividualAnswer = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(IndividualAnswer, [{
+    key: "timeFormatting",
+    value: function timeFormatting(date) {
+      return new Date(date).toDateString().slice(4, 10) + ", " + new Date(date).toDateString().slice(11);
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this = this;
+
       var answers = this.props.answers;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, answers.slice(0, this.props.a).map(function (answer) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
@@ -1055,7 +1062,7 @@ var IndividualAnswer = /*#__PURE__*/function (_React$Component) {
           className: "Aseller"
         }, '- Seller,') : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, ","), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
           className: "Adate"
-        }, "".concat(new Date(answer.date).toDateString().slice(4).replace(' 2022', ', 2022'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+        }, "".concat(_this.timeFormatting(answer.date))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
           className: "Adivider"
         }, " | "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
           className: "Ahelpful"

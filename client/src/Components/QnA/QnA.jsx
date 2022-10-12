@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import '../../../dist/styles.css';
-import AnswersSearch from './AnswersSearch.jsx';
+import SearchBar from './SearchBar.jsx';
 import QuestionsList from './QuestionsList.jsx';
 import MoreQuestions from './MoreQuestions.jsx';
 import AddQuestion from './AddQuestion.jsx';
@@ -63,7 +62,7 @@ class QnA extends React.Component {
   render() {
     return (<div>
       <h4>Questions {'&'} Answers</h4>
-      <AnswersSearch />
+      <SearchBar />
       <QuestionsList
         questions={this.state.questions}
         product={this.props.products}

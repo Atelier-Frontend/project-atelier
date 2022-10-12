@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import icon from "./Pics/magnifying-glass.png";
 
-class AnswersSearch extends React.Component {
+class SearchBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,4 +20,4 @@ class AnswersSearch extends React.Component {
   }
 };
 
-export default AnswersSearch;
+export default SearchBar;

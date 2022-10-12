@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import '../../../dist/styles.css';
+import IndividualAnswer from './IndividualAnswer.jsx';
 
 class AnswersList extends React.Component {
   constructor(props) {
@@ -53,55 +53,7 @@ class AnswersList extends React.Component {
     return(<div>
       <div className="answer">
         <p className="letterA">{'A: '}</p>
-        {answers.length <= 2 ? (
-          <span>
-            {answers.map((answer) => (
-              <span key={answer.id}>
-                <p className="answerBody">{answer.body}</p>
-                <span className="container2">
-                  <p className="Auser">{`by ${answer.answerer_name}`}</p>
-                  {(answer.answerer_name==='Seller') ?
-                    <p className="Aseller">{'- Seller,'}</p> : <p>,</p>}
-                  <p className="Adate">
-                    {`${new Date(answer.date).toDateString().slice(4).replace(' 2022', ', 2022')}`}
-                  </p>
-                  <p className="Adivider"> | </p>
-                  <p className="Ahelpful"> Helpful? </p>
-                  <p className="AYes"> Yes </p>
-                  <p className="Ahelpfulness">
-                    {`(${answer.helpfulness})`}
-                  </p>
-                  <p className="Adivider"> | </p>
-                  <p className="report"> Report </p>
-                </span>
-              </span>
-            ))}
-          </span>
-        ) : (
-          <div>
-            {answers.slice(0,this.state.a).map((answer) => (
-              <span key={answer.id}>
-                <p className="answerBody">{answer.body}</p>
-                <span className="container2">
-                  <p className="Auser">{`by ${answer.answerer_name}`}</p>
-                  {(answer.answerer_name==='Seller') ?
-                    <p className="Aseller">{'- Seller,'}</p> : <p>,</p>}
-                   <p className="Adate">
-                    {`${new Date(answer.date).toDateString().slice(4).replace(' 2022', ', 2022')}`}
-                  </p>
-                  <p className="Adivider"> | </p>
-                  <p className="Ahelpful"> Helpful? </p>
-                  <p className="AYes"> Yes </p>
-                  <p className="Ahelpfulness">
-                    {`(${answer.helpfulness})`}
-                  </p>
-                  <p className="Adivider"> | </p>
-                  <p className="report"> Report </p>
-                </span>
-              </span>
-            ))}
-          </div>
-        )}
+        <IndividualAnswer answers={answers} a={this.state.a}/>
       </div>
       {(answers.length > 2) ? (
         (this.state[this.props.question.question_id] === false) ? (

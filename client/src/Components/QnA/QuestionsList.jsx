@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import '../../../dist/styles.css';
 import AnswersList from './AnswersList.jsx';
 import Modal from './Modal.jsx';
 

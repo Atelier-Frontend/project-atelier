@@ -881,7 +881,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _dist_styles_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../dist/styles.css */ "./client/dist/styles.css");
+/* harmony import */ var _IndividualAnswer_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./IndividualAnswer.jsx */ "./client/src/Components/QnA/IndividualAnswer.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -968,59 +968,10 @@ var AnswersList = /*#__PURE__*/function (_React$Component) {
         className: "answer"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
         className: "letterA"
-      }, 'A: '), answers.length <= 2 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, answers.map(function (answer) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
-          key: answer.id
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-          className: "answerBody"
-        }, answer.body), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
-          className: "container2"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-          className: "Auser"
-        }, "by ".concat(answer.answerer_name)), answer.answerer_name === 'Seller' ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-          className: "Aseller"
-        }, '- Seller,') : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, ","), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-          className: "Adate"
-        }, "".concat(new Date(answer.date).toDateString().slice(4).replace(' 2022', ', 2022'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-          className: "Adivider"
-        }, " | "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-          className: "Ahelpful"
-        }, " Helpful? "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-          className: "AYes"
-        }, " Yes "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-          className: "Ahelpfulness"
-        }, "(".concat(answer.helpfulness, ")")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-          className: "Adivider"
-        }, " | "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-          className: "report"
-        }, " Report ")));
-      })) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, answers.slice(0, this.state.a).map(function (answer) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
-          key: answer.id
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-          className: "answerBody"
-        }, answer.body), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
-          className: "container2"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-          className: "Auser"
-        }, "by ".concat(answer.answerer_name)), answer.answerer_name === 'Seller' ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-          className: "Aseller"
-        }, '- Seller,') : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, ","), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-          className: "Adate"
-        }, "".concat(new Date(answer.date).toDateString().slice(4).replace(' 2022', ', 2022'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-          className: "Adivider"
-        }, " | "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-          className: "Ahelpful"
-        }, " Helpful? "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-          className: "AYes"
-        }, " Yes "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-          className: "Ahelpfulness"
-        }, "(".concat(answer.helpfulness, ")")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-          className: "Adivider"
-        }, " | "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-          className: "report"
-        }, " Report ")));
-      }))), answers.length > 2 ? this.state[this.props.question.question_id] === false ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+      }, 'A: '), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_IndividualAnswer_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        answers: answers,
+        a: this.state.a
+      })), answers.length > 2 ? this.state[this.props.question.question_id] === false ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
         id: this.props.question.question_id,
         onClick: this.moreAnswersHandler.bind(this),
         className: "foldAnswers"
@@ -1040,10 +991,10 @@ var AnswersList = /*#__PURE__*/function (_React$Component) {
 
 /***/ }),
 
-/***/ "./client/src/Components/QnA/AnswersSearch.jsx":
-/*!*****************************************************!*\
-  !*** ./client/src/Components/QnA/AnswersSearch.jsx ***!
-  \*****************************************************/
+/***/ "./client/src/Components/QnA/IndividualAnswer.jsx":
+/*!********************************************************!*\
+  !*** ./client/src/Components/QnA/IndividualAnswer.jsx ***!
+  \********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1052,9 +1003,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _Pics_magnifying_glass_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Pics/magnifying-glass.png */ "./client/src/Components/QnA/Pics/magnifying-glass.png");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1079,47 +1027,55 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+var IndividualAnswer = /*#__PURE__*/function (_React$Component) {
+  _inherits(IndividualAnswer, _React$Component);
 
+  var _super = _createSuper(IndividualAnswer);
 
-var AnswersSearch = /*#__PURE__*/function (_React$Component) {
-  _inherits(AnswersSearch, _React$Component);
+  function IndividualAnswer(props) {
+    _classCallCheck(this, IndividualAnswer);
 
-  var _super = _createSuper(AnswersSearch);
-
-  function AnswersSearch(props) {
-    var _this;
-
-    _classCallCheck(this, AnswersSearch);
-
-    _this = _super.call(this, props);
-    _this.state = {};
-    return _this;
+    return _super.call(this, props);
   }
 
-  _createClass(AnswersSearch, [{
+  _createClass(IndividualAnswer, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "answer-search-field"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-        placeholder: "Have a question? Search for answers…",
-        style: {
-          width: "50vw",
-          height: "3vh"
-        }
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-        className: "search-button"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        src: _Pics_magnifying_glass_png__WEBPACK_IMPORTED_MODULE_2__["default"]
-      })));
+      var answers = this.props.answers;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, answers.slice(0, this.props.a).map(function (answer) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+          key: answer.id
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+          className: "answerBody"
+        }, answer.body), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+          className: "container2"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+          className: "Auser"
+        }, "by ".concat(answer.answerer_name)), answer.answerer_name === 'Seller' ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+          className: "Aseller"
+        }, '- Seller,') : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, ","), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+          className: "Adate"
+        }, "".concat(new Date(answer.date).toDateString().slice(4).replace(' 2022', ', 2022'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+          className: "Adivider"
+        }, " | "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+          className: "Ahelpful"
+        }, " Helpful? "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+          className: "AYes"
+        }, " Yes "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+          className: "Ahelpfulness"
+        }, "(".concat(answer.helpfulness, ")")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+          className: "Adivider"
+        }, " | "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+          className: "report"
+        }, " Report ")));
+      }));
     }
   }]);
 
-  return AnswersSearch;
+  return IndividualAnswer;
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
-;
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AnswersSearch);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (IndividualAnswer);
 
 /***/ }),
 
@@ -1374,11 +1330,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _dist_styles_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../dist/styles.css */ "./client/dist/styles.css");
-/* harmony import */ var _AnswersSearch_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AnswersSearch.jsx */ "./client/src/Components/QnA/AnswersSearch.jsx");
-/* harmony import */ var _QuestionsList_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./QuestionsList.jsx */ "./client/src/Components/QnA/QuestionsList.jsx");
-/* harmony import */ var _MoreQuestions_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./MoreQuestions.jsx */ "./client/src/Components/QnA/MoreQuestions.jsx");
-/* harmony import */ var _AddQuestion_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./AddQuestion.jsx */ "./client/src/Components/QnA/AddQuestion.jsx");
+/* harmony import */ var _SearchBar_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SearchBar.jsx */ "./client/src/Components/QnA/SearchBar.jsx");
+/* harmony import */ var _QuestionsList_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./QuestionsList.jsx */ "./client/src/Components/QnA/QuestionsList.jsx");
+/* harmony import */ var _MoreQuestions_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./MoreQuestions.jsx */ "./client/src/Components/QnA/MoreQuestions.jsx");
+/* harmony import */ var _AddQuestion_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./AddQuestion.jsx */ "./client/src/Components/QnA/AddQuestion.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1400,7 +1355,6 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
 
 
 
@@ -1480,16 +1434,16 @@ var QnA = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "Questions ", '&', " Answers"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_AnswersSearch_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_QuestionsList_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "Questions ", '&', " Answers"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_SearchBar_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_QuestionsList_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
         questions: this.state.questions,
         product: this.props.products,
         moreQuestionsClicked: this.state.moreQuestionsClicked
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "containerRow"
-      }, this.state.questions.length > 2 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_MoreQuestions_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      }, this.state.questions.length > 2 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_MoreQuestions_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {
         moreQuestionsClicked: this.state.moreQuestionsClicked,
         questionClickHandler: this.questionClickHandler.bind(this)
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_AddQuestion_jsx__WEBPACK_IMPORTED_MODULE_6__["default"], null)));
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_AddQuestion_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], null)));
     }
   }]);
 
@@ -1515,9 +1469,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _dist_styles_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../dist/styles.css */ "./client/dist/styles.css");
-/* harmony import */ var _AnswersList_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AnswersList.jsx */ "./client/src/Components/QnA/AnswersList.jsx");
-/* harmony import */ var _Modal_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Modal.jsx */ "./client/src/Components/QnA/Modal.jsx");
+/* harmony import */ var _AnswersList_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AnswersList.jsx */ "./client/src/Components/QnA/AnswersList.jsx");
+/* harmony import */ var _Modal_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Modal.jsx */ "./client/src/Components/QnA/Modal.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1539,7 +1492,6 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
 
 
 
@@ -1633,11 +1585,11 @@ var QuestionsList = /*#__PURE__*/function (_React$Component) {
               className: "addAnswer",
               id: "".concat(question.question_id, "@@@$$$@@@").concat(question.question_body),
               onClick: _this2.showModal.bind(_this2)
-            }, "Add Answer"), _this2.state.showModal ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Modal_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {
+            }, "Add Answer"), _this2.state.showModal ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Modal_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
               product: _this2.props.product,
               currentQ: _this2.state.currentQ,
               closeModal: _this2.closeModal.bind(_this2)
-            }) : null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_AnswersList_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
+            }) : null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_AnswersList_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
               question: question
             }));
           });
@@ -1651,6 +1603,89 @@ var QuestionsList = /*#__PURE__*/function (_React$Component) {
 
 ;
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (QuestionsList);
+
+/***/ }),
+
+/***/ "./client/src/Components/QnA/SearchBar.jsx":
+/*!*************************************************!*\
+  !*** ./client/src/Components/QnA/SearchBar.jsx ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Pics_magnifying_glass_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Pics/magnifying-glass.png */ "./client/src/Components/QnA/Pics/magnifying-glass.png");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+var SearchBar = /*#__PURE__*/function (_React$Component) {
+  _inherits(SearchBar, _React$Component);
+
+  var _super = _createSuper(SearchBar);
+
+  function SearchBar(props) {
+    var _this;
+
+    _classCallCheck(this, SearchBar);
+
+    _this = _super.call(this, props);
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(SearchBar, [{
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "answer-search-field"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+        placeholder: "Have a question? Search for answers…",
+        style: {
+          width: "50vw",
+          height: "3vh"
+        }
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        className: "search-button"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        src: _Pics_magnifying_glass_png__WEBPACK_IMPORTED_MODULE_2__["default"]
+      })));
+    }
+  }]);
+
+  return SearchBar;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SearchBar);
 
 /***/ }),
 
@@ -4328,150 +4363,6 @@ module.exports = {
   toArray: toArray,
   isTypedArray: isTypedArray,
   isFileList: isFileList
-};
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/runtime/api.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/css-loader/dist/runtime/api.js ***!
-  \*****************************************************/
-/***/ ((module) => {
-
-"use strict";
-
-/*
-  MIT License http://www.opensource.org/licenses/mit-license.php
-  Author Tobias Koppers @sokra
-*/
-
-module.exports = function (cssWithMappingToString) {
-  var list = []; // return the list of modules as css string
-
-  list.toString = function toString() {
-    return this.map(function (item) {
-      var content = "";
-      var needLayer = typeof item[5] !== "undefined";
-
-      if (item[4]) {
-        content += "@supports (".concat(item[4], ") {");
-      }
-
-      if (item[2]) {
-        content += "@media ".concat(item[2], " {");
-      }
-
-      if (needLayer) {
-        content += "@layer".concat(item[5].length > 0 ? " ".concat(item[5]) : "", " {");
-      }
-
-      content += cssWithMappingToString(item);
-
-      if (needLayer) {
-        content += "}";
-      }
-
-      if (item[2]) {
-        content += "}";
-      }
-
-      if (item[4]) {
-        content += "}";
-      }
-
-      return content;
-    }).join("");
-  }; // import a list of modules into the list
-
-
-  list.i = function i(modules, media, dedupe, supports, layer) {
-    if (typeof modules === "string") {
-      modules = [[null, modules, undefined]];
-    }
-
-    var alreadyImportedModules = {};
-
-    if (dedupe) {
-      for (var k = 0; k < this.length; k++) {
-        var id = this[k][0];
-
-        if (id != null) {
-          alreadyImportedModules[id] = true;
-        }
-      }
-    }
-
-    for (var _k = 0; _k < modules.length; _k++) {
-      var item = [].concat(modules[_k]);
-
-      if (dedupe && alreadyImportedModules[item[0]]) {
-        continue;
-      }
-
-      if (typeof layer !== "undefined") {
-        if (typeof item[5] === "undefined") {
-          item[5] = layer;
-        } else {
-          item[1] = "@layer".concat(item[5].length > 0 ? " ".concat(item[5]) : "", " {").concat(item[1], "}");
-          item[5] = layer;
-        }
-      }
-
-      if (media) {
-        if (!item[2]) {
-          item[2] = media;
-        } else {
-          item[1] = "@media ".concat(item[2], " {").concat(item[1], "}");
-          item[2] = media;
-        }
-      }
-
-      if (supports) {
-        if (!item[4]) {
-          item[4] = "".concat(supports);
-        } else {
-          item[1] = "@supports (".concat(item[4], ") {").concat(item[1], "}");
-          item[4] = supports;
-        }
-      }
-
-      list.push(item);
-    }
-  };
-
-  return list;
-};
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/runtime/sourceMaps.js":
-/*!************************************************************!*\
-  !*** ./node_modules/css-loader/dist/runtime/sourceMaps.js ***!
-  \************************************************************/
-/***/ ((module) => {
-
-"use strict";
-
-
-module.exports = function (item) {
-  var content = item[1];
-  var cssMapping = item[3];
-
-  if (!cssMapping) {
-    return content;
-  }
-
-  if (typeof btoa === "function") {
-    var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(cssMapping))));
-    var data = "sourceMappingURL=data:application/json;charset=utf-8;base64,".concat(base64);
-    var sourceMapping = "/*# ".concat(data, " */");
-    var sourceURLs = cssMapping.sources.map(function (source) {
-      return "/*# sourceURL=".concat(cssMapping.sourceRoot || "").concat(source, " */");
-    });
-    return [content].concat(sourceURLs).concat([sourceMapping]).join("\n");
-  }
-
-  return [content].join("\n");
 };
 
 /***/ }),
@@ -21729,33 +21620,6 @@ if (false) {} else {
 
 /***/ }),
 
-/***/ "./client/dist/styles.css":
-/*!********************************!*\
-  !*** ./client/dist/styles.css ***!
-  \********************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
-// Imports
-
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.test {\n  display: grid;\n  grid-auto-flow: column;\n  gap: var(--size-3);\n  grid-auto-columns: auto;\n  overflow-x: auto;\n  overscroll-behavior-inline: contain;\n}\n\nsection aside {\n  border: 1px solid rebeccapurple;\n  border-radius: 10px;\n  box-shadow: 2px 2px 10px #f4f4f4;\n  margin: 1rem;\n  padding: 1.25rem;\n  width: 100px;\n}\nasside small {\n  display: inline-block;\n}\n#red-bg {\n  display: inline;\n  position: fixed;\n}\n\nion-icon{\n  float: right;\n  fill:transparent;\n  stroke:black;\n  stroke-width:30;\n  transition:all 0.5s;\n}\nion-icon.active{\n  float: right;\n  animation:like 0.5s 1;\n  fill:red;\n  stroke:none;\n}\n\n\n@-webkit-keyframes like {\n  0%   { transform: scale(1); }\n  90%   { transform: scale(1.2); }\n  100% { transform: scale(1.1); }\n}\n\nsection aside img{\n  margin-top: -1.25rem;\n  margin-left: -1.25rem;\n  width: calc(100% + 2.5rem);\n  object-fit: cover;\n  border-top-left-radius: 8px;\n  border-top-right-radius: 8px;\n}\n\nsection aside div {\n  align-self: baseline;\n}\n\nsection aside:hover {\n  box-shadow: 2px 2px 10px #e9e9e9;\n  cursor: pointer;\n}\n\n.style-gallery {\n  display: flex;\n  flex: 20%;\n  flex-flow: row wrap;\n  padding: 5px;\n}\n\n.style-gallery .style-image {\n  width: 100px;\n  height: 100px;\n  margin: 5px;\n  object-fit: cover;\n  flex-basis: 0 0 100px;\n  align-self: start;\n}\n\n.selectors {\n  display: flex;\n  padding: 5px;\n}\n\n\n/* Q&A styles: */\n.question {\n  display:flex;\n  flex-direction:row;\n  width: 100vw;\n  height: 5vh;\n  position: relative;\n}\n\n.container1 {\n  top: 0.7vh;\n  position: absolute;\n  display:flex;\n  flex-direction:row;\n}\n\n.questionBody {\n  font-size: medium;\n  font-weight: bold;\n  width: 75vw;\n}\n\n.helpful {\n  font-size: small;\n  padding-left: 77vw;\n}\n\n.Yes {\n  font-size: small;\n  padding-left: 0.8vw;\n  text-decoration-line: underline;\n}\n\n.helpfulness {\n  font-size: small;\n  padding-left: 0.2vw;\n}\n\n.divider {\n  font-size: small;\n  padding-left: 1.2vw;\n}\n\n.addAnswer {\n  font-size: small;\n  text-decoration-line: underline;\n  padding-left: 1.2vw;\n}\n\n.letterA {\n  font-size: medium;\n  font-weight: bold;\n}\n\n.answer {\n  font-size: medium;\n  display:flex;\n  flex-direction:row;\n  width: 75vw;\n  position: relative;\n}\n\n.answerBody {\n  padding-left: 0.4vw;\n}\n\n.foldAnswers {\n  font-size: small;\n  font-weight: bold;\n  padding-left: 1.8vw;\n}\n\n.containerRow {\n  display:flex;\n  flex-direction:row;\n  position: relative;\n}\n\n.foldQuestions {\n  height: 10vh;\n}\n\n.addQuestion {\n  height: 10vh;\n  padding-left: 2vw;\n}\n\n.foldQuestionsBT, .addQuestionBT {\n  background-color: white;\n  color: black;\n  border: 2px solid #131313;\n  padding: 20px 15px;\n  transition-duration: 0.4s;\n}\n\n.foldQuestionsBT, .addQuestionBT, .foldAnswers, .Yes,\n.addAnswer, .AYes, .report:hover {\n  cursor: pointer\n}\n\n.container2 {\n  font-size: small;\n  display:flex;\n  flex-direction:row;\n}\n\n.Auser {\n  font-size: small;\n  padding-left: 0.4vw;\n}\n\n.Aseller {\n  font-size: small;\n  font-weight: bold;\n  padding-left: 0.3vw;\n}\n\n.Adate {\n  font-size: small;\n  padding-left: 0.4vw;\n}\n\n.Ahelpful {\n  font-size: small;\n  padding-left: 0.8vw;\n}\n\n.AYes {\n  font-size: small;\n  padding-left: 0.8vw;\n  text-decoration-line: underline;\n}\n\n.Ahelpfulness {\n  font-size: small;\n  padding-left: 0.2vw;\n}\n\n.Adivider {\n  font-size: small;\n  padding-left: 1.2vw;\n}\n\n.report {\n  font-size: small;\n  padding-left: 1.2vw;\n  text-decoration-line: underline;\n}\n\n/* Form Styles */\n.form-container {\n  position: fixed;\n  top: 5vh;\n  bottom: 30vh;\n  left: 20vw;\n  right: 20vw;\n  background: rgba(0, 0, 0, 0);\n  border-radius: 5px;\n  padding: 20px;\n  background-color: #e7e7e7;\n}\n\n.form-wrapper {\n  position: absolute;\n  display: flex;\n  flex-direction: column;\n  top: 20px;\n  right: 45px;\n  transition: all 200ms;\n  font-weight: bold;\n  text-decoration: none;\n  color: #333;\n}\n\n.formTitle {\n  text-align: center;\n  color:#413b3b;\n  font-weight: bold;\n  text-transform: uppercase;\n  font-size: 30px;\n  font-family: zen tokyo zoo;\n}\n\n.formSubtitle {\n  text-align: center;\n  color:#82807f;\n  position: relative;\n}\n\n.submitAnswerBTN, .cancelAnswerBTN {\n  color: #fff;\n  text-decoration: none;\n  cursor: pointer;\n  transition: all 0.3s ease-out;\n  background: #403e3d;\n  border-radius: 10px;\n}\n\n.formBTN-wrapper {\n  display:flex;\n  flex-direction:row;\n  position: relative;\n  padding-top: 3vh;\n  justify-content: space-evenly;\n}\n\n.answer-search-field {\n  display:flex;\n  flex-direction:row;\n}\n\n.search-button {\n  background: transparent;\n  border: none;\n  outline: none;\n  margin-left: -33px;\n}\n\n.search-button img {\n  width: 20px;\n  height: 20px;\n  object-fit: cover;\n}", "",{"version":3,"sources":["webpack://./client/dist/styles.css"],"names":[],"mappings":"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","sourcesContent":["\n.test {\n  display: grid;\n  grid-auto-flow: column;\n  gap: var(--size-3);\n  grid-auto-columns: auto;\n  overflow-x: auto;\n  overscroll-behavior-inline: contain;\n}\n\nsection aside {\n  border: 1px solid rebeccapurple;\n  border-radius: 10px;\n  box-shadow: 2px 2px 10px #f4f4f4;\n  margin: 1rem;\n  padding: 1.25rem;\n  width: 100px;\n}\nasside small {\n  display: inline-block;\n}\n#red-bg {\n  display: inline;\n  position: fixed;\n}\n\nion-icon{\n  float: right;\n  fill:transparent;\n  stroke:black;\n  stroke-width:30;\n  transition:all 0.5s;\n}\nion-icon.active{\n  float: right;\n  animation:like 0.5s 1;\n  fill:red;\n  stroke:none;\n}\n\n\n@-webkit-keyframes like {\n  0%   { transform: scale(1); }\n  90%   { transform: scale(1.2); }\n  100% { transform: scale(1.1); }\n}\n\nsection aside img{\n  margin-top: -1.25rem;\n  margin-left: -1.25rem;\n  width: calc(100% + 2.5rem);\n  object-fit: cover;\n  border-top-left-radius: 8px;\n  border-top-right-radius: 8px;\n}\n\nsection aside div {\n  align-self: baseline;\n}\n\nsection aside:hover {\n  box-shadow: 2px 2px 10px #e9e9e9;\n  cursor: pointer;\n}\n\n.style-gallery {\n  display: flex;\n  flex: 20%;\n  flex-flow: row wrap;\n  padding: 5px;\n}\n\n.style-gallery .style-image {\n  width: 100px;\n  height: 100px;\n  margin: 5px;\n  object-fit: cover;\n  flex-basis: 0 0 100px;\n  align-self: start;\n}\n\n.selectors {\n  display: flex;\n  padding: 5px;\n}\n\n\n/* Q&A styles: */\n.question {\n  display:flex;\n  flex-direction:row;\n  width: 100vw;\n  height: 5vh;\n  position: relative;\n}\n\n.container1 {\n  top: 0.7vh;\n  position: absolute;\n  display:flex;\n  flex-direction:row;\n}\n\n.questionBody {\n  font-size: medium;\n  font-weight: bold;\n  width: 75vw;\n}\n\n.helpful {\n  font-size: small;\n  padding-left: 77vw;\n}\n\n.Yes {\n  font-size: small;\n  padding-left: 0.8vw;\n  text-decoration-line: underline;\n}\n\n.helpfulness {\n  font-size: small;\n  padding-left: 0.2vw;\n}\n\n.divider {\n  font-size: small;\n  padding-left: 1.2vw;\n}\n\n.addAnswer {\n  font-size: small;\n  text-decoration-line: underline;\n  padding-left: 1.2vw;\n}\n\n.letterA {\n  font-size: medium;\n  font-weight: bold;\n}\n\n.answer {\n  font-size: medium;\n  display:flex;\n  flex-direction:row;\n  width: 75vw;\n  position: relative;\n}\n\n.answerBody {\n  padding-left: 0.4vw;\n}\n\n.foldAnswers {\n  font-size: small;\n  font-weight: bold;\n  padding-left: 1.8vw;\n}\n\n.containerRow {\n  display:flex;\n  flex-direction:row;\n  position: relative;\n}\n\n.foldQuestions {\n  height: 10vh;\n}\n\n.addQuestion {\n  height: 10vh;\n  padding-left: 2vw;\n}\n\n.foldQuestionsBT, .addQuestionBT {\n  background-color: white;\n  color: black;\n  border: 2px solid #131313;\n  padding: 20px 15px;\n  transition-duration: 0.4s;\n}\n\n.foldQuestionsBT, .addQuestionBT, .foldAnswers, .Yes,\n.addAnswer, .AYes, .report:hover {\n  cursor: pointer\n}\n\n.container2 {\n  font-size: small;\n  display:flex;\n  flex-direction:row;\n}\n\n.Auser {\n  font-size: small;\n  padding-left: 0.4vw;\n}\n\n.Aseller {\n  font-size: small;\n  font-weight: bold;\n  padding-left: 0.3vw;\n}\n\n.Adate {\n  font-size: small;\n  padding-left: 0.4vw;\n}\n\n.Ahelpful {\n  font-size: small;\n  padding-left: 0.8vw;\n}\n\n.AYes {\n  font-size: small;\n  padding-left: 0.8vw;\n  text-decoration-line: underline;\n}\n\n.Ahelpfulness {\n  font-size: small;\n  padding-left: 0.2vw;\n}\n\n.Adivider {\n  font-size: small;\n  padding-left: 1.2vw;\n}\n\n.report {\n  font-size: small;\n  padding-left: 1.2vw;\n  text-decoration-line: underline;\n}\n\n/* Form Styles */\n.form-container {\n  position: fixed;\n  top: 5vh;\n  bottom: 30vh;\n  left: 20vw;\n  right: 20vw;\n  background: rgba(0, 0, 0, 0);\n  border-radius: 5px;\n  padding: 20px;\n  background-color: #e7e7e7;\n}\n\n.form-wrapper {\n  position: absolute;\n  display: flex;\n  flex-direction: column;\n  top: 20px;\n  right: 45px;\n  transition: all 200ms;\n  font-weight: bold;\n  text-decoration: none;\n  color: #333;\n}\n\n.formTitle {\n  text-align: center;\n  color:#413b3b;\n  font-weight: bold;\n  text-transform: uppercase;\n  font-size: 30px;\n  font-family: zen tokyo zoo;\n}\n\n.formSubtitle {\n  text-align: center;\n  color:#82807f;\n  position: relative;\n}\n\n.submitAnswerBTN, .cancelAnswerBTN {\n  color: #fff;\n  text-decoration: none;\n  cursor: pointer;\n  transition: all 0.3s ease-out;\n  background: #403e3d;\n  border-radius: 10px;\n}\n\n.formBTN-wrapper {\n  display:flex;\n  flex-direction:row;\n  position: relative;\n  padding-top: 3vh;\n  justify-content: space-evenly;\n}\n\n.answer-search-field {\n  display:flex;\n  flex-direction:row;\n}\n\n.search-button {\n  background: transparent;\n  border: none;\n  outline: none;\n  margin-left: -33px;\n}\n\n.search-button img {\n  width: 20px;\n  height: 20px;\n  object-fit: cover;\n}"],"sourceRoot":""}]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
 /***/ "./client/src/Components/QnA/Pics/magnifying-glass.png":
 /*!*************************************************************!*\
   !*** ./client/src/Components/QnA/Pics/magnifying-glass.png ***!
@@ -21785,7 +21649,7 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			id: moduleId,
+/******/ 			// no module.id needed
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};

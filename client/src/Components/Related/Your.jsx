@@ -12,7 +12,6 @@ class Your extends React.Component {
 
   render() {
     if(this.props.length > 0) {
-    console.log(this.props)
     return (<div>
       <h4>Your</h4><section>
         <ul className='test'>

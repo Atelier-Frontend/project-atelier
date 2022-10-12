@@ -21,26 +21,22 @@ class App extends React.Component {
     if(JSON.stringify(this.state.products) === '{}') {
     axios.get('/products')
       .then((response) => {
-        this.setState({ products: response.data[0] })
+        this.setState({ products: response.data[3] })
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err)
       });
     } else {
-      console.log(this);
       this.update(this.products.id);
     }
   }
 
 
   update (state_id) {
-
     axios.get('/products/product_id', {params: {id: state_id}})
       .then((response)=> {
-        console.log(response.data)
         this.setState({products: response.data})
       })
-
   }
 
   render () {

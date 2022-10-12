@@ -7,7 +7,6 @@ class Related extends React.Component {
     super(props);
     this.state = {
       product: [],
-
     }
     this.list = this.list.bind(this)
   }

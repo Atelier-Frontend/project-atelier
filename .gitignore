@@ -106,5 +106,5 @@ token.js
 .env
 *.DS_Store
 *.map
-*bundle.js
+bundle.js
 config.js

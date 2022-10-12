@@ -33,6 +33,6 @@ class QuantitySelector extends React.Component {
       </label>
     </div>)
   }
-}
+};
 
 export default QuantitySelector;

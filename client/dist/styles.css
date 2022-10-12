@@ -80,6 +80,26 @@ section aside:hover {
   align-self: start;
 }
 
+.image-gallery {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.style-sidebar {
+  display: flex;
+  flex-flow: column wrap;
+  padding: 5px;
+}
+
+.style-sidebar .style-sidebar-image {
+  width: 100px; 
+  height: 100px;
+  margin: 5px;
+  object-fit: cover;
+  flex-basis: 0 0 100px;
+  align-self: start;
+}
+
 .selectors {
   display: flex;
   padding: 5px;
@@ -93,3 +113,5 @@ section aside:hover {
   display: flex;
   margin: 5px;
 }
+
+

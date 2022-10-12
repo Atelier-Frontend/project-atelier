@@ -66,7 +66,8 @@ class QnA extends React.Component {
       <QuestionsList
         questions={this.state.questions}
         product={this.props.products}
-        moreQuestionsClicked={this.state.moreQuestionsClicked} />
+        moreQuestionsClicked={this.state.moreQuestionsClicked}
+        getQList={this.getQuestionsList.bind(this)} />
       <div className="containerRow">
         {(this.state.questions.length > 2) &&
         <MoreQuestions  moreQuestionsClicked={this.state.moreQuestionsClicked}

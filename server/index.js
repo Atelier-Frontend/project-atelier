@@ -149,10 +149,8 @@ app.post('/qa/questions', (req, res) => {
 
 //Adds an answer for the given question.
 app.post(`/qa/questions/:question_id/answers`, (req, res) => {
-  console.log('req.body>>>', req.body)
   axios.post(`${apiPath}/qa/questions/${req.body.question_id}/answers`, header, {params: req.body.body})
   .then((response) => {
-    console.log('response???--->>>???', response.data)
     res.status(204).send('NO CONTENT')
   })
   .catch((err) => {
@@ -162,12 +160,10 @@ app.post(`/qa/questions/:question_id/answers`, (req, res) => {
 
 //Updates a question to show it was found helpful.
 app.put('/qa/questions/:question_id/helpful', (req, res) => {
-  console.log('??????...>>>', req.body)
-  // axios.put(`${apiPath}/qa/questions/${req.body.question_id}/helpful`, header)
-  axios.put(`${apiPath}/qa/questions/${req.body.question_id}/helpful`, header)
+  axios.defaults.headers.common['Authorization'] = process.env.TOKEN;
+  axios.put(`${apiPath}/qa/questions/${req.body.question_id}/helpful`)
     .then((response) => {
-      console.log('response???', response.data)
-      res.status(204).send('NO CONTENT')
+      res.status(204).send('This question is helpful!')
     })
     .catch((err) => {
       res.send(err)

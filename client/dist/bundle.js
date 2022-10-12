@@ -1444,7 +1444,8 @@ var QnA = /*#__PURE__*/function (_React$Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "Questions ", '&', " Answers"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_SearchBar_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_QuestionsList_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
         questions: this.state.questions,
         product: this.props.products,
-        moreQuestionsClicked: this.state.moreQuestionsClicked
+        moreQuestionsClicked: this.state.moreQuestionsClicked,
+        getQList: this.getQuestionsList.bind(this)
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "containerRow"
       }, this.state.questions.length > 2 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_MoreQuestions_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -1479,6 +1480,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AnswersList_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AnswersList.jsx */ "./client/src/Components/QnA/AnswersList.jsx");
 /* harmony import */ var _Modal_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Modal.jsx */ "./client/src/Components/QnA/Modal.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -1518,7 +1531,8 @@ var QuestionsList = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props);
     _this.state = {
       showModal: false,
-      currentQ: ''
+      currentQ: '',
+      QVoted: []
     };
     return _this;
   }
@@ -1532,11 +1546,15 @@ var QuestionsList = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "questionHelpfulness",
     value: function questionHelpfulness(e) {
-      console.log('targete', e.target.id);
+      var _this2 = this;
+
+      this.state.QVoted.includes(e.target.id) ? alert("You have voted for this question!") : this.setState({
+        QVoted: [].concat(_toConsumableArray(this.state.QVoted), [e.target.id])
+      });
       axios__WEBPACK_IMPORTED_MODULE_1___default().put('/qa/questions/:question_id/helpful', {
         question_id: e.target.id
-      }).then(function (response) {
-        console.log('..>>>>>', response);
+      }).then(function () {
+        _this2.props.getQList();
       })["catch"](function (err) {
         console.log('failed');
       });
@@ -1560,7 +1578,7 @@ var QuestionsList = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       var questions = this.props.questions;
       questions.sort(this.sortQuestions);
@@ -1583,7 +1601,7 @@ var QuestionsList = /*#__PURE__*/function (_React$Component) {
             }, " Helpful? "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
               className: "Yes",
               id: question.question_id,
-              onClick: _this2.questionHelpfulness.bind(_this2)
+              onClick: _this3.questionHelpfulness.bind(_this3)
             }, "Yes"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
               className: "helpfulness"
             }, "(".concat(question.question_helpfulness, ")")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
@@ -1591,11 +1609,11 @@ var QuestionsList = /*#__PURE__*/function (_React$Component) {
             }, " | "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
               className: "addAnswer",
               id: "".concat(question.question_id, "@@@$$$@@@").concat(question.question_body),
-              onClick: _this2.showModal.bind(_this2)
-            }, "Add Answer"), _this2.state.showModal ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Modal_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
-              product: _this2.props.product,
-              currentQ: _this2.state.currentQ,
-              closeModal: _this2.closeModal.bind(_this2)
+              onClick: _this3.showModal.bind(_this3)
+            }, "Add Answer"), _this3.state.showModal ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Modal_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
+              product: _this3.props.product,
+              currentQ: _this3.state.currentQ,
+              closeModal: _this3.closeModal.bind(_this3)
             }) : null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_AnswersList_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
               question: question
             }));

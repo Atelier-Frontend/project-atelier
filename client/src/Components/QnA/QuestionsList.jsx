@@ -9,6 +9,7 @@ class QuestionsList extends React.Component {
     this.state = {
       showModal: false,
       currentQ: '',
+      QVoted: []
     }
   }
 
@@ -18,10 +19,13 @@ class QuestionsList extends React.Component {
 
   //******************** Need to be fixed, not working ********************//
   questionHelpfulness(e) {
-    console.log('targete', e.target.id)
+    (this.state.QVoted.includes(e.target.id)) ?
+    (alert("You have voted for this question!"))
+    :
+    this.setState({QVoted: [...this.state.QVoted, e.target.id]});
     axios.put('/qa/questions/:question_id/helpful', {question_id: e.target.id})
-      .then((response) => {
-        console.log('..>>>>>', response)
+      .then(() => {
+        this.props.getQList()
       })
       .catch((err) => {
         console.log('failed')

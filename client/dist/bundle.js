@@ -1548,16 +1548,20 @@ var QuestionsList = /*#__PURE__*/function (_React$Component) {
     value: function questionHelpfulness(e) {
       var _this2 = this;
 
-      this.state.QVoted.includes(e.target.id) ? alert("You have voted for this question!") : this.setState({
-        QVoted: [].concat(_toConsumableArray(this.state.QVoted), [e.target.id])
-      });
-      axios__WEBPACK_IMPORTED_MODULE_1___default().put('/qa/questions/:question_id/helpful', {
-        question_id: e.target.id
-      }).then(function () {
-        _this2.props.getQList();
-      })["catch"](function (err) {
-        console.log('failed');
-      });
+      if (this.state.QVoted.includes(e.target.id)) {
+        alert("You have voted for this question!");
+      } else {
+        this.setState({
+          QVoted: [].concat(_toConsumableArray(this.state.QVoted), [e.target.id])
+        });
+        axios__WEBPACK_IMPORTED_MODULE_1___default().put('/qa/questions/:question_id/helpful', {
+          question_id: e.target.id
+        }).then(function () {
+          _this2.props.getQList();
+        })["catch"](function (err) {
+          console.log('failed');
+        });
+      }
     }
   }, {
     key: "showModal",

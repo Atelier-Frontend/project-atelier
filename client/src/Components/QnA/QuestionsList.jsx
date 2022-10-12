@@ -19,17 +19,18 @@ class QuestionsList extends React.Component {
 
   //******************** Need to be fixed, not working ********************//
   questionHelpfulness(e) {
-    (this.state.QVoted.includes(e.target.id)) ?
-    (alert("You have voted for this question!"))
-    :
-    this.setState({QVoted: [...this.state.QVoted, e.target.id]});
-    axios.put('/qa/questions/:question_id/helpful', {question_id: e.target.id})
-      .then(() => {
-        this.props.getQList()
-      })
-      .catch((err) => {
-        console.log('failed')
-      })
+    if (this.state.QVoted.includes(e.target.id)) {
+      (alert("You have voted for this question!"))
+    } else {
+      this.setState({QVoted: [...this.state.QVoted, e.target.id]});
+      axios.put('/qa/questions/:question_id/helpful', {question_id: e.target.id})
+        .then(() => {
+          this.props.getQList()
+        })
+        .catch((err) => {
+          console.log('failed')
+        })
+    }
   }
 
   showModal(e) {

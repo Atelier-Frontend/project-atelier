@@ -22,7 +22,6 @@ asside small {
 #red-bg {
   display: inline;
   position: fixed;
-
 }
 
 ion-icon{
@@ -68,11 +67,11 @@ section aside:hover {
   display: flex;
   flex: 20%;
   flex-flow: row wrap;
-  padding: 5px; 
+  padding: 5px;
 }
 
 .style-gallery .style-image {
-  width: 100px; 
+  width: 100px;
   height: 100px;
   margin: 5px;
   object-fit: cover;
@@ -83,4 +82,235 @@ section aside:hover {
 .selectors {
   display: flex;
   padding: 5px;
+}
+
+
+/* Q&A styles: */
+.question {
+  display:flex;
+  flex-direction:row;
+  width: 100vw;
+  height: 5vh;
+  position: relative;
+}
+
+.container1 {
+  top: 0.7vh;
+  position: absolute;
+  display:flex;
+  flex-direction:row;
+}
+
+.questionBody {
+  font-size: medium;
+  font-weight: bold;
+  width: 75vw;
+}
+
+.helpful {
+  font-size: small;
+  padding-left: 77vw;
+}
+
+.Yes {
+  font-size: small;
+  padding-left: 0.8vw;
+  text-decoration-line: underline;
+}
+
+.helpfulness {
+  font-size: small;
+  padding-left: 0.2vw;
+}
+
+.divider {
+  font-size: small;
+  padding-left: 1.2vw;
+}
+
+.addAnswer {
+  font-size: small;
+  text-decoration-line: underline;
+  padding-left: 1.2vw;
+}
+
+.letterA {
+  font-size: medium;
+  font-weight: bold;
+}
+
+.answer {
+  font-size: medium;
+  display:flex;
+  flex-direction:row;
+  width: 75vw;
+  position: relative;
+}
+
+.answerBody {
+  padding-left: 0.4vw;
+}
+
+.foldAnswers {
+  font-size: small;
+  font-weight: bold;
+  padding-left: 1.8vw;
+}
+
+.containerRow {
+  display:flex;
+  flex-direction:row;
+  position: relative;
+}
+
+.foldQuestions {
+  height: 10vh;
+}
+
+.addQuestion {
+  height: 10vh;
+  padding-left: 2vw;
+}
+
+.foldQuestionsBT, .addQuestionBT {
+  background-color: white;
+  color: black;
+  border: 2px solid #131313;
+  padding: 20px 15px;
+  transition-duration: 0.4s;
+}
+
+.foldQuestionsBT, .addQuestionBT, .foldAnswers, .Yes,
+.addAnswer, .AYes, .report:hover {
+  cursor: pointer
+}
+
+.container2 {
+  font-size: small;
+  display:flex;
+  flex-direction:row;
+}
+
+.Auser {
+  font-size: small;
+  padding-left: 0.4vw;
+}
+
+.Aseller {
+  font-size: small;
+  font-weight: bold;
+  padding-left: 0.3vw;
+}
+
+.Adate {
+  font-size: small;
+  padding-left: 0.4vw;
+}
+
+.Ahelpful {
+  font-size: small;
+  padding-left: 0.8vw;
+}
+
+.AYes {
+  font-size: small;
+  padding-left: 0.8vw;
+  text-decoration-line: underline;
+}
+
+.Ahelpfulness {
+  font-size: small;
+  padding-left: 0.2vw;
+}
+
+.Adivider {
+  font-size: small;
+  padding-left: 1.2vw;
+}
+
+.report {
+  font-size: small;
+  padding-left: 1.2vw;
+  text-decoration-line: underline;
+}
+
+/* Form Styles */
+.form-container {
+  position: fixed;
+  top: 5vh;
+  bottom: 30vh;
+  left: 20vw;
+  right: 20vw;
+  background: rgba(0, 0, 0, 0);
+  border-radius: 5px;
+  padding: 20px;
+  background-color: #e7e7e7;
+}
+
+.form-wrapper {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 20px;
+  right: 45px;
+  transition: all 200ms;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+
+.formTitle {
+  text-align: center;
+  color:#413b3b;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 30px;
+  font-family: zen tokyo zoo;
+}
+
+.formSubtitle {
+  text-align: center;
+  color:#82807f;
+  position: relative;
+}
+
+.submitAnswerBTN, .cancelAnswerBTN {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+  background: #403e3d;
+  border-radius: 10px;
+}
+
+.formBTN-wrapper {
+  display:flex;
+  flex-direction:row;
+  position: relative;
+  padding-top: 3vh;
+  justify-content: space-evenly;
+}
+
+.answer-search-field {
+  display:flex;
+  flex-direction:row;
+}
+
+.search-button {
+  background: transparent;
+  border: none;
+  outline: none;
+  margin-left: -33px;
+}
+
+.search-button img {
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+}
+
+.emailValidation {
+  font-size: small;
+  color: rgb(157, 5, 5);
+  padding-top: -15px;
 }

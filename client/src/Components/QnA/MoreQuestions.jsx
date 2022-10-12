@@ -8,9 +8,20 @@ class MoreQuestions extends React.Component {
     }
   }
 
+  moreQuestions() {
+    this.props.questionClickHandler()
+  }
+
+
   render() {
-    return (<div>
-      <button>{'MORE ANSWERED QUESTIONS'}</button>
+    return (<div className="foldQuestions">
+      {(this.props.moreQuestionsClicked === false) ?
+        (<button className="foldQuestionsBT" onClick={this.moreQuestions.bind(this)}>
+          {'MORE ANSWERED QUESTIONS'}
+        </button>) : (<button className="foldQuestionsBT" onClick={this.moreQuestions.bind(this)}>
+          {'LESS ANSWERED QUESTIONS'}
+        </button>)
+      }
     </div>)
   }
 };

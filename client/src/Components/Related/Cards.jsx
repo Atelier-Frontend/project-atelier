@@ -29,12 +29,13 @@ componentDidMount () {
     // }
     return (
       <aside className={this.props.class} onClick={()=> this.props.update(this.state.product.id)}>
-  <img
+  {/* <img
     src="https://images.pexels.com/photos/2562992/pexels-photo-2562992.png"
     width="384"
     height="192"
     alt="header image"
-  /><div>
+  /> */}
+  <div>
   <small>{this.state.product.category}
   </small>
   <h3>{this.state.product.name}</h3>

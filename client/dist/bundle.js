@@ -666,13 +666,17 @@ var Cards = /*#__PURE__*/function (_React$Component) {
         width: "384",
         height: "192",
         alt: "header image"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("small", null, this.state.product.category), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, this.state.product.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("small", null, this.state.product.default_price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "stars"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("small", null, this.state.product.category), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, this.state.product.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("small", null, this.state.product.default_price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "stars"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        onClick: function onClick() {
+          _this3.props.fun(_this3.state.product);
+        }
+      }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         "class": "large-font text-center top-20"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ion-icon", {
         name: "heart"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "red-bg"
-      })))));
+      }))))));
     }
   }]);
 
@@ -762,11 +766,13 @@ var Related = /*#__PURE__*/function (_React$Component) {
         var i = 0;
 
         while (i < data.data.length) {
+          console.log(data);
           var elm = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Cards_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
             key: data.data[i],
             item: data.data[i],
             "class": "Related",
-            update: _this2.props.update
+            update: _this2.props.update,
+            fun: _this2.props.fun
           });
           lists.push(elm);
           i += 1;
@@ -844,7 +850,7 @@ var Your = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      product: {}
+      product: _this.props.products
     };
     return _this;
   }
@@ -852,7 +858,9 @@ var Your = /*#__PURE__*/function (_React$Component) {
   _createClass(Your, [{
     key: "render",
     value: function render() {
-      if (this.props.length > 0) {
+      console.log(this.props, ' your');
+
+      if (this.state.product.length > 0) {
         console.log(this.props);
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "Your"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("section", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
           className: "test"
@@ -20636,6 +20644,7 @@ var App = /*#__PURE__*/function (_React$Component) {
       fav: []
     };
     _this.update = _this.update.bind(_assertThisInitialized(_this));
+    _this.fav = _this.fav.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -20675,13 +20684,25 @@ var App = /*#__PURE__*/function (_React$Component) {
       });
     }
   }, {
+    key: "fav",
+    value: function fav(obj) {
+      console.log("working");
+      var ans = this.state.fav;
+      ans.push(obj);
+      this.setState({
+        fav: ans
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
+      console.log(this.state.fav);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Project Atelier"), Object.keys(this.state.products).length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Components_ProductOverview_ProductOverview_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {
         products: this.state.products
       }), Object.keys(this.state.products).length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Components_Related_Related_jsx__WEBPACK_IMPORTED_MODULE_6__["default"], {
         products: this.state.products,
-        update: this.update
+        update: this.update,
+        fun: this.fav
       }), Object.keys(this.state.products).length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Components_Related_Your_jsx__WEBPACK_IMPORTED_MODULE_5__["default"], {
         products: this.state.fav
       }), Object.keys(this.state.products).length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Components_QnA_QnA_jsx__WEBPACK_IMPORTED_MODULE_7__["default"], {

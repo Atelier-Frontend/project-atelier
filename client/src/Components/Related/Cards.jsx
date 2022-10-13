@@ -41,11 +41,11 @@ componentDidMount () {
   <small>{this.state.product.default_price}</small>
   <p>stars
   </p>
-  <div class='large-font text-center top-20'>
-  <ion-icon name="heart">
+ <button onClick={()=>{this.props.fun(this.state.product)}}> <div class='large-font text-center top-20'>
+  <ion-icon name="heart" >
     <div id='red-bg'></div>
   </ion-icon>
-</div>
+</div></button>
   </div>
 </aside>)
   }

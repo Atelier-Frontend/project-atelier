@@ -15,6 +15,7 @@ class App extends React.Component {
       fav: []
     }
     this.update = this.update.bind(this);
+    this.fav = this.fav.bind(this);
   }
 
   componentDidMount() {
@@ -43,13 +44,23 @@ class App extends React.Component {
 
   }
 
+  fav (obj) {
+    console.log("working")
+    var ans = this.state.fav;
+    ans.push(obj)
+    this.setState({
+      fav: ans
+    })
+  }
+
   render () {
+    console.log(this.state.fav)
     return (<div>
       <h1>Project Atelier</h1>
       {Object.keys(this.state.products).length > 0 &&
         <ProductOverview products={this.state.products} />}
       {Object.keys(this.state.products).length > 0 &&
-      <Related products={this.state.products} update={this.update}/>}
+      <Related products={this.state.products} update={this.update} fun={this.fav}/>}
       {Object.keys(this.state.products).length > 0 &&
       <Your products={this.state.fav} />}
       {Object.keys(this.state.products).length > 0 &&

@@ -43,7 +43,7 @@ class ProductOverview extends React.Component {
     })
     .catch((err) => {
       console.log(err);
-    })
+    });
   }
 
   selectImage(style) {
@@ -54,7 +54,7 @@ class ProductOverview extends React.Component {
     this.setState({ 
       imageStyle: selectStyle[0].photos[0].url,
       selectedStyle: selectStyle[0]
-    })
+    });
   }
 
   render() {

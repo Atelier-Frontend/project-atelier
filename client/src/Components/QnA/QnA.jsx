@@ -38,6 +38,18 @@ class QnA extends React.Component {
       })
   }
 
+  // getAnswersList(question_id) {
+  //   axios.get(`/qa/questions/:question_id/answers`, {params: {question_id}})
+  //     .then((response) => {
+  //       this.setState({
+  //         answers: response.data.results
+  //       })
+  //     })
+  //     .catch((err) => {
+  //       console.log('failed to get answers list')
+  //     })
+  // }
+
   questionClickHandler() {
     (this.state.moreQuestionsClicked === false) ? this.setState({
       moreQuestionsClicked: true
@@ -59,7 +71,8 @@ class QnA extends React.Component {
         {(this.state.questions.length > 2) &&
         <MoreQuestions  moreQuestionsClicked={this.state.moreQuestionsClicked}
           questionClickHandler={this.questionClickHandler.bind(this)}/>}
-        <AddQuestion />
+        <AddQuestion product={this.props.products}
+                     getQList={this.getQuestionsList.bind(this)} />
       </div>
     </div>)
   }

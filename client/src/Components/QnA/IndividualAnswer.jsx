@@ -21,7 +21,7 @@ class IndividualAnswer extends React.Component {
       this.setState({AVoted: [...this.state.AVoted, e.target.id]});
       axios.put('/qa/answers/:answer_id/helpful', {answer_id: e.target.id})
         .then(() => {
-          this.props.getAnswersList(this.props.question_id);
+          this.props.getAnswersList(this.props.question_id)
         })
         .catch((err) => {
           console.log('failed')

@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import AnswersList from './AnswersList.jsx';
-import ModalQ from './ModalQ.jsx';
+import ModalAnswer from './ModalAnswer.jsx';
 
 class QuestionsList extends React.Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class QuestionsList extends React.Component {
     return ( a.question_helpfulness < b.question_helpfulness ) ? 1 : -1;
   }
 
-  questionHelpfulness(e) {
+    questionHelpfulness(e) {
     if (this.state.QVoted.includes(e.target.id)) {
       (alert("You have voted for this question!"))
     } else {
@@ -74,7 +74,7 @@ class QuestionsList extends React.Component {
                     Add Answer
                 </p>
                 {(this.state.showModal) ?
-                <ModalQ product={this.props.product}
+                <ModalAnswer product={this.props.product}
                         currentQ={this.state.currentQ}
                         closeModal={this.closeModal.bind(this)}
                 /> : null}

@@ -145,7 +145,14 @@ app.get(`/qa/questions/:question_id/answers`, (req, res) => {
 
 //Adds a question for the given product.
 app.post('/qa/questions', (req, res) => {
-  res.end()
+  axios.defaults.headers.common['Authorization'] = process.env.TOKEN;
+  axios.post(`${apiPath}/qa/questions`, req.body)
+    .then((response) => {
+      res.status(201).send('Question added')
+    })
+    .catch((err) => {
+      res.send(err)
+    })
 });
 
 //Adds an answer for the given question.

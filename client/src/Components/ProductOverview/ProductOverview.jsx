@@ -26,6 +26,10 @@ class ProductOverview extends React.Component {
     })
   }
 
+  componentDidUpdate () {
+
+  }
+
   render() {
     return (<div className='productOverview'>
       {this.state.styles.length > 0 &&
@@ -34,10 +38,10 @@ class ProductOverview extends React.Component {
       {Object.keys(this.state.product).length > 0 &&
         <ProductInfo product={this.state.product} />
       }
-      {this.state.styles.length > 0 && 
+      {this.state.styles.length > 0 &&
         <StyleSelector styles={this.state.styles} />
       }
-      {this.state.styles.length > 0 && 
+      {this.state.styles.length > 0 &&
         <Cart styles={this.state.styles} />
       }
     </div>)

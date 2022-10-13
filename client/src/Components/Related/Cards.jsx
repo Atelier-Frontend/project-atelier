@@ -13,8 +13,13 @@ class Cards extends React.Component {
 componentDidMount () {
   this.info();
 }
+componentDidUpdate(prevProps) {
+  if(this.props.item !== prevProps.item)
+  {
+    this.info();
+  }
+}
   info () {
-    console.log(this.props.item)
     axios.get('/products/product_id', {params: {id: this.props.item}})
       .then((data) => {
         var test = data.data
@@ -31,14 +36,15 @@ componentDidMount () {
   }
 
   render() {
-    console.log(this.props,' testing');
+    console.log(this.state.product)
+
     // if (JSON.stringify(this.state.product) === '{}') {
     //   var update = console.log
     // } else {
     //   var update = this.props.update
     // }
     return (
-      <aside className={this.props.class} onClick={()=> this.props.update(this.state.product.id)}>
+      <aside className={this.props.class} onClick={()=> this.props.update(this.state.product)}>
   <img
     src={this.state.styles}
     width="384"

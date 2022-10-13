@@ -19,7 +19,8 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    if(JSON.stringify(this.state.products) === '{}') {
+    console.log("Main")
+    // if(JSON.stringify(this.state.products) === '{}') {
     axios.get('/products')
       .then((response) => {
         this.setState({ products: response.data[3] })
@@ -27,17 +28,22 @@ class App extends React.Component {
       .catch((err) => {
         console.log(err)
       });
-    } else {
-      this.update(this.products.id);
-    }
+    // } else {
+    //   console.log('not Working')
+    //   this.update(this.products.id);
+    // }
+  }
+
+  componentDidUpdate () {
   }
 
 
   update (state_id) {
     axios.get('/products/product_id', {params: {id: state_id}})
       .then((response)=> {
-        console.log(response)
-        this.setState({products: response.data})
+        let newproducts = response.data
+        console.log(newproducts, ' HERE')
+        this.setState({products: newproducts})
       })
   }
 

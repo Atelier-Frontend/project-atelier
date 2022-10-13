@@ -8,6 +8,28 @@ class Your extends React.Component {
       product: {},
 
     }
+    this.list = this.list.bind(this);
+  }
+  componentDidMount () {
+    if(this.props.length > 0) {
+        this.list();
+    }
+  }
+
+
+  list () {
+    axios.get(`/products/product_id/related`, {params: {id: this.props.products.id}})
+      .then((data) => {
+        var lists = [];
+        var i = 0;
+        while (i < data.data.length) {
+          var elm = <Cards key={data.data[i]} item={data.data[i]} class='your' />
+          lists.push(elm)
+          i+=1;
+        }
+       this.setState({product:lists});
+      })
+
   }
 
   render() {

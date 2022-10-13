@@ -16,6 +16,15 @@ class Related extends React.Component {
   }
 
 
+    componentDidUpdate (prevProps) {
+    if(this.props.products.id !== prevProps.products.id)
+    {
+      this.list();
+    }
+  }
+
+
+
 
   list () {
     axios.get(`/products/product_id/related`, {params: {id: this.props.products.id}})

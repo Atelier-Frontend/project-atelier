@@ -17,7 +17,6 @@ class QnA extends React.Component {
 
   componentDidMount(props) {
     this.getQuestionsList(props)
-    // this.getAnswersList(642681)
   }
 
   componentDidUpdate(prevProps) {
@@ -59,10 +58,21 @@ class QnA extends React.Component {
     })
   }
 
+  filterQuestions(term) {
+    let questions = this.state.questions;
+    let filteredQuestions = questions.filter((q) => {
+      return q.question_body.includes(term)
+    });
+    this.setState({
+      questions: filteredQuestions
+    })
+  }
+
   render() {
     return (<div>
       <h4>Questions {'&'} Answers</h4>
-      <SearchBar />
+      <SearchBar filterQuestions={this.filterQuestions.bind(this)}
+                 getQList={this.getQuestionsList.bind(this)}/>
       <QuestionsList
         questions={this.state.questions}
         product={this.props.products}
@@ -72,7 +82,8 @@ class QnA extends React.Component {
         {(this.state.questions.length > 2) &&
         <MoreQuestions  moreQuestionsClicked={this.state.moreQuestionsClicked}
           questionClickHandler={this.questionClickHandler.bind(this)}/>}
-        <AddQuestion />
+        <AddQuestion product={this.props.products}
+                     getQList={this.getQuestionsList.bind(this)} />
       </div>
     </div>)
   }

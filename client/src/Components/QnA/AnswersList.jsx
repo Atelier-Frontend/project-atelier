@@ -6,12 +6,27 @@ class AnswersList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      a: 2
+      a: 2,
+      answers: [],
+      question_id: this.props.question.question_id
     }
   }
 
   componentDidMount(props) {
     this.moreQuestionsState(this.props.question)
+    this.getAnswersList(this.props.question.question_id)
+  }
+
+  getAnswersList(question_id) {
+    axios.get(`/qa/questions/:question_id/answers`, {params: {question_id}})
+      .then((response) => {
+        this.setState({
+          answers: response.data.results
+        })
+      })
+      .catch((err) => {
+        console.log('failed to get answers list')
+      })
   }
 
   moreAnswersHandler(e) {
@@ -23,7 +38,7 @@ class AnswersList extends React.Component {
     ) : (
       this.setState({
         [e.target.id]: true,
-        a: Object.keys(this.props.question.answers).length
+        a: this.state.answers.length
       })
     )
   }
@@ -48,12 +63,14 @@ class AnswersList extends React.Component {
    }
 
   render() {
-    let answers = Object.values(this.props.question.answers);
+    let answers = this.state.answers;
     answers = this.sortSeller(answers.sort(this.sortAnswers))
     return(<div>
       <div className="answer">
         <p className="letterA">{'A: '}</p>
-        <IndividualAnswer answers={answers} a={this.state.a}/>
+        <IndividualAnswer answers={answers} a={this.state.a}
+                          question_id={this.state.question_id}
+                          getAnswersList={this.getAnswersList.bind(this)}/>
       </div>
       {(answers.length > 2) ? (
         (this.state[this.props.question.question_id] === false) ? (

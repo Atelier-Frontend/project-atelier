@@ -39,15 +39,21 @@ class App extends React.Component {
 
 
   update (state_id) {
-    axios.get('/products/product_id', {params: {id: state_id}})
+    console.log(state_id, " state")
+    axios.get('/products/product_id', {params: {id: state_id.id}})
       .then((response)=> {
         let newproducts = response.data
-        console.log(newproducts, ' HERE')
         this.setState({products: newproducts})
       })
   }
 
   fav (obj) {
+    for (var i of this.state.fav) {
+      console.log(i, " obj");
+      if(i.id=== obj.id) {
+        return
+      }
+    }
     console.log("working")
     var ans = this.state.fav;
     ans.push(obj)

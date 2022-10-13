@@ -36,7 +36,6 @@ componentDidUpdate(prevProps) {
   }
 
   render() {
-    console.log(this.state.product)
 
     // if (JSON.stringify(this.state.product) === '{}') {
     //   var update = console.log
@@ -44,7 +43,8 @@ componentDidUpdate(prevProps) {
     //   var update = this.props.update
     // }
     return (
-      <aside className={this.props.class} onClick={()=> this.props.update(this.state.product)}>
+      <aside className={this.props.class} >
+        <div onClick={()=> this.props.update(this.state.product)}>
   <img
     src={this.state.styles}
     width="384"
@@ -58,12 +58,13 @@ componentDidUpdate(prevProps) {
   <small>{this.state.product.default_price}</small>
   <p>stars
   </p>
+  </div>
+  </div>
  <button onClick={()=>{this.props.fun(this.state.product)}}> <div class='large-font text-center top-20'>
   <ion-icon name="heart" >
     <div id='red-bg'></div>
   </ion-icon>
 </div></button>
-  </div>
 </aside>)
   }
 };

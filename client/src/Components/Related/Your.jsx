@@ -5,39 +5,40 @@ class Your extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      product: {},
+      product: [],
 
     }
     this.list = this.list.bind(this);
   }
-  componentDidMount () {
-    if(this.props.length > 0) {
-        this.list();
+  // componentDidMount () {
+  //   this.list();
+
+  // }
+  componentDidUpdate (prevProps) {
+    if(this.state.product.length < prevProps.products.length)
+    {
+      this.list();
     }
   }
 
-
   list () {
-    axios.get(`/products/product_id/related`, {params: {id: this.props.products.id}})
-      .then((data) => {
         var lists = [];
         var i = 0;
-        while (i < data.data.length) {
-          var elm = <Cards key={data.data[i]} item={data.data[i]} class='your' />
+        while (i < this.props.products.length) {
+          var elm = <Cards key={this.props.products[i].id} item={this.props.products[i].id} class='your' update={()=>{}} fun={()=>{}}/>
           lists.push(elm)
           i+=1;
         }
        this.setState({product:lists});
-      })
 
   }
 
   render() {
-    if(this.props.length > 0) {
+    console.log(this.state.product)
+    if(this.props.products.length > 0) {
     return (<div>
       <h4>Your</h4><section>
-        <ul className='test'>
-      <Cards class='your'/>
+        <ul className='test'>{this.state.product}
       </ul>
       </section>
     </div>)

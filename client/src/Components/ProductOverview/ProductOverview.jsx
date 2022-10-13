@@ -26,8 +26,19 @@ class ProductOverview extends React.Component {
     })
   }
 
-  componentDidUpdate () {
+  componentDidUpdate(prevProps) {
+    if(this.props.products.id !== prevProps.products.id)
+    {
+      var currentProduct = this.props.products;
+      this.setState({product: this.props.products});
 
+      axios.get('/products/product_id/styles', {
+        params: {id: this.props.products.id}
+      })
+      .then((response) => {
+        this.setState({ styles: response.data.results})
+      })
+    }
   }
 
   render() {

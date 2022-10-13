@@ -6,19 +6,30 @@ class QuantitySelector extends React.Component {
     this.state = {
       quantity: []
     }
-    this.handleChange.bind(this);
+    this.handeChange = this.handleChange.bind(this);
+    this.setQuantity = this.setQuantity.bind(this);
   }
 
   componentDidMount() {
-    if (this.props.quantity <= 15) {
-      this.setState({ quantity: this.props.quantity });
-    } else {
-      this.setState({ quantity: 15});
+    this.setQuantity();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.quantity !== prevProps.quantity) {
+      this.setQuantity();
     }
   }
 
   handleChange(event) {
     this.setState({selectValue: event.target.value});
+  }
+
+  setQuantity() {
+    if (this.props.quantity <= 15) {
+      this.setState({ quantity: this.props.quantity });
+    } else {
+      this.setState({ quantity: 15});
+    }
   }
 
   render() {

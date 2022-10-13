@@ -11,27 +11,40 @@ class Cart extends React.Component {
       sizes: [],
       quantity: []
     }
+
+    this.getQuantity = this.getQuantity.bind(this);
   }
 
   componentDidMount() {
+    this.getQuantity();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.selectedStyle !== prevProps.selectedStyle) {
+      this.getQuantity();
+    }
+  }
+
+  getQuantity() {
     var skus = this.props.styles[0].skus;
     var sizeArray = [];
-    var quanittyArray = [];
+    var quantityArray = [];
 
     for (var key in skus) {
       if (skus[key].quantity > 0) {
         sizeArray.push(skus[key].size);
-        quanittyArray.push(skus[key].quantity);
+        quantityArray.push(skus[key].quantity);
       }
     }
 
     this.setState({ 
       sizes: sizeArray, 
-      quantity: quanittyArray
+      quantity: quantityArray
     });
   }
 
   render() {
+    console.log(this.state.quantity)
     return (<div className='selectors'>
         <SizeSelector sizes={this.state.sizes} quantity={this.state.quantity[0]} />
         {this.state.quantity.length > 0 &&

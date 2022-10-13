@@ -5,19 +5,39 @@ class Your extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      product: this.props.products,
+      product: [],
 
+    }
+    this.list = this.list.bind(this);
+  }
+  // componentDidMount () {
+  //   this.list();
+
+  // }
+  componentDidUpdate (prevProps) {
+    if(this.state.product.length < prevProps.products.length)
+    {
+      this.list();
     }
   }
 
+  list () {
+        var lists = [];
+        var i = 0;
+        while (i < this.props.products.length) {
+          var elm = <Cards key={this.props.products[i].id} item={this.props.products[i].id} class='your' update={()=>{}} fun={()=>{}}/>
+          lists.push(elm)
+          i+=1;
+        }
+       this.setState({product:lists});
+
+  }
+
   render() {
-    console.log(this.props, ' your')
-    if(this.state.product.length > 0) {
-    console.log(this.props)
+    if(this.props.products.length > 0) {
     return (<div>
       <h4>Your</h4><section>
-        <ul className='test'>
-      <Cards class='your'/>
+        <ul className='test'>{this.state.product}
       </ul>
       </section>
     </div>)

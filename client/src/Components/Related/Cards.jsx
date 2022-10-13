@@ -5,6 +5,7 @@ class Cards extends React.Component {
     super(props);
     this.state = {
       product: {},
+      styles: ''
 
     }
     this.info = this.info.bind(this);
@@ -12,29 +13,46 @@ class Cards extends React.Component {
 componentDidMount () {
   this.info();
 }
+componentDidUpdate(prevProps) {
+  if(this.props.item !== prevProps.item)
+  {
+    this.info();
+  }
+}
   info () {
     axios.get('/products/product_id', {params: {id: this.props.item}})
       .then((data) => {
+        console.log(data)
         var test = data.data
-        this.setState({product: data.data})
+        axios.get('/products/product_id/styles', {
+          params: {id: this.props.item}
+        })
+        .then((testing) => {
+
+          this.setState({ product: test, styles: testing.data.results[0].photos[0].thumbnail_url})
+        })
+      })
+      .catch((err)=> {
+        console.log(err);
       })
   }
 
   render() {
-    // console.log(this.state.product);
+
     // if (JSON.stringify(this.state.product) === '{}') {
     //   var update = console.log
     // } else {
     //   var update = this.props.update
     // }
     return (
-      <aside className={this.props.class} onClick={()=> this.props.update(this.state.product.id)}>
-  {/* <img
-    src="https://images.pexels.com/photos/2562992/pexels-photo-2562992.png"
+      <aside className={this.props.class} >
+        <div onClick={()=> this.props.update(this.state.product)}>
+  <img
+    src={this.state.styles}
     width="384"
     height="192"
     alt="header image"
-  /> */}
+  />
   <div>
   <small>{this.state.product.category}
   </small>
@@ -42,12 +60,13 @@ componentDidMount () {
   <small>{this.state.product.default_price}</small>
   <p>stars
   </p>
+  </div>
+  </div>
  <button onClick={()=>{this.props.fun(this.state.product)}}> <div class='large-font text-center top-20'>
   <ion-icon name="heart" >
     <div id='red-bg'></div>
   </ion-icon>
 </div></button>
-  </div>
 </aside>)
   }
 };

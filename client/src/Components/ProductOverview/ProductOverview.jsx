@@ -37,7 +37,7 @@ class ProductOverview extends React.Component {
       params: {id: this.props.products.id}
     })
     .then((response) => {
-      this.setState({ 
+      this.setState({
         styles: response.data.results,
         selectedStyle: response.data.results[0],
         imageStyle: response.data.results[0].photos[0].url
@@ -53,7 +53,7 @@ class ProductOverview extends React.Component {
       return currentStyle.name === style;
     });
 
-    this.setState({ 
+    this.setState({
       imageStyle: selectStyle[0].photos[0].url,
       selectedStyle: selectStyle[0],
       sizeReset: true
@@ -63,13 +63,16 @@ class ProductOverview extends React.Component {
   render() {
     return (<div className='product-overview'>
       {this.state.styles.length > 0 &&
-        <ImageGallery styles={this.state.styles} selectedStyle={this.state.selectedStyle} image={this.state.imageStyle} />}  
+        <ImageGallery styles={this.state.styles} selectedStyle={this.state.selectedStyle} image={this.state.imageStyle} />}
       {Object.keys(this.state.product).length > 0 &&
-        <ProductInfo product={this.state.product} selectedStyle={this.state.selectedStyle} styleName={this.state.selectedStyle.name}/>}
-      {this.state.styles.length > 0 && 
-        <StyleSelector styles={this.state.styles} selectedStyle={this.state.selectedStyle} selectImage={this.selectImage} />}
-      {this.state.styles.length > 0 && 
-        <Cart styles={this.state.styles} selectedStyle={this.state.selectedStyle} reset={this.state.sizeReset}/>} 
+        <ProductInfo product={this.state.product} selectedStyle={this.state.selectedStyle} styleName={this.state.selectedStyle.name}/>
+      }
+      {this.state.styles.length > 0 &&
+        <StyleSelector styles={this.state.styles} selectedStyle={this.state.selectedStyle} selectImage={this.selectImage} />
+      }
+      {this.state.styles.length > 0 &&
+        <Cart styles={this.state.styles} selectedStyle={this.state.selectedStyle} reset={this.state.sizeReset}/>
+      }
     </div>)
   }
 };

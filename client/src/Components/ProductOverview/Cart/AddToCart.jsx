@@ -22,7 +22,7 @@ class Cart extends React.Component {
   componentDidUpdate(prevProps) {
     if (this.props.selectedStyle !== prevProps.selectedStyle) {
       this.getQuantity();
-    }
+    };
   }
 
   getQuantity() {
@@ -35,7 +35,7 @@ class Cart extends React.Component {
         sizeArray.push(skus[key].size);
         quantityArray.push(skus[key].quantity);
       }
-    }
+    };
 
     this.setState({ 
       sizes: sizeArray, 

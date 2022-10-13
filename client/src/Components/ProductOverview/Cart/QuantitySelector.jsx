@@ -17,7 +17,7 @@ class QuantitySelector extends React.Component {
   componentDidUpdate(prevProps) {
     if (this.props.quantity !== prevProps.quantity) {
       this.setQuantity();
-    }
+    };
   }
 
   handleChange(event) {

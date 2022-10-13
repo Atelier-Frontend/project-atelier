@@ -10,8 +10,11 @@ class ProductOverview extends React.Component {
     super(props);
     this.state = {
       product: {},
-      styles: []
+      styles: [],
+      selectedStyle: {},
+      imageStyle: ''
     }
+    this.selectImage = this.selectImage.bind(this);
   }
 
   componentDidMount() {
@@ -22,20 +25,34 @@ class ProductOverview extends React.Component {
       params: {id: this.props.products.id}
     })
     .then((response) => {
-      this.setState({ styles: response.data.results})
+      this.setState({ 
+        styles: response.data.results,
+        selectedStyle: response.data.results[0]
+      })
+    })
+  }
+
+  selectImage(style) {
+    var selectStyle = this.state.styles.filter((currentStyle) => {
+      return currentStyle.name === style;
+    });
+
+    this.setState({ 
+      imageStyle: selectStyle[0].photos[0].url,
+      selectedStyle: selectStyle[0]
     })
   }
 
   render() {
     return (<div className='productOverview'>
       {this.state.styles.length > 0 &&
-        <ImageGallery styles={this.state.styles} />
+        <ImageGallery styles={this.state.styles} selectedStyle={this.state.selectedStyle}/>
       }
       {Object.keys(this.state.product).length > 0 &&
-        <ProductInfo product={this.state.product} />
+        <ProductInfo product={this.state.product} price={this.state.selectedStyle.original_price}/>
       }
       {this.state.styles.length > 0 && 
-        <StyleSelector styles={this.state.styles} />
+        <StyleSelector styles={this.state.styles} selectImage={this.selectImage}/>
       }
       {this.state.styles.length > 0 && 
         <Cart styles={this.state.styles} />

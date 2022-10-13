@@ -16,7 +16,7 @@ class ImageGallery extends React.Component {
         ))}
       </div>
       <div>
-        <img src={this.props.styles[0].photos[0].url} style={{width: '80%', height: '80%'}}/>
+        <img src={this.props.imageStyle} style={{width: '500px', height: '700px'}}/>
       </div>
     </div>)
   }

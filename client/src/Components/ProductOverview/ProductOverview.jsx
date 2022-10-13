@@ -20,7 +20,16 @@ class ProductOverview extends React.Component {
   componentDidMount() {
     var currentProduct = this.props.products;
     this.setState({product: this.props.products});
+    this.getStyles();
+  }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.products !== prevProps.products) {
+      this.getStyles();
+    }
+  }
+
+  getStyles() {
     axios.get('/products/product_id/styles', {
       params: {id: this.props.products.id}
     })
@@ -30,6 +39,9 @@ class ProductOverview extends React.Component {
         selectedStyle: response.data.results[0],
         imageStyle: response.data.results[0].photos[0].url
       })
+    })
+    .catch((err) => {
+      console.log(err);
     })
   }
 

@@ -34,12 +34,14 @@ class ProductInfo extends React.Component {
   }
 
   render() {
+    console.log(this.props.selectedStyle)
     return (<div>
         {this.state.id > 0 &&
         <StarRating id={this.state.id}/>}
         <div>Category: {this.state.category}</div>
         <div>Name: {this.state.name}</div>
-        <div>Price: ${this.props.price}</div>
+        {Object.keys(this.props.selectedStyle).length > 0 &&
+          <Price selectedStyle={this.props.selectedStyle} />}
         <div>Overview Text: {this.state.text}</div>
     </div>)
   }

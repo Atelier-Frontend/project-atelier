@@ -34,7 +34,6 @@ class ProductInfo extends React.Component {
   }
 
   render() {
-    console.log(this.props.selectedStyle)
     return (<div>
         {this.state.id > 0 &&
         <StarRating id={this.state.id}/>}

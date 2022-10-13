@@ -9,7 +9,16 @@ class Price extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.props.selectedStyle)
+    this.checkSale();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.selectedStyle !== prevProps.selectedStyle) {
+      this.checkSale();
+    }
+  }
+
+  checkSale() {
     if (this.props.selectedStyle.sale_price === null) {
       this.setState({ price: this.props.selectedStyle.original_price });
     } else {
@@ -17,14 +26,7 @@ class Price extends React.Component {
     }
   }
 
-  // componentDidUpdate(prevProps) {
-  //   if (this.props.selectedStyle !== prevProps.selectedStyle) {
-  //     this.setState
-  //   }
-  // }
-
   render() {
-    //console.log(this.state.price)
     return (<div>
       <h4>Price: ${this.state.price}</h4>
     </div>)

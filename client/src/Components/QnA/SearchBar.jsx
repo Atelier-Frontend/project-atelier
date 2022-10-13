@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import icon from "./Pics/magnifying-glass.png";
+// import icon from "./Pics/magnifying-glass.png";
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -27,7 +27,7 @@ class SearchBar extends React.Component {
              style={{width: "50vw", height: "3vh"}}
              onChange={this.questionSearch.bind(this)} />
       <button className="search-button">
-        <img src={icon}></img>
+        {/* <img src={icon}></img> */}
       </button>
     </div>)
   }

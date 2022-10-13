@@ -30,7 +30,7 @@ class ProductInfo extends React.Component {
       })
       .catch((err) => {
         console.log(err);
-      })
+      });
   }
 
   render() {
@@ -39,8 +39,9 @@ class ProductInfo extends React.Component {
         <StarRating id={this.state.id}/>}
         <div>Category: {this.state.category}</div>
         <div>Name: {this.state.name}</div>
-        <div>Price: ${this.state.price}</div>
-        <div>Overview: {this.state.text}</div>
+        {Object.keys(this.props.selectedStyle).length > 0 &&
+          <Price selectedStyle={this.props.selectedStyle} />}
+        <div>Overview Text: {this.state.text}</div>
     </div>)
   }
 };

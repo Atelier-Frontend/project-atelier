@@ -10,32 +10,63 @@ class ProductOverview extends React.Component {
     super(props);
     this.state = {
       product: {},
-      styles: []
+      styles: [],
+      selectedStyle: {},
+      imageStyle: ''
     }
+    this.selectImage = this.selectImage.bind(this);
+    this.getStyles = this.getStyles.bind(this);
   }
 
   componentDidMount() {
     var currentProduct = this.props.products;
     this.setState({product: this.props.products});
+    this.getStyles();
+  }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.products !== prevProps.products) {
+      this.getStyles();
+    }
+  }
+
+  getStyles() {
     axios.get('/products/product_id/styles', {
       params: {id: this.props.products.id}
     })
     .then((response) => {
-      this.setState({ styles: response.data.results})
+      this.setState({ 
+        styles: response.data.results,
+        selectedStyle: response.data.results[0],
+        imageStyle: response.data.results[0].photos[0].url
+      })
     })
+    .catch((err) => {
+      console.log(err);
+    });
+  }
+
+  selectImage(style) {
+    var selectStyle = this.state.styles.filter((currentStyle) => {
+      return currentStyle.name === style;
+    });
+
+    this.setState({ 
+      imageStyle: selectStyle[0].photos[0].url,
+      selectedStyle: selectStyle[0]
+    });
   }
 
   render() {
     return (<div className='productOverview'>
       {this.state.styles.length > 0 &&
-        <ImageGallery style={this.state.styles[0]} />
+        <ImageGallery styles={this.state.styles} selectedStyle={this.state.selectedStyle} image={this.state.imageStyle}/>
       }
       {Object.keys(this.state.product).length > 0 &&
-        <ProductInfo product={this.state.product} />
+        <ProductInfo product={this.state.product} selectedStyle={this.state.selectedStyle} styleName={this.state.selectedStyle.name}/>
       }
       {this.state.styles.length > 0 && 
-        <StyleSelector styles={this.state.styles} />
+        <StyleSelector styles={this.state.styles} selectedStyle={this.state.selectedStyle} selectImage={this.selectImage} />
       }
       {this.state.styles.length > 0 && 
         <Cart styles={this.state.styles} />

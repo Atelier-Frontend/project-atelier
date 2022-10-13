@@ -46,7 +46,6 @@ class ModalQuestion extends React.Component {
   }
 
   render() {
-    console.log("what the f is this??", typeof this.props.product.id)
     return (<div className="form-container">
       <form react mailto='' className="question-form" >
         <div className="form-wrapper">

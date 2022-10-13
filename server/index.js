@@ -133,9 +133,10 @@ app.get('/qa/questions', (req, res) => {
 
 //Returns answers for a given question.
 app.get(`/qa/questions/:question_id/answers`, (req, res) => {
-  axios.get(`${apiPath}/qa/questions/${req.query.question_id}/answers`, header)
+  axios.defaults.headers.common['Authorization'] = process.env.TOKEN;
+  axios.get(`${apiPath}/qa/questions/${req.query.question_id}/answers`)
     .then((response) => {
-      res.send(response);
+      res.send(response.data);
     })
     .catch((err) => {
       res.send(err)
@@ -144,7 +145,14 @@ app.get(`/qa/questions/:question_id/answers`, (req, res) => {
 
 //Adds a question for the given product.
 app.post('/qa/questions', (req, res) => {
-  res.end()
+  axios.defaults.headers.common['Authorization'] = process.env.TOKEN;
+  axios.post(`${apiPath}/qa/questions`, req.body)
+    .then((response) => {
+      res.status(201).send('Question added')
+    })
+    .catch((err) => {
+      res.send(err)
+    })
 });
 
 //Adds an answer for the given question.
@@ -152,7 +160,7 @@ app.post(`/qa/questions/:question_id/answers`, (req, res) => {
   axios.defaults.headers.common['Authorization'] = process.env.TOKEN;
   axios.post(`${apiPath}/qa/questions/${req.body.question_id}/answers`, req.body.body)
     .then((response) => {
-      res.status(204).send('Answer added')
+      res.status(201).send('Answer added')
     })
     .catch((err) => {
       res.send(err)
@@ -177,8 +185,16 @@ app.put('/qa/questions/:question_id/report', (req, res) => {
 });
 
 //Updates an answer to show it was found helpful.
-app.put('/qa/questions/:answer_id/helpful', (req, res) => {
-  res.end()
+app.put('/qa/answers/:answer_id/helpful', (req, res) => {
+  axios.defaults.headers.common['Authorization'] = process.env.TOKEN;
+  axios.put(`${apiPath}/qa/answers/${req.body.answer_id}/helpful`)
+    .then((response) => {
+      console('why not???')
+      res.status(204).send('This answer is helpful!')
+    })
+    .catch((err) => {
+      res.send(err)
+    })
 });
 
 //Updates an answer to show it has been reported.

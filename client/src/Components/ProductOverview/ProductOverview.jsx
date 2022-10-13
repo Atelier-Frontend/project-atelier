@@ -15,6 +15,7 @@ class ProductOverview extends React.Component {
       imageStyle: ''
     }
     this.selectImage = this.selectImage.bind(this);
+    this.getStyles = this.getStyles.bind(this);
   }
 
   componentDidMount() {

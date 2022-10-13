@@ -5,7 +5,8 @@ class Price extends React.Component {
     super(props);
     this.state = {
       price: ''
-    } 
+    }
+    this.checkSale = this.checkSale.bind(this); 
   }
 
   componentDidMount() {

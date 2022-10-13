@@ -17,7 +17,6 @@ class QnA extends React.Component {
 
   componentDidMount(props) {
     this.getQuestionsList(props)
-    // this.getAnswersList(642681)
   }
 
   componentDidUpdate(prevProps) {
@@ -38,18 +37,6 @@ class QnA extends React.Component {
         console.log('failed to get questions list')
       })
   }
-
-  // getAnswersList(question_id) {
-  //   axios.get(`/qa/questions/:question_id/answers`, {params: {question_id}})
-  //     .then((response) => {
-  //       this.setState({
-  //         answers: response.data.results
-  //       })
-  //     })
-  //     .catch((err) => {
-  //       console.log('failed to get answers list')
-  //     })
-  // }
 
   questionClickHandler() {
     (this.state.moreQuestionsClicked === false) ? this.setState({

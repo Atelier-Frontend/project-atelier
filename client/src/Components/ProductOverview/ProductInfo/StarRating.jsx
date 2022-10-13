@@ -9,8 +9,9 @@ class StarRating extends React.Component {
   }
 
   render() {
-    return (<div>
-      <div>Star Rating: FILL IN</div>
+    return (<div className='star-rating'>
+      <div className='stars'>Star Rating: FILL IN</div>
+      <div className='stars'>Read all reviews</div>
     </div>)
   }
 };

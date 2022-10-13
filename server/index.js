@@ -29,7 +29,6 @@ app.get('/products', (req, res) => {
 
 // return all product level information for a specified id
 app.get('/products/product_id', (req, res) => {
-  console.log(req.query.id);
   axios.get(`${apiPath}/products/${req.query.id}`, header)
     .then((response) => {
       res.send(response.data);
@@ -66,7 +65,7 @@ app.get('/products/product_id/related', (req, res) => {
 
 // Returns a list of reviews for a particular product
 app.get('/reviews', (req, res) => {
-  axios.get(`${apiPath}/reviews?product_id=${req.body.id}`, header)
+  axios.get(`${apiPath}/reviews?product_id=${req.query.id}`, header)
     .then((response) => {
       res.status(200).send(response.data)
     })
@@ -77,7 +76,7 @@ app.get('/reviews', (req, res) => {
 
 // Returns review metadata for a given product
 app.get('/reviews/meta', (req, res) => {
-  axios.get(`${apiPath}/reviews/meta/?product_id=${req.body.id}`, header)
+  axios.get(`${apiPath}/reviews/meta/?product_id=${req.query.id}`, header)
     .then((response) => {
       res.status(200).send(response.data)
     })
@@ -123,12 +122,24 @@ app.put('/reviews/:review_id/report', (req, res) => {
 // ---- QUESTIONS & ANSWERS ROUTES ---- //
 //Retrieves a list of questions for a particular product.
 app.get('/qa/questions', (req, res) => {
-  res.end()
+  axios.get(`${apiPath}/qa/questions?${req._parsedOriginalUrl.query}`, header)
+    .then((response) => {
+      res.send(response.data);
+    })
+    .catch((err) => {
+      res.send(err)
+    })
 });
 
 //Returns answers for a given question.
 app.get(`/qa/questions/:question_id/answers`, (req, res) => {
-  res.end()
+  axios.get(`${apiPath}/qa/questions/${req.query.question_id}/answers`, header)
+    .then((response) => {
+      res.send(response);
+    })
+    .catch((err) => {
+      res.send(err)
+    })
 });
 
 //Adds a question for the given product.
@@ -138,12 +149,26 @@ app.post('/qa/questions', (req, res) => {
 
 //Adds an answer for the given question.
 app.post(`/qa/questions/:question_id/answers`, (req, res) => {
-  res.end()
+  axios.defaults.headers.common['Authorization'] = process.env.TOKEN;
+  axios.post(`${apiPath}/qa/questions/${req.body.question_id}/answers`, req.body.body)
+    .then((response) => {
+      res.status(204).send('Answer added')
+    })
+    .catch((err) => {
+      res.send(err)
+    })
 });
 
 //Updates a question to show it was found helpful.
 app.put('/qa/questions/:question_id/helpful', (req, res) => {
-  res.end()
+  axios.defaults.headers.common['Authorization'] = process.env.TOKEN;
+  axios.put(`${apiPath}/qa/questions/${req.body.question_id}/helpful`)
+    .then((response) => {
+      res.status(204).send('This question is helpful!')
+    })
+    .catch((err) => {
+      res.send(err)
+    })
 });
 
 //Updates a question to show it was reported.

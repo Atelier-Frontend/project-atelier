@@ -22,26 +22,23 @@ class App extends React.Component {
     if(JSON.stringify(this.state.products) === '{}') {
     axios.get('/products')
       .then((response) => {
-        this.setState({ products: response.data[0] })
+        this.setState({ products: response.data[3] })
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err)
       });
     } else {
-      console.log(this);
       this.update(this.products.id);
     }
   }
 
 
   update (state_id) {
-
     axios.get('/products/product_id', {params: {id: state_id}})
       .then((response)=> {
-        console.log(response.data)
+        console.log(response)
         this.setState({products: response.data})
       })
-
   }
 
   fav (obj) {
@@ -54,8 +51,9 @@ class App extends React.Component {
   }
 
   render () {
-    console.log(this.state.fav)
+    console.log(this.state.fav, ' fav')
     return (<div>
+      <div>{JSON.stringify(this.state.products)}</div>
       <h1>Project Atelier</h1>
       {Object.keys(this.state.products).length > 0 &&
         <ProductOverview products={this.state.products} />}

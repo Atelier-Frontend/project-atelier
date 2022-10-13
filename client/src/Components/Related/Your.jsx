@@ -5,15 +5,13 @@ class Your extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      product: this.props.products,
+      product: {},
 
     }
   }
 
   render() {
-    console.log(this.props, ' your')
-    if(this.state.product.length > 0) {
-    console.log(this.props)
+    if(this.props.length > 0) {
     return (<div>
       <h4>Your</h4><section>
         <ul className='test'>

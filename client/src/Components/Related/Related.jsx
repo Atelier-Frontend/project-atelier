@@ -7,7 +7,6 @@ class Related extends React.Component {
     super(props);
     this.state = {
       product: [],
-
     }
     this.list = this.list.bind(this)
   }
@@ -24,7 +23,6 @@ class Related extends React.Component {
         var lists = [];
         var i = 0;
         while (i < data.data.length) {
-          console.log(data);
           var elm = <Cards key={data.data[i]} item={data.data[i]} class='Related' update={this.props.update} fun={this.props.fun}/>
           lists.push(elm)
           i+=1;

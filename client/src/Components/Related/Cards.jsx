@@ -5,6 +5,7 @@ class Cards extends React.Component {
     super(props);
     this.state = {
       product: {},
+      styles: ''
 
     }
     this.info = this.info.bind(this);
@@ -13,15 +14,24 @@ componentDidMount () {
   this.info();
 }
   info () {
+    console.log(this.props.item)
     axios.get('/products/product_id', {params: {id: this.props.item}})
       .then((data) => {
         var test = data.data
-        this.setState({product: data.data})
+        axios.get('/products/product_id/styles', {
+          params: {id: this.props.item}
+        })
+        .then((testing) => {
+          this.setState({ product: test, styles: testing.data.results[0].photos[0].thumbnail_url})
+        })
+      })
+      .catch((err)=> {
+        console.log(err);
       })
   }
 
   render() {
-    // console.log(this.state.product);
+    console.log(this.props,' testing');
     // if (JSON.stringify(this.state.product) === '{}') {
     //   var update = console.log
     // } else {
@@ -30,11 +40,12 @@ componentDidMount () {
     return (
       <aside className={this.props.class} onClick={()=> this.props.update(this.state.product.id)}>
   <img
-    src="https://images.pexels.com/photos/2562992/pexels-photo-2562992.png"
+    src={this.state.styles}
     width="384"
     height="192"
     alt="header image"
-  /><div>
+  />
+  <div>
   <small>{this.state.product.category}
   </small>
   <h3>{this.state.product.name}</h3>

@@ -27,7 +27,8 @@ class ProductOverview extends React.Component {
     .then((response) => {
       this.setState({ 
         styles: response.data.results,
-        selectedStyle: response.data.results[0]
+        selectedStyle: response.data.results[0],
+        imageStyle: response.data.results[0].photos[0].url
       })
     })
   }
@@ -46,13 +47,13 @@ class ProductOverview extends React.Component {
   render() {
     return (<div className='productOverview'>
       {this.state.styles.length > 0 &&
-        <ImageGallery styles={this.state.styles} selectedStyle={this.state.selectedStyle}/>
+        <ImageGallery styles={this.state.styles} selectedStyle={this.state.selectedStyle} image={this.state.imageStyle}/>
       }
       {Object.keys(this.state.product).length > 0 &&
-        <ProductInfo product={this.state.product} price={this.state.selectedStyle.original_price}/>
+        <ProductInfo product={this.state.product} selectedStyle={this.state.selectedStyle} styleName={this.state.selectedStyle.name}/>
       }
       {this.state.styles.length > 0 && 
-        <StyleSelector styles={this.state.styles} selectImage={this.selectImage}/>
+        <StyleSelector styles={this.state.styles} selectedStyle={this.state.selectedStyle} selectImage={this.selectImage} />
       }
       {this.state.styles.length > 0 && 
         <Cart styles={this.state.styles} />

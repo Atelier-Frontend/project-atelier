@@ -64,7 +64,7 @@ class AnswersList extends React.Component {
 
   render() {
     let answers = this.state.answers;
-    answers = this.sortSeller(answers.sort(this.sortAnswers))
+    answers = this.sortSeller(answers.sort(this.sortAnswers));
     return(<div>
       <div className="answer">
         <p className="letterA">{'A: '}</p>
@@ -82,7 +82,7 @@ class AnswersList extends React.Component {
         ) : <span id={this.props.question.question_id}
                   onClick={this.moreAnswersHandler.bind(this)}
                   className="foldAnswers">
-                    {'FOLD ANSWERS'}
+                    {'COLLAPSE ANSWERS'}
             </span>
       ) : ''}
     </div>)

@@ -34,7 +34,6 @@ class ImageGallery extends React.Component {
   }
 
   render() {
-    console.log(this.props.styles.indexOf(this.props.selectedStyle))
     return (
       <div className='image-gallery'>
         <FaArrowAltCircleLeft className='left-arrow' onClick={this.prevImage}/>

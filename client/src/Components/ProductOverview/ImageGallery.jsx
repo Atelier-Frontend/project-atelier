@@ -13,8 +13,10 @@ class ImageGallery extends React.Component {
     this.prevImage = this.prevImage.bind(this);
   }
 
-  componentDidUpdate() {
-    
+  componentDidUpdate(prevProps) {
+    if(this.props.selectedStyle !== prevProps.selectedStyle) {
+      this.setState({ current: this.props.styles.indexOf(this.props.selectedStyle) })
+    };
   }
 
   nextImage() {

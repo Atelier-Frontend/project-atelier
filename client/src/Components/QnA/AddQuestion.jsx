@@ -8,6 +8,7 @@ class AddQuestion extends React.Component {
     this.state = {
       showModal: false,
     }
+    this.showModal = this.showModal.bind(this);
   }
 
   showModal() {

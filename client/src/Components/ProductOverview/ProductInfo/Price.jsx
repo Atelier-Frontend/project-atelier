@@ -16,7 +16,7 @@ class Price extends React.Component {
   componentDidUpdate(prevProps) {
     if (this.props.selectedStyle !== prevProps.selectedStyle) {
       this.checkSale();
-    }
+    };
   }
 
   checkSale() {

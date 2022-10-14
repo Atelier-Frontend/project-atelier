@@ -13,9 +13,20 @@ class ProductInfo extends React.Component {
       price: '',
       text: ''
     }
+    this.getProducts = this.getProducts.bind(this);
   }
 
   componentDidMount() {
+    this.getProducts();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.product.id !== prevProps.product.id) {
+      this.getProducts();
+    };
+  }
+
+  getProducts() {
     axios.get('/products/product_id', {
       params: {id: this.props.product.id}
     })

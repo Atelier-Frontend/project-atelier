@@ -38,8 +38,10 @@ class ImageGallery extends React.Component {
   render() {
     return (
       <div className='image-gallery'>
-        <FaArrowAltCircleLeft className='left-arrow' onClick={this.prevImage}/>
-        <FaArrowAltCircleRight className='right-arrow' onClick={this.nextImage}/>
+        {this.state.current !== 0 && (
+          <FaArrowAltCircleLeft className='left-arrow' onClick={this.prevImage}/>)}
+        {this.state.current < this.state.length - 1 && (
+          <FaArrowAltCircleRight className='right-arrow' onClick={this.nextImage}/>)}
         {this.props.styles.map((style, index) => (
             <div className={index === this.state.current ? 'slide-active' : 'slide'} key={index}>
               {index === this.state.current && (

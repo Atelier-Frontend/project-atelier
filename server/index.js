@@ -189,7 +189,6 @@ app.put('/qa/answers/:answer_id/helpful', (req, res) => {
   axios.defaults.headers.common['Authorization'] = process.env.TOKEN;
   axios.put(`${apiPath}/qa/answers/${req.body.answer_id}/helpful`)
     .then((response) => {
-      console('why not???')
       res.status(204).send('This answer is helpful!')
     })
     .catch((err) => {
@@ -199,7 +198,15 @@ app.put('/qa/answers/:answer_id/helpful', (req, res) => {
 
 //Updates an answer to show it has been reported.
 app.put('/qa/answers/:answer_id/report', (req, res) => {
-  res.end()
+  axios.defaults.headers.common['Authorization'] = process.env.TOKEN;
+  axios.put(`${apiPath}/qa/answers/${req.body.answer_id}/report`)
+    .then((response) => {
+      console('I got here')
+      res.status(204).send('This answer was reported.')
+    })
+    .catch((err) => {
+      res.send(err)
+    })
 });
 
 

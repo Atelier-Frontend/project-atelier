@@ -12,7 +12,8 @@ class ProductOverview extends React.Component {
       product: {},
       styles: [],
       selectedStyle: {},
-      imageStyle: ''
+      imageStyle: '',
+      checkSelect: false
     }
     this.selectImage = this.selectImage.bind(this);
     this.getStyles = this.getStyles.bind(this);
@@ -54,14 +55,16 @@ class ProductOverview extends React.Component {
 
     this.setState({ 
       imageStyle: selectStyle[0].photos[0].url,
-      selectedStyle: selectStyle[0]
+      selectedStyle: selectStyle[0],
+      checkSelect: true
     });
   }
 
   render() {
+    console.log(this.state.imageStyle)
     return (<div className='productOverview'>
       {this.state.styles.length > 0 &&
-        <ImageGallery styles={this.state.styles} selectedStyle={this.state.selectedStyle} image={this.state.imageStyle}/>
+        <ImageGallery styles={this.state.styles} selectedStyle={this.state.selectedStyle} image={this.state.imageStyle} check={this.state.checkSelect}/>
       }
       {Object.keys(this.state.product).length > 0 &&
         <ProductInfo product={this.state.product} selectedStyle={this.state.selectedStyle} styleName={this.state.selectedStyle.name}/>

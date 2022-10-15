@@ -1,16 +1,26 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, fireEvent, waitFor, screen } from '@testing-library/react';
+import {rest} from 'msw';
+import {setupServer} from 'msw/node';
 import '@testing-library/jest-dom';
 import ProductOverview from '../ProductOverview.jsx';
-import App from '/Users/chuck/project-atelier/client/src/index.jsx';
+import App from '../../../index.jsx';
 
-test('renders App component', async () => {
-  // ARRANGE
-  render(<App />)
 
-  // ACT
-  await screen.findByRole('heading')
+const server = setupServer(
+  rest.get('/greeting', (req, res, ctx) => {
+    return res(ctx.json({greeting: 'hello there'}));
+  }),
+);
 
-  // ASSERT
-  expect(screen.getByRole('heading')).toHaveTextContent('Project Atelier')
-})
+beforeAll(() => server.listen());
+afterEach(() => server.resetHandlers());
+afterAll(() => server.close());
+
+describe('App', () => {
+  test('renders App component', async () => {
+    render(<App />)
+    await screen.findByRole('heading')
+    expect(screen.getByRole('heading')).toHaveTextContent('Project Atelier')
+  });
+});

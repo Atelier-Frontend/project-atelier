@@ -5,7 +5,7 @@ import { render, fireEvent, waitFor, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import QnA from '../QnA.jsx';
 import MoreQuestions from '../MoreQuestions.jsx';
-import App from '/Users/chuck/project-atelier/client/src/index.jsx';
+import App from '../../../index.jsx';
 
 const server = setupServer(
   rest.get('/greeting', (req, res, ctx) => {

@@ -39,7 +39,6 @@ class App extends React.Component {
 
 
   update (state_id) {
-    console.log(state_id, " state")
     axios.get('/products/product_id', {params: {id: state_id.id}})
       .then((response)=> {
         let newproducts = response.data
@@ -49,12 +48,10 @@ class App extends React.Component {
 
   fav (obj) {
     for (var i of this.state.fav) {
-      console.log(i, " obj");
       if(i.id=== obj.id) {
         return
       }
     }
-    console.log("working")
     var ans = this.state.fav;
     ans.push(obj)
     this.setState({
@@ -63,9 +60,7 @@ class App extends React.Component {
   }
 
   render () {
-    console.log(this.state.fav, ' fav')
     return (<div>
-      <div>{JSON.stringify(this.state.products)}</div>
       <h1>Project Atelier</h1>
       {Object.keys(this.state.products).length > 0 &&
         <ProductOverview products={this.state.products} />}

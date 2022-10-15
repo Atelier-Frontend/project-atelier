@@ -34,7 +34,6 @@ class Your extends React.Component {
   }
 
   render() {
-    console.log(this.state.product)
     if(this.props.products.length > 0) {
     return (<div>
       <h4>Your</h4><section>

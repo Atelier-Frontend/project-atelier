@@ -2,7 +2,7 @@
   "name": "project-atelier",
   "version": "1.0.0",
   "main": "server/index.js",
-  "jest":{
+  "jest": {
     "testEnvironment": "jsdom"
   },
   "scripts": {
@@ -13,7 +13,6 @@
     "test": "mocha",
     "react-test": "jest"
   },
-  "type": "module",
   "license": "Unlicensed",
   "dependencies": {
     "@babel/core": "7.19.3",
@@ -28,6 +27,7 @@
     "jest-environment-jsdom": "^29.2.0",
     "jquery": "3.6.1",
     "mocha": "10.0.0",
+    "msw": "^0.47.4",
     "nodemon": "2.0.20",
     "react": "17.0.2",
     "react-dom": "17.0.2",

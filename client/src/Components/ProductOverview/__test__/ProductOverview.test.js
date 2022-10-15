@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import ProductOverview from '../ProductOverview.jsx';
-import App from '/Users/blake/work/project-atelier/client/src/index.jsx';
+import App from '/Users/chuck/project-atelier/client/src/index.jsx';
 
 test('renders App component', async () => {
   // ARRANGE

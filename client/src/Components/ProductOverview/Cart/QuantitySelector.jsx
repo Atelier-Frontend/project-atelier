@@ -15,9 +15,9 @@ class QuantitySelector extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.quantity !== prevProps.quantity) {
+    if (this.props.size !== prevProps.size) {
       this.setQuantity();
-    };
+    }; 
   }
 
   handleChange(event) {
@@ -25,8 +25,8 @@ class QuantitySelector extends React.Component {
   }
 
   setQuantity() {
-    if (this.props.quantity <= 15) {
-      this.setState({ quantity: this.props.quantity });
+    if (this.props.quantity[this.props.size] <= 15) {
+      this.setState({ quantity: this.props.quantity[this.props.size] });
     } else {
       this.setState({ quantity: 15});
     }

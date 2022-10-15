@@ -28,6 +28,7 @@ class QuantitySelector extends React.Component {
   }
 
   handleChange(event) {
+    event.preventDefault();
     this.setState({selectValue: event.target.value});
   }
 

@@ -50,9 +50,13 @@ class Cart extends React.Component {
   }
 
   render() {
-    console.log(this.state.quantity)
     return (<div className='selectors'>
-        <SizeSelector sizes={this.state.sizes} quantity={this.state.quantity[0]} selectSize={this.selectSize}/>
+        <SizeSelector 
+          sizes={this.state.sizes} 
+          quantity={this.state.quantity[0]} 
+          selectSize={this.selectSize} 
+          styles={this.props.styles}
+          reset={this.props.reset} />
         {this.state.quantity.length > 0 &&
           <QuantitySelector quantity={this.state.quantity} size={this.state.selectedSize}/>}
         <button>Add to Cart</button>

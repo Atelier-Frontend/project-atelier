@@ -43,7 +43,6 @@ class QuantitySelector extends React.Component {
   }
 
   render() {
-    console.log(this.props.size)
     return (<div className='quantity'>
       <label>
         Quantity:

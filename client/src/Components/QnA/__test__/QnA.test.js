@@ -4,6 +4,7 @@ import {setupServer} from 'msw/node';
 import { render, fireEvent, waitFor, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import QnA from '../QnA.jsx';
+import MoreQuestions from '../MoreQuestions.jsx';
 import App from '/Users/chuck/project-atelier/client/src/index.jsx';
 
 const server = setupServer(
@@ -24,11 +25,20 @@ describe("App", () => {
   })
 })
 
-describe("Q&A", () => {
-  test('loads and displays greeting', async () => {
-    render (<QnA />)
-    await screen.findByRole('heading')
-    expect(screen.getByRole('heading').toHaveTextContent('Question'))
+// describe("Q&A", () => {
+//   test('loads and displays greeting', async () => {
+//     render (<QnA />)
+//     await screen.findByRole('heading')
+//     expect(screen.getByRole('heading').toHaveTextContent('Question'))
+//   })
+// })
+
+
+describe("MoreQuestions", () => {
+  test('Loads and displays MoreQuestions Button', async () => {
+    render (<MoreQuestions />)
+    await screen.findByRole('button')
+    expect(screen.getByRole('button')).toHaveTextContent('ANSWERED QUESTIONS')
   })
 })
 

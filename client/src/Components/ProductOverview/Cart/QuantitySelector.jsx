@@ -4,10 +4,12 @@ class QuantitySelector extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      quantity: []
+      quantity: [],
+      disabled: true
     }
     this.handeChange = this.handleChange.bind(this);
     this.setQuantity = this.setQuantity.bind(this);
+    this.enableDropDown = this.enableDropDown.bind(this);
   }
 
   componentDidMount() {
@@ -19,6 +21,7 @@ class QuantitySelector extends React.Component {
       this.setQuantity();
     };
     if (this.props.size !== prevProps.size) {
+      this.enableDropDown();
       this.setQuantity();
     } 
   }
@@ -35,15 +38,23 @@ class QuantitySelector extends React.Component {
     }
   }
 
+  enableDropDown() {
+    this.setState({ disabled: false });
+  }
+
   render() {
+    console.log(this.props.size)
     return (<div className='quantity'>
       <label>
         Quantity:
-        <select name='quantity'>
+        {this.state.disabled === true &&
+          <select name='quantity' disabled={true}>{'--'}</select>}
+        {this.state.disabled === false && 
+          <select name='quantity'>
           {[...Array(this.state.quantity)].map((e, i) => (
             <option key={i}>{i + 1}</option>
           ))}          
-        </select>
+        </select>}  
       </label>
     </div>)
   }

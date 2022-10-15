@@ -5,7 +5,8 @@ class IndividualAnswer extends React.Component {
   constructor(props) {
     super(props),
     this.state = {
-      AVoted: []
+      AVoted: [],
+      reported: []
     }
   }
 
@@ -26,6 +27,21 @@ class IndividualAnswer extends React.Component {
         .catch((err) => {
           console.log('failed')
         })
+    }
+  }
+
+  reportAnswer(e) {
+    if (this.state.reported.includes(e.target.id)) {
+      (alert("You have reported this answer."))
+    } else {
+      this.setState({reported: [...this.state.reported, e.target.id]});
+      axios.put('/qa/answers/:answer_id/report', {answer_id: e.target.id})
+      .then(() => {
+        console.log('Answer reported')
+      })
+      .catch((err) => {
+        console.log('failed')
+      })
     }
   }
 
@@ -53,7 +69,12 @@ class IndividualAnswer extends React.Component {
               {`(${answer.helpfulness})`}
             </p>
             <p className="Adivider"> | </p>
-            <p className="report"> Report </p>
+            {(this.state.reported.includes(answer.answer_id)) ? <p> Reported </p>
+            : <p className="report"
+               id={answer.answer_id}
+               onClick={this.reportAnswer.bind(this)}>
+                Report
+              </p>}
           </span>
         </span>
       ))}

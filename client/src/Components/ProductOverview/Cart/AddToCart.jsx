@@ -50,7 +50,6 @@ class Cart extends React.Component {
   }
 
   render() {
-    console.log(this.state.quantity)
     return (<div className='selectors'>
         <SizeSelector sizes={this.state.sizes} quantity={this.state.quantity[0]} selectSize={this.selectSize}/>
         {this.state.quantity.length > 0 &&

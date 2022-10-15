@@ -16,7 +16,6 @@ class SizeSelector extends React.Component {
   }
 
   render() {
-    console.log(this.state.selectValue)
     return (<div className='size'>
       <label>
         Size:

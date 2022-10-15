@@ -1,14 +1,45 @@
-// import React from 'react';
-// import {rest} from 'msw';
-// import {setupServer} from 'msw/node';
-// import {render, fireEvent, waitFor, screen} from '@testing-library/react';
-// import '@testing-library/jest-dom';
-// import '@testing-library/dom';
-// import QnA from '../QnA.jsx';
+import React from 'react';
+import {rest} from 'msw';
+import {setupServer} from 'msw/node';
+import { render, fireEvent, waitFor, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import QnA from '../QnA.jsx';
+import MoreQuestions from '../MoreQuestions.jsx';
+import App from '/Users/chuck/project-atelier/client/src/index.jsx';
 
-// describe("Search bar", () => {
+const server = setupServer(
+  rest.get('/greeting', (req, res, ctx) => {
+    return res(ctx.json({greeting: 'hello there'}))
+  }),
+)
+
+beforeAll(() => server.listen())
+afterEach(() => server.resetHandlers())
+afterAll(() => server.close())
+
+describe("App", () => {
+  test('renders App component', async () => {
+    render(<App />)
+    await screen.findByRole('heading')
+    expect(screen.getByRole('heading')).toHaveTextContent('Project Atelier')
+  })
+})
+
+// describe("Q&A", () => {
 //   test('loads and displays greeting', async () => {
 //     render (<QnA />)
-//     await screen.findByRole('input')
-//     expect(screen.getByRole('input').toHaveTextContent('Have a question?'))
+//     await screen.findByRole('heading')
+//     expect(screen.getByRole('heading').toHaveTextContent('Question'))
 //   })
+// })
+
+
+describe("MoreQuestions", () => {
+  test('Loads and displays MoreQuestions Button', async () => {
+    render (<MoreQuestions />)
+    await screen.findByRole('button')
+    expect(screen.getByRole('button')).toHaveTextContent('ANSWERED QUESTIONS')
+  })
+})
+
+

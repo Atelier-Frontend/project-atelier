@@ -4,7 +4,9 @@ class Price extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      price: ''
+      price: '',
+      original: '',
+      onSale: false
     }
     this.checkSale = this.checkSale.bind(this); 
   }
@@ -21,15 +23,26 @@ class Price extends React.Component {
 
   checkSale() {
     if (this.props.selectedStyle.sale_price === null) {
-      this.setState({ price: this.props.selectedStyle.original_price });
+      this.setState({ price: this.props.selectedStyle.original_price, onSale: false });
     } else {
-      this.setState({ price: this.props.selectedStyle.sale_price });
+      this.setState({ 
+        price: this.props.selectedStyle.sale_price,
+        original: this.props.selectedStyle.original_price,
+        onSale: true 
+      });
     }
   }
 
   render() {
     return (<div>
-      <h4>Price: ${this.state.price}</h4>
+      {this.state.onSale === true && (
+        <div>
+          <h4> Price: ${this.state.price}</h4>
+          <span><s>${this.state.original}</s></span>
+        </div>)}
+      {this.state.onSale === false && (
+        <h4>Price: ${this.state.price}</h4>
+      )}
     </div>)
   }
 };

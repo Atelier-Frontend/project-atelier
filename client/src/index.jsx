@@ -63,7 +63,7 @@ class App extends React.Component {
     return (<div>
       <h1>Project Atelier</h1>
       {Object.keys(this.state.products).length > 0 &&
-        <ProductOverview products={this.state.products} />}
+        <ProductOverview products={this.state.products} update={this.update}/>}
       {Object.keys(this.state.products).length > 0 &&
       <Related products={this.state.products} update={this.update} fun={this.fav}/>}
       {Object.keys(this.state.products).length > 0 &&

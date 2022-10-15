@@ -2,15 +2,15 @@ import React from 'react';
 import axios from 'axios';
 
 
-class ModalQ extends React.Component {
+class ModalQuestion extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       isValidEmail: true,
-      YourAnswer: '',
+      YourQuestion: '',
       name: '',
       email: '',
-      photos: []
+      product_id: this.props.product.id
     }
   }
 
@@ -30,15 +30,14 @@ class ModalQ extends React.Component {
         isValidEmail: false
       });
     } else {
-      axios.post('/qa/questions/:question_id/answers',
-      {question_id: this.props.currentQ.split('@@@$$$@@@')[0],
-        body: {body: this.state.YourAnswer,
-              name: this.state.name,
-              email: this.state.email,
-              photos: this.state.photos}})
-        .then(() => {
+      axios.post('/qa/questions', {
+        body: this.state.YourQuestion,
+        name: this.state.name,
+        email: this.state.email,
+        product_id: this.props.product.id
+      }).then(() => {
           this.props.closeModal();
-          alert('Answer added! Refresh the page to see it!')
+          alert('Question added! Refresh the page to see it!')
         })
         .catch((err) => {
           console.log('failed')
@@ -48,23 +47,24 @@ class ModalQ extends React.Component {
 
   render() {
     return (<div className="form-container">
-      <form react mailto='' className="answer-form" >
+      <form react mailto='' className="question-form" >
         <div className="form-wrapper">
-          <p className="formTitle">Submit your Answer</p>
-          <p className="formSubtitle">{`${this.props.product.name}: ${this.props.currentQ.split('@@@$$$@@@')[1]}`}</p>
-          <label>Your Answer</label>
+          <p className="formTitle">Ask Your Question</p>
+          <p className="formSubtitle">{`About the ${this.props.product.name}`}</p>
+          <label>Your Question</label>
           <textarea type="text" placeholder={"Type your answer here..."}
-                    name={"YourAnswer"} maxLength={"1000"} rows={"7"}
+                    name={"YourQuestion"} maxLength={"1000"} rows={"5"}
                     style={{ marginBottom: '1rem' }}
                     onChange={this.onChange.bind(this)} required />
           <label>What is your nickname?</label>
-          <input type={"text"} placeholder="Example: jack543!" name={"name"}
+          <input type={"text"} placeholder="Example: jackson11!" name={"name"}
                  maxLength={"60"} style={{ marginBottom: '1rem' }}
                  onChange={this.onChange.bind(this)} required />
           <label>Your email</label>
-          <input type={"text"} placeholder="Example: jack@email.com" name={"email"}
+          <input type={"text"} placeholder="Why did you like the product or not?" name={"email"}
                  maxLength={"60"}
                  onChange={this.onChange.bind(this)} required />
+                 <p>For authentication reasons, you will not be emailed</p>
           {(!this.state.isValidEmail)?
             <p className="emailValidation">Email is invalid!</p> : ""
           }
@@ -79,4 +79,4 @@ class ModalQ extends React.Component {
   }
 }
 
-export default ModalQ;
+export default ModalQuestion;

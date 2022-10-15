@@ -13,9 +13,20 @@ class ProductInfo extends React.Component {
       price: '',
       text: ''
     }
+    this.getProducts = this.getProducts.bind(this);
   }
 
   componentDidMount() {
+    this.getProducts();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.product.id !== prevProps.product.id) {
+      this.getProducts();
+    };
+  }
+
+  getProducts() {
     axios.get('/products/product_id', {
       params: {id: this.props.product.id}
     })
@@ -30,7 +41,7 @@ class ProductInfo extends React.Component {
       })
       .catch((err) => {
         console.log(err);
-      })
+      });
   }
 
   render() {
@@ -39,8 +50,9 @@ class ProductInfo extends React.Component {
         <StarRating id={this.state.id}/>}
         <div>Category: {this.state.category}</div>
         <div>Name: {this.state.name}</div>
-        <div>Price: ${this.state.price}</div>
-        <div>Overview: {this.state.text}</div>
+        {Object.keys(this.props.selectedStyle).length > 0 &&
+          <Price selectedStyle={this.props.selectedStyle} />}
+        <div>Overview Text: {this.state.text}</div>
     </div>)
   }
 };

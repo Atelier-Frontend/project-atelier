@@ -79,6 +79,55 @@ section aside:hover {
   align-self: start;
 }
 
+.image-gallery {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-image {
+  width: 800px;
+  height: 900px;
+  border-radius: 10px;
+}
+
+.right-arrow {
+  position: absolute;
+  top: 50%;
+  right: 32px;
+  font-size: 3rem;
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+}
+
+.left-arrow {
+  position: absolute;
+  top: 50%;
+  left: 32px;
+  font-size: 3rem;
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+}
+
+.style-sidebar {
+  display: flex;
+  flex-flow: column wrap;
+  padding: 5px;
+}
+
+.style-sidebar .style-sidebar-image {
+  width: 100px; 
+  height: 100px;
+  margin: 5px;
+  object-fit: cover;
+  flex-basis: 0 0 100px;
+  align-self: start;
+}
+
 .selectors {
   display: flex;
   padding: 5px;

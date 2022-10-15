@@ -13,7 +13,6 @@
     "test": "mocha",
     "react-test": "jest"
   },
-  "type": "module",
   "license": "Unlicensed",
   "dependencies": {
     "@babel/core": "7.19.3",

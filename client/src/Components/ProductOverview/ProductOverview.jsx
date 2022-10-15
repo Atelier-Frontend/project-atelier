@@ -12,7 +12,8 @@ class ProductOverview extends React.Component {
       product: {},
       styles: [],
       selectedStyle: {},
-      imageStyle: ''
+      imageStyle: '',
+      sizeReset: false
     }
     this.selectImage = this.selectImage.bind(this);
     this.getStyles = this.getStyles.bind(this);
@@ -54,7 +55,8 @@ class ProductOverview extends React.Component {
 
     this.setState({ 
       imageStyle: selectStyle[0].photos[0].url,
-      selectedStyle: selectStyle[0]
+      selectedStyle: selectStyle[0],
+      sizeReset: true
     });
   }
 
@@ -70,7 +72,7 @@ class ProductOverview extends React.Component {
         <StyleSelector styles={this.state.styles} selectedStyle={this.state.selectedStyle} selectImage={this.selectImage} />
       }
       {this.state.styles.length > 0 && 
-        <Cart styles={this.state.styles} selectedStyle={this.state.selectedStyle}/>
+        <Cart styles={this.state.styles} selectedStyle={this.state.selectedStyle} reset={this.state.sizeReset}/>
       }
     </div>)
   }

@@ -80,8 +80,37 @@ section aside:hover {
 }
 
 .image-gallery {
+  position: relative;
+  height: 100vh;
   display: flex;
-  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-image {
+  width: 800px;
+  height: 900px;
+  border-radius: 10px;
+}
+
+.right-arrow {
+  position: absolute;
+  top: 50%;
+  right: 32px;
+  font-size: 3rem;
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+}
+
+.left-arrow {
+  position: absolute;
+  top: 50%;
+  left: 32px;
+  font-size: 3rem;
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
 }
 
 .style-sidebar {

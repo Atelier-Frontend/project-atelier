@@ -54,4 +54,14 @@ class App extends React.Component {
   }
 }
 
-  ReactDOM.render(<App />, document.getElementById('app'));
+// ReactDOM.createRoot(document.getElementById('app')).render(
+//   <React.StrictMode>
+//     <App />
+//   </React.StrictMode>
+// );
+
+ReactDOM.render(<App />, document.getElementById('app') || document.createElement('div'));
+
+export default App;
+
+

@@ -5,7 +5,8 @@ class StarRating extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      rating: ''
+      stars: 5,
+      rating: 0
     }
 
     this.getRatings = this.getRatings.bind(this);

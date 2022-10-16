@@ -47,6 +47,7 @@ class QuestionsList extends React.Component {
 
   render() {
     let questions = this.props.questions;
+    console.log(questions)
     questions.sort(this.sortQuestions);
     let q = (this.props.moreQuestionsClicked === false) ? 2 : this.props.questions.length;
     {

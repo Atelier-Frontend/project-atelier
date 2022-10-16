@@ -50,6 +50,7 @@ class Cart extends React.Component {
   }
 
   render() {
+    console.log(this.props.styles)
     return (<div className='selectors'>
       <span className='size-selector'>
         <SizeSelector 

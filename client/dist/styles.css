@@ -64,12 +64,6 @@ section aside:hover {
 }
 
 .style-gallery {
-  /* display: flex;
-  flex: 20%;
-  flex-flow: row wrap;
-  padding: 3px;
-  margin: auto;
-  width: 50%; */
   display: flex;
   flex-flow: row wrap;
   justify-content: left;
@@ -86,13 +80,6 @@ section aside:hover {
   object-fit: cover;
   align-self: left;
   flex: 0 0 20%;
-  /* margin: 3px;
-  flex: 20%;
-  padding: 3px;
-  object-fit: cover;
-  flex-basis: 0 0 100px;
-  align-self: center;
-  border-radius: 10px; */ */
   align-self: center;
 }
 
@@ -138,7 +125,8 @@ section aside:hover {
 
 .style-info {
   margin: auto;
-  width: 25%
+  width: 25%;
+  font-weight: bold;
 }
 
 .price {

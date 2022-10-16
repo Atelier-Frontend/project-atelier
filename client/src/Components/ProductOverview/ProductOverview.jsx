@@ -37,7 +37,6 @@ class ProductOverview extends React.Component {
       params: {id: this.props.products.id}
     })
     .then((response) => {
-      console.log(response)
       this.setState({ 
         styles: response.data.results,
         selectedStyle: response.data.results[0],

@@ -38,7 +38,7 @@ class Price extends React.Component {
       {this.state.onSale === true && (
         <div>
           <span>Price:</span>
-          <span className='price'>${this.state.price}</span>
+          <span className='price' style={{color: 'red', fontWeight: 'bold'}}>${this.state.price}</span>
           <span className='discount-price'><s>${this.state.original}</s></span>
         </div>)}
       {this.state.onSale === false && (

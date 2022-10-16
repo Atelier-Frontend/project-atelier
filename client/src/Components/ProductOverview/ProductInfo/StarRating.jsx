@@ -51,8 +51,13 @@ class StarRating extends React.Component {
 
   render() {
     return (<div className='star-rating'>
-      <div className='stars'>Star Rating: {this.state.rating}</div>
-      <a href='https://www.google.com' className='stars'>Read all reviews</a>
+      <span className='stars'>
+        <span>Star Rating: {this.state.rating}</span>
+      </span>
+      <span className='reviews-link'>
+        <a href='https://www.google.com' className='stars'>Read all reviews</a>
+      </span>
+      
     </div>)
   }
 };

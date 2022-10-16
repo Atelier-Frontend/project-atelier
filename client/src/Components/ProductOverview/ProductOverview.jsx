@@ -61,7 +61,7 @@ class ProductOverview extends React.Component {
   }
 
   render() {
-    return (<div className='productOverview'>
+    return (<div className='product-overview'>
       {this.state.styles.length > 0 &&
         <ImageGallery styles={this.state.styles} selectedStyle={this.state.selectedStyle} image={this.state.imageStyle} />}
       {Object.keys(this.state.product).length > 0 &&

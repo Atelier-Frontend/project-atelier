@@ -201,7 +201,6 @@ app.put('/qa/answers/:answer_id/report', (req, res) => {
   axios.defaults.headers.common['Authorization'] = process.env.TOKEN;
   axios.put(`${apiPath}/qa/answers/${req.body.answer_id}/report`)
     .then((response) => {
-      console('I got here')
       res.status(204).send('This answer was reported.')
     })
     .catch((err) => {

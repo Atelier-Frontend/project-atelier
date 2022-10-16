@@ -283,6 +283,12 @@ section aside:hover {
   text-decoration-line: underline;
 }
 
+.reported {
+  font-size: small;
+  padding-left: 1.2vw;
+  color: #333;
+}
+
 /* Form Styles */
 .form-container {
   position: fixed;
@@ -364,10 +370,18 @@ section aside:hover {
   padding-top: -15px;
 }
 
-.scrollableAnswerList {
+.scrollableAnswersList {
   /* background-color: #faf7f7ba; */
   max-height: 300px;
   width: 50vw;
+  overflow: auto;
+  text-align: justify;
+}
+
+.scrollableQuestionsList {
+  /* background-color: #faf7f7ba; */
+  max-height: 50vh;
+  width: 100vw;
   overflow: auto;
   text-align: justify;
 }

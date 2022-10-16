@@ -128,6 +128,7 @@ section aside:hover {
   width: 25%;
   font-weight: bold;
   padding: 2px;
+  justify-content: center;
 }
 
 .price {
@@ -135,7 +136,7 @@ section aside:hover {
   margin:8px;
 }
 
-.star-rating {
+/* .star-rating {
   margin: auto;
   width: 100%;
 } 
@@ -143,7 +144,7 @@ section aside:hover {
 .star-rating .stars {
   padding: 2px;
   margin: 2px;
-}
+} */
 
 /* .star-rating .reviews-link {
   padding: 5px;

@@ -120,6 +120,16 @@ section aside:hover {
   width: 50%;
 }
 
+.price {
+  padding:8px;
+  margin:8px;
+}
+
+.discount-price {
+  padding:8px;
+  margin:8px;
+}
+
 .style-sidebar {
   display: flex;
   flex-flow: column wrap;

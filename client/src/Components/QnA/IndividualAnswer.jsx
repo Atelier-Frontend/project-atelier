@@ -47,7 +47,7 @@ class IndividualAnswer extends React.Component {
 
   render() {
     let answers = this.props.answers;
-    return(<span>
+    return(<span className="scrollableAnswerList">
       {answers.slice(0, this.props.a).map((answer) => (
         <span key={answer.answer_id}>
           <p className="answerBody">{answer.body}</p>

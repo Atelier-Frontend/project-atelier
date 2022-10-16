@@ -120,7 +120,7 @@ section aside:hover {
 }
 
 .style-sidebar .style-sidebar-image {
-  width: 100px; 
+  width: 100px;
   height: 100px;
   margin: 5px;
   object-fit: cover;
@@ -362,4 +362,12 @@ section aside:hover {
   font-size: small;
   color: rgb(157, 5, 5);
   padding-top: -15px;
+}
+
+.scrollableAnswerList {
+  /* background-color: #faf7f7ba; */
+  max-height: 300px;
+  width: 50vw;
+  overflow: auto;
+  text-align: justify;
 }

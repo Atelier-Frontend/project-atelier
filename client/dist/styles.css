@@ -92,6 +92,7 @@ section aside:hover {
   width: 300px;
   height: 400px;
   border-radius: 10px;
+  object-fit: cover;
 }
 
 .right-arrow {

@@ -138,16 +138,17 @@ section aside:hover {
 .star-rating {
   margin: auto;
   width: 100%;
-}
-/* .star-rating .stars {
+} 
+
+.star-rating .stars {
   padding: 2px;
   margin: 2px;
-} */
+}
 
-.star-rating .reviews-link {
+/* .star-rating .reviews-link {
   padding: 5px;
   margin: 5px;
-}
+} */
 
 .product-overview {
   align-items: center;

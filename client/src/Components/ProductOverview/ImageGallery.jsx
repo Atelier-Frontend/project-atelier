@@ -5,22 +5,34 @@ class ImageGallery extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      length: this.props.styles.length,
-      current: this.props.styles.indexOf(this.props.selectedStyle)
+      length: 0,
+      current: 0,
+      stylePhotos: []
     }
 
     this.nextImage = this.nextImage.bind(this);
     this.prevImage = this.prevImage.bind(this);
   }
 
+  componentDidMount() {
+    this.setState({ 
+      length: this.props.selectedStyle.photos.length,
+      stylePhotos: this.props.selectedStyle.photos
+    })
+  }
+
   componentDidUpdate(prevProps) {
-    if(this.props.selectedStyle !== prevProps.selectedStyle) {
-      this.setState({ current: this.props.styles.indexOf(this.props.selectedStyle) })
+    if(this.props.selectedStyle !== prevProps.selectedStyle) { 
+      this.setState({ 
+        stylePhotos: this.props.selectedStyle.photos,
+        length: this.props.selectedStyle.photos.length,
+        current: 0
+      })
     };
   }
 
   nextImage() {
-    if (this.state.current === this.props.styles.length - 1) {
+    if (this.state.current === this.state.stylePhotos.length - 1) {
       this.setState({ current: 0 });
     } else {
       this.setState({ current: this.state.current + 1 });
@@ -29,7 +41,7 @@ class ImageGallery extends React.Component {
 
   prevImage() {
     if (this.state.current === 0) {
-      this.setState({ current: this.props.styles.length - 1 });
+      this.setState({ current: this.state.stylePhotos.length - 1 });
     } else {
       this.setState({ current: this.state.current - 1 });
     };
@@ -42,10 +54,10 @@ class ImageGallery extends React.Component {
           <FaArrowAltCircleLeft className='left-arrow' onClick={this.prevImage}/>)}
         {this.state.current < this.state.length - 1 && (
           <FaArrowAltCircleRight className='right-arrow' onClick={this.nextImage}/>)}
-        {this.props.styles.map((style, index) => (
+        {this.state.stylePhotos.map((style, index) => (
             <div className={index === this.state.current ? 'slide-active' : 'slide'} key={index}>
               {index === this.state.current && (
-                <img className='main-image'key={index} src={style.photos[0].url} />)}
+                <img className='main-image'key={index} src={style.url} />)}
             </div>
         ))}
       </div>)

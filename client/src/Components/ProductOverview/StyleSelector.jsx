@@ -13,6 +13,7 @@ class StyleSelector extends React.Component {
     event.preventDefault();
     this.setState({ clicked: true });
     this.props.selectImage(event.target.id);
+    return false;
   }
 
   render() {

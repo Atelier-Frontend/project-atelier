@@ -66,7 +66,7 @@ section aside:hover {
 .style-gallery {
   display: flex;
   flex-flow: row wrap;
-  justify-content: left;
+  justify-content:start;
   width: 40%;
   margin: auto;
 }
@@ -74,8 +74,8 @@ section aside:hover {
 .style-gallery .style-image {
   width: 10vh;
   height: 10vh;
-  margin: 3px;
-  padding: 3px;
+  margin: 2.5px;
+  padding: 2.5px;
   border-radius: 10px;
   object-fit: cover;
   align-self: left;
@@ -127,6 +127,7 @@ section aside:hover {
   margin: auto;
   width: 25%;
   font-weight: bold;
+  padding: 2px;
 }
 
 .price {
@@ -161,8 +162,8 @@ section aside:hover {
   margin: auto;
   display: flex;
   padding: 5px;
-  width: 30%;
-  justify-content: end;
+  width: 50%;
+  justify-content: center;
 }
 
 .selectors .size-selector {
@@ -176,6 +177,11 @@ section aside:hover {
 }
 
 .selectors .cart {
+  padding: 3px;
+  margin: 3px;
+}
+
+.selectors .add-outfit {
   padding: 3px;
   margin: 3px;
 }

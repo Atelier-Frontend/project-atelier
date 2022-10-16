@@ -64,6 +64,7 @@ class Cart extends React.Component {
           <QuantitySelector quantity={this.state.quantity} size={this.state.selectedSize}/>}
         </span>
         <button className='cart'>Add to Cart</button>
+        <button className='add-outfit'>Add to My Outfit</button>
     </div>)
   }
 };

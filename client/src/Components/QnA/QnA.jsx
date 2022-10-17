@@ -10,6 +10,7 @@ class QnA extends React.Component {
     super(props);
     this.state = {
       questions: [],
+      initQuestions: [],
       answers: [],
       moreQuestionsClicked: false,
     }
@@ -30,7 +31,8 @@ class QnA extends React.Component {
     axios.get('/qa/questions', {params: {product_id: product_id}})
       .then((response) => {
         this.setState({
-          questions: response.data.results
+          questions: response.data.results,
+          initQuestions: response.data.results
         })
       })
       .catch((err) => {
@@ -59,7 +61,7 @@ class QnA extends React.Component {
   }
 
   filterQuestions(term) {
-    let questions = this.state.questions;
+    let questions = this.state.initQuestions;
     let filteredQuestions = questions.filter((q) => {
       return q.question_body.includes(term)
     });
@@ -72,7 +74,8 @@ class QnA extends React.Component {
     return (<div>
       <h4>{'Questions & Answers'}</h4>
       <SearchBar filterQuestions={this.filterQuestions.bind(this)}
-                 getQList={this.getQuestionsList.bind(this)}/>
+                 getQList={this.getQuestionsList.bind(this)}
+                 product={this.props.products} />
       <QuestionsList
         questions={this.state.questions}
         product={this.props.products}

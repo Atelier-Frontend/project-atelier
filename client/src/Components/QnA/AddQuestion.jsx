@@ -21,7 +21,7 @@ class AddQuestion extends React.Component {
     this.setState({
       showModal: false
     })
-    this.props.getQList()
+    this.props.getQList(this.props.product.id)
   }
 
   render() {

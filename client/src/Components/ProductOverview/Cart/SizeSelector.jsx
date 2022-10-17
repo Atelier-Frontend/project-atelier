@@ -20,13 +20,15 @@ class SizeSelector extends React.Component {
     if (this.props.styles !== prevProps.styles) {
       this.setState({ 
         quantity: this.props.quantity,
-        selected: 'DEFAULT'
+        selected: 'DEFAULT',
+        styleChange: true
       });
     }
     if (this.props.quantity !== prevProps.quantity) {
       this.setState({ 
         quantity: this.props.quantity,
-        selected: 'DEFAULT'
+        selected: 'DEFAULT',
+        styleChange: true
       });
     }
   }
@@ -41,7 +43,7 @@ class SizeSelector extends React.Component {
     console.log(this.state.selected)
     return (<div className='size'>
       <label> Size:
-        {this.state.quantity > 0 &&
+        {((this.state.quantity > 0) || (this.state.selected === 'DEFAULT')) &&
           <select name='sizes' defaultValue={'DEFAULT'} onChange={this.handleChange.bind(this)} >
             <option value={'DEFAULT'} disabled selected={this.state.selected === 'DEFAULT'}>Select Size</option>
             {this.props.sizes.map((size, index) => (

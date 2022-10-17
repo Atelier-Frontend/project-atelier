@@ -10,7 +10,8 @@ class Cart extends React.Component {
       styles: [],
       sizes: [],
       quantity: [],
-      selectedSize: 0
+      selectedSize: 0,
+      reset: false
     }
 
     this.getQuantity = this.getQuantity.bind(this);
@@ -28,7 +29,7 @@ class Cart extends React.Component {
   }
 
   selectSize(size) {
-    this.setState({ selectedSize: size });
+    this.setState({ selectedSize: size, reset: true });
   }
 
   getQuantity() {

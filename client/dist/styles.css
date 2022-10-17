@@ -154,6 +154,7 @@ section aside:hover {
   font-size: medium;
   font-weight: bold;
   width: 75vw;
+  color:rgb(16, 90, 100)
 }
 
 .helpful {
@@ -194,6 +195,8 @@ section aside:hover {
   flex-direction:row;
   width: 75vw;
   position: relative;
+  margin-top: -0.8em;
+  height: auto;
 }
 
 .answerBody {
@@ -238,6 +241,8 @@ section aside:hover {
   font-size: small;
   display:flex;
   flex-direction:row;
+  color:#333;
+  margin-top: -2em;
 }
 
 .Auser {

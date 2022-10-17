@@ -70,7 +70,7 @@ class QnA extends React.Component {
 
   render() {
     return (<div>
-      <h4>Questions {'&'} Answers</h4>
+      <h4>{'Questions & Answers'}</h4>
       <SearchBar filterQuestions={this.filterQuestions.bind(this)}
                  getQList={this.getQuestionsList.bind(this)}/>
       <QuestionsList

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import axios from "axios";
 
 class IndividualAnswer extends React.Component {
@@ -47,14 +47,15 @@ class IndividualAnswer extends React.Component {
 
   render() {
     let answers = this.props.answers;
-    return(<span>
+    return(<span className="scrollableAnswersList">
       {answers.slice(0, this.props.a).map((answer) => (
         <span key={answer.answer_id}>
           <p className="answerBody">{answer.body}</p>
           <span className="container2">
             <p className="Auser">{`by ${answer.answerer_name}`}</p>
             {(answer.answerer_name==='Seller') ?
-              <p className="Aseller">{'- Seller,'}</p> : <p>,</p>}
+              <p className="Aseller">{'- Seller'}</p> : null}
+            <p>,</p>
             <p className="Adate">
               {`${this.timeFormatting(answer.date)}`}
             </p>
@@ -69,7 +70,8 @@ class IndividualAnswer extends React.Component {
               {`(${answer.helpfulness})`}
             </p>
             <p className="Adivider"> | </p>
-            {(this.state.reported.includes(answer.answer_id)) ? <p> Reported </p>
+            {(this.state.reported.includes(JSON.stringify(answer.answer_id))) ?
+            <p className="reported"> Reported </p>
             : <p className="report"
                id={answer.answer_id}
                onClick={this.reportAnswer.bind(this)}>

@@ -51,10 +51,10 @@ class QuestionsList extends React.Component {
     let q = (this.props.moreQuestionsClicked === false) ? 2 : this.props.questions.length;
     {
       if (questions.length === 0) {
-        return ''
+        return <h3> </h3>
       } else {
         return (questions.slice(0, q).map((question)=>{
-          return(<div key={question.question_id}>
+          return(<div key={question.question_id} className="scrollableQuestionsList">
             <span className="question">
               <p className="questionBody">{`Q: ${question.question_body}`}</p>
               <span className="container1">

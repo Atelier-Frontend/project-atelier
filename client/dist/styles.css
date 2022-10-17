@@ -195,7 +195,7 @@ section aside:hover {
 }
 
 .style-sidebar .style-sidebar-image {
-  width: 100px; 
+  width: 100px;
   height: 100px;
   margin: 5px;
   object-fit: cover;
@@ -226,6 +226,7 @@ section aside:hover {
   font-size: medium;
   font-weight: bold;
   width: 75vw;
+  color:rgb(16, 90, 100)
 }
 
 .helpful {
@@ -266,6 +267,8 @@ section aside:hover {
   flex-direction:row;
   width: 75vw;
   position: relative;
+  margin-top: -0.8em;
+  height: auto;
 }
 
 .answerBody {
@@ -275,22 +278,24 @@ section aside:hover {
 .foldAnswers {
   font-size: small;
   font-weight: bold;
-  padding-left: 1.8vw;
+  margin-left: 1.4em;
 }
 
 .containerRow {
   display:flex;
   flex-direction:row;
   position: relative;
+  margin-top: 2em;
+  margin-left: 1.4em
 }
 
 .foldQuestions {
   height: 10vh;
+  padding-right: 1.4em;
 }
 
 .addQuestion {
   height: 10vh;
-  padding-left: 2vw;
 }
 
 .foldQuestionsBT, .addQuestionBT {
@@ -298,7 +303,13 @@ section aside:hover {
   color: black;
   border: 2px solid #131313;
   padding: 20px 15px;
-  transition-duration: 0.4s;
+  transition-duration: 0.3s;
+  transition: all 0.3s ease-out;
+}
+
+.foldQuestionsBT:active, .addQuestionBT:active {
+  background-color: rgb(163, 163, 163);
+  padding: 19.8px 14.8px;
 }
 
 .foldQuestionsBT, .addQuestionBT, .foldAnswers, .Yes,
@@ -310,6 +321,8 @@ section aside:hover {
   font-size: small;
   display:flex;
   flex-direction:row;
+  color:#333;
+  margin-top: -2em;
 }
 
 .Auser {
@@ -353,6 +366,12 @@ section aside:hover {
   font-size: small;
   padding-left: 1.2vw;
   text-decoration-line: underline;
+}
+
+.reported {
+  font-size: small;
+  padding-left: 1.2vw;
+  color: #333;
 }
 
 /* Form Styles */
@@ -430,9 +449,22 @@ section aside:hover {
   object-fit: cover;
 }
 
-.emailValidation {
+.emailValidation, .inputValidation {
   font-size: small;
   color: rgb(157, 5, 5);
   padding-top: -15px;
 }
 
+.scrollableAnswersList {
+  max-height: 300px;
+  width: 50vw;
+  overflow: auto;
+  text-align: justify;
+}
+
+.scrollableQuestionsList {
+  max-height: 50vh;
+  width: 100vw;
+  overflow: auto;
+  text-align: justify;
+}

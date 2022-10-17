@@ -24,7 +24,7 @@ class QuestionsList extends React.Component {
       this.setState({QVoted: [...this.state.QVoted, e.target.id]});
       axios.put('/qa/questions/:question_id/helpful', {question_id: e.target.id})
         .then(() => {
-          this.props.getQList()
+          this.props.getQList(this.props.product.id)
         })
         .catch((err) => {
           console.log('failed')
@@ -42,7 +42,8 @@ class QuestionsList extends React.Component {
   closeModal() {
     this.setState({
       showModal: false
-    })
+    });
+    this.props.getQList(this.props.product.id)
   }
 
   render() {

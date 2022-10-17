@@ -57,7 +57,6 @@ class ModalAnswer extends React.Component {
               photos: this.state.photos}})
         .then(() => {
           this.props.closeModal();
-          alert('Answer added! Refresh the page to see it!')
         })
         .catch((err) => {
           console.log('failed')

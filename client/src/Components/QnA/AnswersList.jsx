@@ -77,12 +77,12 @@ class AnswersList extends React.Component {
           <span id={this.props.question.question_id}
                 onClick={this.moreAnswersHandler.bind(this)}
                 className="foldAnswers">
-            {'LOAD MORE ANSWERS'}
+            {'ᐯ LOAD MORE ANSWERS'}
           </span>
         ) : <span id={this.props.question.question_id}
                   onClick={this.moreAnswersHandler.bind(this)}
                   className="foldAnswers">
-                    {'COLLAPSE ANSWERS'}
+                    {'ᐱ COLLAPSE ANSWERS'}
             </span>
       ) : ''}
     </div>)

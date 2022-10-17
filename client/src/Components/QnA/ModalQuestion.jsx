@@ -7,6 +7,7 @@ class ModalQuestion extends React.Component {
     super(props);
     this.state = {
       isValidEmail: true,
+      isValidInput: true,
       YourQuestion: '',
       name: '',
       email: '',
@@ -20,16 +21,34 @@ class ModalQuestion extends React.Component {
     });
   }
 
+  isValidInput() {
+    if (this.state.YourQuestion.length > 0 &&
+        this.state.name.length > 0 &&
+        this.state.email.length > 0) {
+      return true;
+    }
+    return false;
+  };
+
   isValidEmail(email) {
     return /\S+@\S+\.\S+/.test(email);
   }
 
   submitForm() {
-    if (!this.isValidEmail(this.state.email)) {
+    if(!this.isValidInput()) {
       this.setState({
-        isValidEmail: false
+        isValidInput: false
+      })
+    } else if (!this.isValidEmail(this.state.email)) {
+      this.setState({
+        isValidEmail: false,
+        isValidInput: true
       });
     } else {
+      this.setState({
+        isValidEmail: true,
+        isValidInput: true
+      });
       axios.post('/qa/questions', {
         body: this.state.YourQuestion,
         name: this.state.name,
@@ -52,7 +71,7 @@ class ModalQuestion extends React.Component {
           <p className="formTitle">Ask Your Question</p>
           <p className="formSubtitle">{`About the ${this.props.product.name}`}</p>
           <label>Your Question</label>
-          <textarea type="text" placeholder={"Type your answer here..."}
+          <textarea type="text" placeholder={"Type your question here..."}
                     name={"YourQuestion"} maxLength={"1000"} rows={"5"}
                     style={{ marginBottom: '1rem' }}
                     onChange={this.onChange.bind(this)} required />
@@ -60,11 +79,17 @@ class ModalQuestion extends React.Component {
           <input type={"text"} placeholder="Example: jackson11!" name={"name"}
                  maxLength={"60"} style={{ marginBottom: '1rem' }}
                  onChange={this.onChange.bind(this)} required />
+                 <p style={{ marginTop:'-1rem', fontSize: 11.5, fontWeight: "normal", fontStyle: "italic" }}
+                 >For privacy reasons, do not use your full name or email address</p>
           <label>Your email</label>
           <input type={"text"} placeholder="Why did you like the product or not?" name={"email"}
                  maxLength={"60"}
                  onChange={this.onChange.bind(this)} required />
-                 <p>For authentication reasons, you will not be emailed</p>
+                 <p style={{ marginTop:'0rem', fontSize: 11.5, fontWeight: "normal", fontStyle: "italic" }}
+                 >For authentication reasons, you will not be emailed</p>
+          {(!this.state.isValidInput)?
+            <p className="inputValidation">Please fill in all of the fields</p> : ""
+          }
           {(!this.state.isValidEmail)?
             <p className="emailValidation">Email is invalid!</p> : ""
           }

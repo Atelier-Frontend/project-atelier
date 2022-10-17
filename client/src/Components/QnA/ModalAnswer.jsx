@@ -6,6 +6,7 @@ class ModalAnswer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      isValidInput: true,
       isValidEmail: true,
       YourAnswer: '',
       name: '',
@@ -20,16 +21,34 @@ class ModalAnswer extends React.Component {
     });
   }
 
+  isValidInput() {
+    if (this.state.YourAnswer.length > 0 &&
+        this.state.name.length > 0 &&
+        this.state.email.length > 0) {
+      return true;
+    }
+    return false;
+  };
+
   isValidEmail(email) {
     return /\S+@\S+\.\S+/.test(email);
   }
 
   submitForm() {
-    if (!this.isValidEmail(this.state.email)) {
+    if(!this.isValidInput()) {
       this.setState({
-        isValidEmail: false
+        isValidInput: false
+      })
+    } else if (!this.isValidEmail(this.state.email)) {
+      this.setState({
+        isValidEmail: false,
+        isValidInput: true
       });
     } else {
+      this.setState({
+        isValidEmail: true,
+        isValidInput: true
+      });
       axios.post('/qa/questions/:question_id/answers',
       {question_id: this.props.currentQ.split('@@@$$$@@@')[0],
         body: {body: this.state.YourAnswer,
@@ -65,6 +84,9 @@ class ModalAnswer extends React.Component {
           <input type={"text"} placeholder="Example: jack@email.com" name={"email"}
                  maxLength={"60"}
                  onChange={this.onChange.bind(this)} required />
+          {(!this.state.isValidInput)?
+            <p className="inputValidation">Please fill in all of the fields</p> : ""
+          }
           {(!this.state.isValidEmail)?
             <p className="emailValidation">Email is invalid!</p> : ""
           }

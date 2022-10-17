@@ -369,7 +369,7 @@ section aside:hover {
   object-fit: cover;
 }
 
-.emailValidation {
+.emailValidation, .inputValidation {
   font-size: small;
   color: rgb(157, 5, 5);
   padding-top: -15px;

@@ -29,7 +29,7 @@ class Cart extends React.Component {
   }
 
   selectSize(size) {
-    this.setState({ selectedSize: size, reset: true });
+    this.setState({ selectedSize: size });
   }
 
   getQuantity() {

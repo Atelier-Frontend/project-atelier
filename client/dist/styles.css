@@ -98,6 +98,25 @@ section aside:hover {
   object-fit: cover;
 }
 
+.side-gallery {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content:start;
+  width: 10%;
+}
+
+.side-gallery .style-image {
+  width: 10vh;
+  height: 10vh;
+  margin: 2.5px;
+  padding: 2.5px;
+  border-radius: 10px;
+  object-fit: cover;
+  align-self: left;
+  flex: 0 0 10%;
+  align-self: center;
+}
+
 .right-arrow {
   position: absolute;
   top: 50%;

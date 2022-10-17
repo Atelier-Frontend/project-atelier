@@ -10,14 +10,14 @@ class SearchBar extends React.Component {
     }
   }
 
-  questionSearch (e) {
+  questionSearch(e) {
     this.setState({
       term: e.target.value
     })
     if(e.target.value.length >= 3) {
       this.props.filterQuestions(e.target.value)
     } else {
-      this.props.getQList()
+      this.props.getQList(this.props.product.id)
     }
   }
 

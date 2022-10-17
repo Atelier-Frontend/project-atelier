@@ -16,18 +16,18 @@ class QnA extends React.Component {
   }
 
   componentDidMount(props) {
-    this.getQuestionsList(props)
+    this.getQuestionsList(this.props.products.id)
   }
 
   componentDidUpdate(prevProps) {
     if(this.props.products.id !== prevProps.products.id)
     {
-      this.getQuestionsList();
+      this.getQuestionsList(this.props.products.id);
     }
   }
 
-  getQuestionsList() {
-    axios.get('/qa/questions', {params: {product_id: this.props.products.id}})
+  getQuestionsList(product_id) {
+    axios.get('/qa/questions', {params: {product_id: product_id}})
       .then((response) => {
         this.setState({
           questions: response.data.results

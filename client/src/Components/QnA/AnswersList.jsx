@@ -17,6 +17,13 @@ class AnswersList extends React.Component {
     this.getAnswersList(this.props.question.question_id)
   }
 
+  componentDidUpdate(prevProps) {
+    if(this.props.question.answers !== prevProps.question.answers)
+    {
+      this.getAnswersList(this.state.question_id);
+    }
+  }
+
   getAnswersList(question_id) {
     axios.get(`/qa/questions/:question_id/answers`, {params: {question_id}})
       .then((response) => {

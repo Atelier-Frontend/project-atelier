@@ -10,7 +10,8 @@ class Cart extends React.Component {
       styles: [],
       sizes: [],
       quantity: [],
-      selectedSize: 0
+      selectedSize: 0,
+      reset: false
     }
 
     this.getQuantity = this.getQuantity.bind(this);

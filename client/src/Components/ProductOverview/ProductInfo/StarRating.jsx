@@ -1,11 +1,13 @@
 import React from 'react';
 import axios from 'axios';
+import { AiOutlineStar, AiFillStar } from 'react-icons/Ai';
 
 class StarRating extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      rating: ''
+      stars: 5,
+      rating: 0
     }
 
     this.getRatings = this.getRatings.bind(this);
@@ -51,12 +53,16 @@ class StarRating extends React.Component {
 
   render() {
     return (<div className='star-rating'>
-      <span className='stars'>
-        <span>Star Rating: {this.state.rating}</span>
-      </span>
-      <span className='reviews-link'>
-        <a href='https://www.google.com' className='stars'>Read all reviews</a>
-      </span>
+      <div className='stars'>
+        <div>Star Rating: {this.state.rating}</div>
+        <div className='stars-rating'>  
+        {[...Array(this.state.stars).keys()].map((index) => (
+            <span className='star' key={index}><AiOutlineStar /></span>))}
+        </div>
+      </div>
+      <div className='reviews-link'>
+        <a href='http://localhost:3000' className='stars'>Read all reviews</a>
+      </div>
       
     </div>)
   }

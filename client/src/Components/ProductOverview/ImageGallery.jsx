@@ -55,13 +55,11 @@ class ImageGallery extends React.Component {
         {this.state.current < this.state.length - 1 && (
           <FaArrowAltCircleRight className='right-arrow' onClick={this.nextImage}/>)}
         {this.state.stylePhotos.map((style, index) => (
-            <div className={index === this.state.current ? 'slide-active' : 'slide'} key={index}>
-              {index === this.state.current && (
-                <img className='main-image'key={index} src={style.url} />)}
-            </div>
-        ))}
-      </div>)
-  }
+          <div className={index === this.state.current ? 'slide-active' : 'slide'} key={index}>
+            {index === this.state.current && (
+              <img className='main-image'key={index} src={style.url} />)}
+          </div>))}
+      </div>)}
 };
 
 export default ImageGallery;

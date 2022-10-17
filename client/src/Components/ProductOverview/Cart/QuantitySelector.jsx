@@ -5,11 +5,9 @@ class QuantitySelector extends React.Component {
     super(props);
     this.state = {
       quantity: [],
-      selectValue: '',
       disabled: true
     }
     this.handeChange = this.handleChange.bind(this);
-    this.handleClear = this.handleClear.bind(this);
     this.setQuantity = this.setQuantity.bind(this);
     this.enableDropDown = this.enableDropDown.bind(this);
   }
@@ -20,7 +18,6 @@ class QuantitySelector extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.quantity !== prevProps.quantity) {
-      this.setState({ disabled: true });
       this.setQuantity();
     };
     if (this.props.size !== prevProps.size) {
@@ -30,16 +27,10 @@ class QuantitySelector extends React.Component {
   }
 
   handleChange(event) {
-    event.preventDefault();
     this.setState({selectValue: event.target.value});
   }
 
-  handleClear() {
-    this.setState({selectValue: ''});
-  }
-
   setQuantity() {
-    this.handleClear();
     if (this.props.quantity[this.props.size] <= 15) {
       this.setState({ quantity: this.props.quantity[this.props.size] });
     } else {
@@ -58,7 +49,7 @@ class QuantitySelector extends React.Component {
         {this.state.disabled === true &&
           <select name='quantity' disabled={true}>{'--'}</select>}
         {this.state.disabled === false && 
-          <select name='quantity' defaultValue={this.state.selectValue}>
+          <select name='quantity'>
           {[...Array(this.state.quantity)].map((e, i) => (
             <option key={i}>{i + 1}</option>
           ))}          

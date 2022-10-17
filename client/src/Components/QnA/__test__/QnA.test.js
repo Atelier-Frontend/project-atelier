@@ -10,7 +10,7 @@ import IndividualAnswer from '../IndividualAnswer.jsx';
 import QuestionsList from '../QuestionsList.jsx';
 import MoreQuestions from '../MoreQuestions.jsx';
 import SearchBar from '../SearchBar.jsx';
-import App from '/Users/chuck/project-atelier/client/src/index.jsx';
+import App from '../../../index.jsx';
 
 const server = setupServer(
   rest.get('/qa/questions', (req, res, ctx) => {

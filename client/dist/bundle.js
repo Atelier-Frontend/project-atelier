@@ -331,6 +331,7 @@ class ImageGallery extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
       key: index
     }, index === this.state.current && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
       className: "main-image",
+      alt: "image in carousel",
       key: index,
       src: style.url
     }))));
@@ -750,6 +751,7 @@ class StyleSelector extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
       className: "style-gallery"
     }, this.props.styles.map((style, index) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
       className: "style-image",
+      alt: "image in style gallery",
       key: index,
       id: style.name,
       src: style.photos[0].thumbnail_url,
@@ -1668,8 +1670,8 @@ class SearchBar extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
       },
       onChange: this.questionSearch.bind(this)
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-      className: "search-button"
-    }));
+      className: "search-answer"
+    }, "Search"));
   }
 
 }

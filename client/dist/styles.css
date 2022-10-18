@@ -455,14 +455,14 @@ section aside:hover {
   flex-direction:row;
 }
 
-.search-button {
+.search-answer {
   background: transparent;
   border: none;
   outline: none;
   margin-left: -33px;
 }
 
-.search-button img {
+.search-answer img {
   width: 20px;
   height: 20px;
   object-fit: cover;

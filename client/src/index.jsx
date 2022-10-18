@@ -59,16 +59,14 @@ class App extends React.Component {
   }
 
   render () {
-    console.log(this.state.fav)
     return (<div>
-      <div>{JSON.stringify(this.state.products)}</div>
       <h1>Project Atelier</h1>
       {Object.keys(this.state.products).length > 0 &&
         <ProductOverview products={this.state.products} update={this.update}/>}
       {Object.keys(this.state.products).length > 0 &&
-      <Related products={this.state.products} update={this.update} fun={this.fav}/>}
+        <Related products={this.state.products} update={this.update} fun={this.fav}/>}
       {Object.keys(this.state.products).length > 0 &&
-      <Your products={this.state.fav} />}
+        <Your products={this.state.fav} />}
       {Object.keys(this.state.products).length > 0 &&
         <QnA products={this.state.products} />}
     </div>)

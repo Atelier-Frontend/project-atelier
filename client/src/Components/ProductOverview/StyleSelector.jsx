@@ -21,7 +21,7 @@ class StyleSelector extends React.Component {
       <div className='style-info'>Style > {this.props.selectedStyle.name}</div>
       <div className='style-gallery'>
         {this.props.styles.map((style, index) => (
-            <img className='style-image' key={index} id={style.name} src={style.photos[0].thumbnail_url} onClick={this.onClick} />
+            <img className='style-image' alt='image in style gallery' key={index} id={style.name} src={style.photos[0].thumbnail_url} onClick={this.onClick} />
         ))}
       </div>
     </div>)

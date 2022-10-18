@@ -26,8 +26,8 @@ class SearchBar extends React.Component {
       <input placeholder={"Have a question? Search for answers…"}
              style={{width: "50vw", height: "3vh"}}
              onChange={this.questionSearch.bind(this)} />
-      <button className="search-button">
-        {/* <img src={icon}></img> */}
+      <button className="search-answer">
+        Search{/* <img src={icon}></img> */}
       </button>
     </div>)
   }

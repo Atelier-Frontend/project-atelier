@@ -331,6 +331,7 @@ class ImageGallery extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
       key: index
     }, index === this.state.current && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
       className: "main-image",
+      alt: "image in carousel",
       key: index,
       src: style.url
     }))));
@@ -750,6 +751,7 @@ class StyleSelector extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
       className: "style-gallery"
     }, this.props.styles.map((style, index) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
       className: "style-image",
+      alt: "image in style gallery",
       key: index,
       id: style.name,
       src: style.photos[0].thumbnail_url,
@@ -1668,8 +1670,8 @@ class SearchBar extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
       },
       onChange: this.questionSearch.bind(this)
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-      className: "search-button"
-    }));
+      className: "search-answer"
+    }, "Search"));
   }
 
 }
@@ -1722,7 +1724,6 @@ class Cards extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
         id: this.props.item
       }
     }).then(data => {
-      console.log(data);
       var test = data.data;
       axios__WEBPACK_IMPORTED_MODULE_1___default().get('/products/product_id/styles', {
         params: {
@@ -1759,7 +1760,7 @@ class Cards extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
         this.props.fun(this.state.product);
       }
     }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-      class: "large-font text-center top-20"
+      className: "large-font text-center top-20"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ion-icon", {
       name: "heart"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -24425,8 +24426,7 @@ class App extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
   }
 
   render() {
-    console.log(this.state.fav);
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, JSON.stringify(this.state.products)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Project Atelier"), Object.keys(this.state.products).length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Components_ProductOverview_ProductOverview_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Project Atelier"), Object.keys(this.state.products).length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Components_ProductOverview_ProductOverview_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {
       products: this.state.products,
       update: this.update
     }), Object.keys(this.state.products).length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Components_Related_Related_jsx__WEBPACK_IMPORTED_MODULE_6__["default"], {

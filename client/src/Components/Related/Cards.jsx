@@ -22,7 +22,6 @@ componentDidUpdate(prevProps) {
   info () {
     axios.get('/products/product_id', {params: {id: this.props.item}})
       .then((data) => {
-        console.log(data)
         var test = data.data
         axios.get('/products/product_id/styles', {
           params: {id: this.props.item}
@@ -62,7 +61,7 @@ componentDidUpdate(prevProps) {
   </p>
   </div>
   </div>
- <button onClick={()=>{this.props.fun(this.state.product)}}> <div class='large-font text-center top-20'>
+ <button onClick={()=>{this.props.fun(this.state.product)}}> <div className='large-font text-center top-20'>
   <ion-icon name="heart" >
     <div id='red-bg'></div>
   </ion-icon>

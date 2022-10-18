@@ -15,13 +15,16 @@ class Related extends React.Component {
     this.list();
   }
 
+
+
   list () {
     axios.get(`/products/product_id/related`, {params: {id: this.props.products.id}})
       .then((data) => {
         var lists = [];
         var i = 0;
         while (i < data.data.length) {
-          var elm = <Cards key={data.data[i]} item={data.data[i]} class='Related' update={this.props.update}/>
+          console.log(data);
+          var elm = <Cards key={data.data[i]} item={data.data[i]} class='Related' update={this.props.update} fun={this.props.fun}/>
           lists.push(elm)
           i+=1;
         }

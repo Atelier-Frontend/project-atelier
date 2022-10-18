@@ -63,7 +63,6 @@ class StarRating extends React.Component {
       <div className='reviews-link'>
         <a href='http://localhost:3000' className='stars'>Read all reviews</a>
       </div>
-      
     </div>)
   }
 };

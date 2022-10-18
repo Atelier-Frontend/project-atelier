@@ -176,7 +176,7 @@ class QuantitySelector extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Quantity:", this.state.disabled === true && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
       name: "quantity",
       disabled: true
-    }, '--'), this.state.disabled === false && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", null, "--")), this.state.disabled === false && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
       name: "quantity"
     }, [...Array(this.state.quantity)].map((e, i) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
       key: i

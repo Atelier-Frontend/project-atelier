@@ -22,11 +22,13 @@ componentDidUpdate(prevProps) {
   info () {
     axios.get('/products/product_id', {params: {id: this.props.item}})
       .then((data) => {
+        console.log(data)
         var test = data.data
         axios.get('/products/product_id/styles', {
           params: {id: this.props.item}
         })
         .then((testing) => {
+
           this.setState({ product: test, styles: testing.data.results[0].photos[0].thumbnail_url})
         })
       })

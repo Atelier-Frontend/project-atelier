@@ -43,7 +43,7 @@ class Related extends React.Component {
 
   render() {
     return (<div>
-      <h4>Related</h4><section>
+      <h4 data-testid="custom-element">Related</h4><section>
       <ul className='test'>{this.state.product}</ul>
       </section>
     </div>)

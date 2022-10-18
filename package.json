@@ -2,12 +2,16 @@
   "name": "project-atelier",
   "version": "1.0.0",
   "main": "server/index.js",
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
   "scripts": {
-    "server-dev": "npx nodemon --watch server server/index.js",
+    "server-dev": "npx nodemon --watch server server/index.cjs",
     "client-dev": "npx webpack --watch",
     "build": "npx webpack",
     "start": "node server/index.js",
-    "test": "mocha"
+    "test": "mocha",
+    "react-test": "jest"
   },
   "license": "Unlicensed",
   "dependencies": {
@@ -20,20 +24,22 @@
     "chai-http": "4.3.0",
     "dotenv": "16.0.3",
     "express": "4.18.1",
+    "jest-environment-jsdom": "^29.2.0",
     "jquery": "3.6.1",
     "mocha": "10.0.0",
     "nodemon": "2.0.20",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-icons": "^4.4.0",
-    "supertest": "6.2.4",
     "webpack": "5.74.0"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^12.1.5",
     "css-loader": "^6.7.1",
     "file-loader": "^6.2.0",
     "style-loader": "^3.3.1",
+    "supertest": "^6.3.0",
     "url-loader": "^4.1.1",
     "webpack-cli": "^4.10.0"
   }

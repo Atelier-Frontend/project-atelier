@@ -9,10 +9,12 @@ class Cart extends React.Component {
     this.state = {
       styles: [],
       sizes: [],
-      quantity: []
+      quantity: [],
+      selectedSize: 0
     }
 
     this.getQuantity = this.getQuantity.bind(this);
+    this.selectSize = this.selectSize.bind(this);
   }
 
   componentDidMount() {
@@ -23,6 +25,10 @@ class Cart extends React.Component {
     if (this.props.selectedStyle !== prevProps.selectedStyle) {
       this.getQuantity();
     };
+  }
+
+  selectSize(size) {
+    this.setState({ selectedSize: size });
   }
 
   getQuantity() {
@@ -45,9 +51,14 @@ class Cart extends React.Component {
 
   render() {
     return (<div className='selectors'>
-        <SizeSelector sizes={this.state.sizes} quantity={this.state.quantity[0]} />
+        <SizeSelector 
+          sizes={this.state.sizes} 
+          quantity={this.state.quantity[0]} 
+          selectSize={this.selectSize} 
+          styles={this.props.styles}
+          reset={this.props.reset} />
         {this.state.quantity.length > 0 &&
-          <QuantitySelector quantity={this.state.quantity[0]} />}
+          <QuantitySelector quantity={this.state.quantity} size={this.state.selectedSize}/>}
         <button>Add to Cart</button>
     </div>)
   }

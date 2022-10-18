@@ -19,7 +19,6 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    console.log("Main")
     // if(JSON.stringify(this.state.products) === '{}') {
     axios.get('/products')
       .then((response) => {
@@ -61,6 +60,7 @@ class App extends React.Component {
 
   render () {
     return (<div>
+      <div>{JSON.stringify(this.state.products)}</div>
       <h1>Project Atelier</h1>
       {Object.keys(this.state.products).length > 0 &&
         <ProductOverview products={this.state.products} update={this.update}/>}
@@ -74,4 +74,8 @@ class App extends React.Component {
   }
 }
 
-  ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('app') || document.createElement('div'));
+
+export default App;
+
+

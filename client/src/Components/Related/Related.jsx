@@ -15,13 +15,24 @@ class Related extends React.Component {
     this.list();
   }
 
+
+    componentDidUpdate (prevProps) {
+    if(this.props.products.id !== prevProps.products.id)
+    {
+      this.list();
+    }
+  }
+
+
+
+
   list () {
     axios.get(`/products/product_id/related`, {params: {id: this.props.products.id}})
       .then((data) => {
         var lists = [];
         var i = 0;
         while (i < data.data.length) {
-          var elm = <Cards key={data.data[i]} item={data.data[i]} class='Related' update={this.props.update}/>
+          var elm = <Cards key={data.data[i]} item={data.data[i]} class='Related' update={this.props.update} fun={this.props.fun}/>
           lists.push(elm)
           i+=1;
         }
@@ -32,7 +43,7 @@ class Related extends React.Component {
 
   render() {
     return (<div>
-      <h4>Related</h4><section>
+      <h4 data-testid="custom-element">Related</h4><section>
       <ul className='test'>{this.state.product}</ul>
       </section>
     </div>)

@@ -22,7 +22,7 @@ class App extends React.Component {
     // if(JSON.stringify(this.state.products) === '{}') {
     axios.get('/products')
       .then((response) => {
-        this.setState({ products: response.data[2] })
+        this.setState({ products: response.data[1] })
       })
       .catch((err) => {
         console.log(err)

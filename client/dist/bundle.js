@@ -24386,7 +24386,7 @@ class App extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
     // if(JSON.stringify(this.state.products) === '{}') {
     axios__WEBPACK_IMPORTED_MODULE_3___default().get('/products').then(response => {
       this.setState({
-        products: response.data[2]
+        products: response.data[1]
       });
     }).catch(err => {
       console.log(err);

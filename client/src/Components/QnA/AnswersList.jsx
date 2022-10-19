@@ -72,7 +72,7 @@ class AnswersList extends React.Component {
   render() {
     let answers = this.state.answers;
     answers = this.sortSeller(answers.sort(this.sortAnswers));
-    return(<div>
+    return(<div className="scrollableAnswersList">
       <div className="answer">
         <p className="letterA">{'A: '}</p>
         <IndividualAnswer answers={answers} a={this.state.a}

@@ -158,7 +158,7 @@ section aside:hover {
 /* .star-rating {
   margin: auto;
   width: 100%;
-} 
+}
 
 .star-rating .stars {
   padding: 2px;
@@ -393,6 +393,41 @@ section aside:hover {
   color: #333;
 }
 
+.answer-photos-container {
+  display: block;
+  flex-direction: row;
+  height: auto;
+  margin-bottom: 1em;
+}
+
+.answer-photo {
+  height: 120px;
+  width: 150px;
+  margin-right: 1em;
+}
+
+.scrollableAnswersList {
+  max-height: 350px;
+  width: 50vw;
+  overflow-y: auto;
+  overflow-x: hidden;
+  text-align: justify;
+}
+
+.scrollableQuestionsList {
+  max-height: 50vh;
+  width: 100vw;
+  overflow-y: auto;
+  overflow-x: hidden;
+  text-align: justify;
+}
+
+.individual-answer {
+  position: relative;
+  display: block;
+  flex-direction: column;
+}
+
 /* Form Styles */
 .form-container {
   position: fixed;
@@ -474,16 +509,3 @@ section aside:hover {
   padding-top: -15px;
 }
 
-.scrollableAnswersList {
-  max-height: 300px;
-  width: 50vw;
-  overflow: auto;
-  text-align: justify;
-}
-
-.scrollableQuestionsList {
-  max-height: 50vh;
-  width: 100vw;
-  overflow: auto;
-  text-align: justify;
-}

@@ -826,6 +826,46 @@ class AddQuestion extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
 
 /***/ }),
 
+/***/ "./client/src/Components/QnA/AnswerPhotos.jsx":
+/*!****************************************************!*\
+  !*** ./client/src/Components/QnA/AnswerPhotos.jsx ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+class AnswerPhotos extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
+  constructor(props) {
+    super(props), this.state = {};
+  }
+
+  render() {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+      className: "answer-photos-container"
+    }, this.props.photos.map(photo => {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        src: photo.url,
+        alt: "photo",
+        className: "answer-photo"
+      });
+    }));
+  }
+
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AnswerPhotos);
+
+/***/ }),
+
 /***/ "./client/src/Components/QnA/AnswersList.jsx":
 /*!***************************************************!*\
   !*** ./client/src/Components/QnA/AnswersList.jsx ***!
@@ -912,7 +952,9 @@ class AnswersList extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
   render() {
     let answers = this.state.answers;
     answers = this.sortSeller(answers.sort(this.sortAnswers));
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      className: "scrollableAnswersList"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
       className: "answer"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
       className: "letterA"
@@ -953,6 +995,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _AnswerPhotos_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AnswerPhotos.jsx */ "./client/src/Components/QnA/AnswerPhotos.jsx");
+
 
 
 
@@ -1005,12 +1049,14 @@ class IndividualAnswer extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
   render() {
     let answers = this.props.answers;
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
-      className: "scrollableAnswersList"
+      className: "individual-answer"
     }, answers.slice(0, this.props.a).map(answer => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
       key: answer.answer_id
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
       className: "answerBody"
-    }, answer.body), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+    }, answer.body), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, answer.photos.length === 0 ? null : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_AnswerPhotos_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      photos: answer.photos
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
       className: "container2"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
       className: "Auser"
@@ -1636,8 +1682,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Pics_magnifying_glass_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Pics/magnifying-glass.png */ "./client/src/Components/QnA/Pics/magnifying-glass.png");
 
- // import icon from "./Pics/magnifying-glass.png";
+
+
 
 class SearchBar extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
   constructor(props) {
@@ -1671,7 +1719,9 @@ class SearchBar extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
       onChange: this.questionSearch.bind(this)
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
       className: "search-answer"
-    }, "Search"));
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+      src: _Pics_magnifying_glass_png__WEBPACK_IMPORTED_MODULE_2__["default"]
+    })));
   }
 
 }
@@ -24271,6 +24321,21 @@ if (false) {} else {
   module.exports = __webpack_require__(/*! ./cjs/scheduler-tracing.development.js */ "./node_modules/scheduler/cjs/scheduler-tracing.development.js");
 }
 
+/***/ }),
+
+/***/ "./client/src/Components/QnA/Pics/magnifying-glass.png":
+/*!*************************************************************!*\
+  !*** ./client/src/Components/QnA/Pics/magnifying-glass.png ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "cd344381db7c0ecbfcff7af0b5f26f42.png");
+
 /***/ })
 
 /******/ 	});
@@ -24324,6 +24389,18 @@ if (false) {} else {
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	(() => {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
@@ -24338,6 +24415,26 @@ if (false) {} else {
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		var scriptUrl;
+/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
+/******/ 		var document = __webpack_require__.g.document;
+/******/ 		if (!scriptUrl && document) {
+/******/ 			if (document.currentScript)
+/******/ 				scriptUrl = document.currentScript.src
+/******/ 			if (!scriptUrl) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				if(scripts.length) scriptUrl = scripts[scripts.length - 1].src
+/******/ 			}
+/******/ 		}
+/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		__webpack_require__.p = scriptUrl;
 /******/ 	})();
 /******/ 	
 /************************************************************************/
@@ -24386,7 +24483,7 @@ class App extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
     // if(JSON.stringify(this.state.products) === '{}') {
     axios__WEBPACK_IMPORTED_MODULE_3___default().get('/products').then(response => {
       this.setState({
-        products: response.data[2]
+        products: response.data[0]
       });
     }).catch(err => {
       console.log(err);

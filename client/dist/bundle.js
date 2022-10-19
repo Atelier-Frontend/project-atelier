@@ -1465,7 +1465,8 @@ class QnA extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
       questions: [],
       initQuestions: [],
       answers: [],
-      moreQuestionsClicked: false
+      moreQuestionsClicked: false,
+      term: ""
     };
   }
 
@@ -1519,7 +1520,8 @@ class QnA extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
       return q.question_body.includes(term);
     });
     this.setState({
-      questions: filteredQuestions
+      questions: filteredQuestions,
+      term: term
     });
   }
 
@@ -1532,7 +1534,8 @@ class QnA extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
       questions: this.state.questions,
       product: this.props.products,
       moreQuestionsClicked: this.state.moreQuestionsClicked,
-      getQList: this.getQuestionsList.bind(this)
+      getQList: this.getQuestionsList.bind(this),
+      term: this.state.term
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
       className: "containerRow"
     }, this.state.questions.length > 2 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_MoreQuestions_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -1617,6 +1620,14 @@ class QuestionsList extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
     this.props.getQList(this.props.product.id);
   }
 
+  textHighlight(value, keyWord) {
+    if (value.indexOf(keyWord) !== -1 && keyWord !== '') {
+      return value.replace(keyWord, `<font color="aero">${keyWord}</font>`);
+    }
+
+    return value;
+  }
+
   render() {
     let questions = this.props.questions;
     questions.sort(this.sortQuestions);
@@ -1632,8 +1643,13 @@ class QuestionsList extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
           }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
             className: "question"
           }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-            className: "questionBody"
-          }, `Q: ${question.question_body}`), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+            className: "letterQ"
+          }, "Q: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+            className: "questionBody",
+            dangerouslySetInnerHTML: {
+              __html: this.textHighlight(question.question_body, this.props.term)
+            }
+          }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
             className: "container1"
           }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
             className: "helpful"

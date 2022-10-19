@@ -241,11 +241,17 @@ section aside:hover {
   flex-direction:row;
 }
 
+.letterQ {
+  font-size: medium;
+  font-weight: bold;
+}
+
 .questionBody {
   font-size: medium;
   font-weight: bold;
   width: 75vw;
-  color:rgb(16, 90, 100)
+  color:rgb(16, 90, 100);
+  padding-left: 0.4vw;
 }
 
 .helpful {

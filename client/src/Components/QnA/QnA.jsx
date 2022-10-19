@@ -13,6 +13,7 @@ class QnA extends React.Component {
       initQuestions: [],
       answers: [],
       moreQuestionsClicked: false,
+      term: ""
     }
   }
 
@@ -32,7 +33,8 @@ class QnA extends React.Component {
       .then((response) => {
         this.setState({
           questions: response.data.results,
-          initQuestions: response.data.results
+          initQuestions: response.data.results,
+          term: ""
         })
       })
       .catch((err) => {
@@ -66,7 +68,8 @@ class QnA extends React.Component {
       return q.question_body.includes(term)
     });
     this.setState({
-      questions: filteredQuestions
+      questions: filteredQuestions,
+      term: term
     })
   }
 
@@ -80,7 +83,8 @@ class QnA extends React.Component {
         questions={this.state.questions}
         product={this.props.products}
         moreQuestionsClicked={this.state.moreQuestionsClicked}
-        getQList={this.getQuestionsList.bind(this)} />
+        getQList={this.getQuestionsList.bind(this)}
+        term={this.state.term} />
       <div className="containerRow">
         {(this.state.questions.length > 2) &&
         <MoreQuestions  moreQuestionsClicked={this.state.moreQuestionsClicked}

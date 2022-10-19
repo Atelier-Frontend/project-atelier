@@ -1590,6 +1590,10 @@ class QuestionsList extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
     return a.question_helpfulness < b.question_helpfulness ? 1 : -1;
   }
 
+  sortQuestions2(a, b) {
+    return a.question_id < b.question_id ? 1 : -1;
+  }
+
   questionHelpfulness(e) {
     if (this.state.QVoted.includes(e.target.id)) {
       alert("You have voted for this question!");
@@ -1631,6 +1635,7 @@ class QuestionsList extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
 
   render() {
     let questions = this.props.questions;
+    questions.sort(this.sortQuestions2);
     questions.sort(this.sortQuestions);
     let q = this.props.moreQuestionsClicked === false ? 2 : this.props.questions.length;
     {

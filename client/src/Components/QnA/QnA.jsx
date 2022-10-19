@@ -33,7 +33,8 @@ class QnA extends React.Component {
       .then((response) => {
         this.setState({
           questions: response.data.results,
-          initQuestions: response.data.results
+          initQuestions: response.data.results,
+          term: ""
         })
       })
       .catch((err) => {

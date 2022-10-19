@@ -1488,7 +1488,8 @@ class QnA extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
     }).then(response => {
       this.setState({
         questions: response.data.results,
-        initQuestions: response.data.results
+        initQuestions: response.data.results,
+        term: ""
       });
     }).catch(err => {
       console.log('failed to get questions list');

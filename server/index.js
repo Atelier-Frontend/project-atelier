@@ -208,6 +208,30 @@ app.put('/qa/answers/:answer_id/report', (req, res) => {
     })
 });
 
+//image uploading handler
+app.post(`/image/upload`, (req, res) => {
+  axios({
+    method: "POST",
+    url: 'https://api.imgbb.com/1/upload',
+    data: {
+      key: process.env.IMG_API,
+      image: req.body.body,
+    }
+    ,
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    }
+})
+    .then((response) => {
+      res.send(response.data.data);
+    })
+    .catch((err) => {
+      res.send(err)
+    })
+});
+
+
+
 
 
 // ---- RELATED ITEM AND OUTFIT CREATION ROUTES ---- //

@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-
+import ImageHandler from "./ImageHandler.jsx";
 
 class ModalAnswer extends React.Component {
   constructor(props) {
@@ -13,6 +13,10 @@ class ModalAnswer extends React.Component {
       email: '',
       photos: []
     }
+  }
+
+  addImageUrl(photoURL) {
+    this.setState({photos: [...this.state.photos, photoURL]});
   }
 
   onChange(e) {
@@ -75,6 +79,8 @@ class ModalAnswer extends React.Component {
                     name={"YourAnswer"} maxLength={"1000"} rows={"7"}
                     style={{ marginBottom: '1rem' }}
                     onChange={this.onChange.bind(this)} required />
+          <ImageHandler addImageUrl={this.addImageUrl.bind(this)}
+                        len={this.state.photos.length}/>
           <label>What is your nickname?</label>
           <input type={"text"} placeholder="Example: jack543!" name={"name"}
                  maxLength={"60"} style={{ marginBottom: '1rem' }}

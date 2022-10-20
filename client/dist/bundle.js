@@ -981,6 +981,81 @@ class AnswersList extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
 
 /***/ }),
 
+/***/ "./client/src/Components/QnA/ImageHandler.jsx":
+/*!****************************************************!*\
+  !*** ./client/src/Components/QnA/ImageHandler.jsx ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+class ImageHandler extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  async handleFileRead(e) {
+    if (e.target.files.length !== 0) {
+      const file = event.target.files[0];
+      const base64 = await this.convertBase64(file);
+      await this.getPublicURL(base64);
+    }
+  }
+
+  convertBase64(file) {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+
+      fileReader.onerror = error => {
+        reject(error);
+      };
+    });
+  }
+
+  getPublicURL(b64) {
+    axios__WEBPACK_IMPORTED_MODULE_1___default().post(`/image/upload`, {
+      body: b64.split('base64,')[1]
+    }).then(response => {
+      this.props.addImageUrl(response.data.url);
+    }).catch(err => {
+      console.log('failed');
+    });
+  } //###this function can make a better looking button###
+  // uploadImage() {
+  //   document.getElementById('selectFile').click()
+  // }
+
+
+  render() {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("center", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+      id: "selectFile",
+      type: "file",
+      accept: "image/*",
+      onChange: this.handleFileRead.bind(this)
+    }), this.props.len === 0 ? null : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, `You have select ${this.props.len} image(s)`)));
+  }
+
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ImageHandler);
+
+/***/ }),
+
 /***/ "./client/src/Components/QnA/IndividualAnswer.jsx":
 /*!********************************************************!*\
   !*** ./client/src/Components/QnA/IndividualAnswer.jsx ***!
@@ -1105,6 +1180,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _ImageHandler_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ImageHandler.jsx */ "./client/src/Components/QnA/ImageHandler.jsx");
+
 
 
 
@@ -1119,6 +1196,12 @@ class ModalAnswer extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
       email: '',
       photos: []
     };
+  }
+
+  addImageUrl(photoURL) {
+    this.setState({
+      photos: [...this.state.photos, photoURL]
+    });
   }
 
   onChange(e) {
@@ -1194,6 +1277,9 @@ class ModalAnswer extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
       },
       onChange: this.onChange.bind(this),
       required: true
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_ImageHandler_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      addImageUrl: this.addImageUrl.bind(this),
+      len: this.state.photos.length
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "What is your nickname?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
       type: "text",
       placeholder: "Example: jack543!",
@@ -1739,11 +1825,7 @@ class SearchBar extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
         height: "3vh"
       },
       onChange: this.questionSearch.bind(this)
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-      className: "search-answer"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-      src: _Pics_magnifying_glass_png__WEBPACK_IMPORTED_MODULE_2__["default"]
-    })));
+    }));
   }
 
 }

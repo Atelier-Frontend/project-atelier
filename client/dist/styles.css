@@ -151,14 +151,76 @@ section aside:hover {
   justify-content: left;
 }
 
-.selectors .size-selector {
-  padding: 3px;
-  margin-right: 3px;
+.quantity-dropdown {
+  display:inline-block;
+  padding: 1.7em 4.5em 0.9em 0.7em;
+  border:0.16em solid black;
+  margin:0.9em 0.3em 0.3em 1.1em;
+  box-sizing: border-box;
+  text-decoration:none;
+  text-transform:uppercase;
+  font-family:'Arimo',sans-serif;
+  font-weight:700;
+  color: black;
+  background-color: white;
+  text-align: center;
+  transition: all 0.15s;
 }
 
-.selectors .quant-selector {
-  padding: 3px;
-  margin-left: 3px;
+.quantity-dropdown:hover {
+  color: white;
+  border-color: black;
+  background-color: black;
+  box-shadow: 0 0.4em 0.4em -0.2em var(--hover);
+  transform: translateY(-0.05em);
+}
+
+.quantity-dropdown:active {
+  color:rgb(78, 101, 121);
+  border-color: rgb(78, 101, 121);
+}
+
+@media all and (max-width:30em) {
+   .quantity-dropdown {
+     display:block;
+     margin:0.4em auto;
+   }
+}
+
+.size-dropdown {
+  display:inline-block;
+  padding:1.3em 5em 1.3em 1.3em;
+  border:0.16em solid black;
+  margin:0.9em 0.3em 0.3em 0;
+  box-sizing: border-box;
+  text-decoration:none;
+  text-transform:uppercase;
+  font-family:'Arimo',sans-serif;
+  font-weight:700;
+  color: black;
+  background-color: white;
+  text-align: left;
+  transition: all 0.15s;
+}
+
+.size-dropdown:hover {
+  color: white;
+  border-color: black;
+  background-color: black;
+  box-shadow: 0 0.4em 0.4em -0.2em var(--hover);
+  transform: translateY(-0.05em);
+}
+
+.size-dropdown:active {
+  color:rgb(78, 101, 121);
+  border-color: rgb(78, 101, 121);
+}
+
+@media all and (max-width:30em) {
+   .size-dropdown {
+     display:block;
+     margin:0.4em auto;
+   }
 }
 
 .add-cart {
@@ -170,7 +232,7 @@ section aside:hover {
   text-decoration:none;
   text-transform:uppercase;
   font-family:'Arimo',sans-serif;
-  font-weight:500;
+  font-weight:700;
   color: black;
   background-color: white;
   text-align: left;
@@ -197,14 +259,11 @@ section aside:hover {
    }
   }
 
-
 .heart {
   display:inline-block;
   margin-left: 15px;
   padding: 10.5px 16px 16.5px 16px;
-  /* padding: 0.7em;
-  border:0.16em solid black;
-  margin:0.9em 0 0 0; */
+  border:0.13em solid black;
   box-sizing: border-box;
   font-size: 1.2rem;
   text-align: center;
@@ -227,10 +286,14 @@ section aside:hover {
 }
 
 @media all and (max-width:30em) {
-   .add-cart {
+   .heart {
      display:block;
      margin:0.4em auto;
    }
+}
+
+.heart-icon {
+  
 }
 
 .product {

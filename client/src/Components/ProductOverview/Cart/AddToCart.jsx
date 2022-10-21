@@ -69,7 +69,7 @@ class Cart extends React.Component {
       </div>
       <div className='buy-buttons'>
         <button className='add-cart'>Add to Bag</button>
-        <button className='heart'><ImStarEmpty /></button> 
+        <button className='heart'><ImStarEmpty className='heart-icon'/></button> 
       </div>      
     </div>)
   }

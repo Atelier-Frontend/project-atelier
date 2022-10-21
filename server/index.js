@@ -79,8 +79,9 @@ app.get('/reviews', (req, res) => {
 //Returns review metadata for a given product
 app.get('/reviews/meta', (req, res) => {
   axios.defaults.headers.common['Authorization'] = process.env.TOKEN;
-  axios.get(`${apiPath}/reviews/meta?${req._parsedOriginalUrl.query}`)
+  axios.get(`${apiPath}/reviews/meta?product_id=${req.query.id}`)
     .then((response) => {
+      console.log(response.data)
       res.send(response.data);
     })
     .catch((err) => {

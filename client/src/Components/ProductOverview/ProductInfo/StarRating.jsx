@@ -26,7 +26,7 @@ class StarRating extends React.Component {
 
   getRatings() {
     axios.get('/reviews/meta', {
-      params: {product_id: this.props.id}
+      params: {id: this.props.id}
     })
     .then((response) => {
       console.log(response)

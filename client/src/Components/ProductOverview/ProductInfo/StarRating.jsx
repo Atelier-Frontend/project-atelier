@@ -26,9 +26,10 @@ class StarRating extends React.Component {
 
   getRatings() {
     axios.get('/reviews/meta', {
-      params: {id: this.props.id}
+      params: {product_id: this.props.id}
     })
     .then((response) => {
+      console.log(response)
       var averageRating = this.getAverage(response.data.ratings);
       this.setState({ rating: averageRating });
     })
@@ -55,7 +56,7 @@ class StarRating extends React.Component {
     return (<div className='star-rating'>
       <div className='stars'>
         <div>Star Rating: {this.state.rating}</div>
-        <div className='stars-rating'>  
+        <div className='stars-rating'>
         {[...Array(this.state.stars).keys()].map((index) => (
             <span className='star' key={index}><AiOutlineStar /></span>))}
         </div>
@@ -63,7 +64,7 @@ class StarRating extends React.Component {
       <div className='reviews-link'>
         <a href='http://localhost:3000' className='stars'>Read all reviews</a>
       </div>
-      
+
     </div>)
   }
 };

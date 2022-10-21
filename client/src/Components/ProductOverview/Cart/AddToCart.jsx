@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import QuantitySelector from './QuantitySelector.jsx';
 import SizeSelector from './SizeSelector.jsx';
+import { ImStarEmpty } from 'react-icons/im';
 
 class Cart extends React.Component {
   constructor(props) {
@@ -67,8 +68,8 @@ class Cart extends React.Component {
           </span>
       </div>
       <div className='buy-buttons'>
-        <button className='add-cart'>Add to Cart</button>
-        <button className='heart'>Add to My Outfit</button> 
+        <button className='add-cart'>Add to Bag</button>
+        <button className='heart'><ImStarEmpty /></button> 
       </div>      
     </div>)
   }

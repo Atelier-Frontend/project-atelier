@@ -161,15 +161,77 @@ section aside:hover {
   margin-left: 3px;
 }
 
-.buy-buttons .add-cart {
-  padding: 3px;
-  margin: 3px;
+.add-cart {
+  display:inline-block;
+  padding:1.3em 10em 1.3em 1.3em;
+  border:0.16em solid black;
+  margin:0.9em 0.3em 0.3em 0;
+  box-sizing: border-box;
+  text-decoration:none;
+  text-transform:uppercase;
+  font-family:'Arimo',sans-serif;
+  font-weight:500;
+  color: black;
+  background-color: white;
+  text-align: left;
+  transition: all 0.15s;
 }
 
-.buy-buttons .heart {
-  padding: 3px;
-  margin: 3px;
+.add-cart:hover {
+  color: white;
+  border-color: black;
+  background-color: black;
+  box-shadow: 0 0.4em 0.4em -0.2em var(--hover);
+  transform: translateY(-0.05em);
+}
+
+.add-cart:active {
+  color:rgb(78, 101, 121);
+  border-color: rgb(78, 101, 121);
+}
+
+@media all and (max-width:30em) {
+   .add-cart {
+     display:block;
+     margin:0.4em auto;
+   }
+  }
+
+
+.heart {
+  display:inline-block;
+  margin-left: 15px;
+  padding: 10.5px 16px 16.5px 16px;
+  /* padding: 0.7em;
+  border:0.16em solid black;
+  margin:0.9em 0 0 0; */
+  box-sizing: border-box;
+  font-size: 1.2rem;
+  text-align: center;
+  color: black;
+  background-color: white;
+  transition: all 0.15s;
 } 
+
+.heart:hover {
+  color: white;
+  border-color: black;
+  background-color: black;
+  box-shadow: 0 0.4em 0.4em -0.2em var(--hover);
+  transform: translateY(-0.05em);
+}
+
+.heart:active {
+  color:rgb(78, 101, 121);
+  border-color: rgb(78, 101, 121);
+}
+
+@media all and (max-width:30em) {
+   .add-cart {
+     display:block;
+     margin:0.4em auto;
+   }
+}
 
 .product {
   max-width: 1283px;
@@ -244,6 +306,11 @@ section aside:hover {
 .title {
   padding-left: 10px;
 }
+
+.style-image .selected {
+  border: 10px solid green;
+}
+
 /* Q&A styles: */
 .question {
   display:flex;

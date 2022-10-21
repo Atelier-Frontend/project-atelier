@@ -515,3 +515,64 @@ section aside:hover {
   padding-top: -15px;
 }
 
+
+
+/* Ratings & Reviews */
+.Ratings-Reviews {
+  width: 800px;
+  height: 600px;
+  position: relative;
+  text-align: left;
+}
+.Ratings-Reviews .Sorting-Bar {
+  position: absolute;
+  left: 200px;
+  top: 0;
+  right: 0;
+}
+.Ratings-Reviews .Reviews-List {
+  position: absolute;
+  bottom: 60px;
+  top: 60px;
+  left: 200px;
+  right: 0;
+}
+.Ratings-Reviews .Review-Button-Row {
+  bottom: 0;
+  left: 200px;
+  right: 0;
+  position: absolute;
+}
+.Ratings-Reviews .Ratings-Sider {
+  width: 150px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.Score-Star {
+  font-size: small;
+  display:flex;
+  flex-direction:row;
+}
+
+.Individul-Review-Header {
+  font-size: small;
+  display:flex;
+  flex-direction:row;
+  justify-content: space-between;
+}
+
+.User-Date {
+  display:flex;
+  flex-direction:row;
+  justify-content: space-evenly;
+  text-align: right;
+}
+
+.Helpfulness-Report {
+  font-size: small;
+  display:flex;
+  flex-direction:row;
+}

@@ -45,7 +45,6 @@ class QuantitySelector extends React.Component {
   render() {
     return (<div className='quantity'>
       <label>
-        Quantity:
         {this.state.disabled === true &&
           <select name='quantity' disabled={true}>
             <option>--</option>

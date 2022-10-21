@@ -34,7 +34,7 @@ class ProductInfo extends React.Component {
         this.setState({
           id: response.data.id,
           name: response.data.name,
-          category: response.data.category,
+          category: response.data.category.toUpperCase(),
           price: response.data.default_price,
           text: response.data.description
         })
@@ -47,12 +47,12 @@ class ProductInfo extends React.Component {
   render() {
     return (<div className='product-info'>
         {this.state.id > 0 &&
-          <div className='product-info'><StarRating className='product-info' id={this.state.id}/></div>}
-          <div className='product-info'>Category: {this.state.category}</div>
-          <div className='product-info'>Name: {this.state.name}</div>
+          <div className='star-rating'><StarRating className='product-info' id={this.state.id}/></div>}
+          <div className='category'>{this.state.category}</div>
+          <div className='product-name'>{this.state.name}</div>
         {Object.keys(this.props.selectedStyle).length > 0 &&
-          <div className='product-info'><Price  selectedStyle={this.props.selectedStyle} /></div>}
-          <div className='product-info'>Overview Text: {this.state.text}</div>
+          <div className='product-price'><Price  selectedStyle={this.props.selectedStyle} /></div>}
+          {/* <div className='product-info'>Overview Text: {this.state.text}</div> */}
     </div>)
   }
 };

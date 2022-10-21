@@ -61,18 +61,19 @@ class ProductOverview extends React.Component {
   }
 
   render() {
-    return (<div className='product-overview'>
-      {this.state.styles.length > 0 &&
-        <ImageGallery styles={this.state.styles} selectedStyle={this.state.selectedStyle} image={this.state.imageStyle} />}
-      {Object.keys(this.state.product).length > 0 &&
-        <ProductInfo product={this.state.product} selectedStyle={this.state.selectedStyle} styleName={this.state.selectedStyle.name}/>
-      }
-      {this.state.styles.length > 0 &&
-        <StyleSelector styles={this.state.styles} selectedStyle={this.state.selectedStyle} selectImage={this.selectImage} />
-      }
-      {this.state.styles.length > 0 &&
-        <Cart styles={this.state.styles} selectedStyle={this.state.selectedStyle} reset={this.state.sizeReset}/>
-      }
+    return (<div className='product'>
+      <div className='left-column'>
+        {this.state.styles.length > 0 &&
+          <ImageGallery styles={this.state.styles} selectedStyle={this.state.selectedStyle} image={this.state.imageStyle} />}
+      </div>
+      <div className='right-column'>
+        {Object.keys(this.state.product).length > 0 &&
+          <ProductInfo product={this.state.product} selectedStyle={this.state.selectedStyle} styleName={this.state.selectedStyle.name}/>}
+        {this.state.styles.length > 0 &&
+          <StyleSelector styles={this.state.styles} selectedStyle={this.state.selectedStyle} selectImage={this.selectImage} />}
+        {this.state.styles.length > 0 &&
+          <Cart styles={this.state.styles} selectedStyle={this.state.selectedStyle} reset={this.state.sizeReset}/>}  
+      </div>    
     </div>)
   }
 };

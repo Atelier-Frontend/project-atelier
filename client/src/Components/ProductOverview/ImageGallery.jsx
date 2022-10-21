@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
+import { FiArrowRight, FiArrowLeft } from 'react-icons/fi';
 
 class ImageGallery extends React.Component {
   constructor(props) {
@@ -51,9 +51,9 @@ class ImageGallery extends React.Component {
     return (
       <div className='image-gallery'>
         {this.state.current !== 0 && (
-          <FaArrowAltCircleLeft className='left-arrow' onClick={this.prevImage}/>)}
+          <FiArrowLeft className='left-arrow' onClick={this.prevImage}/>)}
         {this.state.current < this.state.length - 1 && (
-          <FaArrowAltCircleRight className='right-arrow' onClick={this.nextImage}/>)}
+          <FiArrowRight className='right-arrow' onClick={this.nextImage}/>)}
         {this.state.stylePhotos.map((style, index) => (
           <div className={index === this.state.current ? 'slide-active' : 'slide'} key={index}>
             {index === this.state.current && (

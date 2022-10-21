@@ -16,7 +16,7 @@ section aside {
   padding: 1.25rem;
   width: 100px;
 }
-asside small {
+aside small {
   display: inline-block;
 }
 #red-bg {
@@ -70,13 +70,13 @@ section aside:hover {
   flex-flow: row wrap;
   align-self: center;
   object-fit: contain;
+  margin-top: 15px;
 }
 
 .style-gallery .style-image {
   width: 60px;
   height: 60px;
   margin-right: 15px;
-  margin-top: 15px;
   margin-bottom: 15px;
   border-radius: 50%;
   border: 3px solid grey;
@@ -137,12 +137,12 @@ section aside:hover {
 
 .selectors .size-selector {
   padding: 3px;
-  margin: 3px;
+  margin-right: 3px;
 }
 
 .selectors .quant-selector {
   padding: 3px;
-  margin: 3px;
+  margin-left: 3px;
 }
 
 .buy-buttons .add-cart {
@@ -180,6 +180,7 @@ section aside:hover {
 .style-info {
   font-weight: bold;
   font-size: 14pt;
+  margin-right: 5px;
 }
 
 .product-name {
@@ -189,6 +190,8 @@ section aside:hover {
 }
 
 .style-name {
+  font-size: 14pt;
+  margin-left: 5px;
   text-transform: capitalize;
 }
 

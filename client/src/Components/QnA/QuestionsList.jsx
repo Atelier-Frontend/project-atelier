@@ -17,7 +17,11 @@ class QuestionsList extends React.Component {
     return ( a.question_helpfulness < b.question_helpfulness ) ? 1 : -1;
   }
 
-    questionHelpfulness(e) {
+  sortQuestions2(a, b) {
+    return ( a.question_id < b.question_id) ? 1 : -1;
+  }
+
+  questionHelpfulness(e) {
     if (this.state.QVoted.includes(e.target.id)) {
       (alert("You have voted for this question!"))
     } else {
@@ -46,8 +50,16 @@ class QuestionsList extends React.Component {
     this.props.getQList(this.props.product.id)
   }
 
+  textHighlight(value, keyWord) {
+    if (value.indexOf(keyWord) !== -1 && keyWord !== '') {
+      return value.replace(keyWord, `<font color="aero">${keyWord}</font>`)
+    }
+      return value;
+  }
+
   render() {
     let questions = this.props.questions;
+    questions.sort(this.sortQuestions2);
     questions.sort(this.sortQuestions);
     let q = (this.props.moreQuestionsClicked === false) ? 2 : this.props.questions.length;
     {
@@ -57,7 +69,9 @@ class QuestionsList extends React.Component {
         return (questions.slice(0, q).map((question)=>{
           return(<div key={question.question_id} className="scrollableQuestionsList">
             <span className="question">
-              <p className="questionBody">{`Q: ${question.question_body}`}</p>
+              {/* <p className="questionBody">{`Q: ${question.question_body}`}</p> */}
+              <p className="letterQ">Q: </p>
+              <p className="questionBody" dangerouslySetInnerHTML={{__html: this.textHighlight(question.question_body, this.props.term)}} />
               <span className="container1">
                 <p className="helpful"> Helpful? </p>
                 <p className="Yes"

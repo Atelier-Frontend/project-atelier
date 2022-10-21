@@ -6,6 +6,7 @@ import ProductOverview from './Components/ProductOverview/ProductOverview.jsx';
 import Your from './Components/Related/Your.jsx';
 import Related from './Components/Related/Related.jsx';
 import QnA from './Components/QnA/QnA.jsx';
+import RnR from './Components/RnR/RnR.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -22,7 +23,7 @@ class App extends React.Component {
     // if(JSON.stringify(this.state.products) === '{}') {
     axios.get('/products')
       .then((response) => {
-        this.setState({ products: response.data[2] })
+        this.setState({ products: response.data[0] })
       })
       .catch((err) => {
         console.log(err)
@@ -69,6 +70,8 @@ class App extends React.Component {
         <Your products={this.state.fav} />}
       {Object.keys(this.state.products).length > 0 &&
         <QnA products={this.state.products} />}
+      {Object.keys(this.state.products).length > 0 &&
+        <RnR products={this.state.products} />}
     </div>)
   }
 }

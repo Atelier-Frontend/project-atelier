@@ -217,11 +217,17 @@ section aside:hover {
   flex-direction:row;
 }
 
+.letterQ {
+  font-size: medium;
+  font-weight: bold;
+}
+
 .questionBody {
   font-size: medium;
   font-weight: bold;
   width: 75vw;
-  color:rgb(16, 90, 100)
+  color:rgb(16, 90, 100);
+  padding-left: 0.4vw;
 }
 
 .helpful {
@@ -369,6 +375,41 @@ section aside:hover {
   color: #333;
 }
 
+.answer-photos-container {
+  display: block;
+  flex-direction: row;
+  height: auto;
+  margin-bottom: 1em;
+}
+
+.answer-photo {
+  height: 120px;
+  width: 150px;
+  margin-right: 1em;
+}
+
+.scrollableAnswersList {
+  max-height: 350px;
+  width: 50vw;
+  overflow-y: auto;
+  overflow-x: hidden;
+  text-align: justify;
+}
+
+.scrollableQuestionsList {
+  max-height: 50vh;
+  width: 100vw;
+  overflow-y: auto;
+  overflow-x: hidden;
+  text-align: justify;
+}
+
+.individual-answer {
+  position: relative;
+  display: block;
+  flex-direction: column;
+}
+
 /* Form Styles */
 .form-container {
   position: fixed;
@@ -450,16 +491,64 @@ section aside:hover {
   padding-top: -15px;
 }
 
-.scrollableAnswersList {
-  max-height: 300px;
-  width: 50vw;
-  overflow: auto;
-  text-align: justify;
+
+
+/* Ratings & Reviews */
+.Ratings-Reviews {
+  width: 800px;
+  height: 600px;
+  position: relative;
+  text-align: left;
+}
+.Ratings-Reviews .Sorting-Bar {
+  position: absolute;
+  left: 200px;
+  top: 0;
+  right: 0;
+}
+.Ratings-Reviews .Reviews-List {
+  position: absolute;
+  bottom: 60px;
+  top: 60px;
+  left: 200px;
+  right: 0;
+}
+.Ratings-Reviews .Review-Button-Row {
+  bottom: 0;
+  left: 200px;
+  right: 0;
+  position: absolute;
+}
+.Ratings-Reviews .Ratings-Sider {
+  width: 150px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
 }
 
-.scrollableQuestionsList {
-  max-height: 50vh;
-  width: 100vw;
-  overflow: auto;
-  text-align: justify;
+.Score-Star {
+  font-size: small;
+  display:flex;
+  flex-direction:row;
+}
+
+.Individul-Review-Header {
+  font-size: small;
+  display:flex;
+  flex-direction:row;
+  justify-content: space-between;
+}
+
+.User-Date {
+  display:flex;
+  flex-direction:row;
+  justify-content: space-evenly;
+  text-align: right;
+}
+
+.Helpfulness-Report {
+  font-size: small;
+  display:flex;
+  flex-direction:row;
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from "axios";
+import AnswerPhotos from "./AnswerPhotos.jsx";
 
 class IndividualAnswer extends React.Component {
   constructor(props) {
@@ -47,10 +48,14 @@ class IndividualAnswer extends React.Component {
 
   render() {
     let answers = this.props.answers;
-    return(<span className="scrollableAnswersList">
+    return(<span className="individual-answer">
       {answers.slice(0, this.props.a).map((answer) => (
         <span key={answer.answer_id}>
           <p className="answerBody">{answer.body}</p>
+          <div>
+          {(answer.photos.length === 0) ? null :
+           <AnswerPhotos photos={answer.photos} />}
+          </div>
           <span className="container2">
             <p className="Auser">{`by ${answer.answerer_name}`}</p>
             {(answer.answerer_name==='Seller') ?

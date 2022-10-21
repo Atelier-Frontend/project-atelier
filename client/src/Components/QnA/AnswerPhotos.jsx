@@ -12,7 +12,8 @@ class AnswerPhotos extends React.Component {
   render() {
     return(<span className="answer-photos-container">
       {this.props.photos.map((photo) => {
-        return <img src={photo.url} alt="photo" className="answer-photo"/>
+        return <img src={photo.url} alt="photo"
+               key={photo.url} className="answer-photo"/>
        })
       }
     </span>)

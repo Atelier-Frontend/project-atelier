@@ -247,7 +247,7 @@ section aside:hover {
   transform: translateY(-0.05em);
 }
 
-.add-cart:active {
+.add-cart:disabled {
   color:rgb(78, 101, 121);
   border-color: rgb(78, 101, 121);
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { AiOutlineStar, AiFillStar } from 'react-icons/Ai';
+import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
 
 class StarRating extends React.Component {
   constructor(props) {

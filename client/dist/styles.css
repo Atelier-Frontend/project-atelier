@@ -114,6 +114,14 @@ section aside:hover {
   border-radius: 5px;
   object-fit: cover;
 }
+.expand-image {
+  min-width: 950px;
+  width: 150%;
+  height: 614px;
+  border-radius: 5px;
+  object-fit: cover;
+  z-index: 10;
+}
 
 .right-arrow {
   position: absolute;
@@ -159,6 +167,12 @@ section aside:hover {
   cursor: pointer;
   user-select: none;
   color: white
+}
+
+.expand-button:focus,
+.expand-button:hover {
+  box-shadow: 0 0.4em 0.4em -0.2em var(--hover);
+  transform: translateY(-0.05em);
 }
 
 .price-container {

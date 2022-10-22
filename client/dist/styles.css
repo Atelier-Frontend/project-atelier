@@ -259,7 +259,7 @@ section aside:hover {
    }
   }
 
-.heart {
+.add-style {
   display:inline-block;
   margin-left: 15px;
   padding: 10.5px 16px 16.5px 16px;
@@ -272,7 +272,7 @@ section aside:hover {
   transition: all 0.15s;
 } 
 
-.heart:hover {
+.add-style:hover {
   color: white;
   border-color: black;
   background-color: black;
@@ -280,13 +280,13 @@ section aside:hover {
   transform: translateY(-0.05em);
 }
 
-.heart:active {
+.add-style:active {
   color:rgb(78, 101, 121);
   border-color: rgb(78, 101, 121);
 }
 
 @media all and (max-width:30em) {
-   .heart {
+   .add-style {
      display:block;
      margin:0.4em auto;
    }

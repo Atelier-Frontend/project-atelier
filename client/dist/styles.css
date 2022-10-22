@@ -146,7 +146,7 @@ section aside:hover {
 .left-arrow {
   position: absolute;
   top: 45%;
-  left: 20%;
+  left: 22%;
   font-size: 2.3rem;
   cursor: pointer;
   user-select: none;
@@ -483,11 +483,19 @@ section aside:hover {
 .sidebar-gallery {
   display: flex;
   flex-direction: column;
+  position: absolute;
+  top: 7%;
+  left: 10.5%;
 }
 
 .sidebar-image {
-  width: 50px;
-  height: 50px;
+  position: absolute;
+  top: 10%;
+  left: 8%;
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border: 3.5px solid rgb(249, 120, 33);
 }
 
 /* Q&A styles: */

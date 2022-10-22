@@ -55,7 +55,7 @@ class StarRating extends React.Component {
     return (<div className='star-rating'>
       <span className='stars'>
         {this.state.rating}
-        {/* <span className='stars-rating'>  
+        {/* <span className='stars-rating'>
         {[...Array(this.state.stars).keys()].map((index) => (
             <span className='star' key={index}><AiOutlineStar /></span>))}
         </span> */}

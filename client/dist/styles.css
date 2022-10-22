@@ -132,7 +132,7 @@ section aside:hover {
   border-radius: 50%;
   background-color: rgb(255, 255, 255);
   color:rgb(0, 0, 0);
-} 
+}
 
 .left-arrow:focus,
 .left-arrow:hover {
@@ -271,7 +271,7 @@ section aside:hover {
   color: black;
   background-color: white;
   transition: all 0.15s;
-} 
+}
 
 .add-style:hover {
   color: white;
@@ -294,7 +294,7 @@ section aside:hover {
 }
 
 .heart-icon {
-  
+
 }
 
 .product {
@@ -309,7 +309,7 @@ section aside:hover {
   position: relative;
   margin-right: 20px;
 }
- 
+
 .right-column {
   width: 35%;
   margin-top: 50px;
@@ -676,14 +676,14 @@ section aside:hover {
 
 /* Ratings & Reviews */
 .Ratings-Reviews {
-  width: 800px;
+  width: 1000px;
   height: 600px;
   position: relative;
   text-align: left;
 }
 .Ratings-Reviews .Sorting-Bar {
   position: absolute;
-  left: 200px;
+  left: 300px;
   top: 0;
   right: 0;
 }
@@ -691,17 +691,17 @@ section aside:hover {
   position: absolute;
   bottom: 60px;
   top: 60px;
-  left: 200px;
+  left: 300px;
   right: 0;
 }
 .Ratings-Reviews .Review-Button-Row {
   bottom: 0;
-  left: 200px;
+  left: 300px;
   right: 0;
   position: absolute;
 }
 .Ratings-Reviews .Ratings-Sider {
-  width: 150px;
+  width: 250px;
   position: absolute;
   top: 0;
   left: 0;
@@ -732,4 +732,15 @@ section aside:hover {
   font-size: small;
   display:flex;
   flex-direction:row;
+}
+
+.recommended-percentage {
+  font-size: small;
+  color: rgb(107, 107, 107);
+}
+
+.rating-bar {
+  display:flex;
+  flex-direction:row;
+  text-align: left;
 }

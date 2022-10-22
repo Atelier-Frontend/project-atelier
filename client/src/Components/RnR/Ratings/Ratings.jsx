@@ -6,16 +6,27 @@ import Recommend from "./Recommend.jsx";
 import RatingsChart from "./RatingsChart.jsx";
 import RatingsBreakdown from "./RatingsBreakdown.jsx";
 
-export default function Ratings() {
+export default function Ratings(props) {
+
+  // let [score, setScore] = useState(0);
+
+  // useEffect(() => {
+  //   getAverage(props.ratings.ratings)
+  // }, [props])
+
+  // function getAverage(ratings) {
+  //   var avgRating = props.getAverage(ratings);
+  //   setScore = (avgRating)
+  // }
 
 return(<>
 <div className="Ratings-Sider">
   <div className="Score-Star">
-    <Score />
+    <Score score={props.score}/>
     <Stars />
   </div>
-  <Recommend />
-  <RatingsChart />
+  <Recommend recommended={props.recommended} />
+  <RatingsChart chart={props.chart}/>
   <RatingsBreakdown />
 </div>
 </>)

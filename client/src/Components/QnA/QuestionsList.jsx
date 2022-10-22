@@ -69,7 +69,6 @@ class QuestionsList extends React.Component {
         return (questions.slice(0, q).map((question)=>{
           return(<div key={question.question_id} className="scrollableQuestionsList">
             <span className="question">
-              {/* <p className="questionBody">{`Q: ${question.question_body}`}</p> */}
               <p className="letterQ">Q: </p>
               <p className="questionBody" dangerouslySetInnerHTML={{__html: this.textHighlight(question.question_body, this.props.term)}} />
               <span className="container1">

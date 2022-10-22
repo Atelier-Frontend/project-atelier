@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import ScaleBar from "./ScaleBar.jsx";
 
 export default function RatingsBreakdown(props) {
 
@@ -8,7 +9,7 @@ return(<>
   return (
     <div key={props.characteristics[c].id}>
       <p>{`${c}`}</p>
-      <p>{`====${props.characteristics[c].value}====`}</p>
+      <ScaleBar characteristic={[c, props.characteristics[c]]} />
     </div>
   )
 })}

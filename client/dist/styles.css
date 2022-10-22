@@ -760,3 +760,26 @@ section aside:hover {
   flex-direction:row;
   text-align: left;
 }
+
+.barBkg {
+  height: 10px;
+  background: rgba(224, 224, 224, 1);
+  margin-bottom: 10px;
+}
+
+.barDescription {
+  font-size: small;
+  display:flex;
+  flex-direction:row;
+  text-align: left;
+  text-align-last: right;
+  justify-content: space-evenly;
+  margin-top: -1em;
+  margin-bottom: 1.5em;
+}
+
+.score-pointer {
+  margin-top: -4.3em;
+  margin-left: -0.5em;
+  padding-left: calc(100% * var(--percent))
+}

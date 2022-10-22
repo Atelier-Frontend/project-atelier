@@ -48,7 +48,6 @@ class ProductInfo extends React.Component {
   }
 
   render() {
-    console.log(this.state.expandedStatus)
     return (<div className='product-info'>
         {this.state.id > 0 &&
           <div className='star-rating'><StarRating className='product-info' id={this.state.id}/></div>}

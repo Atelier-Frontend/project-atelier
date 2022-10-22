@@ -22,6 +22,8 @@ class StyleSelector extends React.Component {
 
   onClick(event) {
     event.preventDefault();
+    console.log(event.target.classList)
+    event.target.classList.toggle('selected');
     this.setState({ clicked: true });
     this.props.selectImage(event.target.id);
     return false;

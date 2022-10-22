@@ -61,7 +61,7 @@ class App extends React.Component {
 
   render () {
     return (<div>
-      <h1>Project Atelier</h1>
+      <h1 className='project-title'><div className='title'>Atelier</div></h1>
       {Object.keys(this.state.products).length > 0 &&
         <ProductOverview products={this.state.products} update={this.update}/>}
       {Object.keys(this.state.products).length > 0 &&

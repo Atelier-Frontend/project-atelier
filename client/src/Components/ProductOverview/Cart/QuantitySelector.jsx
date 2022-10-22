@@ -46,11 +46,11 @@ class QuantitySelector extends React.Component {
     return (<div className='quantity'>
       <label>
         {this.state.disabled === true &&
-          <select name='quantity' disabled={true}>
+          <select className='quantity-dropdown' disabled={true}>
             <option>--</option>
             </select>}
         {this.state.disabled === false && 
-          <select name='quantity'>
+          <select className='quantity-dropdown'>
           {[...Array(this.state.quantity)].map((e, i) => (
             <option key={i}>{i + 1}</option>
           ))}          

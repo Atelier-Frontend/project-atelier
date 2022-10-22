@@ -496,6 +496,7 @@ section aside:hover {
   height: 60px;
   object-fit: cover;
   border: 3.5px solid rgb(249, 120, 33);
+  border-radius: 2.5px;
 }
 
 /* Q&A styles: */

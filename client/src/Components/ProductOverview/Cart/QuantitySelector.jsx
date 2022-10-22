@@ -1,4 +1,5 @@
 import React from 'react';
+import { BsDashLg } from 'react-icons/bs';
 
 class QuantitySelector extends React.Component {
   constructor(props) {
@@ -47,12 +48,12 @@ class QuantitySelector extends React.Component {
       <label>
         {this.state.disabled === true &&
           <select className='quantity-dropdown' disabled={true}>
-            <option>--</option>
+            <option className='quantity-option'>--</option>
             </select>}
         {this.state.disabled === false && 
           <select className='quantity-dropdown'>
           {[...Array(this.state.quantity)].map((e, i) => (
-            <option key={i}>{i + 1}</option>
+            <option className='quantity-option' key={i}>{i + 1}</option>
           ))}          
         </select>}  
       </label>

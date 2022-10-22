@@ -64,7 +64,9 @@ class Cart extends React.Component {
           </span>
         <span className='quant-selector'>
           {this.state.quantity.length > 0 &&
-            <QuantitySelector quantity={this.state.quantity} size={this.state.selectedSize}/>}
+            <QuantitySelector 
+              quantity={this.state.quantity} 
+              size={this.state.selectedSize}/>}
           </span>
       </div>
       <div className='buy-buttons'>

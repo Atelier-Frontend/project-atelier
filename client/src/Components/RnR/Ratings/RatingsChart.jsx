@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 export default function RatingsChart(props) {
   let total =  props.chart.reduce((a, b) => Number(a) + Number(b), 0)
   return(<>
-  {console.log(">>>", props.chart)}
     {
       props.chart.map((rating, index) => {
         return(

@@ -19,7 +19,8 @@ return(<>
   <ButtonRow result={props.result}
              moreReviewsClickHandler={props.moreReviewsClickHandler}
              reviewsCount={props.reviewsCount}
-             moreclicked={props.moreclicked} />
+             moreclicked={props.moreclicked}
+             product_id={props.product_id} />
 </div>
 </>)
 }

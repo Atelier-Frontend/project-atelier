@@ -7,7 +7,7 @@ export default function RatingsChart(props) {
     {
       props.chart.map((rating) => {
         return(
-          <div className="rating-bar">
+          <div className="rating-bar" key={Math.random() + rating}>
             <p>{`${5 - props.chart.indexOf(rating)} stars: `}</p>
             <h3>{`=====${rating}=====`}</h3>
           </div>

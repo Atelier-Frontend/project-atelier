@@ -669,16 +669,18 @@ section aside:hover {
 /* Ratings & Reviews */
 .Ratings-Reviews {
   width: 1000px;
-  height: 600px;
+  height: 700px;
   position: relative;
   text-align: left;
 }
+
 .Ratings-Reviews .Sorting-Bar {
   position: absolute;
   left: 300px;
   top: 0;
   right: 0;
 }
+
 .Ratings-Reviews .Reviews-List {
   position: absolute;
   bottom: 60px;
@@ -686,12 +688,14 @@ section aside:hover {
   left: 300px;
   right: 0;
 }
+
 .Ratings-Reviews .Review-Button-Row {
   bottom: 0;
   left: 300px;
   right: 0;
   position: absolute;
 }
+
 .Ratings-Reviews .Ratings-Sider {
   width: 250px;
   position: absolute;
@@ -700,8 +704,20 @@ section aside:hover {
   bottom: 0;
 }
 
+.Reviews-List {
+  max-height: 700px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  text-align: justify;
+}
+
 .Score-Star {
   font-size: small;
+  display:flex;
+  flex-direction:row;
+}
+
+.Sorting-Bar {
   display:flex;
   flex-direction:row;
 }

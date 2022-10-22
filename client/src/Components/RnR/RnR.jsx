@@ -11,6 +11,7 @@ export default function RnR(props) {
   const [score, setScore] = useState(0);
   const [recommended, setRecommended] = useState(0);
   const [chart, setChart] = useState([]);
+  const [result, setResult] = useState([]);
 
 
   useEffect(() => {
@@ -22,6 +23,10 @@ export default function RnR(props) {
     ratings.recommended && getRecommended(ratings.recommended);
     ratings.ratings && ratingsChart(ratings.ratings)
   }, [ratings])
+
+  useEffect(() => {
+    reviews.results && setResult(reviews.results)
+  }, [reviews])
 
   function getReviews(props) {
     axios.get('/reviews', {
@@ -90,7 +95,8 @@ export default function RnR(props) {
                score={score}
                recommended={recommended}
                chart={chart} />
-      <Reviews reviews={reviews} />
+      <Reviews reviews={reviews}
+               result={result} />
     </div>
   </>)
 }

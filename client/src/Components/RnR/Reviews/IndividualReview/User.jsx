@@ -1,11 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-export default function User() {
+export default function User(props) {
 
 return(<>
 <div>
-  <h3>by user-name |</h3>
+  <p>{`by ${props.user}  | `}</p>
 </div>
 </>)
 }

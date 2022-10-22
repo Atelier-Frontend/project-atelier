@@ -1,11 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-export default function Helpfulness() {
+export default function Helpfulness(props) {
 
 return(<>
 <div>
-  <h3>Helpful? Yes(10) |</h3>
+  <p>{`Helpful? Yes(${props.vote}) |`}</p>
 </div>
 </>)
 }

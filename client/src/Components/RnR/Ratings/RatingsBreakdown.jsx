@@ -6,7 +6,7 @@ export default function RatingsBreakdown(props) {
 return(<>
 {props.characteristics && Object.keys(props.characteristics).map((c) => {
   return (
-    <div>
+    <div key={props.characteristics[c].id}>
       <p>{`${c}`}</p>
       <p>{`====${props.characteristics[c].value}====`}</p>
     </div>

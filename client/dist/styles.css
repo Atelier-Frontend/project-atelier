@@ -494,8 +494,9 @@ section aside:hover {
   padding: 19.8px 14.8px;
 }
 
-.foldQuestionsBT, .addQuestionBT, .foldAnswers, .Yes,
-.addAnswer, .AYes, .report:hover {
+.foldQuestionsBT, .addQuestionBT, .foldAnswers,
+.Yes, .addAnswer, .AYes, .report,
+.Review-Helpful-Vote, .Review-Report :hover {
   cursor: pointer
 }
 
@@ -748,6 +749,12 @@ section aside:hover {
   font-size: small;
   display:flex;
   flex-direction:row;
+}
+
+.Review-Helpful {
+  display:flex;
+  flex-direction:row;
+  margin-right: 0.5em;
 }
 
 .recommended-percentage {

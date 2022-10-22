@@ -98,8 +98,8 @@ app.post('/reviews', (req, res) => {
 
 //Updates a review to show it was found helpful
 app.put('/reviews/:review_id/helpful', (req, res) => {
-  axios.put(`${apiPath}/reviews/meta/?review_id=${req.body.review_id}`, header)
-    .then(()=> {
+  axios.put(`${apiPath}/reviews/${req.body.review_id}/helpful`, header)
+    .then((response)=> {
       res.status(204).send('This review is helpful!')
     })
     .catch((err) => {
@@ -109,8 +109,9 @@ app.put('/reviews/:review_id/helpful', (req, res) => {
 
 //Updates a review to show it was reported
 app.put('/reviews/:review_id/report', (req, res) => {
-  axios.put(`${apiPath}/reviews/meta/?review_id=${req.body.review_id}`, header)
-    .then(()=> {
+  axios.put(`${apiPath}/reviews/${req.body.review_id}/report`, header)
+    .then((response)=> {
+      console.log(res.statusCode, "xixixi")
       res.status(204).send('This review was reported.')
     })
     .catch((err) => {

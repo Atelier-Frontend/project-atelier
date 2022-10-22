@@ -11,7 +11,6 @@ export default function Report(props) {
       (alert("You have reported this review."))
     } else {
       setReported(true);
-      console.log(props)
       axios.put('/reviews/:review_id/report', {review_id: e.target.id})
       .then(() => {
         console.log('Review reported')
@@ -22,11 +21,12 @@ export default function Report(props) {
     }
   }
 
-  return(<>
+  return(<div className="Review-Report">
     {reported
     ? <p onClick={reportReview}>Reported</p>
     : <p onClick={reportReview}
          style={{textDecorationLine: 'underline'}}
+         id={props.review.review_id}
     >Report</p>}
-  </>)
+  </div>)
 }

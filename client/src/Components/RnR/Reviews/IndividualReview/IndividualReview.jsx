@@ -25,8 +25,9 @@ export default function IndividualReview(props) {
     {props.review.recommend && <IndividualRecommend />}
     {props.review.response && <SellerResponse />}
     <div className="Helpfulness-Report">
-      <Helpfulness vote={props.review.helpfulness}/>
-      <Report />
+      <Helpfulness vote={props.review.helpfulness}
+                   review={props.review} />
+      <Report review={props.review} />
     </div>
     <p>---------------------------------------------------------------------------</p>
   </>)

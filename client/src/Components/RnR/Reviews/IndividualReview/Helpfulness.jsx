@@ -11,7 +11,6 @@ export default function Helpfulness(props) {
       (alert("You have voted this review."))
     } else {
       setVoted(true);
-      console.log(props)
       axios.put('/reviews/:review_id/helpful', {review_id: e.target.id})
       .then(() => {
         console.log('Review voted')
@@ -23,8 +22,14 @@ export default function Helpfulness(props) {
   }
 
   return(<>
-    <div>
-      <button onClick={voteReview}>{`Helpful? Yes(${props.vote}) |`}</button>
+    <div className="Review-Helpful">
+      <p>Helpful?</p>
+      <p onClick={voteReview}
+         className="Review-Helpful-Vote"
+         style={{textDecorationLine: 'underline'}}
+         id={props.review.review_id}>Yes</p>
+      <p>{`(${props.vote})`}</p>
+      <p> | </p>
     </div>
   </>)
 }

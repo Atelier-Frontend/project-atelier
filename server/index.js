@@ -72,10 +72,11 @@ app.get('/reviews', (req, res) => {
     .catch((err) => {
       res.send(err)
     })
+});
 
 //Returns review metadata for a given product
 app.get('/reviews/meta', (req, res) => {
-  axios.get(`${apiPath}/reviews/meta/?product_id=${req.query.product_id}`, header)
+  axios.get(`${apiPath}/reviews/meta?product_id=${req.query.id}`, header)
     .then((response) => {
       res.status(200).send(response.data);
     })

@@ -23,7 +23,10 @@ class ProductInfo extends React.Component {
   componentDidUpdate(prevProps) {
     if (this.props.product.id !== prevProps.product.id) {
       this.getProducts();
-    };
+    }
+    if (this.props.expanded !== prevProps.expanded) {
+      this.setState({ expandedStatus: this.props.expanded });
+    }
   }
 
   getProducts() {
@@ -45,6 +48,7 @@ class ProductInfo extends React.Component {
   }
 
   render() {
+    console.log(this.state.expandedStatus)
     return (<div className='product-info'>
         {this.state.id > 0 &&
           <div className='star-rating'><StarRating className='product-info' id={this.state.id}/></div>}

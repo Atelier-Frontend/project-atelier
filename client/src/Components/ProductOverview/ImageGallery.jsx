@@ -25,7 +25,7 @@ class ImageGallery extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if(this.props.selectedStyle !== prevProps.selectedStyle) { 
+    if (this.props.selectedStyle !== prevProps.selectedStyle) { 
       this.setState({ 
         stylePhotos: this.props.selectedStyle.photos,
         length: this.props.selectedStyle.photos.length,
@@ -33,6 +33,9 @@ class ImageGallery extends React.Component {
         expand: false
       })
     };
+    if (this.props.expand !== prevProps.expand) {
+      this.setState({ expand: this.props.expand });
+    }
   }
 
   nextImage() {
@@ -51,13 +54,9 @@ class ImageGallery extends React.Component {
     };
   }
 
-  expandImage() {
-    if (this.state.expand === false) {
-      this.setState({ expand: true });
-    };
-    if (this.state.expand === true) {
-      this.setState({ expand: false });
-    };
+  expandImage(event) {
+    event.preventDefault();
+    this.props.hideProductInfo();
   }
 
   render() {
@@ -82,7 +81,7 @@ class ImageGallery extends React.Component {
                 alt='image in carousel' 
                 key={index} 
                 src={style.url} />)}
-          </div>))}
+          </div>))}  
       </div>)}
 };
 

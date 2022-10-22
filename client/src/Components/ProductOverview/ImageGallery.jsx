@@ -72,7 +72,11 @@ class ImageGallery extends React.Component {
         {this.state.stylePhotos.map((style, index) => (
           <div className={index === this.state.current ? 'slide-active' : 'slide'} key={index}>
             {index === this.state.current && (
-              <img className={this.state.expand ? 'expand-image' : 'main-image'} alt='image in carousel' key={index} src={style.url} />)}
+              <img 
+                className={this.state.expand ? 'expand-image' : 'main-image'} 
+                alt='image in carousel' 
+                key={index} 
+                src={style.url} />)}
           </div>))}
       </div>)}
 };

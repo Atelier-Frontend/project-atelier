@@ -64,11 +64,17 @@ class ImageGallery extends React.Component {
     console.log(this.state.expand)
     return (
       <div className='image-gallery'>
-        <AiOutlineExpand className={this.state.expand ? 'ex-button' : 'expand-button'} onClick={this.expandImage}/>
+        <AiOutlineExpand 
+          className={this.state.expand ? 'ex-button' : 'expand-button'} 
+          onClick={this.expandImage}/>
         {this.state.current !== 0 && (
-          <FiArrowLeft className={this.state.expand ? 'ex-left-arrow' : 'left-arrow'} onClick={this.prevImage}/>)}
+          <FiArrowLeft 
+            className={this.state.expand ? 'ex-left-arrow' : 'left-arrow'} 
+            onClick={this.prevImage}/>)}
         {this.state.current < this.state.length - 1 && (
-          <FiArrowRight className={this.state.expand ? 'ex-right-arrow' : 'right-arrow'} onClick={this.nextImage}/>)}
+          <FiArrowRight 
+            className={this.state.expand ? 'ex-right-arrow' : 'right-arrow'} 
+            onClick={this.nextImage}/>)}
         {this.state.stylePhotos.map((style, index) => (
           <div className={index === this.state.current ? 'slide-active' : 'slide'} key={index}>
             {index === this.state.current && (

@@ -34,7 +34,6 @@ class StyleSelector extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     return (<div className='style-container'>
       <span className='style-info'>STYLE ></span>
       <span className='style-name'>{this.state.name}</span>

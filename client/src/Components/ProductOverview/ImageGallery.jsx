@@ -61,7 +61,6 @@ class ImageGallery extends React.Component {
   }
 
   render() {
-    console.log(this.state.expand)
     return (
       <div className='image-gallery'>
         <AiOutlineExpand 

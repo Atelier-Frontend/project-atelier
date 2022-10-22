@@ -63,6 +63,7 @@ section aside:hover {
   cursor: pointer;
 }
 
+ /* PRODUCT OVERVIEW STYLING */
 
 .style-gallery {
   width: 85%;
@@ -82,6 +83,13 @@ section aside:hover {
   border: 2.5px solid black;
   object-fit: cover;
   align-self: center;
+  cursor: pointer;
+}
+
+.style-image:focus,
+.style-image:hover {
+  box-shadow: 0 0.4em 0.4em -0.2em var(--hover);
+  transform: translateY(-0.05em);
 }
 
 .image-gallery {
@@ -381,6 +389,8 @@ section aside:hover {
   align-self: center;
   border: 2.5px solid rgb(249, 120, 33);
 }
+
+
 
 /* Q&A styles: */
 .question {

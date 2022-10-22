@@ -12,8 +12,14 @@ return(<>
            result={props.result}
            dropdownHandler={props.dropdownHandler}
            />
-  <ReviewsList result={props.result} />
-  <ButtonRow result={props.result} />
+  <ReviewsList result={props.result}
+               moreReviewsClickHandler={props.moreReviewsClickHandler}
+               reviewsCount={props.reviewsCount}
+               moreclicked={props.moreclicked} />
+  <ButtonRow result={props.result}
+             moreReviewsClickHandler={props.moreReviewsClickHandler}
+             reviewsCount={props.reviewsCount}
+             moreclicked={props.moreclicked} />
 </div>
 </>)
 }

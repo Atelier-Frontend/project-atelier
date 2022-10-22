@@ -12,7 +12,8 @@ export default function RnR(props) {
   const [recommended, setRecommended] = useState(0);
   const [chart, setChart] = useState([]);
   const [result, setResult] = useState([]);
-
+  const [reviewsCount, setReviewsCount] = useState(2);
+  const [moreclicked, setMoreclicked] = useState(false);
 
   useEffect(() => {
     getReviews(props);
@@ -113,6 +114,16 @@ export default function RnR(props) {
       return result;
   }
 
+  function moreReviewsClickHandler() {
+    if (moreclicked === false) {
+      setMoreclicked(true);
+      setReviewsCount(result.length)
+    } else {
+      setMoreclicked(false);
+      setReviewsCount(2)
+    }
+  }
+
   return(<>
     <h4>Ratings & Reviews</h4>
     <div className="Ratings-Reviews">
@@ -124,7 +135,9 @@ export default function RnR(props) {
                result={result}
                dropdownHandler={dropdownHandler}
                product_id={props.products.id}
-               />
+               moreReviewsClickHandler={moreReviewsClickHandler}
+               reviewsCount={reviewsCount}
+               moreclicked={moreclicked}/>
     </div>
   </>)
 }

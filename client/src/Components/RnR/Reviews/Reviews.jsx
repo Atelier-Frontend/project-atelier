@@ -8,9 +8,12 @@ export default function Reviews(props) {
 
 return(<>
 <div>
-  <Sorting result={props.result}/>
+  <Sorting product_id={props.product_id}
+           result={props.result}
+           dropdownHandler={props.dropdownHandler}
+           />
   <ReviewsList result={props.result} />
-  <ButtonRow />
+  <ButtonRow result={props.result} />
 </div>
 </>)
 }

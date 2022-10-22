@@ -25,8 +25,18 @@ export default function RnR(props) {
   }, [ratings])
 
   useEffect(() => {
-    reviews.results && setResult(reviews.results)
+    reviews.results && setResult(reviews.results.sort(sortByDefault))
   }, [reviews])
+
+  function dropdownHandler(k) {
+    if (k === "helpfulness") {
+      setResult([...reviews.results.sort(sortByHelpfulness)])
+    } else if (k === "date") {
+      setResult([...reviews.results.sort(sortByDate)])
+    } else {
+      setResult([...reviews.results.sort(sortByDefault)])
+    }
+  }
 
   function getReviews(props) {
     axios.get('/reviews', {
@@ -88,6 +98,21 @@ export default function RnR(props) {
     setChart(ratingsArr)
   }
 
+  function sortByHelpfulness(a, b) {
+    return ( a.helpfulness < b.helpfulness ) ? 1 : -1;
+  }
+
+  function sortByDate(a, b) {
+    return ( a.date < b.date) ? 1 : -1;
+  }
+
+  function sortByDefault(a, b) {
+      var result = 0;
+      result = ( a.date < b.date) ? 1 : -1;
+      result = ( a.helpfulness < b.helpfulness ) ? 1 : -1;
+      return result;
+  }
+
   return(<>
     <h4>Ratings & Reviews</h4>
     <div className="Ratings-Reviews">
@@ -96,7 +121,10 @@ export default function RnR(props) {
                recommended={recommended}
                chart={chart} />
       <Reviews reviews={reviews}
-               result={result} />
+               result={result}
+               dropdownHandler={dropdownHandler}
+               product_id={props.products.id}
+               />
     </div>
   </>)
 }

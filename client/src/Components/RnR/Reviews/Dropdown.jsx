@@ -5,13 +5,22 @@ export default function Dropdown(props) {
 
   const [display,setDisplay] = useState('relevance')
 
-  function handleClick() {
+  useEffect(() => {
+    setDisplay('relevance')
+  }, [props.product_id])
 
+  function handleClick(e) {
+    props.dropdownHandler(e.target.value)
+    setDisplay(e.target.value)
   }
 
-  return (
-    <div>
-      <p>{display}</p>
-    </div>
+  let options = ["relevance", "helpfulness", "date"]
+  return (<>
+    <select onChange={handleClick}>
+      {options.map((n) => {
+        return (<option value={n} selected={n===display} key={n}>{n}</option>);
+      })}
+    </select>
+  </>
   )
 }

@@ -23,7 +23,10 @@ class ProductInfo extends React.Component {
   componentDidUpdate(prevProps) {
     if (this.props.product.id !== prevProps.product.id) {
       this.getProducts();
-    };
+    }
+    if (this.props.expanded !== prevProps.expanded) {
+      this.setState({ expandedStatus: this.props.expanded });
+    }
   }
 
   getProducts() {

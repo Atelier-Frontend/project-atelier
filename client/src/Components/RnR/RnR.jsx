@@ -9,11 +9,18 @@ export default function RnR(props) {
   const [reviews, setReviews] = useState({});
   const [ratings, setRatings] = useState({});
   const [score, setScore] = useState(0);
+  const [recommended, setRecommended] = useState(0);
+
 
   useEffect(() => {
     getReviews(props);
-    getRatings(props)
+    getRatings(props);
+    // getRecommended(props.products.recommended)
   }, [props])
+
+  useEffect(() => {
+    ratings.recommended && getRecommended(ratings.recommended)
+  }, [ratings])
 
   function getReviews(props) {
     axios.get('/reviews', {
@@ -55,12 +62,20 @@ export default function RnR(props) {
     return (Math.round(average * 4) / 4).toFixed(2);
   }
 
+  function getRecommended(r) {
+    var t = Number(r['true']);
+    var f = Number(r['false']);
+    var total = t + f;
+    setRecommended(Math.floor(100 * t / total))
+  }
+
 
   return(<>
     <h4>Ratings & Reviews</h4>
     <div className="Ratings-Reviews">
-      <Ratings ratings={ratings} getAverage={getAverage}
-               score={score} />
+      <Ratings ratings={ratings}
+               score={score}
+               recommended={recommended} />
       <Reviews reviews={reviews} />
     </div>
   </>)

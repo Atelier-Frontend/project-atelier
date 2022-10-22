@@ -37,17 +37,17 @@ class ImageGallery extends React.Component {
 
   nextImage() {
     if (this.state.current === this.state.stylePhotos.length - 1) {
-      this.setState({ current: 0, expand: false });
+      this.setState({ current: 0 });
     } else {
-      this.setState({ current: this.state.current + 1, expand: false });
+      this.setState({ current: this.state.current + 1 });
     };
   }
 
   prevImage() {
     if (this.state.current === 0) {
-      this.setState({ current: this.state.stylePhotos.length - 1, expand: false });
+      this.setState({ current: this.state.stylePhotos.length - 1 });
     } else {
-      this.setState({ current: this.state.current - 1, expand: false });
+      this.setState({ current: this.state.current - 1 });
     };
   }
 

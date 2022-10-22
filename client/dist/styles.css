@@ -180,7 +180,7 @@ section aside:hover {
 .ex-button {
   position: absolute;
   top: 4%;
-  right: -40%;
+  right: -39%;
   font-size: 2rem;
   cursor: pointer;
   user-select: none;

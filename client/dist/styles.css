@@ -79,7 +79,7 @@ section aside:hover {
   margin-right: 20px;
   margin-bottom: 20px;
   border-radius: 50%;
-  border: 3px solid black;
+  border: 2.5px solid black;
   object-fit: cover;
   align-self: center;
 }
@@ -379,7 +379,7 @@ section aside:hover {
   border-radius: 50%;
   object-fit: cover;
   align-self: center;
-  border: 3px solid rgb(206, 64, 149);
+  border: 2.5px solid rgb(206, 64, 149);
 }
 
 /* Q&A styles: */

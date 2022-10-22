@@ -1,11 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-export default function ReviewBody() {
+export default function ReviewBody(props) {
 
 return(<>
 <div>
-  <h3>Review----————————————————————---Body</h3>
+  <p>{props.body}</p>
 </div>
 </>)
 }

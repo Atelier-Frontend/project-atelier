@@ -19,15 +19,15 @@ export default function Ratings(props) {
   //   setScore = (avgRating)
   // }
 
-return(<>
-<div className="Ratings-Sider">
-  <div className="Score-Star">
-    <Score score={props.score}/>
-    <Stars />
-  </div>
-  <Recommend recommended={props.recommended} />
-  <RatingsChart chart={props.chart}/>
-  <RatingsBreakdown />
-</div>
-</>)
+  return(<>
+    <div className="Ratings-Sider">
+      <div className="Score-Star">
+        <Score score={props.score}/>
+        <Stars />
+      </div>
+      <Recommend recommended={props.recommended} />
+      <RatingsChart chart={props.chart} />
+      <RatingsBreakdown characteristics={props.ratings.characteristics} />
+    </div>
+  </>)
 }

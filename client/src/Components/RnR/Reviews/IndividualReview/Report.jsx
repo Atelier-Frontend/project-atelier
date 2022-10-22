@@ -4,6 +4,6 @@ import { useState, useEffect } from "react";
 export default function Report() {
 
 return(<>
-<h3>Report</h3>
+<p>Report</p>
 </>)
 }

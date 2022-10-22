@@ -1,11 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-export default function SellerResponse() {
+export default function SellerResponse(props) {
 
-return(<>
-<div>
-  <h3>(conditional)Seller----————————————————---Response</h3>
-</div>
-</>)
+  return(<>
+    <div>
+      <span>{props.response}</span>
+    </div>
+  </>)
 }

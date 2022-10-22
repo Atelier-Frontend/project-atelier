@@ -761,6 +761,26 @@ section aside:hover {
   text-align: left;
 }
 
+.rating-bar-bars {
+  padding-top: 30px;
+}
+
+.rating-barBkg {
+  height: 15px;
+  background: rgba(224, 224, 224, 1);
+  margin-left: 20px;
+  width: 200px;
+  text-align: center;
+}
+
+.rating-barBkg-green{
+  height: 15px;
+  background: rgb(9, 190, 15);
+  margin-top: -0.95em;
+  margin-left: 20px;
+  width: calc(var(--rating_percent) * 200px)
+}
+
 .barBkg {
   height: 10px;
   background: rgba(224, 224, 224, 1);
@@ -783,3 +803,4 @@ section aside:hover {
   margin-left: -0.5em;
   padding-left: calc(100% * var(--percent))
 }
+

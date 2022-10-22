@@ -117,7 +117,7 @@ section aside:hover {
 
 .expand-image {
   min-width: 950px;
-  width: 150%;
+  width: 149%;
   height: 614px;
   border-radius: 5px;
   object-fit: cover;
@@ -209,6 +209,25 @@ section aside:hover {
 
 .ex-right-arrow:focus,
 .ex-right-arrow:hover {
+  box-shadow: 0 0.4em 0.4em -0.2em var(--hover);
+  transform: translateY(-0.05em);
+}
+
+.ex-left-arrow {
+  position: absolute;
+  top: 45%;
+  left: 20%;
+  font-size: 2.3rem;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  color:rgb(0, 0, 0);
+  z-index: 10;
+}
+
+.ex-left-arrow:focus,
+.ex-left-arrow:hover {
   box-shadow: 0 0.4em 0.4em -0.2em var(--hover);
   transform: translateY(-0.05em);
 }

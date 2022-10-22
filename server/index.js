@@ -72,51 +72,51 @@ app.get('/reviews', (req, res) => {
     .catch((err) => {
       res.send(err)
     })
-})
+});
 
-// Returns review metadata for a given product
+//Returns review metadata for a given product
 app.get('/reviews/meta', (req, res) => {
-  axios.get(`${apiPath}/reviews/meta/?product_id=${req.query.id}`, header)
+  axios.get(`${apiPath}/reviews/meta?product_id=${req.query.id}`, header)
     .then((response) => {
-      res.status(200).send(response.data)
+      res.status(200).send(response.data);
     })
     .catch((err) => {
       res.send(err)
     })
-})
+});
 
 // Adds a review for the given product
 app.post('/reviews', (req, res) => {
-  axios.post(`${apiPath}/reviews/meta/?product_id=${req.body.id}`, header)
+  axios.post(`${apiPath}/reviews/meta/?product_id=${req.body.product_id}`, header)
     .then(()=> {
-      res.sendStatus(201);
+      res.status(201).send('Review added');
     })
     .catch((err) => {
       res.send(err)
     })
-})
+});
 
 //Updates a review to show it was found helpful
 app.put('/reviews/:review_id/helpful', (req, res) => {
-  axios.put(`${apiPath}/reviews/meta/?review_id=${req.body.id}`, header)
+  axios.put(`${apiPath}/reviews/meta/?review_id=${req.body.review_id}`, header)
     .then(()=> {
-      res.sendStatus(204);
+      res.status(204).send('This review is helpful!')
     })
     .catch((err) => {
       res.send(err)
     })
-})
+});
 
 //Updates a review to show it was reported
 app.put('/reviews/:review_id/report', (req, res) => {
-  axios.put(`${apiPath}/reviews/meta/?review_id=${req.body.id}`, header)
+  axios.put(`${apiPath}/reviews/meta/?review_id=${req.body.review_id}`, header)
     .then(()=> {
-      res.sendStatus(204);
+      res.status(204).send('This review was reported.')
     })
     .catch((err) => {
       res.send(err)
     })
-})
+});
 
 
 // ---- QUESTIONS & ANSWERS ROUTES ---- //

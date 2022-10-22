@@ -1,9 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-export default function Recommend() {
+export default function Recommend(props) {
 
-return(<>
-<h3>Recommend</h3>
-</>)
+  return(<>
+    <p className="recommended-percentage">
+      {`${props.recommended}% of reviews recommend this product`}
+    </p>
+  </>)
 }

@@ -1,9 +1,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-export default function Score() {
+export default function Score(props) {
 
 return(<>
-<h1>4.6</h1>
+<h1>{props.score}</h1>
 </>)
 }

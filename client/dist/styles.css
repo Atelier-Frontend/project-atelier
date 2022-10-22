@@ -89,7 +89,7 @@ section aside:hover {
 .style-image:focus,
 .style-image:hover {
   box-shadow: 0 0.4em 0.4em -0.2em var(--hover);
-  transform: translateY(-0.05em);
+  transform: translateY(-0.1em);
 }
 
 .image-gallery {
@@ -148,6 +148,16 @@ section aside:hover {
   transform: translateY(-0.05em);
 }
 
+.expand-button {
+  position: absolute;
+  top: 4%;
+  right: 5.5%;
+  font-size: 2rem;
+  cursor: pointer;
+  user-select: none;
+  color: white
+}
+
 .price-container {
   margin-top: 18px;
   font-family: 'Arimo', sans-serif;
@@ -185,8 +195,8 @@ section aside:hover {
 }
 
 .quantity-dropdown:active {
-  color:rgb(78, 101, 121);
-  border-color: rgb(78, 101, 121);
+  color:rgb(249, 120, 33);
+  border-color: rgb(249, 120, 33);
 }
 
 @media all and (max-width:30em) {
@@ -221,8 +231,8 @@ section aside:hover {
 }
 
 .size-dropdown:active {
-  color:rgb(78, 101, 121);
-  border-color: rgb(78, 101, 121);
+  color:rgb(249, 120, 33);
+  border-color: rgb(249, 120, 33);
 }
 
 @media all and (max-width:30em) {
@@ -354,7 +364,7 @@ section aside:hover {
 }
 
 .category {
-  margin-top: 15px;
+  margin-top: 25px;
   text-transform: capitalize;
   font-family: 'Arimo', sans-serif;
 }

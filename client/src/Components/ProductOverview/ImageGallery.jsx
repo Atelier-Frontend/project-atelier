@@ -1,5 +1,6 @@
 import React from 'react';
 import { FiArrowRight, FiArrowLeft } from 'react-icons/fi';
+import { AiOutlineExpand } from 'react-icons/ai';
 
 class ImageGallery extends React.Component {
   constructor(props) {
@@ -50,6 +51,7 @@ class ImageGallery extends React.Component {
   render() {
     return (
       <div className='image-gallery'>
+        <AiOutlineExpand className='expand-button' />
         {this.state.current !== 0 && (
           <FiArrowLeft className='left-arrow' onClick={this.prevImage}/>)}
         {this.state.current < this.state.length - 1 && (

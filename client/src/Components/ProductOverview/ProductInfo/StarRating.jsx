@@ -54,17 +54,16 @@ class StarRating extends React.Component {
 
   render() {
     return (<div className='star-rating'>
-      <div className='stars'>
-        <div>Star Rating: {this.state.rating}</div>
-        <div className='stars-rating'>
+      <span className='stars'>
+        {this.state.rating}
+        {/* <span className='stars-rating'>
         {[...Array(this.state.stars).keys()].map((index) => (
             <span className='star' key={index}><AiOutlineStar /></span>))}
-        </div>
-      </div>
-      <div className='reviews-link'>
+        </span> */}
+      </span>
+      <span className='reviews-link'>
         <a href='http://localhost:3000' className='stars'>Read all reviews</a>
-      </div>
-
+      </span>
     </div>)
   }
 };

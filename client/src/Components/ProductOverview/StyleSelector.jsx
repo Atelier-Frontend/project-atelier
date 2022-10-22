@@ -4,21 +4,35 @@ class StyleSelector extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      clicked: false
+      clicked: false,
+      name: ''
     }
     this.onClick = this.onClick.bind(this);
   }
 
+  componentDidMount() {
+    this.setState({ name: this.props.selectedStyle.name.toUpperCase() });
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.selectedStyle.name !== prevProps.selectedStyle.name) {
+      this.setState({ name: this.props.selectedStyle.name.toUpperCase() });
+    }
+  }
+
   onClick(event) {
     event.preventDefault();
+    console.log(event.target.classList)
+    event.target.classList.toggle('selected');
     this.setState({ clicked: true });
     this.props.selectImage(event.target.id);
     return false;
   }
 
   render() {
-    return (<div>
-      <div className='style-info'>Style > {this.props.selectedStyle.name}</div>
+    return (<div className='style-container'>
+      <span className='style-info'>STYLE ></span>
+      <span className='style-name'>{this.state.name}</span>
       <div className='style-gallery'>
         {this.props.styles.map((style, index) => (
             <img className='style-image' alt='image in style gallery' key={index} id={style.name} src={style.photos[0].thumbnail_url} onClick={this.onClick} />

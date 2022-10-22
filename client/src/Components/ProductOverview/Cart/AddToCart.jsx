@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import QuantitySelector from './QuantitySelector.jsx';
 import SizeSelector from './SizeSelector.jsx';
+import { ImStarEmpty } from 'react-icons/im';
 
 class Cart extends React.Component {
   constructor(props) {
@@ -51,21 +52,25 @@ class Cart extends React.Component {
   }
 
   render() {
-    return (<div className='selectors'>
-      <span className='size-selector'>
-        <SizeSelector 
-          sizes={this.state.sizes} 
-          quantity={this.state.quantity[0]} 
-          selectSize={this.selectSize} 
-          styles={this.props.styles}
-          reset={this.props.reset} />
-        </span>
-      <span className='quant-selector'>
-        {this.state.quantity.length > 0 &&
-          <QuantitySelector quantity={this.state.quantity} size={this.state.selectedSize}/>}
-        </span>
-        <button className='cart'>Add to Cart</button>
-        <button className='add-outfit'>Add to My Outfit</button>
+    return (<div className='product-btn-grp'>
+      <div className='selectors'>
+        <span className='size-selector'>
+          <SizeSelector 
+            sizes={this.state.sizes} 
+            quantity={this.state.quantity[0]} 
+            selectSize={this.selectSize} 
+            styles={this.props.styles}
+            reset={this.props.reset} />
+          </span>
+        <span className='quant-selector'>
+          {this.state.quantity.length > 0 &&
+            <QuantitySelector quantity={this.state.quantity} size={this.state.selectedSize}/>}
+          </span>
+      </div>
+      <div className='buy-buttons'>
+        <button className='add-cart'>Add to Bag</button>
+        <button className='heart'><ImStarEmpty className='heart-icon'/></button> 
+      </div>      
     </div>)
   }
 };

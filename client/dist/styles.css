@@ -785,16 +785,18 @@ section aside:hover {
 /* Ratings & Reviews */
 .Ratings-Reviews {
   width: 1000px;
-  height: 600px;
+  height: 700px;
   position: relative;
   text-align: left;
 }
+
 .Ratings-Reviews .Sorting-Bar {
   position: absolute;
   left: 300px;
   top: 0;
   right: 0;
 }
+
 .Ratings-Reviews .Reviews-List {
   position: absolute;
   bottom: 60px;
@@ -802,12 +804,14 @@ section aside:hover {
   left: 300px;
   right: 0;
 }
+
 .Ratings-Reviews .Review-Button-Row {
   bottom: 0;
   left: 300px;
   right: 0;
   position: absolute;
 }
+
 .Ratings-Reviews .Ratings-Sider {
   width: 250px;
   position: absolute;
@@ -816,8 +820,20 @@ section aside:hover {
   bottom: 0;
 }
 
+.Reviews-List {
+  max-height: 700px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  text-align: justify;
+}
+
 .Score-Star {
   font-size: small;
+  display:flex;
+  flex-direction:row;
+}
+
+.Sorting-Bar {
   display:flex;
   flex-direction:row;
 }
@@ -852,3 +868,47 @@ section aside:hover {
   flex-direction:row;
   text-align: left;
 }
+
+.rating-bar-bars {
+  padding-top: 30px;
+}
+
+.rating-barBkg {
+  height: 15px;
+  background: rgba(224, 224, 224, 1);
+  margin-left: 20px;
+  width: 200px;
+  text-align: center;
+}
+
+.rating-barBkg-green{
+  height: 15px;
+  background: rgb(9, 190, 15);
+  margin-top: -0.95em;
+  margin-left: 20px;
+  width: calc(var(--rating_percent) * 200px)
+}
+
+.barBkg {
+  height: 10px;
+  background: rgba(224, 224, 224, 1);
+  margin-bottom: 10px;
+}
+
+.barDescription {
+  font-size: small;
+  display:flex;
+  flex-direction:row;
+  text-align: left;
+  text-align-last: right;
+  justify-content: space-evenly;
+  margin-top: -1em;
+  margin-bottom: 1.5em;
+}
+
+.score-pointer {
+  margin-top: -4.3em;
+  margin-left: -0.5em;
+  padding-left: calc(100% * var(--percent))
+}
+

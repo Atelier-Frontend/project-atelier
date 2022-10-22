@@ -1,11 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-export default function IndividualRecommend() {
+export default function ReviewSummary(props) {
 
 return(<>
 <div>
-  <p>{`✅ | recommend this product`}</p>
+  <h3>{props.summary}</h3>
 </div>
 </>)
 }

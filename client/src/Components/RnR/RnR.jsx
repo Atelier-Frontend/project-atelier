@@ -11,7 +11,9 @@ export default function RnR(props) {
   const [score, setScore] = useState(0);
   const [recommended, setRecommended] = useState(0);
   const [chart, setChart] = useState([]);
-
+  const [result, setResult] = useState([]);
+  const [reviewsCount, setReviewsCount] = useState(2);
+  const [moreclicked, setMoreclicked] = useState(false);
 
   useEffect(() => {
     getReviews(props);
@@ -22,6 +24,20 @@ export default function RnR(props) {
     ratings.recommended && getRecommended(ratings.recommended);
     ratings.ratings && ratingsChart(ratings.ratings)
   }, [ratings])
+
+  useEffect(() => {
+    reviews.results && setResult(reviews.results.sort(sortByDefault))
+  }, [reviews])
+
+  function dropdownHandler(k) {
+    if (k === "helpfulness") {
+      setResult([...reviews.results.sort(sortByHelpfulness)])
+    } else if (k === "date") {
+      setResult([...reviews.results.sort(sortByDate)])
+    } else {
+      setResult([...reviews.results.sort(sortByDefault)])
+    }
+  }
 
   function getReviews(props) {
     axios.get('/reviews', {
@@ -83,6 +99,31 @@ export default function RnR(props) {
     setChart(ratingsArr)
   }
 
+  function sortByHelpfulness(a, b) {
+    return ( a.helpfulness < b.helpfulness ) ? 1 : -1;
+  }
+
+  function sortByDate(a, b) {
+    return ( a.date < b.date) ? 1 : -1;
+  }
+
+  function sortByDefault(a, b) {
+      var result = 0;
+      result = ( a.date < b.date) ? 1 : -1;
+      result = ( a.helpfulness < b.helpfulness ) ? 1 : -1;
+      return result;
+  }
+
+  function moreReviewsClickHandler() {
+    if (moreclicked === false) {
+      setMoreclicked(true);
+      setReviewsCount(result.length)
+    } else {
+      setMoreclicked(false);
+      setReviewsCount(2)
+    }
+  }
+
   return(<>
     <h4>Ratings & Reviews</h4>
     <div className="Ratings-Reviews">
@@ -90,7 +131,13 @@ export default function RnR(props) {
                score={score}
                recommended={recommended}
                chart={chart} />
-      <Reviews reviews={reviews} />
+      <Reviews reviews={reviews}
+               result={result}
+               dropdownHandler={dropdownHandler}
+               product_id={props.products.id}
+               moreReviewsClickHandler={moreReviewsClickHandler}
+               reviewsCount={reviewsCount}
+               moreclicked={moreclicked}/>
     </div>
   </>)
 }

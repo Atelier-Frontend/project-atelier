@@ -1,9 +1,18 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-export default function RatingsChart() {
+export default function RatingsChart(props) {
 
-return(<>
-<h3>Ratings Chart</h3>
-</>)
+  return(<>
+    {
+      props.chart.map((rating) => {
+        return(
+          <div className="rating-bar">
+            <p>{`${5 - props.chart.indexOf(rating)} stars: `}</p>
+            <h3>{`=====${rating}=====`}</h3>
+          </div>
+        )
+      })
+    }
+  </>)
 }

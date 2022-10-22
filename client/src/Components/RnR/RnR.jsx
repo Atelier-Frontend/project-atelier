@@ -10,16 +10,17 @@ export default function RnR(props) {
   const [ratings, setRatings] = useState({});
   const [score, setScore] = useState(0);
   const [recommended, setRecommended] = useState(0);
+  const [chart, setChart] = useState([]);
 
 
   useEffect(() => {
     getReviews(props);
     getRatings(props);
-    // getRecommended(props.products.recommended)
   }, [props])
 
   useEffect(() => {
-    ratings.recommended && getRecommended(ratings.recommended)
+    ratings.recommended && getRecommended(ratings.recommended);
+    ratings.ratings && ratingsChart(ratings.ratings)
   }, [ratings])
 
   function getReviews(props) {
@@ -69,13 +70,26 @@ export default function RnR(props) {
     setRecommended(Math.floor(100 * t / total))
   }
 
+  function ratingsChart(r) {
+    var obj = {};
+    for (let i = 1; i < 6; i++) {
+      if (r[i] === undefined) {
+        obj[i] = 0;
+      } else {
+        obj[i] = r[i];
+      }
+    }
+    var ratingsArr = Object.values(obj).sort((a,b)=>(b-a));
+    setChart(ratingsArr)
+  }
 
   return(<>
     <h4>Ratings & Reviews</h4>
     <div className="Ratings-Reviews">
       <Ratings ratings={ratings}
                score={score}
-               recommended={recommended} />
+               recommended={recommended}
+               chart={chart} />
       <Reviews reviews={reviews} />
     </div>
   </>)

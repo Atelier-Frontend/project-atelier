@@ -1,9 +1,16 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-export default function RatingsBreakdown() {
+export default function RatingsBreakdown(props) {
 
 return(<>
-<h3>Ratings Breakdown</h3>
+{props.characteristics && Object.keys(props.characteristics).map((c) => {
+  return (
+    <div>
+      <p>{`${c}`}</p>
+      <p>{`====${props.characteristics[c].value}====`}</p>
+    </div>
+  )
+})}
 </>)
 }

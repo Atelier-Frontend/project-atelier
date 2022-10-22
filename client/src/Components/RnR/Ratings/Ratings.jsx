@@ -26,8 +26,8 @@ return(<>
     <Stars />
   </div>
   <Recommend recommended={props.recommended} />
-  <RatingsChart chart={props.chart}/>
-  <RatingsBreakdown />
+  <RatingsChart chart={props.chart} />
+  <RatingsBreakdown characteristics={props.ratings.characteristics} />
 </div>
 </>)
 }

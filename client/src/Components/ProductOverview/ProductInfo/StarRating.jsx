@@ -29,7 +29,7 @@ class StarRating extends React.Component {
       params: {id: this.props.id}
     })
     .then((response) => {
-      console.log(response)
+      console.log(response.data)
       var averageRating = this.getAverage(response.data.ratings);
       this.setState({ rating: averageRating });
     })

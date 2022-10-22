@@ -65,24 +65,19 @@ app.get('/products/product_id/related', (req, res) => {
 
 // Returns a list of reviews for a particular product
 app.get('/reviews', (req, res) => {
-  axios.defaults.headers.common['Authorization'] = process.env.TOKEN;
-  // req.query = 'product_id=71697'
-  axios.get(`${apiPath}/reviews?${req.query}`)
+  axios.get(`${apiPath}/reviews?product_id=${req.query.id}`, header)
     .then((response) => {
-      res.send(response.data);
+      res.status(200).send(response.data)
     })
     .catch((err) => {
       res.send(err)
     })
-});
 
 //Returns review metadata for a given product
 app.get('/reviews/meta', (req, res) => {
-  axios.defaults.headers.common['Authorization'] = process.env.TOKEN;
-  axios.get(`${apiPath}/reviews/meta?product_id=${req.query.id}`)
+  axios.get(`${apiPath}/reviews/meta/?product_id=${req.query.product_id}`, header)
     .then((response) => {
-      console.log(response.data)
-      res.send(response.data);
+      res.status(200).send(response.data);
     })
     .catch((err) => {
       res.send(err)
@@ -91,10 +86,9 @@ app.get('/reviews/meta', (req, res) => {
 
 // Adds a review for the given product
 app.post('/reviews', (req, res) => {
-  axios.defaults.headers.common['Authorization'] = process.env.TOKEN;
-  axios.post(`${apiPath}/reviews`, req.body)
-    .then((response) => {
-      res.status(201).send('Review added')
+  axios.post(`${apiPath}/reviews/meta/?product_id=${req.body.product_id}`, header)
+    .then(()=> {
+      res.status(201).send('Review added');
     })
     .catch((err) => {
       res.send(err)
@@ -103,9 +97,8 @@ app.post('/reviews', (req, res) => {
 
 //Updates a review to show it was found helpful
 app.put('/reviews/:review_id/helpful', (req, res) => {
-  axios.defaults.headers.common['Authorization'] = process.env.TOKEN;
-  axios.put(`${apiPath}/reviews/${req.body.review_id}/helpful`)
-    .then((response) => {
+  axios.put(`${apiPath}/reviews/meta/?review_id=${req.body.review_id}`, header)
+    .then(()=> {
       res.status(204).send('This review is helpful!')
     })
     .catch((err) => {
@@ -115,9 +108,8 @@ app.put('/reviews/:review_id/helpful', (req, res) => {
 
 //Updates a review to show it was reported
 app.put('/reviews/:review_id/report', (req, res) => {
-  axios.defaults.headers.common['Authorization'] = process.env.TOKEN;
-  axios.put(`${apiPath}/reviews/${req.body.review_id}/report`)
-    .then((response) => {
+  axios.put(`${apiPath}/reviews/meta/?review_id=${req.body.review_id}`, header)
+    .then(()=> {
       res.status(204).send('This review was reported.')
     })
     .catch((err) => {

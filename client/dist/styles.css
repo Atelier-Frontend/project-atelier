@@ -114,13 +114,15 @@ section aside:hover {
   border-radius: 5px;
   object-fit: cover;
 }
+
 .expand-image {
   min-width: 950px;
   width: 150%;
   height: 614px;
   border-radius: 5px;
   object-fit: cover;
-  z-index: 10;
+  position: relative;
+  z-index: 2;
 }
 
 .right-arrow {
@@ -166,11 +168,47 @@ section aside:hover {
   font-size: 2rem;
   cursor: pointer;
   user-select: none;
-  color: white
+  color: white;
 }
 
 .expand-button:focus,
 .expand-button:hover {
+  box-shadow: 0 0.4em 0.4em -0.2em var(--hover);
+  transform: translateY(-0.05em);
+}
+
+.ex-button {
+  position: absolute;
+  top: 4%;
+  right: -40%;
+  font-size: 2rem;
+  cursor: pointer;
+  user-select: none;
+  color: white;
+  z-index: 10;
+}
+
+.ex-button:focus,
+.ex-button:hover {
+  box-shadow: 0 0.4em 0.4em -0.2em var(--hover);
+  transform: translateY(-0.05em);
+}
+
+.ex-right-arrow {
+  position: absolute;
+  top: 45%;
+  right: -37%;
+  font-size: 2.3rem;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  color:rgb(0, 0, 0);
+  z-index: 10;
+}
+
+.ex-right-arrow:focus,
+.ex-right-arrow:hover {
   box-shadow: 0 0.4em 0.4em -0.2em var(--hover);
   transform: translateY(-0.05em);
 }
@@ -201,6 +239,8 @@ section aside:hover {
   text-align: center;
   justify-content: center;
   transition: all 0.15s;
+  position: relative;
+  z-index: 1;
 }
 
 .quantity-dropdown:hover {

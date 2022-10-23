@@ -1,9 +1,28 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import ReviewModal from "./ReviewModal.jsx";
 
-export default function Sorting() {
+export default function AddReview(props) {
 
-return(<>
-<button>ADD A REVIEW+</button>
-</>)
+  const [showReviewModal, setShowReviewModal] = useState(false);
+
+  useEffect((props) => {
+    setShowReviewModal(!true)
+  }, [props])
+
+  function addReview() {
+    setShowReviewModal(true)
+  }
+
+  function closeModal() {
+    setShowReviewModal(false)
+  }
+
+  return(<>
+    <button onClick={addReview} >ADD A REVIEW +</button>
+    {showReviewModal === true
+     ? <ReviewModal product={props.product}
+                    closeModal={closeModal} />
+     : null}
+  </>)
 }

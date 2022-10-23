@@ -14,10 +14,13 @@ export default function RnR(props) {
   const [result, setResult] = useState([]);
   const [reviewsCount, setReviewsCount] = useState(2);
   const [moreclicked, setMoreclicked] = useState(false);
+  const [sortingKeyword, setSortingKeyword] = useState("relevant");
+
 
   useEffect(() => {
     getReviews(props);
     getRatings(props);
+    setSortingKeyword("relevant")
   }, [props])
 
   useEffect(() => {
@@ -26,25 +29,20 @@ export default function RnR(props) {
   }, [ratings])
 
   useEffect(() => {
-    reviews.results && setResult(reviews.results.sort(sortByDefault))
-  }, [reviews])
+    getReviews(props)
+  }, [sortingKeyword])
 
   function dropdownHandler(k) {
-    if (k === "helpfulness") {
-      setResult([...reviews.results.sort(sortByHelpfulness)])
-    } else if (k === "date") {
-      setResult([...reviews.results.sort(sortByDate)])
-    } else {
-      setResult([...reviews.results.sort(sortByDefault)])
-    }
+    setSortingKeyword(k)
   }
 
-  function getReviews(props) {
+  function getReviews() {
     axios.get('/reviews', {
-      params: {id: props.products.id}
+      params: {id: props.products.id, sort: sortingKeyword}
     })
     .then((response) => {
       setReviews(response.data)
+      setResult(response.data.results)
     })
     .catch((err) => {
       console.log(err);
@@ -134,7 +132,7 @@ export default function RnR(props) {
       <Reviews reviews={reviews}
                result={result}
                dropdownHandler={dropdownHandler}
-               product_id={props.products.id}
+               product={props.products}
                moreReviewsClickHandler={moreReviewsClickHandler}
                reviewsCount={reviewsCount}
                moreclicked={moreclicked}/>

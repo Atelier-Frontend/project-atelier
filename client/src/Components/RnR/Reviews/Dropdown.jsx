@@ -3,18 +3,18 @@ import { useState, useEffect } from "react";
 
 export default function Dropdown(props) {
 
-  const [display,setDisplay] = useState('relevance')
+  const [display,setDisplay] = useState('relevant')
 
   useEffect(() => {
-    setDisplay('relevance')
+    setDisplay('relevant')
   }, [props.product_id])
 
   function handleClick(e) {
+    setDisplay(e.target.value);
     props.dropdownHandler(e.target.value)
-    setDisplay(e.target.value)
   }
 
-  let options = ["relevance", "helpfulness", "date"]
+  let options = ["relevant", "helpful", "newest"]
   return (<>
     <select onChange={handleClick}>
       {options.map((n) => {

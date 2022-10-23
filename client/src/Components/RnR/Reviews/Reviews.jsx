@@ -8,7 +8,7 @@ export default function Reviews(props) {
 
 return(<>
 <div>
-  <Sorting product_id={props.product_id}
+  <Sorting product_id={props.product.id}
            result={props.result}
            dropdownHandler={props.dropdownHandler}
            />
@@ -20,7 +20,7 @@ return(<>
              moreReviewsClickHandler={props.moreReviewsClickHandler}
              reviewsCount={props.reviewsCount}
              moreclicked={props.moreclicked}
-             product_id={props.product_id} />
+             product={props.product} />
 </div>
 </>)
 }

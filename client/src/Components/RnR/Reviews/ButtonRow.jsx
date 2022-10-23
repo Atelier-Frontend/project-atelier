@@ -12,7 +12,7 @@ return(<>
                  reviewsCount={props.reviewsCount}
                  moreclicked={props.moreclicked}
     /> : null}
-    <AddReview product_id={props.product_id} />
+    <AddReview product={props.product} />
   </div>
 </>)
 }

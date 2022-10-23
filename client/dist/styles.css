@@ -906,4 +906,70 @@ section aside:hover {
   margin-left: -0.5em;
   padding-left: calc(100% * var(--percent))
 }
+.review-form-container {
+  position: fixed;
+  top: 50px;
+  bottom: auto;
+  left: 200px;;
+  right: 200px;;
+  background: rgba(0, 0, 0, 0);
+  border-radius: 5px;
+  padding: 20px;
+  background-color: #e7e7e7;
+  opacity: 1;
+}
+
+.star-checker-graph {
+  display:flex;
+  flex-direction:row;
+  text-align: left;
+}
+
+.star-checker, .recommend-checker,
+.review-summary, .review-body,
+.image-button, .image-button,
+.review-form-nickname, .review-form-email {
+  margin-top: 1em;
+  display:flex;
+  flex-direction: column;
+  text-align: top;
+}
+
+.radio-checker-graph {
+  display:flex;
+  flex-direction: row;
+  text-align: left;
+  justify-content: space-between;
+  width: 100px;
+}
+
+.star-checker-meaning {
+  margin-top: 0;
+  margin-left: 0.5em;
+}
+
+.review-body {
+  width: 500px;
+  height: 200px;
+  margin-top: 2em;
+}
+
+.rating-stars {
+  height: 10px;
+  margin-bottom: 10px;
+}
+
+.rating-score {
+  height: 15px;
+  background: rgb(229, 245, 5);
+  width: calc(50px * var(--score_percent))
+}
+
+.rating-stars-image {
+  width: 150px;
+  opacity: 0.5;
+  text-align: left;
+  height: 15px;
+
+}
 

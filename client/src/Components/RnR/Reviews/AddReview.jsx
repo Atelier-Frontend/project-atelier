@@ -10,13 +10,19 @@ export default function AddReview(props) {
     setShowReviewModal(!true)
   }, [props])
 
-  function addReview(e) {
+  function addReview() {
     setShowReviewModal(true)
+  }
+
+  function closeModal() {
+    setShowReviewModal(false)
   }
 
   return(<>
     <button onClick={addReview} >ADD A REVIEW +</button>
     {showReviewModal === true
-     ? <ReviewModal product_id={props.product_id} /> : null}
+     ? <ReviewModal product={props.product}
+                    closeModal={closeModal} />
+     : null}
   </>)
 }

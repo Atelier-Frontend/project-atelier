@@ -1,5 +1,6 @@
 import React from 'react';
 import Cards from './Cards.jsx';
+import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 
 class Your extends React.Component {
   constructor(props) {
@@ -37,8 +38,10 @@ class Your extends React.Component {
     if(this.props.products.length > 0) {
     return (<div>
       <h4>Your</h4><section>
-        <ul className='test'>{this.state.product}
+      <FaAngleLeft className='left-arrows' /><ul className='test'>{this.state.product}
       </ul>
+      <FaAngleRight className='right-arrows' />
+
       </section>
     </div>)
   } else {

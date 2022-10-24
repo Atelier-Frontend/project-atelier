@@ -629,8 +629,9 @@ section aside:hover {
   padding: 19.8px 14.8px;
 }
 
-.foldQuestionsBT, .addQuestionBT, .foldAnswers, .Yes,
-.addAnswer, .AYes, .report:hover {
+.foldQuestionsBT, .addQuestionBT, .foldAnswers,
+.Yes, .addAnswer, .AYes, .report,
+.Review-Helpful-Vote, .Review-Report :hover {
   cursor: pointer
 }
 
@@ -691,13 +692,6 @@ section aside:hover {
   color: #333;
 }
 
-.answer-photos-container {
-  display: block;
-  flex-direction: row;
-  height: auto;
-  margin-bottom: 1em;
-}
-
 .answer-photo {
   height: 120px;
   width: 150px;
@@ -729,26 +723,26 @@ section aside:hover {
 /* Form Styles */
 .form-container {
   position: fixed;
-  top: 5vh;
-  bottom: 30vh;
-  left: 20vw;
-  right: 20vw;
-  background: rgba(0, 0, 0, 0);
+  top: 50px;
+  bottom: 50px;
+  left: 300px;
+  right: 300px;
+  background: rgb(0, 0, 0, 1);
   border-radius: 5px;
   padding: 20px;
-  background-color: #e7e7e7;
+  background-color: rgb(231, 231, 231, 1);
+  opacity: 1;
 }
 
 .form-wrapper {
-  position: absolute;
   display: flex;
   flex-direction: column;
-  top: 20px;
-  right: 45px;
   transition: all 200ms;
   font-weight: bold;
   text-decoration: none;
-  color: #333;
+  color: rgb(51, 51, 51, 1);
+  justify-content: space-between;
+  opacity: 1;
 }
 
 .formTitle {
@@ -764,6 +758,16 @@ section aside:hover {
   text-align: center;
   color:#82807f;
   position: relative;
+  margin-top: 0em;
+  margin-bottom: 3em;
+  font-size: larger;
+}
+
+.answer-form-image-button {
+  margin-bottom: 2em;
+  display:flex;
+  flex-direction: column;
+  text-align: top;
 }
 
 .submitAnswerBTN, .cancelAnswerBTN {
@@ -773,6 +777,8 @@ section aside:hover {
   transition: all 0.3s ease-out;
   background: #403e3d;
   border-radius: 10px;
+  margin-top: 3em;
+  margin-bottom: 2em;
 }
 
 .formBTN-wrapper {
@@ -885,6 +891,12 @@ section aside:hover {
   flex-direction:row;
 }
 
+.Review-Helpful {
+  display:flex;
+  flex-direction:row;
+  margin-right: 0.5em;
+}
+
 .recommended-percentage {
   font-size: small;
   color: rgb(107, 107, 107);
@@ -937,5 +949,100 @@ section aside:hover {
   margin-top: -4.3em;
   margin-left: -0.5em;
   padding-left: calc(100% * var(--percent))
+}
+.review-form-container {
+  position: fixed;
+  top: 25px;
+  bottom: auto;
+  left: 200px;
+  right: 200px;
+  background: rgb(0, 0, 0);
+  border-radius: 5px;
+  padding: 20px;
+  background-color: #e7e7e7;
+  opacity: 1;
+}
+
+.star-checker-graph {
+  display:flex;
+  flex-direction:row;
+  text-align: left;
+}
+
+.star-checker, .recommend-checker,
+.review-summary, .review-body,
+.image-button, .image-button,
+.review-form-nickname, .review-form-email {
+  margin-top: 1em;
+  display:flex;
+  flex-direction: column;
+  text-align: top;
+}
+
+.radio-checker-graph {
+  display:flex;
+  flex-direction: row;
+  text-align: left;
+  justify-content: space-between;
+  width: 100px;
+}
+
+.star-checker-meaning {
+  margin-top: 0;
+  margin-left: 0.5em;
+}
+
+.review-body {
+  width: 500px;
+  height: 200px;
+  margin-top: 2em;
+}
+
+.rating-stars {
+  height: 10px;
+  margin-bottom: 10px;
+}
+
+.rating-score {
+  height: 15px;
+  background: rgb(229, 245, 5);
+  width: calc(50px * var(--score_percent))
+}
+
+.rating-stars-image {
+  width: 150px;
+  opacity: 0.5;
+  text-align: left;
+  height: 15px;
+}
+
+.thumbnail-photo {
+  margin-right: 1em;
+}
+
+.thumbnail-photo:hover {
+  cursor: zoom-in;
+}
+
+.full-size-image:hover {
+  cursor: zoom-out;
+}
+
+.full-size-image-container {
+  position: fixed;
+  top: 50px;
+  bottom: 50px;
+  left: 100px;
+  right: 100px;
+  display: flex;
+  justify-content: center;
+  opacity: 1;
+}
+
+.full-size-image {
+  justify-content: center;
+  max-height: 90vh;
+  max-width: 80vw;
+  opacity: 1;
 }
 

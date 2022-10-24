@@ -46,7 +46,7 @@ class ImageHandler extends React.Component {
 
   render() {
     return(<>
-    <center>
+    <center className="answer-form-image-button" >
     {/* <button style={{backgroundColor: "white"}}
             onClick={this.uploadImage.bind(this)}>
     <i>Image Upload</i>

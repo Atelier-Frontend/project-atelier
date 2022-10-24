@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+import clicked from '../Clicked.js';
+import StarRating from '../ProductOverview/ProductInfo/StarRating.jsx';
 class Cards extends React.Component {
   constructor(props) {
     super(props);
@@ -45,7 +47,9 @@ componentDidUpdate(prevProps) {
     // }
     return (
       <aside className={this.props.class} >
-        <div onClick={()=> this.props.update(this.state.product)}>
+        <div onClick={()=> {
+          clicked(this.props.class, 'cards');
+          this.props.update(this.state.product)}}>
   <img
     src={this.state.styles}
     width="384"
@@ -57,8 +61,7 @@ componentDidUpdate(prevProps) {
   </small>
   <h3>{this.state.product.name}</h3>
   <small>{this.state.product.default_price}</small>
-  <p>stars
-  </p>
+  <StarRating className={this.props.class} id={this.props.item}/>
   </div>
   </div>
  <button onClick={()=>{this.props.fun(this.state.product)}}> <div className='large-font text-center top-20'>

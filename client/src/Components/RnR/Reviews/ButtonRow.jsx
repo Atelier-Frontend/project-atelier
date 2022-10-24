@@ -9,10 +9,10 @@ return(<>
   <div className="Review-Button-Row">
     {props.result.length > 2 ?
     <MoreReviews moreReviewsClickHandler={props.moreReviewsClickHandler}
-                reviewsCount={props.reviewsCount}
-                moreclicked={props.moreclicked}
+                 reviewsCount={props.reviewsCount}
+                 moreclicked={props.moreclicked}
     /> : null}
-    <AddReview />
+    <AddReview product={props.product} />
   </div>
 </>)
 }

@@ -77,13 +77,13 @@ class ModalAnswer extends React.Component {
           <label>Your Answer</label>
           <textarea type="text" placeholder={"Type your answer here..."}
                     name={"YourAnswer"} maxLength={"1000"} rows={"7"}
-                    style={{ marginBottom: '1rem' }}
+                    style={{ marginBottom: '2rem' }}
                     onChange={this.onChange.bind(this)} required />
           <ImageHandler addImageUrl={this.addImageUrl.bind(this)}
                         len={this.state.photos.length}/>
           <label>What is your nickname?</label>
           <input type={"text"} placeholder="Example: jack543!" name={"name"}
-                 maxLength={"60"} style={{ marginBottom: '1rem' }}
+                 maxLength={"60"} style={{ marginBottom: '2rem' }}
                  onChange={this.onChange.bind(this)} required />
           <label>Your email</label>
           <input type={"text"} placeholder="Example: jack@email.com" name={"email"}

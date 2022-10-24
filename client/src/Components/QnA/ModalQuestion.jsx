@@ -55,8 +55,8 @@ class ModalQuestion extends React.Component {
         email: this.state.email,
         product_id: this.props.product.id
       }).then(() => {
+          alert('You\'ve added a new question!')
           this.props.closeModal();
-          alert('Question added! Refresh the page to see it!')
         })
         .catch((err) => {
           console.log('failed')
@@ -73,19 +73,19 @@ class ModalQuestion extends React.Component {
           <label>Your Question</label>
           <textarea type="text" placeholder={"Type your question here..."}
                     name={"YourQuestion"} maxLength={"1000"} rows={"5"}
-                    style={{ marginBottom: '1rem' }}
+                    style={{ marginBottom: '2rem' }}
                     onChange={this.onChange.bind(this)} required />
           <label>What is your nickname?</label>
           <input type={"text"} placeholder="Example: jackson11!" name={"name"}
-                 maxLength={"60"} style={{ marginBottom: '1rem' }}
+                 maxLength={"60"} style={{ marginBottom: '2rem' }}
                  onChange={this.onChange.bind(this)} required />
-                 <p style={{ marginTop:'-1rem', fontSize: 11.5, fontWeight: "normal", fontStyle: "italic" }}
+                 <p style={{ marginTop:'-1.5rem', fontSize: 12, fontWeight: "normal", fontStyle: "italic", marginBottom: "2rem" }}
                  >For privacy reasons, do not use your full name or email address</p>
           <label>Your email</label>
           <input type={"text"} placeholder="Why did you like the product or not?" name={"email"}
                  maxLength={"60"}
                  onChange={this.onChange.bind(this)} required />
-                 <p style={{ marginTop:'0rem', fontSize: 11.5, fontWeight: "normal", fontStyle: "italic" }}
+                 <p style={{ marginTop:'0.5rem', fontSize: 12, fontWeight: "normal", fontStyle: "italic" }}
                  >For authentication reasons, you will not be emailed</p>
           {(!this.state.isValidInput)?
             <p className="inputValidation">Please fill in all of the fields</p> : ""

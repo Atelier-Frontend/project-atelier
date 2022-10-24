@@ -15,12 +15,13 @@ class ImageGallery extends React.Component {
     this.nextImage = this.nextImage.bind(this);
     this.prevImage = this.prevImage.bind(this);
     this.expandImage = this.expandImage.bind(this);
+    this.onClick = this.onClick.bind(this);
   }
 
   componentDidMount() {
     this.setState({ 
       length: this.props.selectedStyle.photos.length,
-      stylePhotos: this.props.selectedStyle.photos
+      stylePhotos: this.props.selectedStyle.photos,
     })
   }
 
@@ -59,6 +60,11 @@ class ImageGallery extends React.Component {
     this.props.hideProductInfo();
   }
 
+  onClick(event) {
+    event.preventDefault();
+    this.setState({ current: Number(event.target.id) });
+  }
+
   render() {
     return (
       <div className='image-gallery'>
@@ -84,11 +90,14 @@ class ImageGallery extends React.Component {
           </div>))}
         <div className={this.state.expand ? 'product-hidden' : 'sidebar-gallery'}>
             {this.state.stylePhotos.map((style, index) => (
-              <img 
-                className='sidebar-image' 
-                alt='image in side carousel' 
-                key={index} 
-                src={style.url}/>))}
+              <div className={index < 5 ? 'slide' : 'hide-side-image'} key={index}>
+                <img 
+                  className={index === this.state.current ? 'sidebar-highlight' : 'sidebar-image'} 
+                  alt='image in side carousel'
+                  id={index}
+                  src={style.thumbnail_url}
+                  onClick={this.onClick}/>
+              </div>))}
         </div> 
       </div>)}
 };

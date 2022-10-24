@@ -500,6 +500,19 @@ section aside:hover {
   border-radius: 1px;
 }
 
+.hide-side-image {
+  visibility: hidden;
+}
+
+.sidebar-highlight {
+  margin: 9px;
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border: 2px solid rgb(249, 120, 33);
+  border-radius: 1px;
+}
+
 /* Q&A styles: */
 .question {
   display:flex;

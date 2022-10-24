@@ -477,6 +477,15 @@ section aside:hover {
 }
 
 
+/* Widget title styles  */
+.widget-title {
+  margin-left: 50px;
+  font-weight: bold;
+  font-size: x-large;
+  font-family: 'Arimo', sans-serif;
+  margin-top: 3em;
+}
+
 
 /* Q&A styles: */
 .question {
@@ -485,6 +494,8 @@ section aside:hover {
   width: 100vw;
   height: 5vh;
   position: relative;
+  left: 50px;
+  font-family: 'Arimo', sans-serif
 }
 
 .container1 {
@@ -492,6 +503,7 @@ section aside:hover {
   position: absolute;
   display:flex;
   flex-direction:row;
+  left: -160px;
 }
 
 .letterQ {
@@ -537,6 +549,7 @@ section aside:hover {
 .letterA {
   font-size: medium;
   font-weight: bold;
+  left: 50px;
 }
 
 .answer {
@@ -547,6 +560,8 @@ section aside:hover {
   position: relative;
   margin-top: -0.8em;
   height: auto;
+  left: 50px;
+  font-family: 'Arimo', sans-serif
 }
 
 .answerBody {
@@ -556,7 +571,7 @@ section aside:hover {
 .foldAnswers {
   font-size: small;
   font-weight: bold;
-  margin-left: 1.4em;
+  margin-left: 5.5em;
 }
 
 .containerRow {
@@ -564,7 +579,8 @@ section aside:hover {
   flex-direction:row;
   position: relative;
   margin-top: 2em;
-  margin-left: 1.4em
+  margin-left: 1.4em;
+  left: 50px;
 }
 
 .foldQuestions {
@@ -602,6 +618,7 @@ section aside:hover {
   flex-direction:row;
   color:#333;
   margin-top: -2em;
+  left: 50px;
 }
 
 .Auser {
@@ -693,6 +710,7 @@ section aside:hover {
   padding: 20px;
   background-color: rgb(231, 231, 231, 1);
   opacity: 1;
+  font-family: 'Arimo', sans-serif
 }
 
 .form-wrapper {
@@ -704,6 +722,7 @@ section aside:hover {
   color: rgb(51, 51, 51, 1);
   justify-content: space-between;
   opacity: 1;
+  font-family: 'Arimo', sans-serif
 }
 
 .formTitle {
@@ -753,13 +772,14 @@ section aside:hover {
 .answer-search-field {
   display:flex;
   flex-direction:row;
+  left: 50px;
+  margin-left: 3rem;
 }
 
 .search-answer {
   background: transparent;
   border: none;
   outline: none;
-  margin-left: -33px;
 }
 
 .search-answer img {
@@ -782,11 +802,12 @@ section aside:hover {
   height: 700px;
   position: relative;
   text-align: left;
+  font-family: 'Arimo', sans-serif
 }
 
 .Ratings-Reviews .Sorting-Bar {
   position: absolute;
-  left: 300px;
+  left: 350px;
   top: 0;
   right: 0;
 }
@@ -795,13 +816,13 @@ section aside:hover {
   position: absolute;
   bottom: 60px;
   top: 60px;
-  left: 300px;
+  left: 350px;
   right: 0;
 }
 
 .Ratings-Reviews .Review-Button-Row {
   bottom: 0;
-  left: 300px;
+  left: 350px;
   right: 0;
   position: absolute;
 }
@@ -810,7 +831,7 @@ section aside:hover {
   width: 250px;
   position: absolute;
   top: 0;
-  left: 0;
+  left: 50px;
   bottom: 0;
 }
 

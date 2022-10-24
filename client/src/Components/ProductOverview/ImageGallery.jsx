@@ -1,6 +1,7 @@
 import React from 'react';
 import { FiArrowRight, FiArrowLeft } from 'react-icons/fi';
 import { AiOutlineExpand } from 'react-icons/ai';
+import { IoIosArrowUp, IoIosArrowDown } from 'react-icons/io';
 
 class ImageGallery extends React.Component {
   constructor(props) {
@@ -43,7 +44,7 @@ class ImageGallery extends React.Component {
 
   nextImage() {
     if (this.state.current >= 3) {
-      document.getElementById('sidebar').scrollTop += 75;
+      document.getElementById('sidebar').scrollTop += 90;
     }
 
     if (this.state.current === this.state.stylePhotos.length - 1) {
@@ -55,7 +56,7 @@ class ImageGallery extends React.Component {
 
   prevImage() {
     if (this.state.current < 3) {
-      document.getElementById('sidebar').scrollTop -= 75;
+      document.getElementById('sidebar').scrollTop -= 90;
     }
 
     if (this.state.current === 0) {
@@ -102,6 +103,16 @@ class ImageGallery extends React.Component {
                 key={index} 
                 src={style.url} />)}
           </div>))}
+        <div className={this.state.expand ? 'product-hidden' : 'sidebar-arrows'}>
+          {this.state.current !== 0 && (
+            <IoIosArrowUp
+              className='up-arrow' 
+              onClick={this.prevImage}/>)}
+          {this.state.current < this.state.length - 1 && (
+            <IoIosArrowDown
+              className='down-arrow'
+              onClick={this.nextImage}/>)}
+        </div>  
         <div className={this.state.expand ? 'product-hidden' : 'sidebar-gallery'} id='sidebar'>
             {this.state.stylePhotos.map((style, index) => (
               <div className='slide'key={index}>

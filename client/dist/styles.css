@@ -493,6 +493,8 @@ section aside:hover {
   overflow-y: auto;
   overflow-x: hidden;
   white-space: nowrap;
+  scroll-behavior: smooth;
+  overflow: hidden;
 }
 
 .sidebar-image {

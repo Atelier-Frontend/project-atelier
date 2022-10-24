@@ -42,6 +42,10 @@ class ImageGallery extends React.Component {
   }
 
   nextImage() {
+    if (this.state.current >= 3) {
+      document.getElementById('sidebar').scrollTop += 75;
+    }
+
     if (this.state.current === this.state.stylePhotos.length - 1) {
       this.setState({ current: 0 });
     } else {
@@ -50,6 +54,10 @@ class ImageGallery extends React.Component {
   }
 
   prevImage() {
+    if (this.state.current < 3) {
+      document.getElementById('sidebar').scrollTop -= 75;
+    }
+
     if (this.state.current === 0) {
       this.setState({ current: this.state.stylePhotos.length - 1 });
     } else {
@@ -94,7 +102,7 @@ class ImageGallery extends React.Component {
                 key={index} 
                 src={style.url} />)}
           </div>))}
-        <div className={this.state.expand ? 'product-hidden' : 'sidebar-gallery'}>
+        <div className={this.state.expand ? 'product-hidden' : 'sidebar-gallery'} id='sidebar'>
             {this.state.stylePhotos.map((style, index) => (
               <div className='slide'key={index}>
                 <img 

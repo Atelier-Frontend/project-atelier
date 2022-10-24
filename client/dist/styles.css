@@ -407,7 +407,7 @@ section aside:hover {
 
 .right-column {
   width: 35%;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .style-container {
@@ -486,20 +486,18 @@ section aside:hover {
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 7%;
-  left: 11%;
+  top: 6%;
+  left: 10%;
+  z-index: 20;
 }
 
 .sidebar-image {
-  position: absolute;
-  padding: 3px;
-  top: 10%;
-  left: 8%;
+  margin: 9px;
   width: 60px;
   height: 60px;
   object-fit: cover;
-  border-bottom: 3px solid black;
-  outline: 2px solid grey;
+  border: 2px solid grey;
+  border-radius: 1px;
 }
 
 /* Q&A styles: */

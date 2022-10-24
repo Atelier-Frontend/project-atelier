@@ -83,15 +83,12 @@ class ImageGallery extends React.Component {
                 src={style.url} />)}
           </div>))}
         <div className={this.state.expand ? 'product-hidden' : 'sidebar-gallery'}>
-          {this.state.stylePhotos.map((style, index) => (
-            <div className={index === this.state.current ? 'slide-active' : 'slide'} key={index}>
-              {index === this.state.current && (
-                <img 
-                  className='sidebar-image' 
-                  alt='image in side carousel' 
-                  key={index} 
-                  src={style.url} />)}
-            </div>))}
+            {this.state.stylePhotos.map((style, index) => (
+              <img 
+                className='sidebar-image' 
+                alt='image in side carousel' 
+                key={index} 
+                src={style.url}/>))}
         </div> 
       </div>)}
 };

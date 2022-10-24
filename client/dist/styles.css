@@ -253,7 +253,7 @@ section aside:hover {
 
 .down-arrow {
   position: absolute;
-  top: 75%;
+  top: 78%;
   left: 12.25%;
   cursor: pointer;
   font-size: 1.7rem;
@@ -524,10 +524,10 @@ section aside:hover {
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 8%;
+  top: 9%;
   left: 9%;
   z-index: 20;
-  height: 67%;
+  height: 66%;
   overflow-y: auto;
   overflow-x: hidden;
   white-space: nowrap;

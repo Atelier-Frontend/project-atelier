@@ -44,7 +44,7 @@ class ImageGallery extends React.Component {
 
   nextImage() {
     if (this.state.current >= 3) {
-      document.getElementById('sidebar').scrollTop += 90;
+      document.getElementById('sidebar').scrollTop += 85;
     }
 
     if (this.state.current === this.state.stylePhotos.length - 1) {
@@ -55,8 +55,8 @@ class ImageGallery extends React.Component {
   }
 
   prevImage() {
-    if (this.state.current < 3) {
-      document.getElementById('sidebar').scrollTop -= 90;
+    if (this.state.current < 5) {
+      document.getElementById('sidebar').scrollTop -= 85;
     }
 
     if (this.state.current === 0) {

@@ -22,7 +22,7 @@ class ImageGallery extends React.Component {
     this.setState({ 
       length: this.props.selectedStyle.photos.length,
       stylePhotos: this.props.selectedStyle.photos,
-    })
+    });
   }
 
   componentDidUpdate(prevProps) {
@@ -32,11 +32,12 @@ class ImageGallery extends React.Component {
         length: this.props.selectedStyle.photos.length,
         current: 0,
         expand: false
-      })
+      });
     };
+    
     if (this.props.expand !== prevProps.expand) {
       this.setState({ expand: this.props.expand });
-    }
+    };
   }
 
   nextImage() {

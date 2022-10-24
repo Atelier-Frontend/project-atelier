@@ -10,7 +10,7 @@ export default function IndividualStars(props) {
   }
   return(<div style={{width:"100px"}}>
     {array.map((element, index) => {
-      return <img src={yellowStar} style={{width:"20px", height:"20px"}} key={index} />
+      return <img src={yellowStar} style={{width:"20px", height:"20px", marginTop:"15px"}} key={index} />
     })}
   </div>)
 }

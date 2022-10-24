@@ -235,7 +235,7 @@ section aside:hover {
 .up-arrow {
   position: absolute;
   top: 3.2%;
-  left: 12.25%;
+  left: 12%;
   cursor: pointer;
   font-size: 1.7rem;
   user-select: none;
@@ -253,8 +253,8 @@ section aside:hover {
 
 .down-arrow {
   position: absolute;
-  top: 77%;
-  left: 12.25%;
+  top: 75.5%;
+  left: 12%;
   cursor: pointer;
   font-size: 1.7rem;
   user-select: none;
@@ -524,10 +524,10 @@ section aside:hover {
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 9%;
+  top: 10%;
   left: 9%;
   z-index: 20;
-  height: 66%;
+  height: 63%;
   overflow-y: auto;
   overflow-x: hidden;
   white-space: nowrap;
@@ -536,7 +536,7 @@ section aside:hover {
 }
 
 .sidebar-image {
-  margin: 9px;
+  margin: 6px;
   width: 60px;
   height: 60px;
   object-fit: cover;
@@ -549,7 +549,7 @@ section aside:hover {
 }
 
 .sidebar-highlight {
-  margin: 9px;
+  margin: 6px;
   width: 60px;
   height: 60px;
   object-fit: cover;

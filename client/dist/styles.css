@@ -693,8 +693,8 @@ section aside:hover {
   position: fixed;
   top: 50px;
   bottom: 50px;
-  left: 300px;;
-  right: 300px;;
+  left: 300px;
+  right: 300px;
   background: rgb(0, 0, 0, 1);
   border-radius: 5px;
   padding: 20px;
@@ -922,8 +922,8 @@ section aside:hover {
   position: fixed;
   top: 25px;
   bottom: auto;
-  left: 200px;;
-  right: 200px;;
+  left: 200px;
+  right: 200px;
   background: rgb(0, 0, 0);
   border-radius: 5px;
   padding: 20px;
@@ -982,6 +982,35 @@ section aside:hover {
   opacity: 0.5;
   text-align: left;
   height: 15px;
+}
 
+.thumbnail-photo {
+  margin-right: 1em;
+}
+
+.thumbnail-photo:hover {
+  cursor: zoom-in;
+}
+
+.full-size-image:hover {
+  cursor: zoom-out;
+}
+
+.full-size-image-container {
+  position: fixed;
+  top: 50px;
+  bottom: 50px;
+  left: 100px;
+  right: 100px;
+  display: flex;
+  justify-content: center;
+  opacity: 1;
+}
+
+.full-size-image {
+  justify-content: center;
+  max-height: 90vh;
+  max-width: 80vw;
+  opacity: 1;
 }
 

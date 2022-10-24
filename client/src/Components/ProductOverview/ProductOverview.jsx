@@ -13,10 +13,12 @@ class ProductOverview extends React.Component {
       styles: [],
       selectedStyle: {},
       imageStyle: '',
-      sizeReset: false
+      sizeReset: false,
+      expand: false
     }
     this.selectImage = this.selectImage.bind(this);
     this.getStyles = this.getStyles.bind(this);
+    this.hideProductInfo = this.hideProductInfo.bind(this);
   }
 
   componentDidMount() {
@@ -60,6 +62,15 @@ class ProductOverview extends React.Component {
     });
   }
 
+  hideProductInfo() {
+    if (this.state.expand === false) {
+      this.setState({ expand: true });
+    };
+    if (this.state.expand === true) {
+      this.setState({ expand: false });
+    };
+  }
+
   render() {
     return (<div className='product'>
       <div className='left-column'>
@@ -67,14 +78,18 @@ class ProductOverview extends React.Component {
           <ImageGallery 
             styles={this.state.styles} 
             selectedStyle={this.state.selectedStyle} 
-            image={this.state.imageStyle} />}
+            image={this.state.imageStyle} 
+            expand={this.state.expand}
+            hideProductInfo={this.hideProductInfo} 
+            selectImage={this.selectImage} />}
       </div>
-      <div className='right-column'>
+      <div className={this.state.expand ? 'product-hidden' : 'right-column'}>
         {Object.keys(this.state.product).length > 0 &&
           <ProductInfo 
             product={this.state.product} 
             selectedStyle={this.state.selectedStyle} 
-            styleName={this.state.selectedStyle.name}/>}
+            styleName={this.state.selectedStyle.name}
+            expanded={this.state.expand} />}
         {this.state.styles.length > 0 &&
           <StyleSelector 
             styles={this.state.styles} 
@@ -84,7 +99,7 @@ class ProductOverview extends React.Component {
           <Cart 
             styles={this.state.styles} 
             selectedStyle={this.state.selectedStyle} 
-            reset={this.state.sizeReset}/>}  
+            reset={this.state.sizeReset} />}  
       </div>    
     </div>)
   }

@@ -1,6 +1,8 @@
 import React from 'react';
 import Cards from './Cards.jsx';
 import axios from 'axios';
+import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
+
 
 class Related extends React.Component {
   constructor(props) {
@@ -44,7 +46,7 @@ class Related extends React.Component {
   render() {
     return (<div>
       <h4 data-testid="custom-element">Related</h4><section>
-      <ul className='test'>{this.state.product}</ul>
+      <FaAngleLeft className='left-arrows' /><ul className='test'>{this.state.product}</ul><FaAngleRight className='right-arrows' />
       </section>
     </div>)
   }

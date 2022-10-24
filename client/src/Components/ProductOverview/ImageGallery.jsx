@@ -15,23 +15,29 @@ class ImageGallery extends React.Component {
     this.nextImage = this.nextImage.bind(this);
     this.prevImage = this.prevImage.bind(this);
     this.expandImage = this.expandImage.bind(this);
+    this.onClick = this.onClick.bind(this);
+    this.scroll = this.scroll.bind(this);
   }
 
   componentDidMount() {
     this.setState({ 
       length: this.props.selectedStyle.photos.length,
-      stylePhotos: this.props.selectedStyle.photos
-    })
+      stylePhotos: this.props.selectedStyle.photos,
+    });
   }
 
   componentDidUpdate(prevProps) {
-    if(this.props.selectedStyle !== prevProps.selectedStyle) { 
+    if (this.props.selectedStyle !== prevProps.selectedStyle) { 
       this.setState({ 
         stylePhotos: this.props.selectedStyle.photos,
         length: this.props.selectedStyle.photos.length,
         current: 0,
         expand: false
-      })
+      });
+    };
+
+    if (this.props.expand !== prevProps.expand) {
+      this.setState({ expand: this.props.expand });
     };
   }
 
@@ -51,13 +57,18 @@ class ImageGallery extends React.Component {
     };
   }
 
-  expandImage() {
-    if (this.state.expand === false) {
-      this.setState({ expand: true });
-    };
-    if (this.state.expand === true) {
-      this.setState({ expand: false });
-    };
+  expandImage(event) {
+    event.preventDefault();
+    this.props.hideProductInfo();
+  }
+
+  onClick(event) {
+    event.preventDefault();
+    this.setState({ current: Number(event.target.id) });
+  }
+
+  scroll() {
+
   }
 
   render() {
@@ -83,6 +94,17 @@ class ImageGallery extends React.Component {
                 key={index} 
                 src={style.url} />)}
           </div>))}
+        <div className={this.state.expand ? 'product-hidden' : 'sidebar-gallery'}>
+            {this.state.stylePhotos.map((style, index) => (
+              <div className='slide'key={index}>
+                <img 
+                  className={index === this.state.current ? 'sidebar-highlight' : 'sidebar-image'} 
+                  alt='image in side carousel'
+                  id={index}
+                  src={style.thumbnail_url}
+                  onClick={this.onClick}/>
+              </div>))}
+        </div> 
       </div>)}
 };
 

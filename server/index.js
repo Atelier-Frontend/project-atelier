@@ -123,7 +123,7 @@ app.put('/reviews/:review_id/report', (req, res) => {
 // ---- QUESTIONS & ANSWERS ROUTES ---- //
 //Retrieves a list of questions for a particular product.
 app.get('/qa/questions', (req, res) => {
-  axios.get(`${apiPath}/qa/questions?${req._parsedOriginalUrl.query}`, header)
+  axios.get(`${apiPath}/qa/questions?${req._parsedOriginalUrl.query}&count=20`, header)
     .then((response) => {
       res.send(response.data);
     })

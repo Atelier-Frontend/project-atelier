@@ -9,6 +9,8 @@ import SellerResponse from "./SellerResponse.jsx";
 import Helpfulness from "./Helpfulness.jsx";
 import Report from "./Report.jsx";
 import ReviewSummary from "./ReviewSummary.jsx";
+import ReviewPhotos from "./ReviewPhotos.jsx";
+
 
 export default function IndividualReview(props) {
 
@@ -22,6 +24,7 @@ export default function IndividualReview(props) {
     </div>
     <ReviewSummary summary={props.review.summary} />
     <ReviewBody body={props.review.body} />
+    <ReviewPhotos photos={props.review.photos} />
     {props.review.recommend && <IndividualRecommend />}
     {props.review.response && <SellerResponse />}
     <div className="Helpfulness-Report">

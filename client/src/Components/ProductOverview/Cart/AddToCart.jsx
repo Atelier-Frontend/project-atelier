@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import QuantitySelector from './QuantitySelector.jsx';
 import SizeSelector from './SizeSelector.jsx';
-import { ImStarEmpty } from 'react-icons/im';
+import { FaHeart } from 'react-icons/fa';
 
 class Cart extends React.Component {
   constructor(props) {
@@ -71,7 +71,7 @@ class Cart extends React.Component {
       </div>
       <div className='buy-buttons'>
         <button className='add-cart'>Add to Bag</button>
-        <button className='add-style'><ImStarEmpty className='heart-icon'/></button> 
+        <button className='add-style'><FaHeart className='heart-icon'/></button> 
       </div>      
     </div>)
   }

@@ -55,7 +55,7 @@ class ImageGallery extends React.Component {
   }
 
   prevImage() {
-    if (this.state.current < 6) {
+    if (this.state.current < 7) {
       document.getElementById('sidebar').scrollTop -= 90;
     }
 

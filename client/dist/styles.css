@@ -653,13 +653,6 @@ section aside:hover {
   color: #333;
 }
 
-.answer-photos-container {
-  display: block;
-  flex-direction: row;
-  height: auto;
-  margin-bottom: 1em;
-}
-
 .answer-photo {
   height: 120px;
   width: 150px;

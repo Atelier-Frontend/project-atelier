@@ -10,13 +10,13 @@ function clicked (comp, el) {
     element: el,
     time: JSON.stringify(Date.now())
   }
-  axios.post('/interactions', test)
-  .then((response)=> {
-    console.log(response, ' Response');
-  })
-  .catch((err)=> {
-    console.log(err);
-  })
+  // axios.post('/interactions', test)
+  // .then((response)=> {
+  //   console.log(response, ' Response');
+  // })
+  // .catch((err)=> {
+  //   console.log(err);
+  // })
 
 }
 

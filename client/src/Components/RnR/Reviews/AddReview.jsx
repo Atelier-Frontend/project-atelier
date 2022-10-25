@@ -19,7 +19,7 @@ export default function AddReview(props) {
   }
 
   return(<>
-    <button onClick={addReview} >ADD A REVIEW +</button>
+    <button onClick={addReview} className="add-review-btn">ADD A REVIEW +</button>
     {showReviewModal === true
      ? <ReviewModal product={props.product}
                     closeModal={closeModal} />

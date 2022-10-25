@@ -32,6 +32,14 @@ export default function IndividualReview(props) {
                    review={props.review} />
       <Report review={props.review} />
     </div>
-    <p>---------------------------------------------------------------------------</p>
+    <hr
+        style={{
+            color: "grey",
+            backgroundColor: "grey",
+            height: "0.5px",
+            width: "650px",
+            textAlign: "left"
+        }}
+    />
   </>)
 }

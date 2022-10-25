@@ -18,6 +18,7 @@ class Cart extends React.Component {
     this.getQuantity = this.getQuantity.bind(this);
     this.selectSize = this.selectSize.bind(this);
     this.sendCart = this.sendCart.bind(this);
+    this.favorite = this.favorite.bind(this);
   }
 
   componentDidMount() {
@@ -71,6 +72,11 @@ class Cart extends React.Component {
           Quantity: ${chosenQuantity}`);
   }
 
+  favorite(event) {
+    event.preventDefault();
+    this.props.favorite(this.props.product);
+  }
+
   render() {
     return (<div className='product-btn-grp'>
       <div className='selectors'>
@@ -91,7 +97,7 @@ class Cart extends React.Component {
       </div>
       <div className='buy-buttons'>
         <button className='add-cart' onClick={this.sendCart}>Add to Bag</button>
-        <button className='add-style'><FaHeart className='heart-icon'/></button> 
+        <button className='add-style' onClick={this.favorite}><FaHeart className='heart-icon'/></button> 
       </div>      
     </div>)
   }

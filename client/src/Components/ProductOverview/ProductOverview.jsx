@@ -97,9 +97,11 @@ class ProductOverview extends React.Component {
             selectImage={this.selectImage} />}
         {this.state.styles.length > 0 &&
           <Cart 
+            product={this.state.product}
             styles={this.state.styles} 
             selectedStyle={this.state.selectedStyle} 
-            reset={this.state.sizeReset} />}  
+            reset={this.state.sizeReset} 
+            favorite={this.props.favorite}/>}  
       </div>    
     </div>)
   }

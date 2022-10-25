@@ -5,11 +5,11 @@ import axios from 'axios'
 
 
 function clicked (comp, el) {
-  // var test = {
-  //   widget: comp,
-  //   element: el,
-  //   time: JSON.stringify(Date.now())
-  // }
+  var test = {
+    widget: comp,
+    element: el,
+    time: JSON.stringify(Date.now())
+  }
   // axios.post('/interactions', test)
   // .then((response)=> {
   //   console.log(response, ' Response');

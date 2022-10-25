@@ -9,8 +9,8 @@ export default function MoreReviews(props) {
 
   return(<>
     {(props.moreclicked === false)
-      ? <button onClick={reviewsClickHandler} >MORE REVIEWS</button>
-      : <button onClick={reviewsClickHandler} >COLLAPSE REVIEWS</button>
+      ? <button onClick={reviewsClickHandler} className="more-reviews-btn">MORE REVIEWS</button>
+      : <button onClick={reviewsClickHandler} className="more-reviews-btn">COLLAPSE REVIEWS</button>
     }
   </>)
 }

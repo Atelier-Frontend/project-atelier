@@ -42,18 +42,6 @@ class QnA extends React.Component {
       })
   }
 
-  // getAnswersList(question_id) {
-  //   axios.get(`/qa/questions/:question_id/answers`, {params: {question_id}})
-  //     .then((response) => {
-  //       this.setState({
-  //         answers: response.data.results
-  //       })
-  //     })
-  //     .catch((err) => {
-  //       console.log('failed to get answers list')
-  //     })
-  // }
-
   questionClickHandler() {
     (this.state.moreQuestionsClicked === false) ? this.setState({
       moreQuestionsClicked: true
@@ -75,7 +63,7 @@ class QnA extends React.Component {
 
   render() {
     return (<div>
-      <h4>{'Questions & Answers'}</h4>
+      <h3 className="widget-title">{'Questions & Answers'}</h3>
       <SearchBar filterQuestions={this.filterQuestions.bind(this)}
                  getQList={this.getQuestionsList.bind(this)}
                  product={this.props.products} />

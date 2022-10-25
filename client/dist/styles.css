@@ -916,6 +916,26 @@ section aside:hover {
   flex-direction:row;
 }
 
+.overall-rating-stars-container {
+  padding-top: 30px;
+  left: 300px;
+}
+
+.overall-rating-stars-image {
+  height: 20px;
+  margin-top: -7px;
+  margin-left: 10px;
+  width: 100px;
+}
+
+.overall-rating-stars-color {
+  height: 19.5px;
+  background: rgb(248, 191, 0);
+  margin-top: -17.5px;
+  margin-left: 10px;
+  width: calc(var(--overall_star_percent) * 100px)
+}
+
 .Sorting-Bar {
   font-size: large;
   font-weight: bold;
@@ -935,6 +955,7 @@ section aside:hover {
   flex-direction:row;
   justify-content: space-evenly;
   text-align: right;
+  margin-right: 10px;
 }
 
 .Helpfulness-Report {
@@ -976,7 +997,7 @@ section aside:hover {
   text-align: center;
 }
 
-.rating-barBkg-green{
+.rating-barBkg-green {
   height: 15px;
   background: rgb(9, 190, 15);
   margin-top: -1.2em;
@@ -996,9 +1017,10 @@ section aside:hover {
   flex-direction:row;
   text-align: left;
   text-align-last: right;
-  justify-content: space-evenly;
+  justify-content: space-between;
   margin-top: -1em;
   margin-bottom: 1.5em;
+  width:250px;
 }
 
 .score-pointer {
@@ -1050,20 +1072,14 @@ section aside:hover {
 }
 
 .review-body {
-  width: 500px;
-  height: 200px;
-  margin-top: 2em;
+  width: 620px;
+  margin-top: 0;
+  margin-right: 10px;
 }
 
 .rating-stars {
   height: 10px;
   margin-bottom: 10px;
-}
-
-.rating-score {
-  height: 15px;
-  background: rgb(229, 245, 5);
-  width: calc(50px * var(--score_percent))
 }
 
 .rating-stars-image {
@@ -1104,3 +1120,13 @@ section aside:hover {
   opacity: 1;
 }
 
+.review-dropdown-menu {
+  border: 0;
+  box-shadow: none;
+  cursor: pointer;
+  font-size: large;
+  font-weight: bold;
+  text-decoration-line: underline;
+  margin-left: 5px;
+  margin-top: 17px;
+}

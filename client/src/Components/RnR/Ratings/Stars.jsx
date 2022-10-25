@@ -1,11 +1,17 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import stars from "../pic/five-stars2.png";
+import starrr from "../pic/perfect_star.png";
 
 export default function Stars(props) {
 
-return(<>
-    {/* <div className="rating-score" style={{ '--score_percent': props.score/5}}>11</div> */}
-    <img src={stars} className="rating-stars-image" />
-</>)
+  return(<div className="overall-rating-stars-container">
+    <div className="overall-rating-stars-image" >
+        <img src={starrr} style={{height:"20px", width:"20px"}}/>
+        <img src={starrr} style={{height:"20px", width:"20px"}}/>
+        <img src={starrr} style={{height:"20px", width:"20px"}}/>
+        <img src={starrr} style={{height:"20px", width:"20px"}}/>
+        <img src={starrr} style={{height:"20px", width:"20px"}}/>
+    </div>
+    <div className="overall-rating-stars-color" style={{ '--overall_star_percent': props.score/5}}/>
+  </div>)
 }

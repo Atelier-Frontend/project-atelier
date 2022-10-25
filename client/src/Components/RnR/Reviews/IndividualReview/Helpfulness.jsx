@@ -23,13 +23,13 @@ export default function Helpfulness(props) {
 
   return(<>
     <div className="Review-Helpful">
-      <p>Helpful?</p>
+      <p style={{marginRight:"3px"}}>Helpful?</p>
       <p onClick={voteReview}
          className="Review-Helpful-Vote"
          style={{textDecorationLine: 'underline'}}
          id={props.review.review_id}>Yes</p>
       <p>{`(${props.vote})`}</p>
-      <p> | </p>
+      <p style={{marginLeft:"5px", marginRight:"0px"}}> | </p>
     </div>
   </>)
 }

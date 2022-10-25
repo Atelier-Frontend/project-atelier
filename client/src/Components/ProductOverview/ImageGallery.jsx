@@ -44,10 +44,11 @@ class ImageGallery extends React.Component {
   }
 
   nextImage() {
-    if (this.state.current >= 3) {
+    if (this.state.current >= 3 & this.state.expand) {
+      document.getElementById('sidebar').scrollLeft += 32;
+    } else if (this.state.current >= 3) {
       document.getElementById('sidebar').scrollTop += 90;
     }
-
     if (this.state.current === this.state.stylePhotos.length - 1) {
       this.setState({ current: 0 });
     } else {
@@ -56,10 +57,11 @@ class ImageGallery extends React.Component {
   }
 
   prevImage() {
-    if (this.state.current < 7) {
+    if (this.state.current < 7 & this.state.expand) {
+      document.getElementById('sidebar').scrollLeft -= 32;
+    } else if (this.state.current < 7) {
       document.getElementById('sidebar').scrollTop -= 90;
     }
-
     if (this.state.current === 0) {
       this.setState({ current: this.state.stylePhotos.length - 1 });
     } else {

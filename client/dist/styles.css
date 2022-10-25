@@ -232,6 +232,44 @@ section aside:hover {
   transform: translateY(-0.05em);
 }
 
+.up-arrow {
+  position: absolute;
+  top: 3.2%;
+  left: 12%;
+  cursor: pointer;
+  font-size: 1.7rem;
+  user-select: none;
+  z-index: 10;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  color:rgb(0, 0, 0);
+}
+
+.up-arrow:focus,
+.up-arrow:hover {
+  box-shadow: 0 0.4em 0.4em -0.2em var(--hover);
+  transform: translateY(-0.05em);
+}
+
+.down-arrow {
+  position: absolute;
+  top: 75.5%;
+  left: 12%;
+  cursor: pointer;
+  font-size: 1.7rem;
+  user-select: none;
+  z-index: 10;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  color:rgb(0, 0, 0);
+}
+
+.down-arrow:focus,
+.down-arrow:hover {
+  box-shadow: 0 0.4em 0.4em -0.2em var(--hover);
+  transform: translateY(-0.05em);
+}
+
 .price-container {
   margin-top: 18px;
   font-family: 'Arimo', sans-serif;
@@ -486,18 +524,20 @@ section aside:hover {
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 6%;
-  left: 10%;
+  top: 10%;
+  left: 9%;
   z-index: 20;
-  height: 67%;
+  height: 63%;
   overflow-y: auto;
   overflow-x: hidden;
   white-space: nowrap;
+  scroll-behavior: smooth;
+  overflow: hidden;
 }
 
 
 .sidebar-image {
-  margin: 9px;
+  margin: 6px;
   width: 60px;
   height: 60px;
   object-fit: cover;
@@ -510,7 +550,7 @@ section aside:hover {
 }
 
 .sidebar-highlight {
-  margin: 9px;
+  margin: 6px;
   width: 60px;
   height: 60px;
   object-fit: cover;

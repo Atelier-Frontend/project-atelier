@@ -17,6 +17,7 @@ class Cart extends React.Component {
 
     this.getQuantity = this.getQuantity.bind(this);
     this.selectSize = this.selectSize.bind(this);
+    this.sendCart = this.sendCart.bind(this);
   }
 
   componentDidMount() {
@@ -51,6 +52,25 @@ class Cart extends React.Component {
     });
   }
 
+  sendCart() {
+    if (document.getElementById('quantity-selector') === null) {
+      alert('Please select a size');
+      return;;
+    }
+
+    var size = document.getElementById('select-size');
+    var chosenSize = size.options[size.selectedIndex].text;
+    var chosenQuantity = document.getElementById('quantity-selector').value;
+    var chosenProduct = document.getElementById('product-name').innerHTML;
+    var chosenStyle = document.getElementById('style-name').innerHTML;
+
+    alert(`You have added the following item to your bag: \n 
+          Product: ${chosenProduct} \n
+          Style: ${chosenStyle} \n
+          Size: ${chosenSize} \n
+          Quantity: ${chosenQuantity}`);
+  }
+
   render() {
     return (<div className='product-btn-grp'>
       <div className='selectors'>
@@ -70,7 +90,7 @@ class Cart extends React.Component {
           </span>
       </div>
       <div className='buy-buttons'>
-        <button className='add-cart'>Add to Bag</button>
+        <button className='add-cart' onClick={this.sendCart}>Add to Bag</button>
         <button className='add-style'><FaHeart className='heart-icon'/></button> 
       </div>      
     </div>)

@@ -906,15 +906,19 @@ section aside:hover {
   overflow-y: auto;
   overflow-x: hidden;
   text-align: justify;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .Score-Star {
-  font-size: small;
+  font-size: x-large;
   display:flex;
   flex-direction:row;
 }
 
 .Sorting-Bar {
+  font-size: large;
+  font-weight: bold;
   display:flex;
   flex-direction:row;
 }
@@ -948,9 +952,11 @@ section aside:hover {
 .recommended-percentage {
   font-size: small;
   color: rgb(107, 107, 107);
+  margin-top: -25px;
 }
 
 .rating-bar {
+  font-size: small;
   display:flex;
   flex-direction:row;
   text-align: left;
@@ -958,11 +964,13 @@ section aside:hover {
 
 .rating-bar-bars {
   padding-top: 30px;
+  left: 300px;
 }
 
 .rating-barBkg {
   height: 15px;
   background: rgba(224, 224, 224, 1);
+  margin-top: -1.3em;
   margin-left: 20px;
   width: 200px;
   text-align: center;
@@ -971,7 +979,7 @@ section aside:hover {
 .rating-barBkg-green{
   height: 15px;
   background: rgb(9, 190, 15);
-  margin-top: -0.95em;
+  margin-top: -1.2em;
   margin-left: 20px;
   width: calc(var(--rating_percent) * 200px)
 }

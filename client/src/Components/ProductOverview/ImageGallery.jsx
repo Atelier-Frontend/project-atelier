@@ -3,7 +3,7 @@ import { FiArrowRight, FiArrowLeft } from 'react-icons/fi';
 import { AiOutlineExpand } from 'react-icons/ai';
 import { IoIosArrowUp, IoIosArrowDown } from 'react-icons/io';
 import { BsFillCircleFill } from 'react-icons/bs';
-import circle from './blue-circle.png';
+import circle from './white-circle.png';
 
 class ImageGallery extends React.Component {
   constructor(props) {

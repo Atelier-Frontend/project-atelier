@@ -744,7 +744,8 @@ section aside:hover {
   padding: 20px;
   background-color: rgb(231, 231, 231, 1);
   opacity: 1;
-  font-family: 'Arimo', sans-serif
+  font-family: 'Arimo', sans-serif;
+  z-index: 200
 }
 
 .form-wrapper {
@@ -836,7 +837,8 @@ section aside:hover {
   height: 700px;
   position: relative;
   text-align: left;
-  font-family: 'Arimo', sans-serif
+  font-family: 'Arimo', sans-serif;
+  z-index: auto;
 }
 
 .Ratings-Reviews .Sorting-Bar {
@@ -866,6 +868,7 @@ section aside:hover {
   flex-direction:row;
   width: 500px;
   padding-top: 2em;
+  z-index:auto;
 }
 
 .add-review-btn, .more-reviews-btn {
@@ -1003,6 +1006,7 @@ section aside:hover {
   padding: 20px;
   background-color: #e7e7e7;
   opacity: 1;
+  z-index: 200;
 }
 
 .star-checker-graph {
@@ -1079,6 +1083,7 @@ section aside:hover {
   display: flex;
   justify-content: center;
   opacity: 1;
+  z-index: 200
 }
 
 .full-size-image {

@@ -36,7 +36,7 @@ class StyleSelector extends React.Component {
   render() {
     return (<div className='style-container'>
       <span className='style-info'>STYLE ></span>
-      <span className='style-name'>{this.state.name}</span>
+      <span className='style-name' id='style-name'>{this.state.name}</span>
       <div className='style-gallery'>
         {this.props.styles.map((style, index) => (
             <img 

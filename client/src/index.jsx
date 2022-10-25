@@ -47,7 +47,6 @@ class App extends React.Component {
   }
 
   fav (obj) {
-    console.log(obj)
     for (var i of this.state.fav) {
       if(i.id=== obj.id) {
         return

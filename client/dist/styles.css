@@ -535,7 +535,8 @@ section aside:hover {
   height: 5vh;
   position: relative;
   left: 50px;
-  font-family: 'Arimo', sans-serif
+  font-family: 'Arimo', sans-serif;
+  margin-top: 20px;
 }
 
 .container1 {
@@ -719,11 +720,13 @@ section aside:hover {
 }
 
 .scrollableQuestionsList {
-  max-height: 50vh;
-  width: 100vw;
+  max-height: 70vh;
   overflow-y: auto;
   overflow-x: hidden;
   text-align: justify;
+  width: 1000px;
+  margin-top: 10px;
+  font-size: large;
 }
 
 .individual-answer {

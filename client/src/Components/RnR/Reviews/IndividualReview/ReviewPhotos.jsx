@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import FullSizePhoto from "./FullSizePhoto.jsx";
 
 export default function ReviewPhotos(props) {

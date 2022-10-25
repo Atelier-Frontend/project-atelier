@@ -1,5 +1,4 @@
 import React from "react";
-import { useState, useEffect } from "react";
 import MoreReviews from "./MoreReviews.jsx";
 import AddReview from "./AddReview.jsx";
 

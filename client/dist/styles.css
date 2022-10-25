@@ -124,7 +124,7 @@ section aside:hover {
   object-fit: cover;
   position: relative;
   z-index: 2;
-  cursor: all-scroll;
+  cursor: zoom-out;
 }
 
 .right-arrow {
@@ -567,7 +567,7 @@ section aside:hover {
   top: 85%;
   left: 62%;
   z-index: 20;
-  height: 63%;
+  width: 60%;
   overflow-y: hidden;
   overflow-x: auto;
   white-space: nowrap;
@@ -580,6 +580,7 @@ section aside:hover {
   width: 20px;
   height: 20px;
   cursor: pointer;
+  user-select: none;
 }
 
 .transform-image-highlight {
@@ -590,6 +591,7 @@ section aside:hover {
   border: 2px solid rgb(249, 120, 33);
   border-radius: 50%;
   cursor: pointer;
+  user-select: none;
 }
 
 .transformed-image:focus,

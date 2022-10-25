@@ -23,7 +23,7 @@ export default function Ratings(props) {
     <div className="Ratings-Sider">
       <div className="Score-Star">
         <Score score={props.score}/>
-        <Stars />
+        <Stars score={props.score}/>
       </div>
       <Recommend recommended={props.recommended} />
       <RatingsChart chart={props.chart} />

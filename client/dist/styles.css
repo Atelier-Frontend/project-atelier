@@ -131,7 +131,7 @@ section aside:hover {
   position: absolute;
   top: 35%;
   right: 8%;
-  font-size: 2.3rem;
+  font-size: 2.1rem;
   cursor: pointer;
   user-select: none;
   border-radius: 50%;
@@ -149,7 +149,7 @@ section aside:hover {
   position: absolute;
   top: 35%;
   left: 22%;
-  font-size: 2.3rem;
+  font-size: 2.1rem;
   cursor: pointer;
   user-select: none;
   border-radius: 50%;
@@ -182,7 +182,7 @@ section aside:hover {
 .ex-button {
   position: absolute;
   top: 4%;
-  right: -39%;
+  right: -38.5%;
   font-size: 2rem;
   cursor: pointer;
   user-select: none;
@@ -563,7 +563,7 @@ section aside:hover {
   display: flex;
   flex-direction: row;
   position: absolute;
-  top: 75%;
+  top: 74%;
   left: 62%;
   z-index: 20;
   width: 19.5%;

@@ -59,7 +59,7 @@ class StarRating extends React.Component {
         {/* <Stars score={this.state.rating}/> */}
       </span>
       <span className='reviews-link'>
-        <a href='http://localhost:3000' className='stars'>Read all reviews</a>
+        <a href='https://www.google.com' className='stars'>Read all reviews</a>
       </span>
     </div>)
   }

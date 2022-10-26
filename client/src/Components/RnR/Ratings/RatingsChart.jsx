@@ -1,5 +1,4 @@
 import React from "react";
-import { useState, useEffect } from "react";
 
 export default function RatingsChart(props) {
   let total =  props.chart.reduce((a, b) => Number(a) + Number(b), 0)

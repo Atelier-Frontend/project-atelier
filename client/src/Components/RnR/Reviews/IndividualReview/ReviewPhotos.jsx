@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import FullSizePhoto from "./FullSizePhoto.jsx";
 
 export default function ReviewPhotos(props) {
@@ -24,6 +24,7 @@ export default function ReviewPhotos(props) {
                   className="thumbnail-photo"
                   style={{width:"60px", height:"60px"}}
                   onClick={zoomInImage}
+                  draggable="false"
               />
       })
     }

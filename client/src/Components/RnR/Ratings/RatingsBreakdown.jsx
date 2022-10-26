@@ -1,5 +1,4 @@
 import React from "react";
-import { useState, useEffect } from "react";
 import ScaleBar from "./ScaleBar.jsx";
 
 export default function RatingsBreakdown(props) {

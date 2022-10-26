@@ -30,34 +30,34 @@ describe("App", () => {
   })
 })
 
-// describe("Q&A", () => {
-//   test('loads and displays greeting', async () => {
-//     const props = {
-//       products: {
-//         campus: "hr-rpp",
-//         category: "Pants",
-//         created_at: "2022-05-11T19:38:15.373Z",
-//         default_price: "65.00",
-//         description: "I'll tell you how great they are after I nap for a bit.",
-//         id: 71700,
-//         name: "Slacker's Slacks",
-//         slogan: "Comfortable for everything, or nothing",
-//         updated_at: "2022-05-11T19:38:15.373Z"
-//       }
-//     }
-//     render (<QnA {...props} />)
-//     await screen.findByText('Q')
-//     expect(screen.getByText('Q')).toBeInTheDocument();
-//   })
-// })
+describe("Q&A", () => {
+  test('loads and displays greeting', async () => {
+    const props = {
+      products: {
+        campus: "hr-rpp",
+        category: "Pants",
+        created_at: "2022-05-11T19:38:15.373Z",
+        default_price: "65.00",
+        description: "I'll tell you how great they are after I nap for a bit.",
+        id: 71700,
+        name: "Slacker's Slacks",
+        slogan: "Comfortable for everything, or nothing",
+        updated_at: "2022-05-11T19:38:15.373Z"
+      }
+    }
+    render (<QnA {...props} />)
+    await screen.findByText('Q')
+    expect(screen.getByText('Q')).toBeInTheDocument();
+  })
+})
 
-// describe("SearchBar", () => {
-//   test('Loads and displays search bar', async () => {
-//     render (<SearchBar />)
-//     await screen.findByText('Have a question?')
-//     expect(screen.getByText('Have a question?').toBeInTheDocument())
-//   })
-// })
+describe("SearchBar", () => {
+  test('Loads and displays search bar', async () => {
+    render (<SearchBar />)
+    await screen.findByText('Have a question?')
+    expect(screen.getByText('Have a question?').toBeInTheDocument())
+  })
+})
 
 describe("QuestionsList", () => {
   const questions= [
@@ -86,12 +86,12 @@ describe("MoreQuestions", () => {
   })
 })
 
-// describe("AddQuestion", () => {
-//   test('Loads and displays AddQuestion Button', async () => {
-//     render (<MoreQuestions />)
-//     await screen.findByRole('button')
-//     expect(screen.getByRole('button')).toHaveTextContent('ADD A QUESTION')
-//   })
-// })
+describe("AddQuestion", () => {
+  test('Loads and displays AddQuestion Button', async () => {
+    render (<MoreQuestions />)
+    await screen.findByRole('button')
+    expect(screen.getByRole('button')).toHaveTextContent('ADD A QUESTION')
+  })
+})
 
 

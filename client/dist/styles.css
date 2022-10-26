@@ -633,7 +633,7 @@ section aside:hover {
   position: absolute;
   display:flex;
   flex-direction:row;
-  left: -160px;
+  left: -280px;
 }
 
 .letterQ {
@@ -656,7 +656,7 @@ section aside:hover {
 
 .Yes {
   font-size: small;
-  padding-left: 0.8vw;
+  padding-left: 2px;
   text-decoration-line: underline;
 }
 
@@ -667,13 +667,15 @@ section aside:hover {
 
 .divider {
   font-size: small;
-  padding-left: 1.2vw;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .addAnswer {
   font-size: small;
   text-decoration-line: underline;
-  padding-left: 1.2vw;
+  right: 10px;
+  text-align: right;
 }
 
 .letterA {
@@ -763,28 +765,26 @@ section aside:hover {
 
 .Ahelpful {
   font-size: small;
-  padding-left: 0.8vw;
 }
 
 .AYes {
   font-size: small;
-  padding-left: 0.8vw;
+  padding-left: 2px;
   text-decoration-line: underline;
 }
 
 .Ahelpfulness {
   font-size: small;
-  padding-left: 0.2vw;
 }
 
 .Adivider {
   font-size: small;
-  padding-left: 1.2vw;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .report {
   font-size: small;
-  padding-left: 1.2vw;
   text-decoration-line: underline;
 }
 
@@ -907,6 +907,7 @@ section aside:hover {
   background: transparent;
   border: none;
   outline: none;
+  margin-left: -30px
 }
 
 .search-answer img {
@@ -1117,10 +1118,11 @@ section aside:hover {
   margin-left: -0.5em;
   padding-left: calc(100% * var(--percent))
 }
+
 .review-form-container {
   position: fixed;
   top: 25px;
-  bottom: auto;
+  bottom: 25px;
   left: 200px;
   right: 200px;
   background: rgb(0, 0, 0);
@@ -1129,23 +1131,73 @@ section aside:hover {
   background-color: #e7e7e7;
   opacity: 1;
   z-index: 200;
+  min-width: fit-content;
+  min-height: fit-content;
+}
+
+.review-form-title {
+  font-size: x-large;
+  text-align: center;
+  font-weight: 600;
+}
+
+.review-form-subtitle {
+  font-size: large;
+  text-align: center;
+  font-weight: 300;
+  margin-top: -20px;
 }
 
 .star-checker-graph {
-  display:flex;
-  flex-direction:row;
+  display: flex;
+  flex-direction: column;
   text-align: left;
 }
 
-.star-checker, .recommend-checker,
-.review-summary, .review-body,
-.image-button, .image-button,
-.review-form-nickname, .review-form-email {
+.characteristic {
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+}
+
+.clickable-stars, .star-checker-meaning {
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  left: 80px;
+  margin-top: 17px;
+}
+
+.star-checker-meaning {
+  color: rgb(0, 111, 20);
+  font-size: small;
+  font-style: italic;
+  width: auto;
+  left: 180px;
+}
+
+.star-checker, .recommend-checker {
   margin-top: 1em;
   display:flex;
   flex-direction: column;
   text-align: top;
 }
+
+.review-summary, .form-review-body-container,
+.image-button, .image-button,
+.review-form-nickname, .review-form-email {
+  display:flex;
+  flex-direction: column;
+  text-align: top;
+  margin-left: 320px;
+  max-width: 500px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
 
 .radio-checker-graph {
   display:flex;
@@ -1155,15 +1207,8 @@ section aside:hover {
   width: 100px;
 }
 
-.star-checker-meaning {
-  margin-top: 0;
-  margin-left: 0.5em;
-}
-
-.review-body {
-  width: 620px;
-  margin-top: 0;
-  margin-right: 10px;
+.review-summary {
+  margin-top: -460px;
 }
 
 .rating-stars {
@@ -1219,3 +1264,4 @@ section aside:hover {
   margin-left: 5px;
   margin-top: 17px;
 }
+

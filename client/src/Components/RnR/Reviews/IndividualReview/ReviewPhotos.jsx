@@ -24,6 +24,7 @@ export default function ReviewPhotos(props) {
                   className="thumbnail-photo"
                   style={{width:"60px", height:"60px"}}
                   onClick={zoomInImage}
+                  draggable="false"
               />
       })
     }

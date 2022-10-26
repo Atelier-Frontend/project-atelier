@@ -129,6 +129,7 @@ export default function ReviewModal(props) {
                   return <img onClick={starChecker}
                            src={state[key][0][Number(i)]=='1'? star1 : star0}
                            id={i+key}
+                           draggable="false"
                       />
                 })}
               </span>

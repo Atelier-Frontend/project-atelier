@@ -633,7 +633,7 @@ section aside:hover {
   position: absolute;
   display:flex;
   flex-direction:row;
-  left: -160px;
+  left: -280px;
 }
 
 .letterQ {
@@ -656,7 +656,7 @@ section aside:hover {
 
 .Yes {
   font-size: small;
-  padding-left: 0.8vw;
+  padding-left: 2px;
   text-decoration-line: underline;
 }
 
@@ -667,13 +667,15 @@ section aside:hover {
 
 .divider {
   font-size: small;
-  padding-left: 1.2vw;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .addAnswer {
   font-size: small;
   text-decoration-line: underline;
-  padding-left: 1.2vw;
+  right: 10px;
+  text-align: right;
 }
 
 .letterA {
@@ -763,28 +765,26 @@ section aside:hover {
 
 .Ahelpful {
   font-size: small;
-  padding-left: 0.8vw;
 }
 
 .AYes {
   font-size: small;
-  padding-left: 0.8vw;
+  padding-left: 2px;
   text-decoration-line: underline;
 }
 
 .Ahelpfulness {
   font-size: small;
-  padding-left: 0.2vw;
 }
 
 .Adivider {
   font-size: small;
-  padding-left: 1.2vw;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .report {
   font-size: small;
-  padding-left: 1.2vw;
   text-decoration-line: underline;
 }
 
@@ -1220,3 +1220,4 @@ section aside:hover {
   margin-left: 5px;
   margin-top: 17px;
 }
+

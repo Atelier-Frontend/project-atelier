@@ -129,7 +129,7 @@ section aside:hover {
 
 .right-arrow {
   position: absolute;
-  top: 35%;
+  top: 39%;
   right: 8%;
   font-size: 2.1rem;
   cursor: pointer;
@@ -147,7 +147,7 @@ section aside:hover {
 
 .left-arrow {
   position: absolute;
-  top: 35%;
+  top: 39%;
   left: 22%;
   font-size: 2.1rem;
   cursor: pointer;

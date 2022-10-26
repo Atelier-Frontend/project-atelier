@@ -4,6 +4,7 @@ import ProductInfo from './ProductInfo/ProductInfo.jsx';
 import Cart from './Cart/AddToCart.jsx';
 import StyleSelector from './StyleSelector.jsx';
 import ImageGallery from './ImageGallery.jsx';
+import ProductSummary from './ProductSummary.jsx';
 
 class ProductOverview extends React.Component {
   constructor(props) {
@@ -82,6 +83,10 @@ class ProductOverview extends React.Component {
             expand={this.state.expand}
             hideProductInfo={this.hideProductInfo} 
             selectImage={this.selectImage} />}
+        {Object.keys(this.state.product).length > 0 &&
+          <ProductSummary 
+            slogan={this.state.product.slogan}
+            description={this.state.product.description}/>}    
       </div>
       <div className={this.state.expand ? 'product-hidden' : 'right-column'}>
         {Object.keys(this.state.product).length > 0 &&

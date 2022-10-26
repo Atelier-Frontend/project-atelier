@@ -129,7 +129,7 @@ section aside:hover {
 
 .right-arrow {
   position: absolute;
-  top: 45%;
+  top: 35%;
   right: 8%;
   font-size: 2.3rem;
   cursor: pointer;
@@ -147,7 +147,7 @@ section aside:hover {
 
 .left-arrow {
   position: absolute;
-  top: 45%;
+  top: 35%;
   left: 22%;
   font-size: 2.3rem;
   cursor: pointer;
@@ -198,7 +198,7 @@ section aside:hover {
 
 .ex-right-arrow {
   position: absolute;
-  top: 45%;
+  top: 35%;
   right: -37%;
   font-size: 2.3rem;
   cursor: pointer;
@@ -217,7 +217,7 @@ section aside:hover {
 
 .ex-left-arrow {
   position: absolute;
-  top: 45%;
+  top: 35%;
   left: 20%;
   font-size: 2.3rem;
   cursor: pointer;
@@ -236,7 +236,7 @@ section aside:hover {
 
 .up-arrow {
   position: absolute;
-  top: 3.5%;
+  top: 4.5%;
   left: 12%;
   cursor: pointer;
   font-size: 1.7rem;
@@ -255,7 +255,7 @@ section aside:hover {
 
 .down-arrow {
   position: absolute;
-  top: 75.5%;
+  top: 65%;
   left: 12%;
   cursor: pointer;
   font-size: 1.7rem;
@@ -441,6 +441,7 @@ section aside:hover {
 
 .left-column {
   width: 65%;
+  height: 130%;
   position: relative;
   margin-right: 20px;
 }
@@ -492,10 +493,7 @@ section aside:hover {
 }
 
 .stars {
-  margin-right: 20px;
-  font-size: 9pt;
-  letter-spacing: 0.5px;
-  font-family: 'Arimo', sans-serif;
+  margin-right: 10px;
 }
 
 .project-title {
@@ -529,7 +527,7 @@ section aside:hover {
   top: 10%;
   left: 9%;
   z-index: 20;
-  height: 63%;
+  height: 53%;
   overflow-y: auto;
   overflow-x: hidden;
   white-space: nowrap;
@@ -565,7 +563,7 @@ section aside:hover {
   display: flex;
   flex-direction: row;
   position: absolute;
-  top: 85%;
+  top: 75%;
   left: 62%;
   z-index: 20;
   width: 19.5%;
@@ -605,6 +603,28 @@ section aside:hover {
 .transform-image-highlight:hover {
   box-shadow: 0 0.4em 0.4em -0.2em var(--hover);
   transform: translateY(-0.05em);
+}
+
+.product-summary {
+  position: relative;
+  height: 50%;
+}
+
+.slogan {
+  margin-top: 40px;
+  margin-left: 20%;
+  font-family: 'Arimo', sans-serif;
+  font-weight: 700;
+  font-size: 15pt;
+}
+
+.prod-description {
+  margin-top: 20px;
+  margin-left: 20%;
+  margin-right: 5%;
+  font-family: 'Arimo', sans-serif;
+  font-size: 12pt;
+  line-height: 125%;
 }
 
 /* Widget title styles  */

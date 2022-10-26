@@ -1118,10 +1118,11 @@ section aside:hover {
   margin-left: -0.5em;
   padding-left: calc(100% * var(--percent))
 }
+
 .review-form-container {
   position: fixed;
   top: 25px;
-  bottom: auto;
+  bottom: 25px;
   left: 200px;
   right: 200px;
   background: rgb(0, 0, 0);
@@ -1130,23 +1131,73 @@ section aside:hover {
   background-color: #e7e7e7;
   opacity: 1;
   z-index: 200;
+  min-width: fit-content;
+  min-height: fit-content;
+}
+
+.review-form-title {
+  font-size: x-large;
+  text-align: center;
+  font-weight: 600;
+}
+
+.review-form-subtitle {
+  font-size: large;
+  text-align: center;
+  font-weight: 300;
+  margin-top: -20px;
 }
 
 .star-checker-graph {
-  display:flex;
-  flex-direction:row;
+  display: flex;
+  flex-direction: column;
   text-align: left;
 }
 
-.star-checker, .recommend-checker,
-.review-summary, .review-body,
-.image-button, .image-button,
-.review-form-nickname, .review-form-email {
+.characteristic {
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+}
+
+.clickable-stars, .star-checker-meaning {
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  left: 80px;
+  margin-top: 17px;
+}
+
+.star-checker-meaning {
+  color: rgb(0, 111, 20);
+  font-size: small;
+  font-style: italic;
+  width: auto;
+  left: 180px;
+}
+
+.star-checker, .recommend-checker {
   margin-top: 1em;
   display:flex;
   flex-direction: column;
   text-align: top;
 }
+
+.review-summary, .form-review-body-container,
+.image-button, .image-button,
+.review-form-nickname, .review-form-email {
+  display:flex;
+  flex-direction: column;
+  text-align: top;
+  margin-left: 320px;
+  max-width: 500px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
 
 .radio-checker-graph {
   display:flex;
@@ -1156,15 +1207,8 @@ section aside:hover {
   width: 100px;
 }
 
-.star-checker-meaning {
-  margin-top: 0;
-  margin-left: 0.5em;
-}
-
-.review-body {
-  width: 620px;
-  margin-top: -25px;
-  margin-right: 15px;
+.review-summary {
+  margin-top: -460px;
 }
 
 .rating-stars {

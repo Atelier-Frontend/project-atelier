@@ -4,13 +4,31 @@ import '@testing-library/jest-dom';
 import ProductOverview from '../ProductOverview.jsx';
 import App from '/Users/blake/work/project-atelier/client/src/index.jsx';
 
-test('renders App component', async () => {
+// test('renders App component', async () => {
+//   // ARRANGE
+//   render(<App />)
+
+//   // ACT
+//   await screen.findByRole('heading')
+
+//   // ASSERT
+//   expect(screen.getByRole('heading')).toHaveTextContent('Project Atelier')
+// })
+
+test('renders ProductOverview component', async () => {
   // ARRANGE
-  render(<App />)
+  render(<ProductOverview />)
 
-  // ACT
-  await screen.findByRole('heading')
+})
 
-  // ASSERT
-  expect(screen.getByRole('heading')).toHaveTextContent('Project Atelier')
+test('renders ProductSummary component', async () => {
+  // ARRANGE
+  render(<ProductSummary />)
+
+})
+
+test('renders StyleSelector component', async () => {
+  // ARRANGE
+  render(<StyleSelector />)
+
 })

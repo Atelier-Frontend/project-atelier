@@ -22,7 +22,7 @@ export default function ReviewPhotos(props) {
                   alt="photo"
                   key={photo.url}
                   className="thumbnail-photo"
-                  style={{width:"60px", height:"60px"}}
+                  style={{width:"60px", height:"60px", objectFit:"cover"}}
                   onClick={zoomInImage}
                   draggable="false"
               />

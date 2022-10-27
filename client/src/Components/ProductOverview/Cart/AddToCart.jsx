@@ -56,7 +56,7 @@ class Cart extends React.Component {
   sendCart() {
     if (document.getElementById('quantity-selector') === null) {
       document.getElementById('select-size').click();
-      //alert('Please select a size');
+      alert('Please select a size');
       return;;
     }
 

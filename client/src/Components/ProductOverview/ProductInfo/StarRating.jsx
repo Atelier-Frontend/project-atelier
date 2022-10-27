@@ -13,6 +13,7 @@ class StarRating extends React.Component {
 
     this.getRatings = this.getRatings.bind(this);
     this.getAverage = this.getAverage.bind(this);
+    this.scroll = this.scroll.bind(this);
   }
 
   componentDidMount() {
@@ -52,15 +53,18 @@ class StarRating extends React.Component {
     return (Math.round(average * 4) / 4).toFixed(2);
   }
 
+  scroll() {
+
+  }
+
   render() {
     return (<div className='star-rating'>
-      <span className='stars'>
-        {this.state.rating}
-        {/* <Stars score={this.state.rating}/> */}
-      </span>
-      <span className='reviews-link'>
-        <a href='https://www.google.com' className='stars'>Read all reviews</a>
-      </span>
+      <div className='stars'>
+        <Stars score={this.state.rating}/>
+      </div>
+      <div className='reviews-link'>
+        <a href='http://localhost:3000' className='stars'>Read all reviews</a>
+      </div>
     </div>)
   }
 };

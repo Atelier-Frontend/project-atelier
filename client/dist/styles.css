@@ -956,6 +956,32 @@ section aside:hover {
   position: absolute;
 }
 
+.Ratings-Reviews .reviews-search-bar {
+  top: -20px;
+  left: 350px;
+  position: absolute;
+}
+
+
+
+/* .search-answer {
+  background: transparent;
+  border: none;
+  outline: none;
+  margin-left: -30px
+}*/
+
+.reviews-search-bar img {
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+  background: transparent;
+  border: none;
+  outline: none;
+  margin-left: -30px;
+  margin-bottom: -5px;
+}
+
 .Review-Button-Row {
   display:flex;
   flex-direction:row;

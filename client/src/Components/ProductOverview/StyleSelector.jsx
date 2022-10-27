@@ -1,5 +1,5 @@
 import React from 'react';
-import { AiOutlineCheckCircle } from 'react-icons/ai';
+import { AiFillCheckCircle } from 'react-icons/ai';
 
 class StyleSelector extends React.Component {
   constructor(props) {
@@ -41,7 +41,7 @@ class StyleSelector extends React.Component {
       <div className='style-gallery'>
         {this.props.styles.map((style, index) => (
             <div className='style-container-row'>
-              <AiOutlineCheckCircle className={this.state.item === style.name ? 'style-tag' : 'style-tag-hidden'}/>
+              <AiFillCheckCircle className={this.state.item === style.name ? 'style-tag' : 'style-tag-hidden'}/>
               <img 
                 className={this.state.item === style.name ? 'selected' : 'style-image'} 
                 alt='image in style gallery'

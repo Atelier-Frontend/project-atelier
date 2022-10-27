@@ -65,6 +65,13 @@ export default function RnR(props) {
     })
   }
 
+  function filterReviews(term) {
+    let filteredReviews = reviews.results.filter((r) => {
+      return r.body.includes(term)
+    });
+    setResult(filteredReviews)
+  }
+
   function getAverage(ratings) {
     var s = 0;
     var responses = 0;
@@ -135,7 +142,8 @@ export default function RnR(props) {
                product={props.products}
                moreReviewsClickHandler={moreReviewsClickHandler}
                reviewsCount={reviewsCount}
-               moreclicked={moreclicked}/>
+               moreclicked={moreclicked}
+               filterReviews={filterReviews} />
     </div>
   </>)
 }

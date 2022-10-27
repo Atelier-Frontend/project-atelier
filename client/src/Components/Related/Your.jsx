@@ -37,7 +37,7 @@ class Your extends React.Component {
   render() {
     if(this.props.products.length > 0) {
     return (<div>
-      <h4>Your</h4><section>
+      <div>Your</div><section>
       <FaAngleLeft className='left-arrows' /><ul className='test'>{this.state.product}
       </ul>
       <FaAngleRight className='right-arrows' />
@@ -46,7 +46,7 @@ class Your extends React.Component {
     </div>)
   } else {
   return (
-    <div><h4>Your</h4>
+    <div><h2>Your</h2>
     <div>Loading...</div>
     </div>
   )

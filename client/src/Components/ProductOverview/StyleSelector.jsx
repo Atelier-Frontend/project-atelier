@@ -41,7 +41,8 @@ class StyleSelector extends React.Component {
         {this.props.styles.map((style, index) => (
             <img 
               className={this.state.item === style.name ? 'selected' : 'style-image'} 
-              alt='image in style gallery' 
+              alt='image in style gallery'
+              draggable='false' 
               key={index} 
               id={style.name} 
               src={style.photos[0].thumbnail_url} 

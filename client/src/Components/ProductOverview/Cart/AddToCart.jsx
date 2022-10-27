@@ -3,6 +3,7 @@ import axios from 'axios';
 import QuantitySelector from './QuantitySelector.jsx';
 import SizeSelector from './SizeSelector.jsx';
 import { FaHeart } from 'react-icons/fa';
+import { BsPlusLg } from 'react-icons/bs';
 
 class Cart extends React.Component {
   constructor(props) {
@@ -98,8 +99,8 @@ class Cart extends React.Component {
           </span>
       </div>
       <div className='buy-buttons'>
-        <button className='add-cart' onClick={this.sendCart}>Add to Bag</button>
-        <button className='add-style' onClick={this.favorite}><FaHeart className='heart-icon'/></button> 
+        <button className='add-cart' onClick={this.sendCart}>Add to Bag<BsPlusLg className='bag-icon'/></button>
+        <button className='add-to-style' aria-label='Add to Style' onClick={this.favorite}><FaHeart className='heart-icon'/></button> 
       </div>      
     </div>)
   }

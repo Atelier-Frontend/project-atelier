@@ -285,7 +285,7 @@ section aside:hover {
 
 .quantity-dropdown {
   display:inline-block;
-  padding: 1.7em 4.5em 0.9em 0.7em;
+  padding: 1.7em 5.45em 0.9em 0.7em;
   border:0.16em solid black;
   margin:0.9em 0.3em 0.3em 1.1em;
   box-sizing: border-box;
@@ -360,7 +360,7 @@ section aside:hover {
 
 .add-cart {
   display:inline-block;
-  padding:1.3em 10em 1.3em 1.3em;
+  padding:1.2em 10em 1.3em 1.3em;
   border:0.16em solid black;
   margin:0.9em 0.3em 0.3em 0;
   box-sizing: border-box;
@@ -394,7 +394,7 @@ section aside:hover {
    }
   }
 
-.add-style {
+.add-to-style {
   display:inline-block;
   margin: 15px;
   padding: 5px 14px 21px 15px;
@@ -406,7 +406,7 @@ section aside:hover {
   transition: all 0.15s;
 }
 
-.add-style:hover {
+.add-to-style:hover {
   color: white;
   border-color: black;
   background-color: black;
@@ -414,13 +414,13 @@ section aside:hover {
   transform: translateY(-0.05em);
 }
 
-.add-style:active {
+.add-to-style:active {
   color:rgb(78, 101, 121);
   border-color: rgb(78, 101, 121);
 }
 
 @media all and (max-width:30em) {
-   .add-style {
+   .add-to-style {
      display:block;
      margin:0.4em auto;
    }
@@ -487,7 +487,7 @@ section aside:hover {
 }
 
 .category {
-  margin-top: 10px;
+  margin-top: 20px;
   text-transform: capitalize;
   font-family: 'Arimo', sans-serif;
 }
@@ -611,7 +611,7 @@ section aside:hover {
 }
 
 .slogan {
-  margin-top: 40px;
+  margin-top: 35px;
   margin-left: 20%;
   font-family: 'Arimo', sans-serif;
   font-weight: 700;
@@ -625,6 +625,14 @@ section aside:hover {
   font-family: 'Arimo', sans-serif;
   font-size: 12pt;
   line-height: 125%;
+}
+
+.bag-icon {
+  color: black;
+  font-size: 0.8rem;
+  position: relative;
+  top: 2px;
+  right: -110px;
 }
 
 /* Widget title styles  */
@@ -923,14 +931,14 @@ section aside:hover {
   margin-left: 3rem;
 }
 
-.search-answer {
+.search-answer-button {
   background: transparent;
   border: none;
   outline: none;
   margin-left: -30px
 }
 
-.search-answer img {
+.search-answer-button img {
   width: 20px;
   height: 20px;
   object-fit: cover;
@@ -1052,26 +1060,24 @@ section aside:hover {
 }
 
 .star-rating .stars-image {
-  width: 15px;
-  height: 15px;
+  width: 13px;
+  height: 13px;
+  border-right: 3px solid white;
 }
 .star-rating .overall-rating-stars-color {
-  height: 13.5px;
+  height: 13px;
   background: rgb(248, 191, 0);
-  margin-top: -18.5px;
-  width: calc(var(--overall_star_percent) * 75px)
+  margin-top: -20px;
+  width: calc(var(--overall_star_percent) * 77px)
 }
 
 .star-rating .overall-rating-stars-image {
   height: 20px;
   margin-top: -7px;
-  width: 75px;
+  width: 100px;
 }
 
 .stars .overall-rating-stars-container {
-  /* position: relative;
-  right: 8px;
-  left: auto; */
   font-size: 12px;
   width: 100px;
 }
@@ -1082,9 +1088,9 @@ section aside:hover {
 }
 
 .reviews-link {
-  margin-top: 24px;
-  margin-left: 2.5px;
-  font-size: 13px;
+  margin-top: 23px;
+  margin-left: 10.5px;
+  font-size: 12px;
   font-family: 'Arimo', sans-serif;
 }
 

@@ -45,7 +45,7 @@ class Related extends React.Component {
 
   render() {
     return (<div>
-      <h4 data-testid="custom-element">Related</h4><section>
+      <h2 data-testid="custom-element">Related</h2><section>
       <FaAngleLeft className='left-arrows' /><ul className='test'>{this.state.product}</ul><FaAngleRight className='right-arrows' />
       </section>
     </div>)

@@ -1,5 +1,4 @@
 import React from "react";
-import { useState, useEffect } from "react";
 import IndividualStars from "./IndividualStars.jsx";
 import User from "./User.jsx";
 import Date from "./Date.jsx";

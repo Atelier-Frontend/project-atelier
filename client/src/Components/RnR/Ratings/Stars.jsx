@@ -1,6 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import starrr from "../pic/perfect_star.png";
+import star from "../pic/perfect_star.png";
 
 export default function Stars(props) {
 

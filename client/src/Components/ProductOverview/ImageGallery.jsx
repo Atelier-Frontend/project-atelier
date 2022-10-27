@@ -98,8 +98,10 @@ class ImageGallery extends React.Component {
             {index === this.state.current && (
               <img 
                 className={this.state.expand ? 'expand-image' : 'main-image'} 
-                alt='image in carousel' 
-                key={index} 
+                alt='image in carousel'
+                draggable='false' 
+                key={index}
+                fetchpriority='high' 
                 src={style.url} 
                 onClick={this.expandImage} />)}
           </div>))}
@@ -120,6 +122,7 @@ class ImageGallery extends React.Component {
                   <img
                     className={index === this.state.current ? 'transform-image-highlight' : 'transformed-image'}
                     alt='white circle icon'
+                    draggable='false'
                     id={index}
                     src={circle}
                     onClick={this.onClick} />}
@@ -127,6 +130,7 @@ class ImageGallery extends React.Component {
                   <img 
                     className={index === this.state.current ? 'sidebar-highlight' : 'sidebar-image'} 
                     alt='image in side carousel'
+                    draggable='false'
                     id={index}
                     src={style.thumbnail_url}
                     onClick={this.onClick} />}

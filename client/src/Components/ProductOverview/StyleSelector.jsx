@@ -1,4 +1,5 @@
 import React from 'react';
+import { AiOutlineCheckCircle } from 'react-icons/ai';
 
 class StyleSelector extends React.Component {
   constructor(props) {
@@ -39,13 +40,17 @@ class StyleSelector extends React.Component {
       <span className='style-name' id='style-name'>{this.state.name}</span>
       <div className='style-gallery'>
         {this.props.styles.map((style, index) => (
-            <img 
-              className={this.state.item === style.name ? 'selected' : 'style-image'} 
-              alt='image in style gallery' 
-              key={index} 
-              id={style.name} 
-              src={style.photos[0].thumbnail_url} 
-              onClick={this.onClick} />))}
+            <div className='style-container-row'>
+              <AiOutlineCheckCircle className={this.state.item === style.name ? 'style-tag' : 'style-tag-hidden'}/>
+              <img 
+                className={this.state.item === style.name ? 'selected' : 'style-image'} 
+                alt='image in style gallery'
+                draggable='false' 
+                key={index} 
+                id={style.name} 
+                src={style.photos[0].thumbnail_url} 
+                onClick={this.onClick} />
+            </div>))}
       </div>
     </div>)
   }

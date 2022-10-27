@@ -11,6 +11,7 @@ export default function IndividualStars(props) {
     {array.map((element, index) => {
       return <img src={yellowStar}
                   style={{width:"20px", height:"20px", marginTop:"15px"}}
+                  alt="individual review star"
                   key={index}
                   draggable="false"
              />

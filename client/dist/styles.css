@@ -124,7 +124,7 @@ section aside:hover {
   object-fit: cover;
   position: relative;
   z-index: 2;
-  cursor: zoom-out;
+  cursor: crosshair;
 }
 
 .right-arrow {

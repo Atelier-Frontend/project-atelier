@@ -55,6 +55,7 @@ class Cart extends React.Component {
 
   sendCart() {
     if (document.getElementById('quantity-selector') === null) {
+      document.getElementById('select-size').click();
       alert('Please select a size');
       return;;
     }
@@ -92,7 +93,8 @@ class Cart extends React.Component {
           {this.state.quantity.length > 0 &&
             <QuantitySelector 
               quantity={this.state.quantity} 
-              size={this.state.selectedSize}/>}
+              size={this.state.selectedSize}
+              styles={this.props.styles}/>}
           </span>
       </div>
       <div className='buy-buttons'>

@@ -24,7 +24,10 @@ class QuantitySelector extends React.Component {
     if (this.props.size !== prevProps.size) {
       this.enableDropDown();
       this.setQuantity();
-    } 
+    };
+    if (this.props.styles !== prevProps.styles) {
+      this.setState({ disabled: true });
+    };
   }
 
   handleChange(event) {

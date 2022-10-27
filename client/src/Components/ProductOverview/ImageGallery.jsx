@@ -48,7 +48,7 @@ class ImageGallery extends React.Component {
       document.getElementById('sidebar').scrollLeft += 32;
     } else if (this.state.current >= 3) {
       document.getElementById('sidebar').scrollTop += 90;
-    }
+    };
     if (this.state.current === this.state.stylePhotos.length - 1) {
       this.setState({ current: 0 });
     } else {
@@ -61,7 +61,7 @@ class ImageGallery extends React.Component {
       document.getElementById('sidebar').scrollLeft -= 32;
     } else if (this.state.current < 7) {
       document.getElementById('sidebar').scrollTop -= 90;
-    }
+    };
     if (this.state.current === 0) {
       this.setState({ current: this.state.stylePhotos.length - 1 });
     } else {
@@ -119,7 +119,7 @@ class ImageGallery extends React.Component {
                 {this.state.expand && 
                   <img
                     className={index === this.state.current ? 'transform-image-highlight' : 'transformed-image'}
-                    alt='black circle icon'
+                    alt='white circle icon'
                     id={index}
                     src={circle}
                     onClick={this.onClick} />}

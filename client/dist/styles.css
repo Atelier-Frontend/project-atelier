@@ -426,6 +426,23 @@ section aside:hover {
    }
 }
 
+.style-tag {
+  position:absolute;
+  top: 0%;
+  right: 21%;
+  z-index: 15;
+  font-size: 20px;
+  color: white;
+  background-color: green;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 1px solid green;
+}
+
+.style-tag-hidden {
+  display: none;
+}
+
 .heart-icon {
   display: block;
   transform: translateY(7.5px);
@@ -453,6 +470,10 @@ section aside:hover {
 
 .style-container {
   margin-top: 24px;
+}
+
+.style-container-row {
+  position: relative;
 }
 
 .style-info {

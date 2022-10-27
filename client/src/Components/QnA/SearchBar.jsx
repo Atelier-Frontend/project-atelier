@@ -17,7 +17,7 @@ class SearchBar extends React.Component {
     if(e.target.value.length >= 3) {
       this.props.filterQuestions(e.target.value)
     } else {
-      this.props.getQList(this.props.product.id)
+      this.props.filterQuestions("")
     }
   }
 

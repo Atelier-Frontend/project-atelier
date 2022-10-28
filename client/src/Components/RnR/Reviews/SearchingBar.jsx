@@ -18,9 +18,10 @@ export default function SearchingBar(props) {
   return (<div className="reviews-search-bar">
       <input placeholder={"Search customer reviews here…"}
              style={{ width: "50vw", height: "3vh"}}
-             onChange={reviewSearch} />
+             onChange={reviewSearch}
+             className="search-input" />
 
-        <img src={icon}></img>
+        <img src={icon} alt="search"></img>
 
     </div>)
 }

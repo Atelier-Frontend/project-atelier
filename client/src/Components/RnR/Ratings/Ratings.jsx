@@ -11,7 +11,8 @@ export default function Ratings(props) {
     <div className="Ratings-Sider">
       <div className="Score-Star">
         <Score score={props.score}/>
-        <Stars score={props.score}/>
+        <Stars score={props.score}
+               darkTheme={props.darkTheme} />
       </div>
       <Recommend recommended={props.recommended} />
       <RatingsChart chart={props.chart} />

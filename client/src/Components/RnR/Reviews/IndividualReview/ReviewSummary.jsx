@@ -4,7 +4,7 @@ export default function ReviewSummary(props) {
 
 return(<>
     <div>
-      <h3>{props.summary}</h3>
+      <h2>{props.summary}</h2>
     </div>
   </>)
 }

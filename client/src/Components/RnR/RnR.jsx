@@ -135,7 +135,8 @@ export default function RnR(props) {
       <Ratings ratings={ratings}
                score={score}
                recommended={recommended}
-               chart={chart} />
+               chart={chart}
+               darkTheme={props.darkTheme}/>
       <Reviews reviews={reviews}
                result={result}
                dropdownHandler={dropdownHandler}

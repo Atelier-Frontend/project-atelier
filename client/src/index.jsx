@@ -16,7 +16,7 @@ class App extends React.Component {
     this.state = {
       products: {},
       fav: [],
-      darkTheme: true
+      darkTheme: false
     }
     this.update = this.update.bind(this);
     this.fav = this.fav.bind(this);

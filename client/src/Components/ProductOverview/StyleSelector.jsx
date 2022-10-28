@@ -40,8 +40,8 @@ class StyleSelector extends React.Component {
       <span className='style-name' id='style-name'>{this.state.name}</span>
       <div className='style-gallery'>
         {this.props.styles.map((style, index) => (
-            <div className='style-container-row'>
-              <AiFillCheckCircle className={this.state.item === style.name ? 'style-tag' : 'style-tag-hidden'}/>
+            <div className='style-container-row' key={index}>
+              <AiFillCheckCircle className={this.state.item === style.name ? 'style-tag' : 'style-tag-hidden' }/>
               <img 
                 className={this.state.item === style.name ? 'selected' : 'style-image'} 
                 alt='image in style gallery'

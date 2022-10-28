@@ -60,7 +60,7 @@ class StarRating extends React.Component {
   render() {
     return (<div className='star-rating'>
       <div className='stars'>
-        <Stars score={this.state.rating}/>
+        <Stars score={this.state.rating} darkTheme={this.props.darkTheme}/>
       </div>
       <div className='reviews-link'>
         <a href='http://localhost:3000' className='stars'>Read all reviews</a>

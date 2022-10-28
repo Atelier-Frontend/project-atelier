@@ -94,7 +94,8 @@ class ProductOverview extends React.Component {
             product={this.state.product} 
             selectedStyle={this.state.selectedStyle} 
             styleName={this.state.selectedStyle.name}
-            expanded={this.state.expand} />}
+            expanded={this.state.expand}
+            theme = {this.props.darkTheme} />}
         {this.state.styles.length > 0 &&
           <StyleSelector 
             styles={this.state.styles} 

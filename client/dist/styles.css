@@ -4,11 +4,11 @@
 }
 
 .theme-toggle {
-  width: 4%;
-  height: 4%;
+  width: 3%;
+  height: 3%;
   cursor: pointer;
-  margin-left: 1250px;
-  margin-top: -200px;
+  margin-left: 1333px;
+  margin-top: -180px;
 }
 
 /* Please adjust styles for a specific component in your widget if needed;
@@ -1172,6 +1172,11 @@ section aside:hover {
   width: 100px;
 }
 
+.dark-star-rating .stars-image {
+  width: 13px;
+  height: 13px;
+  border-right: 3px solid #2C3639;
+}
 .stars .overall-rating-stars-container {
   font-size: 12px;
   width: 100px;

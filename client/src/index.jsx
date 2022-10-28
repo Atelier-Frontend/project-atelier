@@ -71,7 +71,8 @@ class App extends React.Component {
       <h1 className='project-title'><div className='title'>Atelier</div></h1>
       <img className="theme-toggle"
            src={this.state.darkTheme?light:dark}
-           onClick={this.themeSwitch.bind(this)} />
+           onClick={this.themeSwitch.bind(this)}
+           draggable="false" />
       {Object.keys(this.state.products).length > 0 &&
         <ProductOverview products={this.state.products} update={this.update} favorite={this.fav}/>}
       {Object.keys(this.state.products).length > 0 &&

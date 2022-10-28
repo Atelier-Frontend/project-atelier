@@ -3,32 +3,32 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import ProductOverview from '../ProductOverview.jsx';
 import App from '/Users/blake/work/project-atelier/client/src/index.jsx';
+import data from './data.json';
 
-// test('renders App component', async () => {
-//   // ARRANGE
-//   render(<App />)
+const server = setupServer(
+  rest.get('/products/', (req, res, ctx) => {
+    return res(ctx.status(200))
+  })
+)
 
-//   // ACT
-//   await screen.findByRole('heading')
-
-//   // ASSERT
-//   expect(screen.getByRole('heading')).toHaveTextContent('Project Atelier')
-// })
+beforeAll(() => server.listen())
+afterEach(() => server.resetHandlers())
+afterAll(() => server.close())
 
 test('renders ProductOverview component', async () => {
   // ARRANGE
-  render(<ProductOverview />)
+  render(<App />)
 
 })
 
 test('renders ProductSummary component', async () => {
   // ARRANGE
-  render(<ProductSummary />)
+  render(<ProductOverview />)
 
 })
 
-test('renders StyleSelector component', async () => {
-  // ARRANGE
-  render(<StyleSelector />)
+// test('renders StyleSelector component', async () => {
+//   // ARRANGE
+//   render(<StyleSelector />)
 
-})
+// })

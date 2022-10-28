@@ -4,11 +4,11 @@
 }
 
 .theme-toggle {
-  width: 4%;
-  height: 4%;
+  width: 3%;
+  height: 3%;
   cursor: pointer;
-  margin-left: 1250px;
-  margin-top: -200px;
+  margin-left: 1333px;
+  margin-top: -180px;
 }
 
 /* Please adjust styles for a specific component in your widget if needed;
@@ -173,7 +173,7 @@ section aside:hover {
   object-fit: cover;
   position: relative;
   z-index: 2;
-  cursor: zoom-out;
+  cursor: crosshair;
 }
 
 .right-arrow {
@@ -477,15 +477,14 @@ section aside:hover {
 
 .style-tag {
   position:absolute;
-  top: 0%;
-  right: 21%;
+  top: -3%;
+  right: 18%;
   z-index: 15;
-  font-size: 20px;
-  color: white;
-  background-color: green;
+  font-size: 17px;
+  color: rgb(49, 131, 49);
+  background-color: white;
+  border: 2.5px solid rgb(49, 131, 49);
   border-radius: 50%;
-  box-sizing: border-box;
-  border: 1px solid green;
 }
 
 .style-tag-hidden {
@@ -587,7 +586,7 @@ section aside:hover {
   border-radius: 50%;
   object-fit: cover;
   align-self: center;
-  border: 2.5px solid rgb(249, 120, 33);
+  border: 2.5px solid rgb(49, 131, 49);
 }
 
 .sidebar-gallery {
@@ -611,7 +610,7 @@ section aside:hover {
   width: 60px;
   height: 60px;
   object-fit: cover;
-  border: 2px solid grey;
+  border: 2px solid black;
   border-radius: 1px;
   cursor: pointer;
 }
@@ -625,7 +624,7 @@ section aside:hover {
   width: 60px;
   height: 60px;
   object-fit: cover;
-  border: 2px solid rgb(249, 120, 33);
+  border: 3px solid white;
   border-radius: 1px;
 }
 
@@ -1173,6 +1172,11 @@ section aside:hover {
   width: 100px;
 }
 
+.dark-star-rating .stars-image {
+  width: 13px;
+  height: 13px;
+  border-right: 3px solid #2C3639;
+}
 .stars .overall-rating-stars-container {
   font-size: 12px;
   width: 100px;

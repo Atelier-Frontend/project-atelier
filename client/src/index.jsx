@@ -16,7 +16,7 @@ class App extends React.Component {
     this.state = {
       products: {},
       fav: [],
-      darkTheme: true
+      darkTheme: false
     }
     this.update = this.update.bind(this);
     this.fav = this.fav.bind(this);
@@ -74,7 +74,11 @@ class App extends React.Component {
            onClick={this.themeSwitch.bind(this)}
            draggable="false" />
       {Object.keys(this.state.products).length > 0 &&
-        <ProductOverview products={this.state.products} update={this.update} favorite={this.fav}/>}
+        <ProductOverview 
+          products={this.state.products} 
+          update={this.update} 
+          favorite={this.fav} 
+          darkTheme={this.state.darkTheme}/>}
       {Object.keys(this.state.products).length > 0 &&
         <Related products={this.state.products} update={this.update} fun={this.fav}/>}
       {Object.keys(this.state.products).length > 0 &&

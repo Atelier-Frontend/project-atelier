@@ -1,3 +1,52 @@
+.dark-theme {
+  color: rgb(220, 215, 201);
+  background-color: rgb(44, 54, 57);
+}
+
+.theme-toggle {
+  width: 4%;
+  height: 4%;
+  cursor: pointer;
+  margin-left: 1250px;
+  margin-top: -200px;
+}
+
+/* Please adjust styles for a specific component in your widget if needed;
+recommended theme colors:  #2C3639; #3F4E4F; #A27B5C; #DCD7C9.
+e.g.
+.dark-theme .foldQuestionsBT, .dark-theme .addQuestionBT {
+  background-color: #A27B5C
+} */
+
+.dark-theme .foldQuestionsBT, .dark-theme .addQuestionBT,
+.dark-theme .add-review-btn, .dark-theme .more-reviews-btn,
+.dark-theme .search-input {
+  background-color: #3F4E4F;
+  color: #DCD7C9;
+}
+
+.dark-theme .review-dropdown-menu {
+  background-color: #2C3639;
+  color:  #DCD7C9;
+}
+
+.dark-theme  .questionBody {
+  color:  #DCD7C9;
+  font-weight: bolder;
+}
+
+.dark-theme  .container1, .dark-theme  .container2 {
+  color:  #DCD7C9;
+}
+
+.dark-theme .rating-barBkg {
+  color:  #3F4E4F;
+}
+
+.dark-theme .score-pointer {
+  color: #A27B5C;
+}
+
 
 .test {
   display: grid;
@@ -1004,6 +1053,32 @@ section aside:hover {
   position: absolute;
 }
 
+.Ratings-Reviews .reviews-search-bar {
+  top: -20px;
+  left: 350px;
+  position: absolute;
+}
+
+
+
+/* .search-answer {
+  background: transparent;
+  border: none;
+  outline: none;
+  margin-left: -30px
+}*/
+
+.reviews-search-bar img {
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+  background: transparent;
+  border: none;
+  outline: none;
+  margin-left: -30px;
+  margin-bottom: -5px;
+}
+
 .Review-Button-Row {
   display:flex;
   flex-direction:row;
@@ -1178,7 +1253,7 @@ section aside:hover {
 .rating-barBkg-green {
   height: 15px;
   background: rgb(9, 190, 15);
-  margin-top: -1.2em;
+  margin-top: -15px;
   margin-left: 20px;
   width: calc(var(--rating_percent) * 200px)
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import stars from "../pic/five-stars2.png";
+var stars = "../pic/five-stars2.png";
 
 export default function Stars(props) {
 

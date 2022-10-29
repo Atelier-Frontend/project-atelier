@@ -7,7 +7,6 @@ const express = require('express');
 const axios = require('axios');
 jest.mock("axios");
 
-// return all styles available for a given product
 var test2 = {
         "data": {
             "product_id": "71698",
@@ -201,4 +200,4 @@ axios.get.mockResolvedValue(test2);
   render(<Related products={newproducts} update={()=>{}} fun={()=>{}} />)
   expect(screen.getByTestId('custom-element')).toHaveTextContent('Related')
   })
-  // ASSERT
+//   // ASSERT

@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import yellowStar from "../../pic/single-star.png"
+var yellowStar = "../../pic/single-star.png"
 
 export default function IndividualStars(props) {
 

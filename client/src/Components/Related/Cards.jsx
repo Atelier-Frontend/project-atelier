@@ -38,6 +38,8 @@ componentDidUpdate(prevProps) {
       })
   }
 
+  
+
   render() {
 
     // if (JSON.stringify(this.state.product) === '{}') {

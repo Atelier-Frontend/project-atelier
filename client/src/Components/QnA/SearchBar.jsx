@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import icon from "./Pics/magnifying-glass.png";
+var icon ="./Pics/magnifying-glass.png";
 
 class SearchBar extends React.Component {
   constructor(props) {

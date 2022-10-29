@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import ProductOverview from '../ProductOverview.jsx';
-import App from '/Users/blake/work/project-atelier/client/src/index.jsx';
+import App from '/Users/mattdailey/project-atelier/client/src/index.jsx';
 
 test('renders App component', async () => {
   // ARRANGE
@@ -12,5 +12,5 @@ test('renders App component', async () => {
   await screen.findByRole('heading')
 
   // ASSERT
-  expect(screen.getByRole('heading')).toHaveTextContent('Project Atelier')
+  expect(screen.getByRole('heading')).toHaveTextContent('Atelier')
 })

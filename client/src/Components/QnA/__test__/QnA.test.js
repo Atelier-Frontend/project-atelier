@@ -22,13 +22,13 @@ beforeAll(() => server.listen())
 afterEach(() => server.resetHandlers())
 afterAll(() => server.close())
 
-describe("App", () => {
-  test('renders App component', async () => {
-    render(<App />)
-    await screen.findByRole('heading')
-    expect(screen.getByRole('heading')).toHaveTextContent('Project Atelier')
-  })
-})
+// describe("App", () => {
+//   test('renders App component', async () => {
+//     render(<App />)
+//     await screen.findByRole('heading')
+//     expect(screen.getByRole('heading')).toHaveTextContent('Project Atelier')
+//   })
+// })
 
 // describe("Q&A", () => {
 //   test('loads and displays greeting', async () => {

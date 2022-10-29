@@ -1,11 +1,40 @@
+/* .test{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 10%;
+  left: 9%;
+  z-index: 20;
+  height: 63%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+  overflow: hidden;
+} */
+
 
 .test {
   display: grid;
+  margin-left: 2%;
+  margin-right: 5%;
+  padding-left: 0;
   grid-auto-flow: column;
   gap: var(--size-3);
   grid-auto-columns: auto;
+  overflow: hidden;
   overflow-x: auto;
+  scroll-behavior: smooth;
   overscroll-behavior-inline: contain;
+}
+section {
+  /* display:grid;
+  grid-auto-flow: column; */
+  gap: var(--size-3);
+  max-width: initial;
+  position: relative;
+  overflow: hidden;
+
 }
 
 section aside {
@@ -18,6 +47,41 @@ section aside {
 }
 aside small {
   display: inline-block;
+}
+section .right-arrows {
+  position: absolute;
+  top: 50%;
+  align-items: center;
+  right: 0;
+  font-size: 2.3rem;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  color:rgb(0, 0, 0);
+}
+
+section .right-arrows:focus,
+section .right-arrows:hover {
+  box-shadow: 0 0.4em 0.4em -0.2em var(--hover);
+  transform: translateY(-0.05em);
+}
+
+.left-arrows {
+  position: absolute;
+  top: 50%;
+  font-size: 2.3rem;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  color:rgb(0, 0, 0);
+}
+
+section .left-arrows:focus,
+section .left-arrows:hover {
+  box-shadow: 0 0.4em 0.4em -0.2em var(--hover);
+  transform: translateY(-0.05em);
 }
 #red-bg {
   display: inline;

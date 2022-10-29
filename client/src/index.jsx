@@ -44,6 +44,9 @@ class App extends React.Component {
         let newproducts = response.data
         this.setState({products: newproducts})
       })
+      .catch((err)=> {
+        console.log(`${err}`)
+      })
   }
 
   fav (obj) {

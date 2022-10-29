@@ -602,7 +602,7 @@ section aside:hover {
   color: rgb(255, 255, 255);
   font-family: 'Arimo', sans-serif;
   text-decoration: underline white;
-  text-underline-offset: 5px;
+  text-underline-offset: 9px;
 }
 
 .selected {

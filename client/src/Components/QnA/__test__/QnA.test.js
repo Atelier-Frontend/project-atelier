@@ -4,13 +4,13 @@ import {setupServer} from 'msw/node';
 import { render, fireEvent, waitFor, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import QnA from '../QnA.jsx';
-// import AddQuestion from '../AddQuestion.jsx';
+import AddQuestion from '../AddQuestion.jsx';
 // import AnswersList from '../AnswersList.jsx';
 // import IndividualAnswer from '../IndividualAnswer.jsx';
 // import QuestionsList from '../QuestionsList.jsx';
-// import MoreQuestions from '../MoreQuestions.jsx';
-// import SearchBar from '../SearchBar.jsx';
-// import App from '../../../index.jsx';
+import MoreQuestions from '../MoreQuestions.jsx';
+import SearchBar from '../SearchBar.jsx';
+import App from '../../../index.jsx';
 
 const server = setupServer(
   rest.get('/qa/questions', (req, res, ctx) => {
@@ -22,13 +22,13 @@ beforeAll(() => server.listen())
 afterEach(() => server.resetHandlers())
 afterAll(() => server.close())
 
-// describe("App", () => {
-//   it('renders App component', async () => {
-//     render(<App />)
-//     await screen.findByRole('heading')
-//     expect(screen.getByRole('heading')).toHaveTextContent('Project Atelier')
-//   })
-// })
+describe("App", () => {
+  it('renders App component', async () => {
+    render(<App />)
+    await screen.findByRole('heading')
+    expect(screen.getByRole('heading')).toHaveTextContent('Atelier')
+  })
+})
 
 // describe("Q&A", () => {
 //   it('loads and displays greeting', async () => {
@@ -51,13 +51,13 @@ afterAll(() => server.close())
 //   })
 // })
 
-// describe("SearchBar", () => {
-//   it('Loads and displays search bar', async () => {
-//     render (<SearchBar />)
-//     await screen.findByText('Have a question?')
-//     expect(screen.getByText('Have a question?').toBeInTheDocument())
-//   })
-// })
+describe("SearchBar", () => {
+  it('Loads and displays search bar', async () => {
+    render (<SearchBar />)
+    await screen.findByText('search')
+    expect(screen.getByText('search').toBeInTheDocument())
+  })
+})
 
 // // describe("QuestionsList", () => {
 // //   const questions= [
@@ -78,20 +78,20 @@ afterAll(() => server.close())
 // //   })
 // // })
 
-// describe("MoreQuestions", () => {
-//   test('Loads and displays MoreQuestions Button', async () => {
-//     render (<MoreQuestions />)
-//     await screen.findByRole('button')
-//     expect(screen.getByRole('button')).toHaveTextContent('ANSWERED QUESTIONS')
-//   })
-// })
+describe("MoreQuestions", () => {
+  test('Loads and displays MoreQuestions Button', async () => {
+    render (<MoreQuestions />)
+    await screen.findByRole('button')
+    expect(screen.getByRole('button')).toHaveTextContent('ANSWERED QUESTIONS')
+  })
+})
 
-// describe("AddQuestion", () => {
-//   it('Loads and displays AddQuestion Button', async () => {
-//     render (<MoreQuestions />)
-//     await screen.findByRole('button')
-//     expect(screen.getByRole('button')).toHaveTextContent('ADD A QUESTION')
-//   })
-// })
+describe("AddQuestion", () => {
+  it('Loads and displays AddQuestion Button', async () => {
+    render (<AddQuestion />)
+    await screen.findByRole('button')
+    expect(screen.getByRole('button')).toHaveTextContent('QUESTION')
+  })
+})
 
 

@@ -7,7 +7,12 @@
   width: 3%;
   height: 3%;
   cursor: pointer;
+<<<<<<< HEAD
   margin-left: 78%;
+=======
+  margin-left: 1333px;
+  margin-top: -180px;
+>>>>>>> main
 }
 
 /* Please adjust styles for a specific component in your widget if needed;

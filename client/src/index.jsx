@@ -68,7 +68,9 @@ class App extends React.Component {
 
   render () {
     return (<div className={this.state.darkTheme?"dark-theme":"light-theme"}>
-      <h1 className='project-title'><div className='title'>ATELIER</div></h1>
+      <h1 className='project-title'>
+        <div className='title'>ATELIER</div>
+      </h1>
       <img className="theme-toggle"
            src={this.state.darkTheme?light:dark}
            onClick={this.themeSwitch.bind(this)}

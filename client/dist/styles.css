@@ -581,19 +581,19 @@ section aside:hover {
 
 @keyframes backgroundColorPalette {
   0% {
-    background: #ffcab1ff;
+    background: #f08080ff;
   }
   25% {
-    background: #69a2b0ff;
+    background: #f4978eff;
   }
   50% {
-    background: #659157ff;
+    background: #f8ad9dff;
   }
   75% {
-    background: #a1c084ff;
+    background: #fbc4abff;
   }
   100% {
-    background: #e05263ff;
+    background: #ffdab9ff;
   }
 }
 
@@ -604,6 +604,8 @@ section aside:hover {
   text-decoration: underline white;
   text-underline-offset: 9px;
 }
+
+
 
 .selected {
   width: 60px;

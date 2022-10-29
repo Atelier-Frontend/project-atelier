@@ -7,8 +7,7 @@
   width: 3%;
   height: 3%;
   cursor: pointer;
-  margin-left: 1333px;
-  margin-top: -180px;
+  margin-left: 78%;
 }
 
 /* Please adjust styles for a specific component in your widget if needed;
@@ -566,16 +565,44 @@ section aside:hover {
 }
 
 .project-title {
-  max-width: 1283px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 15px;
   display: flex;
   font-weight: bold;
   font-family: 'Arimo', sans-serif;
+  background-color: rgb(48, 74, 119);
+  border-radius: 5px;
+  animation-name: backgroundColorPalette;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes backgroundColorPalette {
+  0% {
+    background: #ffcab1ff;
+  }
+  25% {
+    background: #69a2b0ff;
+  }
+  50% {
+    background: #659157ff;
+  }
+  75% {
+    background: #a1c084ff;
+  }
+  100% {
+    background: #e05263ff;
+  }
 }
 
 .title {
-  padding-left: 10px;
+  padding-left: 17%;
+  color: rgb(255, 255, 255);
+  font-family: 'Arimo', sans-serif;
+  text-decoration: underline white;
+  text-underline-offset: 5px;
 }
 
 .selected {

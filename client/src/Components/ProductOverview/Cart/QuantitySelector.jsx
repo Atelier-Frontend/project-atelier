@@ -24,7 +24,10 @@ class QuantitySelector extends React.Component {
     if (this.props.size !== prevProps.size) {
       this.enableDropDown();
       this.setQuantity();
-    } 
+    };
+    if (this.props.styles !== prevProps.styles) {
+      this.setState({ disabled: true });
+    };
   }
 
   handleChange(event) {
@@ -51,7 +54,7 @@ class QuantitySelector extends React.Component {
             <option className='quantity-option'>--</option>
           </select>}
         {this.state.disabled === false && 
-          <select className='quantity-dropdown'>
+          <select className='quantity-dropdown' id='quantity-selector'>
             {[...Array(this.state.quantity)].map((e, i) => (
               <option className='quantity-option' key={i}>{i + 1}</option>))}          
           </select>}  

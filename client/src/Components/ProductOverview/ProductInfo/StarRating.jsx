@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Stars from '../../RnR/Ratings/Stars.jsx';
 import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
 
 class StarRating extends React.Component {
@@ -12,6 +13,7 @@ class StarRating extends React.Component {
 
     this.getRatings = this.getRatings.bind(this);
     this.getAverage = this.getAverage.bind(this);
+    this.scroll = this.scroll.bind(this);
   }
 
   componentDidMount() {
@@ -51,18 +53,18 @@ class StarRating extends React.Component {
     return (Math.round(average * 4) / 4).toFixed(2);
   }
 
+  scroll() {
+
+  }
+
   render() {
     return (<div className='star-rating'>
-      <span className='stars'>
-        {this.state.rating}
-        {/* <span className='stars-rating'>
-        {[...Array(this.state.stars).keys()].map((index) => (
-            <span className='star' key={index}><AiOutlineStar /></span>))}
-        </span> */}
-      </span>
-      <span className='reviews-link'>
+      <div className='stars'>
+        <Stars score={this.state.rating} darkTheme={this.props.darkTheme}/>
+      </div>
+      <div className='reviews-link'>
         <a href='http://localhost:3000' className='stars'>Read all reviews</a>
-      </span>
+      </div>
     </div>)
   }
 };

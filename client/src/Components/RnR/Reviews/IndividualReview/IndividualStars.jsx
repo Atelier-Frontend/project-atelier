@@ -1,6 +1,10 @@
 import React from "react";
+<<<<<<< HEAD
 import { useState, useEffect } from "react";
 var yellowStar = "../../pic/single-star.png"
+=======
+import yellowStar from "../../pic/single-star.png"
+>>>>>>> ea9223c158625cc662d2fb56a1d2608294fce491
 
 export default function IndividualStars(props) {
 
@@ -10,7 +14,12 @@ export default function IndividualStars(props) {
   }
   return(<div style={{width:"100px"}}>
     {array.map((element, index) => {
-      return <img src={yellowStar} style={{width:"20px", height:"20px", marginTop:"15px"}} key={index} />
+      return <img src={yellowStar}
+                  style={{width:"20px", height:"20px", marginTop:"15px"}}
+                  alt="individual review star"
+                  key={index}
+                  draggable="false"
+             />
     })}
   </div>)
 }

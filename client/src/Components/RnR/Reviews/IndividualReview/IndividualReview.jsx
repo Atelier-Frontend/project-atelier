@@ -1,5 +1,4 @@
 import React from "react";
-import { useState, useEffect } from "react";
 import IndividualStars from "./IndividualStars.jsx";
 import User from "./User.jsx";
 import Date from "./Date.jsx";
@@ -14,7 +13,7 @@ import ReviewPhotos from "./ReviewPhotos.jsx";
 
 export default function IndividualReview(props) {
 
-  return(<>
+  return(<div className="individul-review-container">
     <div className="Individul-Review-Header">
       <IndividualStars star={props.review.rating}/>
       <div className="User-Date">
@@ -37,9 +36,9 @@ export default function IndividualReview(props) {
             color: "grey",
             backgroundColor: "grey",
             height: "0.5px",
-            width: "650px",
+            width: "620px",
             textAlign: "left"
         }}
     />
-  </>)
+  </div>)
 }

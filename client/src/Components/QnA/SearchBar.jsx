@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-var icon ="./Pics/magnifying-glass.png";
+// import icon from "./Pics/magnifying-glass.png";
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class SearchBar extends React.Component {
     if(e.target.value.length >= 3) {
       this.props.filterQuestions(e.target.value)
     } else {
-      this.props.getQList(this.props.product.id)
+      this.props.filterQuestions("")
     }
   }
 
@@ -25,9 +25,10 @@ class SearchBar extends React.Component {
     return (<div className="answer-search-field">
       <input placeholder={"Have a question? Search for answers…"}
              style={{width: "50vw", height: "3vh"}}
-             onChange={this.questionSearch.bind(this)} />
-      {/* <button className="search-answer">
-        <img src={icon}></img>
+             onChange={this.questionSearch.bind(this)}
+             className="search-input" />
+      {/* <button className="search-answer-button">
+        <img src={icon} alt='magnifying glass'></img>
       </button> */}
     </div>)
   }

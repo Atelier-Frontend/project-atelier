@@ -4,6 +4,7 @@ import ProductInfo from './ProductInfo/ProductInfo.jsx';
 import Cart from './Cart/AddToCart.jsx';
 import StyleSelector from './StyleSelector.jsx';
 import ImageGallery from './ImageGallery.jsx';
+import ProductSummary from './ProductSummary.jsx';
 
 class ProductOverview extends React.Component {
   constructor(props) {
@@ -82,6 +83,10 @@ class ProductOverview extends React.Component {
             expand={this.state.expand}
             hideProductInfo={this.hideProductInfo} 
             selectImage={this.selectImage} />}
+        {Object.keys(this.state.product).length > 0 &&
+          <ProductSummary 
+            slogan={this.state.product.slogan}
+            description={this.state.product.description}/>}    
       </div>
       <div className={this.state.expand ? 'product-hidden' : 'right-column'}>
         {Object.keys(this.state.product).length > 0 &&
@@ -89,7 +94,8 @@ class ProductOverview extends React.Component {
             product={this.state.product} 
             selectedStyle={this.state.selectedStyle} 
             styleName={this.state.selectedStyle.name}
-            expanded={this.state.expand} />}
+            expanded={this.state.expand}
+            theme = {this.props.darkTheme} />}
         {this.state.styles.length > 0 &&
           <StyleSelector 
             styles={this.state.styles} 
@@ -97,9 +103,11 @@ class ProductOverview extends React.Component {
             selectImage={this.selectImage} />}
         {this.state.styles.length > 0 &&
           <Cart 
+            product={this.state.product}
             styles={this.state.styles} 
             selectedStyle={this.state.selectedStyle} 
-            reset={this.state.sizeReset} />}  
+            reset={this.state.sizeReset} 
+            favorite={this.props.favorite}/>}  
       </div>    
     </div>)
   }

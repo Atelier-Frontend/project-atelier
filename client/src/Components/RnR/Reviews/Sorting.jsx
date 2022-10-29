@@ -1,5 +1,4 @@
 import React from "react";
-import { useState, useEffect } from "react";
 import Dropdown from "./Dropdown.jsx";
 
 export default function Sorting(props) {

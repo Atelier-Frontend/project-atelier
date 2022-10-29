@@ -1,7 +1,9 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 import ImageModal from "./ImageModal.jsx";
+import star0 from "../pic/form-star-0.png";
+import star1 from "../pic/single-star.png";
 
 export default function ReviewModal(props) {
 
@@ -14,13 +16,36 @@ export default function ReviewModal(props) {
   const [email, setEmail] = useState("");
   const [isValidInput, setIsValidInput] = useState(true);
   const [isValidEmail, setIsValidEmail] = useState(true);
+  const [state, setState] = useState({
+    overall: [[0, 0, 0, 0, 0], 0],
+    size: [[0, 0, 0, 0, 0], 0],
+    width: [[0, 0, 0, 0, 0], 0],
+    comfort: [[0, 0, 0, 0, 0], 0],
+    quality: [[0, 0, 0, 0, 0], 0],
+    length: [[0, 0, 0, 0, 0], 0],
+    fit:[ [0, 0, 0, 0, 0], 0],
+  });
 
   let stars = [1, 2, 3, 4, 5]
-  let meaning = ["", "Poor", "Fair", "Average", "Good", "Great"]
   let radioOptions = ["Yes", "No"]
+  let starsObj = {
+    overall: ["", "Poor", "Fair", "Average", "Good", "Great"],
+    size: ["", "A size too small", "½ a size too small", "Perfect", "½ a size too big", "A size too wide"],
+    width: ["", "Too narrow", "Slightly narrow", "Perfect", "Slightly wide", "Too wide"],
+    comfort: ["", "Uncomfortable", "Slightly uncomfortable", "Ok", "Comfortable", "Perfect"],
+    quality: ["", "Poor", "Below average", "What I expected", "Pretty great", "Perfect"],
+    length: ["", "Runs Short", "Runs slightly short", "Perfect", "Runs slightly long", "Runs long"],
+    fit: ["", "Runs tight", "Runs slightly tight", "Perfect", "Runs slightly long", "Runs long"]
+  }
 
-  function onChangeStar(e) {
-    setStar(Number(e.target.id))
+  function starChecker(e) {
+    let index = e.currentTarget.id.slice(0,1);
+    let item = e.currentTarget.id.slice(1);
+    index ==  "0" ? setState(el=> ({...el, [item]: [ [1, 0, 0, 0, 0], 1]})) : null;
+    index ==  "1" ? setState(el=> ({...el, [item]: [ [1, 1, 0, 0, 0], 2]})) : null ;
+    index ==  "2" ? setState(el=> ({...el, [item]: [ [1, 1, 1, 0, 0], 3]})) : null;
+    index ==  "3" ? setState(el=> ({...el, [item]: [ [1, 1, 1, 1, 0], 4]})) : null;
+    index ==  "4" ? setState(el=> ({...el, [item]: [ [1, 1, 1, 1, 1], 5]})) : null;
   }
 
   function onChangeRadio(e) {
@@ -95,15 +120,22 @@ export default function ReviewModal(props) {
         <label className="star-checker">
           Overall rating(*required)
           <div className="star-checker-graph">
-            {stars.map((element) => {
-              return <div>
-                <input type="checkbox"
-                       checked={(element<=star)}
-                       onChange={onChangeStar}
-                       id={element}/>
-              </div>
+            {Object.keys(starsObj).map((key) => {
+              return (<div className="characteristic">
+              <p>{key}</p>
+              <span className="clickable-stars">
+                {stars.map((e, i) => {
+
+                  return <img onClick={starChecker}
+                           src={state[key][0][Number(i)]=='1'? star1 : star0}
+                           id={i+key}
+                           draggable="false"
+                      />
+                })}
+              </span>
+              <p className="star-checker-meaning">{starsObj[key][state[key][1]]}</p>
+              </div>)
             })}
-            <p className="star-checker-meaning">{meaning[star]}</p>
           </div>
         </label>
         <label className="recommend-checker">
@@ -133,7 +165,7 @@ export default function ReviewModal(props) {
                     name="formSummary"
                     required />
         </label>
-        <label className="review-body">
+        <label className="form-review-body-container">
           Review body(*required)
           <textarea type="text"
                     placeholder={"Why did you like the product or not?"}
@@ -144,7 +176,7 @@ export default function ReviewModal(props) {
                     onChange={onChangeText}
                     name="formReviewBody"
                     required />
-          <span style={{ fontSize:"small", marginTop:"-1em" }}>
+          <span style={{ fontSize:"small", marginTop:"-1em", marginBottom:"20px" }}>
           {(reviewBody.length < 50)
           ? <p>{`Minimum required characters left: ${50-(reviewBody.length)}`}</p>
           : <p>Minimum reached</p>}

@@ -61,9 +61,9 @@ componentDidUpdate(prevProps) {
   <div>
   <small>{this.state.product.category}
   </small>
-  <h3>{this.state.product.name}</h3>
+  <div>{this.state.product.name}</div>
   <small>{this.state.product.default_price}</small>
-  <StarRating className={this.props.class} id={this.props.item}/>
+  {/* <StarRating className={this.props.class} id={this.props.item}/> */}
   </div>
   </div>
  <button onClick={()=>{this.props.fun(this.state.product)}}> <div className='large-font text-center top-20'>

@@ -7,13 +7,16 @@ import Your from './Components/Related/Your.jsx';
 import Related from './Components/Related/Related.jsx';
 import QnA from './Components/QnA/QnA.jsx';
 import RnR from './Components/RnR/RnR.jsx';
+import light from './Components/RnR/pic/light.png';
+import dark from './Components/RnR/pic/dark.png';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       products: {},
-      fav: []
+      fav: [],
+      darkTheme: false
     }
     this.update = this.update.bind(this);
     this.fav = this.fav.bind(this);
@@ -62,11 +65,23 @@ class App extends React.Component {
     })
   }
 
+  themeSwitch() {
+    this.setState({darkTheme: !this.state.darkTheme})
+  }
+
   render () {
-    return (<div>
+    return (<div className={this.state.darkTheme?"dark-theme":"light-theme"}>
       <h1 className='project-title'><div className='title'>Atelier</div></h1>
+      <img className="theme-toggle"
+           src={this.state.darkTheme?light:dark}
+           onClick={this.themeSwitch.bind(this)}
+           draggable="false" />
       {Object.keys(this.state.products).length > 0 &&
-        <ProductOverview products={this.state.products} update={this.update}/>}
+        <ProductOverview 
+          products={this.state.products} 
+          update={this.update} 
+          favorite={this.fav} 
+          darkTheme={this.state.darkTheme}/>}
       {Object.keys(this.state.products).length > 0 &&
         <Related products={this.state.products} update={this.update} fun={this.fav}/>}
       {Object.keys(this.state.products).length > 0 &&
@@ -74,7 +89,7 @@ class App extends React.Component {
       {Object.keys(this.state.products).length > 0 &&
         <QnA products={this.state.products} />}
       {Object.keys(this.state.products).length > 0 &&
-        <RnR products={this.state.products} />}
+        <RnR products={this.state.products} darkTheme={this.state.darkTheme}/>}
     </div>)
   }
 }

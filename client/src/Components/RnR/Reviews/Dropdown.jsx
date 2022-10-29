@@ -15,12 +15,15 @@ export default function Dropdown(props) {
   }
 
   let options = ["relevant", "helpful", "newest"]
-  return (<>
-    <select onChange={handleClick}>
+  return (<div>
+    <select onChange={handleClick}   className="review-dropdown-menu">
       {options.map((n) => {
-        return (<option value={n} selected={n===display} key={n}>{n}</option>);
+        return (<option value={n}
+                        selected={n===display}
+                        key={n}>{n}
+                </option>);
       })}
     </select>
-  </>
+  </div>
   )
 }

@@ -574,7 +574,7 @@ section aside:hover {
   background-color: rgb(48, 74, 119);
   border-radius: 5px;
   animation-name: backgroundColorPalette;
-  animation-duration: 10s;
+  animation-duration: 20s;
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }

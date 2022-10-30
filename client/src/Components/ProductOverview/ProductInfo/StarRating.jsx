@@ -57,7 +57,7 @@ class StarRating extends React.Component {
 
   scroll() {
     this.setState({ clickedReview: true });
-    document.getElementById('ratings-reviews').scrollIntoView({behavior: 'smooth'});
+    document.getElementById('ratings-reviews').scrollIntoView({behavior: 'smooth' });
   }
 
   render() {

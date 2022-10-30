@@ -54,7 +54,7 @@ class StarRating extends React.Component {
   }
 
   scroll() {
-
+    document.getElementById('ratings-reviews').scrollIntoView({behavior: 'smooth'});
   }
 
   render() {
@@ -63,7 +63,7 @@ class StarRating extends React.Component {
         <Stars score={this.state.rating} darkTheme={this.props.darkTheme}/>
       </div>
       <div className='reviews-link'>
-        <a href='http://localhost:3000' className='stars'>Read all reviews</a>
+        <div className='stars' onClick={this.scroll}>Read all reviews</div>
       </div>
     </div>)
   }

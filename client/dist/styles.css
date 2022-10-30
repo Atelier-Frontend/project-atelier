@@ -348,6 +348,7 @@ section aside:hover {
   transition: all 0.15s;
   position: relative;
   z-index: 1;
+  cursor: pointer;
 }
 
 .quantity-dropdown:hover {
@@ -384,6 +385,7 @@ section aside:hover {
   background-color: white;
   text-align: left;
   transition: all 0.15s;
+  cursor: pointer;
 }
 
 .size-dropdown:hover {
@@ -420,6 +422,7 @@ section aside:hover {
   background-color: white;
   text-align: left;
   transition: all 0.15s;
+  cursor: pointer;
 }
 
 .add-cart:hover {
@@ -452,6 +455,7 @@ section aside:hover {
   color: black;
   background-color: white;
   transition: all 0.15s;
+  cursor: pointer;
 }
 
 .add-to-style:hover {
@@ -562,6 +566,11 @@ section aside:hover {
 
 .stars {
   margin-left: -10px;
+  font-size: 10pt;
+  font-family: 'Arimo', sans-serif;
+  text-decoration: underline;
+  color: #046E8F;
+  cursor: pointer;
 }
 
 .project-title {

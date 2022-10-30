@@ -11,10 +11,10 @@ class Your extends React.Component {
     }
     this.list = this.list.bind(this);
   }
-  // componentDidMount () {
-  //   this.list();
+  componentDidMount () {
+    this.list();
 
-  // }
+  }
   componentDidUpdate (prevProps) {
     if(this.state.product.length < prevProps.products.length)
     {

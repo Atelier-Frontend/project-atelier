@@ -36,8 +36,9 @@ export default function IndividualReview(props) {
             color: "grey",
             backgroundColor: "grey",
             height: "0.5px",
-            width: "620px",
-            textAlign: "left"
+            width: "99%",
+            textAlign: "left",
+            marginLeft: "0px"
         }}
     />
   </div>)

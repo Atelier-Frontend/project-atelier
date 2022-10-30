@@ -48,7 +48,6 @@ class IndividualAnswer extends React.Component {
 
   render() {
     let answers = this.props.answers;
-    console.log(answers)
     return(<span className="individual-answer">
       {answers.slice(0, this.props.a).map((answer) => (
         <span key={answer.answer_id}>

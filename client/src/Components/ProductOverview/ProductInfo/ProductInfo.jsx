@@ -57,7 +57,6 @@ class ProductInfo extends React.Component {
           <div className='product-name' id='product-name'>{this.state.name}</div>
         {Object.keys(this.props.selectedStyle).length > 0 &&
           <div className='product-price'><Price  selectedStyle={this.props.selectedStyle} /></div>}
-          {/* <div className='product-info'>Overview Text: {this.state.text}</div> */}
     </div>)
   }
 };

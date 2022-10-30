@@ -997,7 +997,7 @@ section aside:hover {
 
 .scrollableAnswersList {
   max-height: 350px;
-  width: 50vw;
+  width: 60vw;
   overflow-y: auto;
   overflow-x: hidden;
   text-align: justify;
@@ -1008,7 +1008,7 @@ section aside:hover {
   overflow-y: auto;
   overflow-x: hidden;
   text-align: justify;
-  width: 1000px;
+  width: 90vw;
   margin-top: 10px;
   font-size: large;
 }
@@ -1121,7 +1121,7 @@ section aside:hover {
 
 /* Ratings & Reviews */
 .Ratings-Reviews {
-  width: 1000px;
+  width: 92%;
   height: 700px;
   position: relative;
   text-align: left;
@@ -1149,6 +1149,7 @@ section aside:hover {
   left: 350px;
   right: 0;
   position: absolute;
+  margin-bottom: 1em;
 }
 
 .Ratings-Reviews .reviews-search-bar {

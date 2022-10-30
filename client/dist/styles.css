@@ -7,8 +7,7 @@
   width: 3%;
   height: 3%;
   cursor: pointer;
-  margin-left: 1333px;
-  margin-top: -180px;
+  margin-left: 78%;
 }
 
 /* Please adjust styles for a specific component in your widget if needed;
@@ -50,11 +49,25 @@ e.g.
 
 .test {
   display: grid;
+  margin-left: 2%;
+  margin-right: 5%;
+  padding-left: 0;
   grid-auto-flow: column;
   gap: var(--size-3);
   grid-auto-columns: auto;
+  overflow: hidden;
   overflow-x: auto;
+  scroll-behavior: smooth;
   overscroll-behavior-inline: contain;
+}
+section {
+  /* display:grid;
+  grid-auto-flow: column; */
+  gap: var(--size-3);
+  max-width: initial;
+  position: relative;
+  overflow: hidden;
+
 }
 
 section aside {
@@ -65,8 +78,63 @@ section aside {
   padding: 1.25rem;
   width: 100px;
 }
+section aside div .star-rating {
+  display:block;
+}
+section aside .stars {
+  display:block;
+}
+section aside div .stars .stars-image{
+
+  width: 13px;
+  height: 12px;
+  border-right: 3px solid white;
+  margin-left: initial;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+
+}
+section aside div .star-rating .overall-rating-stars-color {
+margin-top: -21px;
+height: 12px;
+}
 aside small {
   display: inline-block;
+}
+section .right-arrows {
+  position: absolute;
+  top: 50%;
+  align-items: center;
+  right: 0;
+  font-size: 2.3rem;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  color:rgb(0, 0, 0);
+}
+
+section .right-arrows:focus,
+section .right-arrows:hover {
+  box-shadow: 0 0.4em 0.4em -0.2em var(--hover);
+  transform: translateY(-0.05em);
+}
+
+.left-arrows {
+  position: absolute;
+  top: 50%;
+  font-size: 2.3rem;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  color:rgb(0, 0, 0);
+}
+
+section .left-arrows:focus,
+section .left-arrows:hover {
+  box-shadow: 0 0.4em 0.4em -0.2em var(--hover);
+  transform: translateY(-0.05em);
 }
 #red-bg {
   display: inline;
@@ -566,17 +634,47 @@ section aside:hover {
 }
 
 .project-title {
-  max-width: 1283px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 15px;
   display: flex;
   font-weight: bold;
   font-family: 'Arimo', sans-serif;
+  background-color: rgb(48, 74, 119);
+  border-radius: 5px;
+  animation-name: backgroundColorPalette;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes backgroundColorPalette {
+  0% {
+    background: #f08080ff;
+  }
+  25% {
+    background: #f4978eff;
+  }
+  50% {
+    background: #f8ad9dff;
+  }
+  75% {
+    background: #fbc4abff;
+  }
+  100% {
+    background: #ffdab9ff;
+  }
 }
 
 .title {
-  padding-left: 10px;
+  padding-left: 17%;
+  color: rgb(255, 255, 255);
+  font-family: 'Arimo', sans-serif;
+  text-decoration: underline white;
+  text-underline-offset: 9px;
 }
+
+
 
 .selected {
   width: 60px;

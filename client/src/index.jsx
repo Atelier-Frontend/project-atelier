@@ -47,6 +47,9 @@ class App extends React.Component {
         let newproducts = response.data
         this.setState({products: newproducts})
       })
+      .catch((err)=> {
+        console.log(`${err}`)
+      })
   }
 
   fav (obj) {
@@ -68,21 +71,23 @@ class App extends React.Component {
 
   render () {
     return (<div className={this.state.darkTheme?"dark-theme":"light-theme"}>
-      <h1 className='project-title'><div className='title'>Atelier</div></h1>
+      <h1 className='project-title'>
+        <div className='title'>ATELIER</div>
+      </h1>
       <img className="theme-toggle"
            src={this.state.darkTheme?light:dark}
            onClick={this.themeSwitch.bind(this)}
            draggable="false" />
       {Object.keys(this.state.products).length > 0 &&
-        <ProductOverview 
-          products={this.state.products} 
-          update={this.update} 
-          favorite={this.fav} 
+        <ProductOverview
+          products={this.state.products}
+          update={this.update}
+          favorite={this.fav}
           darkTheme={this.state.darkTheme}/>}
       {Object.keys(this.state.products).length > 0 &&
-        <Related products={this.state.products} update={this.update} fun={this.fav}/>}
+        <Related products={this.state.products} update={this.update} fun={this.fav} darkTheme={this.state.darkTheme}/>}
       {Object.keys(this.state.products).length > 0 &&
-        <Your products={this.state.fav} />}
+        <Your products={this.state.fav} darkTheme={this.state.darkTheme} />}
       {Object.keys(this.state.products).length > 0 &&
         <QnA products={this.state.products} />}
       {Object.keys(this.state.products).length > 0 &&

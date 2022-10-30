@@ -20,4 +20,5 @@ var newproducts;
   })
 
   // ASSERT
+  expect(screen.getByH4Text('your')).toHaveTextContent('Your')
 })

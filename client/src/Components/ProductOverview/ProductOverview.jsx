@@ -43,7 +43,8 @@ class ProductOverview extends React.Component {
       this.setState({
         styles: response.data.results,
         selectedStyle: response.data.results[0],
-        imageStyle: response.data.results[0].photos[0].url
+        imageStyle: response.data.results[0].photos[0].url,
+        selectedKey: 0
       })
     })
     .catch((err) => {
@@ -51,7 +52,7 @@ class ProductOverview extends React.Component {
     });
   }
 
-  selectImage(style) {
+  selectImage(style, index) {
     var selectStyle = this.state.styles.filter((currentStyle) => {
       return currentStyle.name === style;
     });
@@ -59,6 +60,7 @@ class ProductOverview extends React.Component {
     this.setState({
       imageStyle: selectStyle[0].photos[0].url,
       selectedStyle: selectStyle[0],
+      selectedKey: index,
       sizeReset: true
     });
   }
@@ -106,7 +108,8 @@ class ProductOverview extends React.Component {
             product={this.state.product}
             styles={this.state.styles} 
             selectedStyle={this.state.selectedStyle} 
-            reset={this.state.sizeReset} 
+            reset={this.state.sizeReset}
+            index={this.state.selectedKey} 
             favorite={this.props.favorite}/>}  
       </div>    
     </div>)

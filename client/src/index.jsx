@@ -71,10 +71,10 @@ class App extends React.Component {
       <h1 className='project-title'>
         <div className='title'>ATELIER</div>
       </h1>
-      <div class="theme-switch-wrapper">
-        <label class="theme-switch" for="checkbox">
-            <input type="checkbox" id="checkbox" onClick={this.themeSwitch.bind(this)} />
-            <div class="slider round"></div>
+      <div className='theme-switch-wrapper'>
+        <label className='theme-switch' htmlFor='checkbox'>
+            <input type='checkbox' id='checkbox' onClick={this.themeSwitch.bind(this)} />
+            <div className='slider round'></div>
         </label>
       </div>
       {Object.keys(this.state.products).length > 0 &&

@@ -51,7 +51,7 @@ class ProductInfo extends React.Component {
     return (<div className='product-info'>
         {this.state.id > 0 &&
           <div className={this.props.theme ? 'dark-star-rating' : 'star-rating'}>
-            <StarRating className='product-info' id={this.state.id} darkTheme={this.props.theme}/>
+            <StarRating className='product-info' id={this.state.id} darkTheme={this.props.theme} />
           </div>}
           <div className='category'>{this.state.category}</div>
           <div className='product-name' id='product-name'>{this.state.name}</div>

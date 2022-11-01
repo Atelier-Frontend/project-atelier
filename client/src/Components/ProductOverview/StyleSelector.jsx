@@ -6,7 +6,8 @@ class StyleSelector extends React.Component {
     super(props);
     this.state = {
       clicked: false,
-      name: ''
+      name: '',
+      item: ''
     }
     this.onClick = this.onClick.bind(this);
   }
@@ -30,7 +31,7 @@ class StyleSelector extends React.Component {
   onClick(event) {
     event.preventDefault();
     this.setState({ item: event.target.id });
-    this.props.selectImage(event.target.id);
+    this.props.selectImage(event.target.id, event.target.getAttribute('index'));
     return false;
   }
 
@@ -46,7 +47,7 @@ class StyleSelector extends React.Component {
                 className={this.state.item === style.name ? 'selected' : 'style-image'} 
                 alt='image in style gallery'
                 draggable='false' 
-                key={index} 
+                index={index} 
                 id={style.name} 
                 src={style.photos[0].thumbnail_url} 
                 onClick={this.onClick} />

@@ -62,6 +62,20 @@ app.get('/products/product_id/related', (req, res) => {
     })
 });
 
+// ---- CART ROUTES ---- //
+
+// add product to cart
+app.post('/cart', (req, res) => {
+  console.log(req)
+  axios.defaults.headers.common['Authorization'] = process.env.TOKEN;
+  axios.post(`${apiPath}/cart`, req.body)
+    .then((response)=> {
+      res.status(201).send('Product added to bag!');
+    })
+    .catch((err) => {
+      res.send(err)
+    })
+});
 
 // ---- RATINGS & REVIEWS ROUTES ---- //
 

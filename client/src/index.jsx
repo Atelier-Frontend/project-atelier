@@ -73,13 +73,18 @@ class App extends React.Component {
     return (<div className={this.state.darkTheme?"dark-theme":"light-theme"}>
       <h1 className='project-title'>
         <div className='title'>ATELIER</div>
-        <div className='light-switch-label'>Light / Dark</div>
       </h1>
-      <div className='theme-switch-wrapper'>
-        <label className='theme-switch' htmlFor='checkbox'>
-            <input type='checkbox' id='checkbox' onClick={this.themeSwitch.bind(this)} />
-            <div className='slider round'></div>
-        </label>
+      <div className='under-header'>
+        <div className='sale-message-wrapper'>
+          <h2 className='sale-message'><em>site-wide announcement message!</em> -- sale / discount offer -- <u>new product highlight</u></h2>
+          <div className='light-switch-label'>Light / Dark</div>
+        </div>
+        <div className='theme-switch-wrapper'>
+          <label className='theme-switch' htmlFor='checkbox'>
+              <input type='checkbox' id='checkbox' onClick={this.themeSwitch.bind(this)} />
+              <div className='slider round'></div>
+          </label>
+        </div>
       </div>
       {Object.keys(this.state.products).length > 0 &&
         <ProductOverview

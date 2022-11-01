@@ -13,7 +13,7 @@ export default function Helpfulness(props) {
       setVoted(true);
       axios.put('/reviews/:review_id/helpful', {review_id: e.target.id})
       .then(() => {
-        console.log('Review voted')
+        props.getReviews()
       })
       .catch((err) => {
         console.log('failed')

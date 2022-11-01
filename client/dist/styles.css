@@ -1032,7 +1032,9 @@ section aside:hover {
   background-color: rgb(231, 231, 231, 1);
   opacity: 1;
   font-family: 'Arimo', sans-serif;
-  z-index: 200
+  z-index: 200;
+  min-width: fit-content;
+  min-height: fit-content;
 }
 
 .form-wrapper {
@@ -1111,7 +1113,7 @@ section aside:hover {
   object-fit: cover;
 }
 
-.emailValidation, .inputValidation {
+.emailValidation, .inputValidation, .form-image-validation {
   font-size: small;
   color: rgb(157, 5, 5);
   padding-top: -15px;
@@ -1531,4 +1533,13 @@ section aside:hover {
   margin-left: 5px;
   margin-top: 17px;
 }
+
+.form-thumbnail-photo {
+  width: 60px;
+  height: 60px;
+  text-align: left;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  margin-top: 20px;
+}
+
 

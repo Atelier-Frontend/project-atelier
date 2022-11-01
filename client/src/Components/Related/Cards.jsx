@@ -38,6 +38,8 @@ componentDidUpdate(prevProps) {
       })
   }
 
+
+
   render() {
 
     // if (JSON.stringify(this.state.product) === '{}') {
@@ -61,14 +63,17 @@ componentDidUpdate(prevProps) {
   </small>
   <div>{this.state.product.name}</div>
   <small>{this.state.product.default_price}</small>
-  {/* <StarRating className={this.props.class} id={this.props.item}/> */}
   </div>
   </div>
  <button onClick={()=>{this.props.fun(this.state.product)}}> <div className='large-font text-center top-20'>
   <ion-icon name="heart" >
     <div id='red-bg'></div>
   </ion-icon>
-</div></button>
+</div></button><div className='RelatedStars'>
+<div className={this.props.theme ? 'dark-star-rating' : 'star-rating'}>
+  <StarRating id={this.props.item}/>
+  </div>
+  </div>
 </aside>)
   }
 };

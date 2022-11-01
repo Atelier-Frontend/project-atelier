@@ -28,7 +28,8 @@ export default function IndividualReview(props) {
     {props.review.response && <SellerResponse />}
     <div className="Helpfulness-Report">
       <Helpfulness vote={props.review.helpfulness}
-                   review={props.review} />
+                   review={props.review}
+                   getReviews={props.getReviews} />
       <Report review={props.review} />
     </div>
     <hr
@@ -36,8 +37,9 @@ export default function IndividualReview(props) {
             color: "grey",
             backgroundColor: "grey",
             height: "0.5px",
-            width: "620px",
-            textAlign: "left"
+            width: "99%",
+            textAlign: "left",
+            marginLeft: "0px"
         }}
     />
   </div>)

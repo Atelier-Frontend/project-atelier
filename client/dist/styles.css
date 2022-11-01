@@ -54,11 +54,25 @@ e.g.
 
 .test {
   display: grid;
+  margin-left: 2%;
+  margin-right: 5%;
+  padding-left: 0;
   grid-auto-flow: column;
   gap: var(--size-3);
   grid-auto-columns: auto;
+  overflow: hidden;
   overflow-x: auto;
+  scroll-behavior: smooth;
   overscroll-behavior-inline: contain;
+}
+section {
+  /* display:grid;
+  grid-auto-flow: column; */
+  gap: var(--size-3);
+  max-width: initial;
+  position: relative;
+  overflow: hidden;
+
 }
 
 section aside {
@@ -69,8 +83,63 @@ section aside {
   padding: 1.25rem;
   width: 100px;
 }
+section aside div .star-rating {
+  display:block;
+}
+section aside .stars {
+  display:block;
+}
+section aside div .stars .stars-image{
+
+  width: 13px;
+  height: 12px;
+  border-right: 3px solid white;
+  margin-left: initial;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+
+}
+section aside div .star-rating .overall-rating-stars-color {
+margin-top: -21px;
+height: 12px;
+}
 aside small {
   display: inline-block;
+}
+section .right-arrows {
+  position: absolute;
+  top: 50%;
+  align-items: center;
+  right: 0;
+  font-size: 2.3rem;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  color:rgb(0, 0, 0);
+}
+
+section .right-arrows:focus,
+section .right-arrows:hover {
+  box-shadow: 0 0.4em 0.4em -0.2em var(--hover);
+  transform: translateY(-0.05em);
+}
+
+.left-arrows {
+  position: absolute;
+  top: 50%;
+  font-size: 2.3rem;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  color:rgb(0, 0, 0);
+}
+
+section .left-arrows:focus,
+section .left-arrows:hover {
+  box-shadow: 0 0.4em 0.4em -0.2em var(--hover);
+  transform: translateY(-0.05em);
 }
 #red-bg {
   display: inline;
@@ -1051,7 +1120,7 @@ input:checked + .slider:before {
 
 .scrollableAnswersList {
   max-height: 350px;
-  width: 50vw;
+  width: 60vw;
   overflow-y: auto;
   overflow-x: hidden;
   text-align: justify;
@@ -1062,7 +1131,7 @@ input:checked + .slider:before {
   overflow-y: auto;
   overflow-x: hidden;
   text-align: justify;
-  width: 1000px;
+  width: 90vw;
   margin-top: 10px;
   font-size: large;
 }
@@ -1086,7 +1155,9 @@ input:checked + .slider:before {
   background-color: rgb(231, 231, 231, 1);
   opacity: 1;
   font-family: 'Arimo', sans-serif;
-  z-index: 200
+  z-index: 200;
+  min-width: fit-content;
+  min-height: fit-content;
 }
 
 .form-wrapper {
@@ -1165,7 +1236,7 @@ input:checked + .slider:before {
   object-fit: cover;
 }
 
-.emailValidation, .inputValidation {
+.emailValidation, .inputValidation, .form-image-validation {
   font-size: small;
   color: rgb(157, 5, 5);
   padding-top: -15px;
@@ -1175,7 +1246,7 @@ input:checked + .slider:before {
 
 /* Ratings & Reviews */
 .Ratings-Reviews {
-  width: 1000px;
+  width: 92%;
   height: 700px;
   position: relative;
   text-align: left;
@@ -1203,6 +1274,7 @@ input:checked + .slider:before {
   left: 350px;
   right: 0;
   position: absolute;
+  margin-bottom: 1em;
 }
 
 .Ratings-Reviews .reviews-search-bar {
@@ -1584,4 +1656,13 @@ input:checked + .slider:before {
   margin-left: 5px;
   margin-top: 17px;
 }
+
+.form-thumbnail-photo {
+  width: 60px;
+  height: 60px;
+  text-align: left;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  margin-top: 20px;
+}
+
 

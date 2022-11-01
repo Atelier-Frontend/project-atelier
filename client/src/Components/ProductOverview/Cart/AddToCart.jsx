@@ -75,7 +75,7 @@ class Cart extends React.Component {
     axios.post('/cart', {sku_id: chosenSku})
       .then((response) => {
         alert(`${response.data} \n
-          You have added the following item to your bag: \n 
+          You have added the following item: \n 
           Product: ${chosenProduct} \n
           Style: ${chosenStyle} \n
           Size: ${chosenSize} \n

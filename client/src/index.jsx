@@ -45,7 +45,6 @@ class App extends React.Component {
     axios.get('/products/product_id', {params: {id: state_id.id}})
       .then((response)=> {
         let newproducts = response.data
-        console.log(newproducts)
         this.setState({products: newproducts})
       })
       .catch((err)=> {

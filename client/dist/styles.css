@@ -10,6 +10,11 @@
   margin-left: 78%;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 /* Please adjust styles for a specific component in your widget if needed;
 recommended theme colors:  #2C3639; #3F4E4F; #A27B5C; #DCD7C9.
 e.g.
@@ -516,7 +521,7 @@ section aside:hover {
 
 .right-column {
   width: 35%;
-  margin-top: 20px;
+  margin-top: 13px;
 }
 
 .style-container {
@@ -585,8 +590,8 @@ section aside:hover {
 .light-switch-label {
   font-size: 9pt;
   position: absolute;
-  top: 9%;
-  margin-left: 72%;
+  top: 8.15%;
+  margin-left: 72.7%;
   font-family: 'Arimo', sans-serif;
 
 }
@@ -654,7 +659,6 @@ input:checked + .slider:before {
   margin: 0 auto;
   padding: 15px;
   display: flex;
-  font-weight: bold;
   font-family: 'Arimo', sans-serif;
   background-color: rgb(48, 74, 119);
   border-radius: 5px;
@@ -686,6 +690,7 @@ input:checked + .slider:before {
   padding-left: 17%;
   color: rgb(255, 255, 255);
   font-family: 'Arimo', sans-serif;
+  font-weight: bold;
   text-decoration: underline white;
   text-underline-offset: 9px;
 }
@@ -821,8 +826,8 @@ input:checked + .slider:before {
 
 .features {
   position: absolute;
-  top: 81%;
-  margin-left: 1%;
+  top: 80.2%;
+  margin-left: 0.8%;
 }
 
 .feature-item {

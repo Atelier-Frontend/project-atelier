@@ -26,7 +26,7 @@ class App extends React.Component {
     // if(JSON.stringify(this.state.products) === '{}') {
     axios.get('/products')
       .then((response) => {
-        this.setState({ products: response.data[0] })
+        this.update(response.data[2]);
       })
       .catch((err) => {
         console.log(err)
@@ -45,6 +45,7 @@ class App extends React.Component {
     axios.get('/products/product_id', {params: {id: state_id.id}})
       .then((response)=> {
         let newproducts = response.data
+        console.log(newproducts)
         this.setState({products: newproducts})
       })
   }
@@ -70,6 +71,7 @@ class App extends React.Component {
     return (<div className={this.state.darkTheme?"dark-theme":"light-theme"}>
       <h1 className='project-title'>
         <div className='title'>ATELIER</div>
+        <div className='light-switch-label'>Light / Dark</div>
       </h1>
       <div className='theme-switch-wrapper'>
         <label className='theme-switch' htmlFor='checkbox'>

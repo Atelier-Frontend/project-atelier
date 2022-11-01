@@ -75,14 +75,14 @@ class Cart extends React.Component {
     axios.post('/cart', {sku_id: chosenSku})
       .then((response) => {
         alert(`${response.data} \n
-        You have added the following item to your bag: \n 
-        Product: ${chosenProduct} \n
-        Style: ${chosenStyle} \n
-        Size: ${chosenSize} \n
-        Quantity: ${chosenQuantity}`);
+          You have added the following item to your bag: \n 
+          Product: ${chosenProduct} \n
+          Style: ${chosenStyle} \n
+          Size: ${chosenSize} \n
+          Quantity: ${chosenQuantity}`);
       })
       .catch((err) => {
-        aler('Something went wrong!');
+        alert('Something went wrong!');
         console.log(err);
       });
   }

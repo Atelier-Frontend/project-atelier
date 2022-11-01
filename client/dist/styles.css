@@ -582,8 +582,18 @@ section aside:hover {
   cursor: pointer;
 }
 
+.light-switch-label {
+  font-size: 9pt;
+  position: absolute;
+  top: 9%;
+  margin-left: 72%;
+  font-family: 'Arimo', sans-serif;
+
+}
+
 .theme-switch-wrapper {
   display: flex;
+  flex-direction: row;
   align-items: center;
   margin-top: 5px;
 }
@@ -781,6 +791,7 @@ input:checked + .slider:before {
 .product-summary {
   position: relative;
   height: 50%;
+  border-right: 2px solid black;
 }
 
 .slogan {
@@ -806,6 +817,36 @@ input:checked + .slider:before {
   position: relative;
   top: 2px;
   right: -110px;
+}
+
+.features {
+  position: absolute;
+  top: 81%;
+  margin-left: 1%;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: row;
+}
+
+.feature-mark {
+  font-size: 30px;
+}
+
+.feature-type {
+  padding-top: 9px;
+  margin-left: 10px;
+  font-family: 'Arimo', sans-serif;
+  font-size: 11pt;
+  font-weight: bold;
+}
+
+.feature-value {
+  padding-top: 9px;
+  margin-left: 6px;
+  font-family: 'Arimo', sans-serif;
+  font-size: 11pt;
 }
 
 /* Widget title styles  */

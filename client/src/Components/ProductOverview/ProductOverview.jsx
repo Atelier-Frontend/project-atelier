@@ -5,6 +5,7 @@ import Cart from './Cart/AddToCart.jsx';
 import StyleSelector from './StyleSelector.jsx';
 import ImageGallery from './ImageGallery.jsx';
 import ProductSummary from './ProductSummary.jsx';
+import Features from './Features.jsx';
 
 class ProductOverview extends React.Component {
   constructor(props) {
@@ -34,7 +35,8 @@ class ProductOverview extends React.Component {
 
   getStyles() {
     var currentProduct = this.props.products;
-    this.setState({product: this.props.products});
+
+    this.setState({product: this.props.products, features: this.props.products.features});
 
     axios.get('/products/product_id/styles', {
       params: {id: this.props.products.id}
@@ -44,7 +46,8 @@ class ProductOverview extends React.Component {
         styles: response.data.results,
         selectedStyle: response.data.results[0],
         imageStyle: response.data.results[0].photos[0].url,
-        selectedKey: 0
+        selectedKey: 0,
+        features: currentProduct.features 
       })
     })
     .catch((err) => {
@@ -75,6 +78,7 @@ class ProductOverview extends React.Component {
   }
 
   render() {
+    console.log(this.state.features)
     return (<div className='product'>
       <div className='left-column'>
         {this.state.styles.length > 0 &&
@@ -88,7 +92,7 @@ class ProductOverview extends React.Component {
         {Object.keys(this.state.product).length > 0 &&
           <ProductSummary 
             slogan={this.state.product.slogan}
-            description={this.state.product.description}/>}    
+            description={this.state.product.description}/>}     
       </div>
       <div className={this.state.expand ? 'product-hidden' : 'right-column'}>
         {Object.keys(this.state.product).length > 0 &&
@@ -110,7 +114,9 @@ class ProductOverview extends React.Component {
             selectedStyle={this.state.selectedStyle} 
             reset={this.state.sizeReset}
             index={this.state.selectedKey} 
-            favorite={this.props.favorite}/>}  
+            favorite={this.props.favorite}/>}
+        {this.state.features !== undefined && 
+          <Features features={this.state.features}/>}      
       </div>    
     </div>)
   }

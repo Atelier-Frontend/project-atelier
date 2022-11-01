@@ -66,7 +66,6 @@ app.get('/products/product_id/related', (req, res) => {
 
 // add product to cart
 app.post('/cart', (req, res) => {
-  console.log(req)
   axios.defaults.headers.common['Authorization'] = process.env.TOKEN;
   axios.post(`${apiPath}/cart`, req.body)
     .then((response)=> {

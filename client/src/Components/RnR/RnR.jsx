@@ -144,7 +144,8 @@ export default function RnR(props) {
                moreReviewsClickHandler={moreReviewsClickHandler}
                reviewsCount={reviewsCount}
                moreclicked={moreclicked}
-               filterReviews={filterReviews} />
+               filterReviews={filterReviews}
+               getReviews={getReviews} />
     </div>
   </>)
 }

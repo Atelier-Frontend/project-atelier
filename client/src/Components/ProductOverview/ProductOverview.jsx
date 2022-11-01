@@ -78,7 +78,6 @@ class ProductOverview extends React.Component {
   }
 
   render() {
-    console.log(this.state.features)
     return (<div className='product'>
       <div className='left-column'>
         {this.state.styles.length > 0 &&

@@ -521,7 +521,7 @@ section aside:hover {
 
 .right-column {
   width: 35%;
-  margin-top: 13px;
+  margin-top: 0px;
 }
 
 .style-container {
@@ -560,7 +560,9 @@ section aside:hover {
 }
 
 .product-hidden {
-  display: none;
+  visibility: hidden;
+  margin-left: -10px;
+  padding: 0;
 }
 
 .category {
@@ -661,7 +663,6 @@ input:checked + .slider:before {
   display: flex;
   font-family: 'Arimo', sans-serif;
   background-color: rgb(48, 74, 119);
-  border-radius: 5px;
   animation-name: backgroundColorPalette;
   animation-duration: 20s;
   animation-iteration-count: infinite;
@@ -828,6 +829,7 @@ input:checked + .slider:before {
   position: absolute;
   top: 80.2%;
   margin-left: 0.8%;
+  visibility: visible;
 }
 
 .feature-item {

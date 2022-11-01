@@ -664,7 +664,8 @@ section aside:hover {
   top: 8.15%;
   margin-left: 72.7%;
   font-family: 'Arimo', sans-serif;
-
+  color: #a2a7a5ff;
+  opacity: 0.8;
 }
 
 .theme-switch-wrapper {

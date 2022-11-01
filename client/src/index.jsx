@@ -76,7 +76,7 @@ class App extends React.Component {
       </h1>
       <div className='under-header'>
         <div className='sale-message-wrapper'>
-          <h2 className='sale-message'><em>site-wide announcement message!</em> -- sale / discount offer -- <u>new product highlight</u></h2>
+          <h2 className='sale-message'><em>site-wide announcement message!</em> -- sale / discount <strong>offer</strong> -- <u>new product highlight</u></h2>
           <div className='light-switch-label'>Light / Dark</div>
         </div>
         <div className='theme-switch-wrapper'>

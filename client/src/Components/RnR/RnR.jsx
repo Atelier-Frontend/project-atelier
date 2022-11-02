@@ -15,6 +15,7 @@ export default function RnR(props) {
   const [reviewsCount, setReviewsCount] = useState(2);
   const [moreclicked, setMoreclicked] = useState(false);
   const [sortingKeyword, setSortingKeyword] = useState("relevant");
+  const [term, setTerm] = useState("");
 
 
   useEffect(() => {
@@ -69,7 +70,8 @@ export default function RnR(props) {
     let filteredReviews = reviews.results.filter((r) => {
       return r.body.includes(term)
     });
-    setResult(filteredReviews)
+    setResult(filteredReviews);
+    setTerm(term)
   }
 
   function getAverage(ratings) {
@@ -145,7 +147,8 @@ export default function RnR(props) {
                reviewsCount={reviewsCount}
                moreclicked={moreclicked}
                filterReviews={filterReviews}
-               getReviews={getReviews} />
+               getReviews={getReviews}
+               term={term} />
     </div>
   </>)
 }

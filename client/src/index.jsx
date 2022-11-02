@@ -7,8 +7,6 @@ import Your from './Components/Related/Your.jsx';
 import Related from './Components/Related/Related.jsx';
 import QnA from './Components/QnA/QnA.jsx';
 import RnR from './Components/RnR/RnR.jsx';
-import light from './Components/RnR/pic/light.png';
-import dark from './Components/RnR/pic/dark.png';
 import { HiSearch } from 'react-icons/hi';
 
 class App extends React.Component {

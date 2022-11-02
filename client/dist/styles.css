@@ -43,7 +43,7 @@ e.g.
   color:  #DCD7C9;
 }
 
-.dark-theme .rating-barBkg {
+.dark-theme .rating-barBkg, .dark-theme .review-form-container {
   color:  #3F4E4F;
 }
 
@@ -1478,6 +1478,10 @@ input:checked + .slider:before {
   margin-right: 10px;
 }
 
+.review-body {
+  margin-right: 10px;
+}
+
 .Helpfulness-Report {
   font-size: small;
   display:flex;
@@ -1655,6 +1659,7 @@ input:checked + .slider:before {
 
 .thumbnail-photo {
   margin-right: 1em;
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .thumbnail-photo:hover {
@@ -1682,6 +1687,7 @@ input:checked + .slider:before {
   max-height: 90vh;
   max-width: 80vw;
   opacity: 1;
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .review-dropdown-menu {

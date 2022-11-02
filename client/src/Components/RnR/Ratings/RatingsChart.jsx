@@ -9,7 +9,7 @@ export default function RatingsChart(props) {
           <div className="rating-bar" key={index}>
             <p style={{textDecorationLine:"underline"}}>{`${5 - index}stars `}</p>
             <div className="rating-bar-bars">
-              <div className="rating-barBkg" >{`${100*(rating/total).toFixed(2)}%`}</div>
+              <div className="rating-barBkg" >{`${(100*(rating/total)).toFixed(0)}%`}</div>
               <div className="rating-barBkg-green" style={{ '--rating_percent': rating/total}}/>
             </div>
           </div>

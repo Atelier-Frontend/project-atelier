@@ -26,7 +26,7 @@ class App extends React.Component {
     // if(JSON.stringify(this.state.products) === '{}') {
     axios.get('/products')
       .then((response) => {
-        this.setState({ products: response.data[0] })
+        this.update(response.data[2]);
       })
       .catch((err) => {
         console.log(err)
@@ -74,10 +74,18 @@ class App extends React.Component {
       <h1 className='project-title'>
         <div className='title'>ATELIER</div>
       </h1>
-      <img className="theme-toggle"
-           src={this.state.darkTheme?light:dark}
-           onClick={this.themeSwitch.bind(this)}
-           draggable="false" />
+      <div className='under-header'>
+        <div className='sale-message-wrapper'>
+          <h2 className='sale-message'><em>site-wide announcement message!</em> -- sale / discount <strong>offer</strong> -- <u>new product highlight</u></h2>
+          <div className='light-switch-label'>Light / Dark</div>
+        </div>
+        <div className='theme-switch-wrapper'>
+          <label className='theme-switch' htmlFor='checkbox'>
+              <input type='checkbox' id='checkbox' onClick={this.themeSwitch.bind(this)} />
+              <div className='slider round'></div>
+          </label>
+        </div>
+      </div>
       {Object.keys(this.state.products).length > 0 &&
         <ProductOverview
           products={this.state.products}

@@ -5,6 +5,7 @@ import Cart from './Cart/AddToCart.jsx';
 import StyleSelector from './StyleSelector.jsx';
 import ImageGallery from './ImageGallery.jsx';
 import ProductSummary from './ProductSummary.jsx';
+import Features from './Features.jsx';
 
 class ProductOverview extends React.Component {
   constructor(props) {
@@ -34,7 +35,8 @@ class ProductOverview extends React.Component {
 
   getStyles() {
     var currentProduct = this.props.products;
-    this.setState({product: this.props.products});
+
+    this.setState({product: this.props.products, features: this.props.products.features});
 
     axios.get('/products/product_id/styles', {
       params: {id: this.props.products.id}
@@ -43,7 +45,9 @@ class ProductOverview extends React.Component {
       this.setState({
         styles: response.data.results,
         selectedStyle: response.data.results[0],
-        imageStyle: response.data.results[0].photos[0].url
+        imageStyle: response.data.results[0].photos[0].url,
+        selectedKey: 0,
+        features: currentProduct.features 
       })
     })
     .catch((err) => {
@@ -51,7 +55,7 @@ class ProductOverview extends React.Component {
     });
   }
 
-  selectImage(style) {
+  selectImage(style, index) {
     var selectStyle = this.state.styles.filter((currentStyle) => {
       return currentStyle.name === style;
     });
@@ -59,6 +63,7 @@ class ProductOverview extends React.Component {
     this.setState({
       imageStyle: selectStyle[0].photos[0].url,
       selectedStyle: selectStyle[0],
+      selectedKey: index,
       sizeReset: true
     });
   }
@@ -86,7 +91,7 @@ class ProductOverview extends React.Component {
         {Object.keys(this.state.product).length > 0 &&
           <ProductSummary 
             slogan={this.state.product.slogan}
-            description={this.state.product.description}/>}    
+            description={this.state.product.description}/>}     
       </div>
       <div className={this.state.expand ? 'product-hidden' : 'right-column'}>
         {Object.keys(this.state.product).length > 0 &&
@@ -106,8 +111,11 @@ class ProductOverview extends React.Component {
             product={this.state.product}
             styles={this.state.styles} 
             selectedStyle={this.state.selectedStyle} 
-            reset={this.state.sizeReset} 
-            favorite={this.props.favorite}/>}  
+            reset={this.state.sizeReset}
+            index={this.state.selectedKey} 
+            favorite={this.props.favorite}/>}
+        {this.state.features !== undefined && 
+          <Features features={this.state.features}/>}      
       </div>    
     </div>)
   }

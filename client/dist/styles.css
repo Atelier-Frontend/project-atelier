@@ -10,6 +10,11 @@
   margin-left: 78%;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 /* Please adjust styles for a specific component in your widget if needed;
 recommended theme colors:  #2C3639; #3F4E4F; #A27B5C; #DCD7C9.
 e.g.
@@ -299,7 +304,7 @@ section aside:hover {
 .ex-button {
   position: absolute;
   top: 4%;
-  right: -38.5%;
+  right: -39.5%;
   font-size: 2rem;
   cursor: pointer;
   user-select: none;
@@ -335,7 +340,7 @@ section aside:hover {
 .ex-left-arrow {
   position: absolute;
   top: 35%;
-  left: 20%;
+  left: 13.5%;
   font-size: 2.3rem;
   cursor: pointer;
   user-select: none;
@@ -417,6 +422,7 @@ section aside:hover {
   transition: all 0.15s;
   position: relative;
   z-index: 1;
+  cursor: pointer;
 }
 
 .quantity-dropdown:hover {
@@ -453,6 +459,7 @@ section aside:hover {
   background-color: white;
   text-align: left;
   transition: all 0.15s;
+  cursor: pointer;
 }
 
 .size-dropdown:hover {
@@ -489,6 +496,7 @@ section aside:hover {
   background-color: white;
   text-align: left;
   transition: all 0.15s;
+  cursor: pointer;
 }
 
 .add-cart:hover {
@@ -521,6 +529,7 @@ section aside:hover {
   color: black;
   background-color: white;
   transition: all 0.15s;
+  cursor: pointer;
 }
 
 .add-to-style:hover {
@@ -581,7 +590,7 @@ section aside:hover {
 
 .right-column {
   width: 35%;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .style-container {
@@ -620,7 +629,9 @@ section aside:hover {
 }
 
 .product-hidden {
-  display: none;
+  visibility: hidden;
+  margin-left: -10px;
+  padding: 0;
 }
 
 .category {
@@ -631,6 +642,108 @@ section aside:hover {
 
 .stars {
   margin-left: -10px;
+  font-size: 10pt;
+  font-family: 'Arimo', sans-serif;
+  text-decoration: underline;
+  color: #046E8F;
+  cursor: pointer;
+}
+
+.clicked-review {
+  margin-left: -10px;
+  font-size: 10pt;
+  font-family: 'Arimo', sans-serif;
+  text-decoration: underline;
+  color: #CC92C2;
+  cursor: pointer;
+}
+
+.light-switch-label {
+  font-size: 10pt;
+  position: absolute;
+  top: 8.05%;
+  margin-left: 73.5%;
+  font-family: 'Arimo', sans-serif;
+  color: #a2a7a5ff;
+  opacity: 0.8;
+}
+
+.theme-switch-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 5px;
+  width: 30%;
+}
+
+.theme-switch {
+  display: inline-block;
+  height: 24px;
+  position: relative;
+  width: 45px;
+  cursor: pointer;
+  margin-left: 26%;
+}
+
+.theme-switch input {
+  display:none;
+}
+
+.under-header {
+  display: flex;
+  flex-direction: row;
+}
+
+.sale-message-wrapper {
+  width: 70%;
+  height: 20px;
+  padding-top: 7px;
+}
+
+.sale-message {
+  font-size: 11pt;
+  font-family: 'Arimo', sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  padding-left: 40%;
+}
+
+.slider {
+  background-color: #ccc;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+}
+
+.slider:before {
+  background-color: #fff;
+  bottom: 2px;
+  content: "";
+  height: 20px;
+  left: 2px;
+  position: absolute;
+  transition: .4s;
+  width: 20px;
+}
+
+input:checked + .slider {
+  background-color: #66bb6a;
+}
+
+input:checked + .slider:before {
+  transform: translateX(21px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }
 
 .project-title {
@@ -638,10 +751,8 @@ section aside:hover {
   margin: 0 auto;
   padding: 15px;
   display: flex;
-  font-weight: bold;
   font-family: 'Arimo', sans-serif;
   background-color: rgb(48, 74, 119);
-  border-radius: 5px;
   animation-name: backgroundColorPalette;
   animation-duration: 20s;
   animation-iteration-count: infinite;
@@ -670,6 +781,7 @@ section aside:hover {
   padding-left: 17%;
   color: rgb(255, 255, 255);
   font-family: 'Arimo', sans-serif;
+  font-weight: bold;
   text-decoration: underline white;
   text-underline-offset: 9px;
 }
@@ -775,6 +887,7 @@ section aside:hover {
 .product-summary {
   position: relative;
   height: 50%;
+  border-right: 2px solid black;
 }
 
 .slogan {
@@ -800,6 +913,37 @@ section aside:hover {
   position: relative;
   top: 2px;
   right: -110px;
+}
+
+.features {
+  position: absolute;
+  top: 80.2%;
+  margin-left: 0.8%;
+  visibility: visible;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: row;
+}
+
+.feature-mark {
+  font-size: 30px;
+}
+
+.feature-type {
+  padding-top: 9px;
+  margin-left: 10px;
+  font-family: 'Arimo', sans-serif;
+  font-size: 11pt;
+  font-weight: bold;
+}
+
+.feature-value {
+  padding-top: 9px;
+  margin-left: 6px;
+  font-family: 'Arimo', sans-serif;
+  font-size: 11pt;
 }
 
 /* Widget title styles  */

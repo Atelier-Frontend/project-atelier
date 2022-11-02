@@ -130,7 +130,7 @@ export default function RnR(props) {
   }
 
   return(<>
-    <h3 className="widget-title">Ratings & Reviews</h3>
+    <h3 className="widget-title" id="ratings-reviews">Ratings & Reviews</h3>
     <div className="Ratings-Reviews">
       <Ratings ratings={ratings}
                score={score}

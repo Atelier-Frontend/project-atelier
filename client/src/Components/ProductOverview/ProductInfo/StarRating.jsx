@@ -8,7 +8,8 @@ class StarRating extends React.Component {
     super(props);
     this.state = {
       stars: 5,
-      rating: 0
+      rating: 0,
+      clickedReview: false
     }
 
     this.getRatings = this.getRatings.bind(this);
@@ -22,6 +23,7 @@ class StarRating extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.id !== prevProps.id) {
+      this.setState({ clickedReview: false });
       this.getRatings();
     }
   }
@@ -54,7 +56,8 @@ class StarRating extends React.Component {
   }
 
   scroll() {
-
+    this.setState({ clickedReview: true });
+    document.getElementById('ratings-reviews').scrollIntoView({behavior: 'smooth' });
   }
 
   render() {
@@ -63,7 +66,7 @@ class StarRating extends React.Component {
         <Stars score={this.state.rating} darkTheme={this.props.darkTheme}/>
       </div>
       <div className='reviews-link'>
-        <a href='http://localhost:3000' className='stars'>Read all reviews</a>
+        <div className={this.state.clickedReview ? 'clicked-review' : 'stars'} onClick={this.scroll}>Read all reviews</div>
       </div>
     </div>)
   }

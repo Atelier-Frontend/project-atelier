@@ -39,11 +39,6 @@ export default function ImageModal(props) {
       {props.images.length >= 5 ? null
       : <input id="selectFile" type="file" accept="image/*"
                 onChange={handleImageUpload}></input>}
-      {/* { (props.images.len === 0) ? null :
-        <p style={{ fontSize:"small", marginTop:"-0em" }}>
-          {`You have select ${props.images.length} image(s)`}
-        </p>
-      } */}
       <div>
         {props.images.map((img) => {
           return <img src={img}

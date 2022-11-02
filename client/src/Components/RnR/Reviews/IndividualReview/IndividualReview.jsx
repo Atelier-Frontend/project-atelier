@@ -22,7 +22,8 @@ export default function IndividualReview(props) {
       </div>
     </div>
     <ReviewSummary summary={props.review.summary} />
-    <ReviewBody body={props.review.body} />
+    <ReviewBody body={props.review.body}
+                term={props.term} />
     <ReviewPhotos photos={props.review.photos} />
     {props.review.recommend && <IndividualRecommend />}
     {props.review.response && <SellerResponse />}

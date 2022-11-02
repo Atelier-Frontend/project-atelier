@@ -17,7 +17,8 @@ return(<>
                moreReviewsClickHandler={props.moreReviewsClickHandler}
                reviewsCount={props.reviewsCount}
                moreclicked={props.moreclicked}
-               getReviews={props.getReviews} />
+               getReviews={props.getReviews}
+               term={props.term} />
   <ButtonRow result={props.result}
              moreReviewsClickHandler={props.moreReviewsClickHandler}
              reviewsCount={props.reviewsCount}

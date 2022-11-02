@@ -39,11 +39,23 @@ export default function ImageModal(props) {
       {props.images.length >= 5 ? null
       : <input id="selectFile" type="file" accept="image/*"
                 onChange={handleImageUpload}></input>}
-      { (props.images.len === 0) ? null :
+      {/* { (props.images.len === 0) ? null :
         <p style={{ fontSize:"small", marginTop:"-0em" }}>
           {`You have select ${props.images.length} image(s)`}
         </p>
-      }
+      } */}
+      <div>
+        {props.images.map((img) => {
+          return <img src={img}
+                    alt="photo"
+                    key={img}
+                    className="form-thumbnail-photo"
+               />
+        })
+         }
+    </div>
+    {props.images.length === 5 ?
+    <p className="form-image-validation">You have reached your image upload limit</p> : null}
     </div>
   </>)
 

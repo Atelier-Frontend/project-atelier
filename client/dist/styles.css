@@ -320,7 +320,7 @@ section aside:hover {
 
 .ex-right-arrow {
   position: absolute;
-  top: 35%;
+  top: 39%;
   right: -37%;
   font-size: 2.3rem;
   cursor: pointer;
@@ -339,7 +339,7 @@ section aside:hover {
 
 .ex-left-arrow {
   position: absolute;
-  top: 35%;
+  top: 39%;
   left: 13.5%;
   font-size: 2.3rem;
   cursor: pointer;

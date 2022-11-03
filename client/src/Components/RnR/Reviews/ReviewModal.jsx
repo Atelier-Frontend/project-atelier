@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
+// import loadable from '@loadable/component';
+// const ImageModal = loadable(() => import('./ImageModal.jsx'));
 import ImageModal from "./ImageModal.jsx";
 import star0 from "../pic/form-star-0.png";
 import star1 from "../pic/single-star.png";

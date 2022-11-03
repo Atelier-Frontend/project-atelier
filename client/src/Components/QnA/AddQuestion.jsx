@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import ModalQuestion from './ModalQuestion.jsx';
+// import loadable from '@loadable/component';
+// const ModalQuestion = loadable(() => import('./ModalQuestion.jsx'));
 
 class AddQuestion extends React.Component {
   constructor(props) {

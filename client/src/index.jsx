@@ -7,6 +7,7 @@ import Your from './Components/Related/Your.jsx';
 import Related from './Components/Related/Related.jsx';
 import QnA from './Components/QnA/QnA.jsx';
 import RnR from './Components/RnR/RnR.jsx';
+import { HiSearch } from 'react-icons/hi';
 
 class App extends React.Component {
   constructor(props) {
@@ -71,6 +72,8 @@ class App extends React.Component {
     return (<div className={this.state.darkTheme?"dark-theme":"light-theme"}>
       <h1 className='project-title'>
         <div className='title'>ATELIER</div>
+        <div className='title-search'></div>
+        <div className='title-search-icon'><HiSearch /></div>
       </h1>
       <div className='under-header'>
         <div className='sale-message-wrapper'>

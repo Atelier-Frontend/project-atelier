@@ -69,7 +69,7 @@ app.post('/cart', (req, res) => {
   axios.defaults.headers.common['Authorization'] = process.env.TOKEN;
   axios.post(`${apiPath}/cart`, req.body)
     .then((response)=> {
-      res.status(201).send('Product added to bag!');
+      res.status(201).send('Treat yo self Queen!');
     })
     .catch((err) => {
       res.send(err)

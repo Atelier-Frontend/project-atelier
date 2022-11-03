@@ -320,7 +320,7 @@ section aside:hover {
 
 .ex-right-arrow {
   position: absolute;
-  top: 35%;
+  top: 39%;
   right: -37%;
   font-size: 2.3rem;
   cursor: pointer;
@@ -339,7 +339,7 @@ section aside:hover {
 
 .ex-left-arrow {
   position: absolute;
-  top: 35%;
+  top: 39%;
   left: 13.5%;
   font-size: 2.3rem;
   cursor: pointer;
@@ -661,7 +661,7 @@ section aside:hover {
 .light-switch-label {
   font-size: 10pt;
   position: absolute;
-  top: 8.05%;
+  top: 8.55%;
   margin-left: 73.5%;
   font-family: 'Arimo', sans-serif;
   color: #a2a7a5ff;
@@ -751,12 +751,29 @@ input:checked + .slider:before {
   margin: 0 auto;
   padding: 15px;
   display: flex;
+  flex-direction: row;
   font-family: 'Arimo', sans-serif;
   background-color: rgb(48, 74, 119);
   animation-name: backgroundColorPalette;
   animation-duration: 20s;
   animation-iteration-count: infinite;
   animation-direction: alternate;
+  justify-content: space-between;
+}
+
+.title-search {
+  width: 160px;
+  border-bottom: 3px solid rgb(255, 255, 255);
+  margin-right: -43%;
+}
+
+.title-search-icon {
+  color: rgb(255, 255, 255);
+  margin-right: 20%;
+  font-size: 1.6rem;
+  height: 27px;
+  padding-top: 15px;
+  cursor: pointer;
 }
 
 @keyframes backgroundColorPalette {

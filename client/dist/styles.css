@@ -1,20 +1,3 @@
-<<<<<<< HEAD
-/* .test{
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 10%;
-  left: 9%;
-  z-index: 20;
-  height: 63%;
-  overflow-y: auto;
-  overflow-x: hidden;
-  white-space: nowrap;
-  scroll-behavior: smooth;
-  overflow: hidden;
-} */
-
-=======
 .dark-theme {
   color: rgb(220, 215, 201);
   background-color: rgb(44, 54, 57);
@@ -64,7 +47,6 @@ e.g.
   color: #A27B5C;
 }
 
->>>>>>> ea9223c158625cc662d2fb56a1d2608294fce491
 
 .test {
   display: grid;
@@ -74,8 +56,8 @@ e.g.
   grid-auto-flow: column;
   gap: var(--size-3);
   grid-auto-columns: auto;
-  overflow: hidden;
   overflow-x: auto;
+  overflow: hidden;
   scroll-behavior: smooth;
   overscroll-behavior-inline: contain;
 }
@@ -96,6 +78,26 @@ section aside {
   margin: 1rem;
   padding: 1.25rem;
   width: 100px;
+}
+section aside div .star-rating {
+  display:block;
+}
+section aside .stars {
+  display:block;
+}
+section aside div .stars .stars-image{
+
+  width: 13px;
+  height: 12px;
+  border-right: 3px solid white;
+  margin-left: initial;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+
+}
+section aside div .star-rating .overall-rating-stars-color {
+margin-top: -21px;
+height: 12px;
 }
 aside small {
   display: inline-block;

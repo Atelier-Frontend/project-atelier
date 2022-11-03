@@ -7,8 +7,9 @@ class FullSizeAnswerPhoto extends React.Component {
   render() {
     return(<div className="full-size-image-container">
       <img className="full-size-image"
-          src={this.props.imageURL}
-          onClick={this.props.zoomOutImage.bind(this)}
+           alt="large-img"
+           src={this.props.imageURL}
+           onClick={this.props.zoomOutImage.bind(this)}
       />
     </div>)
   }

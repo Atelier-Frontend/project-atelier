@@ -1,10 +1,12 @@
 import React from 'react';
 import axios from 'axios';
+import AnswerPhotos from './AnswerPhotos.jsx';
 
 class ImageHandler extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      photosUrl: []
     }
   }
 
@@ -33,6 +35,9 @@ class ImageHandler extends React.Component {
     axios.post(`/image/upload`, {body: b64.split('base64,')[1]})
       .then((response) => {
         this.props.addImageUrl(response.data.url);
+        if (this.state.photosUrl.length < 5) {
+          this.setState({photosUrl: [...this.state.photosUrl, response.data.url]})
+        }
       })
       .catch((err) => {
         console.log('failed')
@@ -53,10 +58,18 @@ class ImageHandler extends React.Component {
     </button> */}
     <input id="selectFile" type="file" accept="image/*"
            onChange={this.handleFileRead.bind(this)}></input>
-    { (this.props.len === 0) ? null :
-      <p>{`You have select ${this.props.len} image(s)`}</p>
-    }
-
+    <div>
+        {this.state.photosUrl.map((img) => {
+          return <img src={img}
+                    alt="photo"
+                    key={img}
+                    className="form-thumbnail-photo"
+               />
+        })
+         }
+    </div>
+    {this.state.photosUrl.length === 5 ?
+    <p className="form-image-validation">You have reached your image upload limit</p> : null}
     </center>
     </>)
   }

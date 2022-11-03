@@ -12,6 +12,7 @@ class Cart extends React.Component {
       styles: [],
       sizes: [],
       quantity: [],
+      skus: [],
       selectedSize: 0,
       reset: false
     }
@@ -37,12 +38,14 @@ class Cart extends React.Component {
   }
 
   getQuantity() {
-    var skus = this.props.styles[0].skus;
+    var skus = this.props.styles[this.props.index].skus;
     var sizeArray = [];
     var quantityArray = [];
+    var skuArray = []
 
     for (var key in skus) {
       if (skus[key].quantity > 0) {
+        skuArray.push(Number(key));
         sizeArray.push(skus[key].size);
         quantityArray.push(skus[key].quantity);
       }
@@ -50,7 +53,8 @@ class Cart extends React.Component {
 
     this.setState({ 
       sizes: sizeArray, 
-      quantity: quantityArray
+      quantity: quantityArray,
+      skus: skuArray
     });
   }
 
@@ -59,19 +63,27 @@ class Cart extends React.Component {
       document.getElementById('select-size').click();
       alert('Please select a size');
       return;;
-    }
+    };
 
     var size = document.getElementById('select-size');
     var chosenSize = size.options[size.selectedIndex].text;
     var chosenQuantity = document.getElementById('quantity-selector').value;
     var chosenProduct = document.getElementById('product-name').innerHTML;
     var chosenStyle = document.getElementById('style-name').innerHTML;
-
-    alert(`You have added the following item to your bag: \n 
-          Product: ${chosenProduct} \n
+    var chosenSku= this.state.skus[this.state.selectedSize];
+    
+    axios.post('/cart', {sku_id: chosenSku})
+      .then((response) => {
+        alert(`${response.data} \n
+          ${chosenProduct} added to bag. \n 
           Style: ${chosenStyle} \n
           Size: ${chosenSize} \n
           Quantity: ${chosenQuantity}`);
+      })
+      .catch((err) => {
+        alert('Something went wrong!');
+        console.log(err);
+      });
   }
 
   favorite(event) {

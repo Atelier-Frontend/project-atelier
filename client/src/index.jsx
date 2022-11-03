@@ -7,8 +7,7 @@ import Your from './Components/Related/Your.jsx';
 import Related from './Components/Related/Related.jsx';
 import QnA from './Components/QnA/QnA.jsx';
 import RnR from './Components/RnR/RnR.jsx';
-import light from './Components/RnR/pic/light.png';
-import dark from './Components/RnR/pic/dark.png';
+import { HiSearch } from 'react-icons/hi';
 
 class App extends React.Component {
   constructor(props) {
@@ -26,7 +25,7 @@ class App extends React.Component {
     // if(JSON.stringify(this.state.products) === '{}') {
     axios.get('/products')
       .then((response) => {
-        this.setState({ products: response.data[0] })
+        this.update(response.data[2]);
       })
       .catch((err) => {
         console.log(err)
@@ -71,21 +70,33 @@ class App extends React.Component {
 
   render () {
     return (<div className={this.state.darkTheme?"dark-theme":"light-theme"}>
-      <h1 className='project-title'><div className='title'>Atelier</div></h1>
-      <img className="theme-toggle"
-           src={this.state.darkTheme?light:dark}
-           onClick={this.themeSwitch.bind(this)}
-           draggable="false" />
+      <h1 className='project-title'>
+        <div className='title'>ATELIER</div>
+        <div className='title-search'></div>
+        <div className='title-search-icon'><HiSearch /></div>
+      </h1>
+      <div className='under-header'>
+        <div className='sale-message-wrapper'>
+          <h2 className='sale-message'><em>site-wide announcement message!</em> -- sale / discount <strong>offer</strong> -- <u>new product highlight</u></h2>
+          <div className='light-switch-label'>Light / Dark</div>
+        </div>
+        <div className='theme-switch-wrapper'>
+          <label className='theme-switch' htmlFor='checkbox'>
+              <input type='checkbox' id='checkbox' onClick={this.themeSwitch.bind(this)} />
+              <div className='slider round'></div>
+          </label>
+        </div>
+      </div>
       {Object.keys(this.state.products).length > 0 &&
-        <ProductOverview 
-          products={this.state.products} 
-          update={this.update} 
-          favorite={this.fav} 
+        <ProductOverview
+          products={this.state.products}
+          update={this.update}
+          favorite={this.fav}
           darkTheme={this.state.darkTheme}/>}
       {Object.keys(this.state.products).length > 0 &&
-        <Related products={this.state.products} update={this.update} fun={this.fav}/>}
+        <Related products={this.state.products} update={this.update} fun={this.fav} darkTheme={this.state.darkTheme}/>}
       {Object.keys(this.state.products).length > 0 &&
-        <Your products={this.state.fav} />}
+        <Your products={this.state.fav} darkTheme={this.state.darkTheme} />}
       {Object.keys(this.state.products).length > 0 &&
         <QnA products={this.state.products} />}
       {Object.keys(this.state.products).length > 0 &&

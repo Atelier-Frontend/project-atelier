@@ -64,6 +64,7 @@ class ImageHandler extends React.Component {
                     alt="photo"
                     key={img}
                     className="form-thumbnail-photo"
+                    sizes="(max-width: 60px) 60px"
                />
         })
          }

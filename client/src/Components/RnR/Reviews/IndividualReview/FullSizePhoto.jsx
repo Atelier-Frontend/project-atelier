@@ -6,6 +6,8 @@ export default function FullSizePhoto(props) {
     <img className="full-size-image"
          src={props.imageURL}
          onClick={props.zoomOutImage}
+         loading="lazy"
+         fetchpriority="low"
     />
   </div>)
 }

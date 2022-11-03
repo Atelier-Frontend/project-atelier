@@ -29,8 +29,7 @@ componentDidUpdate(prevProps) {
           params: {id: this.props.item}
         })
         .then((testing) => {
-
-          this.setState({ product: test, styles: testing.data.results[0].photos[0].thumbnail_url})
+          this.setState({ product: test, styles: testing?.data?.results[0]?.photos[0]?.thumbnail_url})
         })
       })
       .catch((err)=> {

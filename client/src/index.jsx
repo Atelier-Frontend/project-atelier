@@ -26,7 +26,7 @@ class App extends React.Component {
     // if(JSON.stringify(this.state.products) === '{}') {
     axios.get('/products')
       .then((response) => {
-        this.update(response.data[2]);
+        this.update(response?.data[2]);
       })
       .catch((err) => {
         console.log(err)
@@ -42,7 +42,7 @@ class App extends React.Component {
 
 
   update (state_id) {
-    axios.get('/products/product_id', {params: {id: state_id.id}})
+    axios.get('/products/product_id', {params: {id: state_id?.id}})
       .then((response)=> {
         let newproducts = response.data
         this.setState({products: newproducts})

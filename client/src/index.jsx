@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import axios from 'axios';
-import ProductOverview from './Components/ProductOverview/ProductOverview.jsx';
-import Your from './Components/Related/Your.jsx';
-import Related from './Components/Related/Related.jsx';
-import QnA from './Components/QnA/QnA.jsx';
-import RnR from './Components/RnR/RnR.jsx';
-import light from './Components/RnR/pic/light.png';
-import dark from './Components/RnR/pic/dark.png';
+const ProductOverview = lazy(()=>import('./Components/ProductOverview/ProductOverview.jsx'));
+const Your = lazy (()=> import('./Components/Related/Your.jsx'));
+const Related = lazy(()=>import('./Components/Related/Related.jsx'));
+const QnA = lazy(()=>import('./Components/QnA/QnA.jsx'));
+const RnR = lazy(()=>import('./Components/RnR/RnR.jsx'));
+const light= lazy(()=>import('./Components/RnR/pic/light.png'));
+const dark= lazy(()=>import('./Components/RnR/pic/dark.png'));
+const renderLoader = ()=> <p>Loading</p>;
 
 class App extends React.Component {
   constructor(props) {
@@ -70,7 +71,7 @@ class App extends React.Component {
   }
 
   render () {
-    return (<div className={this.state.darkTheme?"dark-theme":"light-theme"}>
+    return (<Suspense fallback={renderLoader()}><div className={this.state.darkTheme?"dark-theme":"light-theme"}>
       <h1 className='project-title'><div className='title'>Atelier</div></h1>
       <img className="theme-toggle"
            src={this.state.darkTheme?light:dark}
@@ -90,7 +91,7 @@ class App extends React.Component {
         <QnA products={this.state.products} />}
       {Object.keys(this.state.products).length > 0 &&
         <RnR products={this.state.products} darkTheme={this.state.darkTheme}/>}
-    </div>)
+    </div></Suspense>)
   }
 }
 

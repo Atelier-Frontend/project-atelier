@@ -56,8 +56,8 @@ e.g.
   grid-auto-flow: column;
   gap: var(--size-3);
   grid-auto-columns: auto;
-  overflow: hidden;
   overflow-x: auto;
+  overflow: hidden;
   scroll-behavior: smooth;
   overscroll-behavior-inline: contain;
 }

@@ -2,14 +2,12 @@ import React, { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import axios from 'axios';
-const ProductOverview = lazy(()=>import('./Components/ProductOverview/ProductOverview.jsx'));
-const Your = lazy (()=> import('./Components/Related/Your.jsx'));
-const Related = lazy(()=>import('./Components/Related/Related.jsx'));
-const QnA = lazy(()=>import('./Components/QnA/QnA.jsx'));
-const RnR = lazy(()=>import('./Components/RnR/RnR.jsx'));
-const light= lazy(()=>import('./Components/RnR/pic/light.png'));
-const dark= lazy(()=>import('./Components/RnR/pic/dark.png'));
-const renderLoader = ()=> <p>Loading</p>;
+import ProductOverview from './Components/ProductOverview/ProductOverview.jsx';
+import Your from './Components/Related/Your.jsx';
+import Related from './Components/Related/Related.jsx';
+import QnA from './Components/QnA/QnA.jsx';
+import RnR from './Components/RnR/RnR.jsx';
+import { HiSearch } from 'react-icons/hi';
 
 class App extends React.Component {
   constructor(props) {
@@ -27,7 +25,7 @@ class App extends React.Component {
     // if(JSON.stringify(this.state.products) === '{}') {
     axios.get('/products')
       .then((response) => {
-        this.setState({ products: response.data[0] })
+        this.update(response.data[2]);
       })
       .catch((err) => {
         console.log(err)
@@ -71,12 +69,24 @@ class App extends React.Component {
   }
 
   render () {
-    return (<Suspense fallback={renderLoader()}><div className={this.state.darkTheme?"dark-theme":"light-theme"}>
-      <h1 className='project-title'><div className='title'>Atelier</div></h1>
-      <img className="theme-toggle"
-           src={this.state.darkTheme?light:dark}
-           onClick={this.themeSwitch.bind(this)}
-           draggable="false" />
+    return (<div className={this.state.darkTheme?"dark-theme":"light-theme"}>
+      <h1 className='project-title'>
+        <div className='title'>ATELIER</div>
+        <div className='title-search'></div>
+        <div className='title-search-icon'><HiSearch /></div>
+      </h1>
+      <div className='under-header'>
+        <div className='sale-message-wrapper'>
+          <h2 className='sale-message'><em>site-wide announcement message!</em> -- sale / discount <strong>offer</strong> -- <u>new product highlight</u></h2>
+          <div className='light-switch-label'>Light / Dark</div>
+        </div>
+        <div className='theme-switch-wrapper'>
+          <label className='theme-switch' htmlFor='checkbox'>
+              <input type='checkbox' id='checkbox' onClick={this.themeSwitch.bind(this)} />
+              <div className='slider round'></div>
+          </label>
+        </div>
+      </div>
       {Object.keys(this.state.products).length > 0 &&
         <ProductOverview
           products={this.state.products}

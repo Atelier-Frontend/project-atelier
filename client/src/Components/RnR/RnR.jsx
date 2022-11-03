@@ -15,7 +15,7 @@ export default function RnR(props) {
   const [reviewsCount, setReviewsCount] = useState(2);
   const [moreclicked, setMoreclicked] = useState(false);
   const [sortingKeyword, setSortingKeyword] = useState("relevant");
-
+  const [term, setTerm] = useState("");
 
   useEffect(() => {
     getReviews(props);
@@ -69,7 +69,8 @@ export default function RnR(props) {
     let filteredReviews = reviews.results.filter((r) => {
       return r.body.includes(term)
     });
-    setResult(filteredReviews)
+    setResult(filteredReviews);
+    setTerm(term)
   }
 
   function getAverage(ratings) {
@@ -129,8 +130,15 @@ export default function RnR(props) {
     }
   }
 
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
+
   return(<>
-    <h3 className="widget-title">Ratings & Reviews</h3>
+    <h3 className="widget-title" id="ratings-reviews">Ratings & Reviews</h3>
     <div className="Ratings-Reviews">
       <Ratings ratings={ratings}
                score={score}
@@ -144,7 +152,11 @@ export default function RnR(props) {
                moreReviewsClickHandler={moreReviewsClickHandler}
                reviewsCount={reviewsCount}
                moreclicked={moreclicked}
-               filterReviews={filterReviews} />
+               filterReviews={filterReviews}
+               getReviews={getReviews}
+               term={term} />
+      <p className="back-to-top" onClick={scrollToTop}>&#8679; Back to top</p>
     </div>
+
   </>)
 }

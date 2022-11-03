@@ -7,7 +7,10 @@ export default function ReviewsList(props) {
     <div className="Reviews-List">
       {
         props.result.slice(0,props.reviewsCount).map((review) => (
-          <IndividualReview key={review.review_id} review={review} />
+          <IndividualReview key={review.review_id}
+                            review={review}
+                            getReviews={props.getReviews}
+                            term={props.term} />
         ))
       }
     </div>

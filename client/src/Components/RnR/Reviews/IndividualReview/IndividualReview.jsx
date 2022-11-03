@@ -22,13 +22,15 @@ export default function IndividualReview(props) {
       </div>
     </div>
     <ReviewSummary summary={props.review.summary} />
-    <ReviewBody body={props.review.body} />
+    <ReviewBody body={props.review.body}
+                term={props.term} />
     <ReviewPhotos photos={props.review.photos} />
     {props.review.recommend && <IndividualRecommend />}
     {props.review.response && <SellerResponse />}
     <div className="Helpfulness-Report">
       <Helpfulness vote={props.review.helpfulness}
-                   review={props.review} />
+                   review={props.review}
+                   getReviews={props.getReviews} />
       <Report review={props.review} />
     </div>
     <hr
@@ -36,8 +38,9 @@ export default function IndividualReview(props) {
             color: "grey",
             backgroundColor: "grey",
             height: "0.5px",
-            width: "620px",
-            textAlign: "left"
+            width: "99%",
+            textAlign: "left",
+            marginLeft: "0px"
         }}
     />
   </div>)

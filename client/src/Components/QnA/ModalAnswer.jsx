@@ -80,7 +80,7 @@ class ModalAnswer extends React.Component {
                     style={{ marginBottom: '2rem' }}
                     onChange={this.onChange.bind(this)} required />
           <ImageHandler addImageUrl={this.addImageUrl.bind(this)}
-                        len={this.state.photos.length}/>
+                        photos={this.state.photos}/>
           <label>What is your nickname?</label>
           <input type={"text"} placeholder="Example: jack543!" name={"name"}
                  maxLength={"60"} style={{ marginBottom: '2rem' }}

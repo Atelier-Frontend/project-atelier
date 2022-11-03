@@ -1,6 +1,11 @@
 import React from "react";
+<<<<<<< HEAD
+import { useState, useEffect } from "react";
+var stars = "../pic/five-stars2.png";
+=======
 import star from "../pic/perfect_star.png";
 import star_dark from "../pic/perfect_star_dark.png";
+>>>>>>> ea9223c158625cc662d2fb56a1d2608294fce491
 
 export default function Stars(props) {
 

@@ -24,11 +24,11 @@ Store in the following format: TOKEN=''. The express server references this .env
 
 ### Product Overview
 
-Image Gallery:
+Image Gallery Demo:
 
-![alt text](http://g.recordit.co/VjrPzxYWJL.gif)
+![image-gallery](http://g.recordit.co/VjrPzxYWJL.gif)
 
-http://g.recordit.co/VjrPzxYWJL.gif
+<img src="http://g.recordit.co/VjrPzxYWJL.gif" width="40" height="40" />
 
 ## Dependencies:
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import axios from 'axios';
 import ProductInfo from './ProductInfo/ProductInfo.jsx';
 import Cart from './Cart/AddToCart.jsx';
@@ -78,46 +78,48 @@ class ProductOverview extends React.Component {
   }
 
   render() {
-    return (<div className='product'>
-      <div className='left-column'>
-        {this.state.styles.length > 0 &&
-          <ImageGallery 
-            styles={this.state.styles} 
-            selectedStyle={this.state.selectedStyle} 
-            image={this.state.imageStyle} 
-            expand={this.state.expand}
-            hideProductInfo={this.hideProductInfo} 
-            selectImage={this.selectImage} />}
-        {Object.keys(this.state.product).length > 0 &&
-          <ProductSummary 
-            slogan={this.state.product.slogan}
-            description={this.state.product.description}/>}     
+    return (
+      <div className='product'>
+        <div className='left-column'>
+          {this.state.styles.length > 0 &&
+            <ImageGallery 
+              styles={this.state.styles} 
+              selectedStyle={this.state.selectedStyle} 
+              image={this.state.imageStyle} 
+              expand={this.state.expand}
+              hideProductInfo={this.hideProductInfo} 
+              selectImage={this.selectImage} />}
+          {Object.keys(this.state.product).length > 0 &&
+            <ProductSummary 
+              slogan={this.state.product.slogan}
+              description={this.state.product.description}/>}     
+        </div>
+        <div className={this.state.expand ? 'product-hidden' : 'right-column'}>
+          {Object.keys(this.state.product).length > 0 &&
+            <ProductInfo 
+              product={this.state.product} 
+              selectedStyle={this.state.selectedStyle} 
+              styleName={this.state.selectedStyle.name}
+              expanded={this.state.expand}
+              theme = {this.props.darkTheme} />}
+          {this.state.styles.length > 0 &&
+            <StyleSelector 
+              styles={this.state.styles} 
+              selectedStyle={this.state.selectedStyle} 
+              selectImage={this.selectImage} />}
+          {this.state.styles.length > 0 &&
+            <Cart 
+              product={this.state.product}
+              styles={this.state.styles} 
+              selectedStyle={this.state.selectedStyle} 
+              reset={this.state.sizeReset}
+              index={this.state.selectedKey} 
+              favorite={this.props.favorite}/>}
+          {this.state.features !== undefined && 
+            <Features features={this.state.features}/>}      
+        </div>    
       </div>
-      <div className={this.state.expand ? 'product-hidden' : 'right-column'}>
-        {Object.keys(this.state.product).length > 0 &&
-          <ProductInfo 
-            product={this.state.product} 
-            selectedStyle={this.state.selectedStyle} 
-            styleName={this.state.selectedStyle.name}
-            expanded={this.state.expand}
-            theme = {this.props.darkTheme} />}
-        {this.state.styles.length > 0 &&
-          <StyleSelector 
-            styles={this.state.styles} 
-            selectedStyle={this.state.selectedStyle} 
-            selectImage={this.selectImage} />}
-        {this.state.styles.length > 0 &&
-          <Cart 
-            product={this.state.product}
-            styles={this.state.styles} 
-            selectedStyle={this.state.selectedStyle} 
-            reset={this.state.sizeReset}
-            index={this.state.selectedKey} 
-            favorite={this.props.favorite}/>}
-        {this.state.features !== undefined && 
-          <Features features={this.state.features}/>}      
-      </div>    
-    </div>)
+    )
   }
 };
 

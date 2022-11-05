@@ -1,4 +1,5 @@
 import React from 'react';
+import clicked from '../../Clicked.js';
 
 class SizeSelector extends React.Component {
   constructor(props) {
@@ -35,6 +36,7 @@ class SizeSelector extends React.Component {
 
   handleChange(event) {
     event.preventDefault();
+    clicked('product-overview', event.target.className);
     this.setState({ selected: event.target.value });
     this.props.selectSize(event.target.value);
   }

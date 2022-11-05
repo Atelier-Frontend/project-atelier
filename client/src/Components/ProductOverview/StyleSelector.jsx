@@ -1,5 +1,6 @@
 import React from 'react';
 import { AiFillCheckCircle } from 'react-icons/ai';
+import clicked from '../Clicked.js';
 
 class StyleSelector extends React.Component {
   constructor(props) {
@@ -30,6 +31,7 @@ class StyleSelector extends React.Component {
 
   onClick(event) {
     event.preventDefault();
+    clicked('product-overview', event.target.className);
     this.setState({ item: event.target.id });
     this.props.selectImage(event.target.id, event.target.getAttribute('index'));
     return false;

@@ -645,7 +645,7 @@ section aside:hover {
   font-size: 10pt;
   font-family: 'Arimo', sans-serif;
   text-decoration: underline;
-  color: #046E8F;
+  color: #1DA1F2;
   cursor: pointer;
 }
 
@@ -903,7 +903,7 @@ input:checked + .slider:before {
 
 .product-summary {
   position: relative;
-  height: 50%;
+  height: 82.5px;
   border-right: 2px solid black;
 }
 

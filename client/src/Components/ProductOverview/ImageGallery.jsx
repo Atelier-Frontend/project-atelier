@@ -4,6 +4,7 @@ import { AiOutlineExpand } from 'react-icons/ai';
 import { IoIosArrowUp, IoIosArrowDown } from 'react-icons/io';
 import { BsFillCircleFill } from 'react-icons/bs';
 import circle from './white-circle.png';
+import clicked from '../Clicked.js';
 
 class ImageGallery extends React.Component {
   constructor(props) {
@@ -43,7 +44,8 @@ class ImageGallery extends React.Component {
     };
   }
 
-  nextImage() {
+  nextImage(event) {
+    clicked('product-overview', event.target.className.baseVal);
     if (this.state.current >= 3 & this.state.expand) {
       document.getElementById('sidebar').scrollLeft += 32;
     } else if (this.state.current >= 3) {
@@ -56,7 +58,8 @@ class ImageGallery extends React.Component {
     };
   }
 
-  prevImage() {
+  prevImage(event) {
+    clicked('product-overview', event.target.className.baseVal);
     if (this.state.current < 7 & this.state.expand) {
       document.getElementById('sidebar').scrollLeft -= 32;
     } else if (this.state.current < 7) {
@@ -71,11 +74,13 @@ class ImageGallery extends React.Component {
 
   expandImage(event) {
     event.preventDefault();
+    clicked('product-overview', event.target.className.baseVal);
     this.props.hideProductInfo();
   }
 
   onClick(event) {
     event.preventDefault();
+    clicked('product-overview', event.target.className);
     this.setState({ current: Number(event.target.id) });
   }
 

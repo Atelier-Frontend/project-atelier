@@ -4,6 +4,7 @@ import QuantitySelector from './QuantitySelector.jsx';
 import SizeSelector from './SizeSelector.jsx';
 import { FaHeart } from 'react-icons/fa';
 import { BsPlusLg } from 'react-icons/bs';
+import clicked from '../../Clicked.js';
 
 class Cart extends React.Component {
   constructor(props) {
@@ -34,6 +35,7 @@ class Cart extends React.Component {
   }
 
   selectSize(size) {
+    clicked('product-overview', size);
     this.setState({ selectedSize: size });
   }
 
@@ -58,7 +60,8 @@ class Cart extends React.Component {
     });
   }
 
-  sendCart() {
+  sendCart(event) {
+    clicked('product-overview', event.target.className);
     if (document.getElementById('quantity-selector') === null) {
       document.getElementById('select-size').click();
       alert('Please select a size');
@@ -88,6 +91,8 @@ class Cart extends React.Component {
 
   favorite(event) {
     event.preventDefault();
+    console.log(event.target.className)
+    clicked('product-overview', event.target.className);
     this.props.favorite(this.props.product);
   }
 

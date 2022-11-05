@@ -14,7 +14,6 @@ class Related extends React.Component {
     }
     this.list = this.list.bind(this)
     this.nextImages = this.nextImages.bind(this);
-    this.prevImages = this.prevImages.bind(this);
   }
 
   componentDidMount () {
@@ -29,29 +28,10 @@ class Related extends React.Component {
     }
   }
 
-  nextImages() {
-    if (this.state.current >= 3) {
-      document.getElementById('test').scrollLeft += 90;
-    }
+  nextImages(number) {
+    document.getElementsByClassName('test')[0].scrollLeft += number
+;}
 
-    if (this.state.current === this.state.count) {
-      return
-    } else {
-      this.setState({ current: this.state.current + 1 });
-    };
-  }
-
-  prevImages() {
-    if (this.state.current < 7) {
-      document.getElementById('test').scrollLeft -= 90;
-    }
-
-    if (this.state.current === 0) {
-      return
-    } else {
-      this.setState({ current: this.state.current - 1 });
-    };
-  }
 
 
 
@@ -79,7 +59,7 @@ class Related extends React.Component {
   render() {
     return (<div>
       <h4 data-testid="custom-element">Related</h4><section>
-      <FaAngleLeft className='left-arrows' onClick={this.state.prevImages}/><ul className='test'>{this.state.product}</ul><FaAngleRight className='right-arrows' onClick={this.state.nextImages}/>
+      <FaAngleLeft className='left-arrows' onClick={()=>this.nextImages(-180)}/><ul className='test'>{this.state.product}</ul><FaAngleRight className='right-arrows' onClick={()=>this.nextImages(180)}/>
       </section>
     </div>)
   }

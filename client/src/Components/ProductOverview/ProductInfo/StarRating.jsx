@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Stars from '../../RnR/Ratings/Stars.jsx';
 import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
+import clicked from '../../Clicked.js';
 
 class StarRating extends React.Component {
   constructor(props) {
@@ -55,7 +56,8 @@ class StarRating extends React.Component {
     return (Math.round(average * 4) / 4).toFixed(2);
   }
 
-  scroll() {
+  scroll(event) {
+    clicked('product-overview', event.target.className);
     this.setState({ clickedReview: true });
     document.getElementById('ratings-reviews').scrollIntoView({behavior: 'smooth' });
   }
@@ -66,7 +68,10 @@ class StarRating extends React.Component {
         <Stars score={this.state.rating} darkTheme={this.props.darkTheme}/>
       </div>
       <div className='reviews-link'>
-        <div className={this.state.clickedReview ? 'clicked-review' : 'stars'} onClick={this.scroll}>Read all reviews</div>
+        <div 
+          className={this.state.clickedReview ? 'clicked-review' : 'stars'} 
+          onClick={this.scroll} 
+          darkTheme={this.props.darkTheme}>Read all reviews</div>
       </div>
     </div>)
   }

@@ -1,6 +1,7 @@
 import React from 'react';
 import Cards from './Cards.jsx';
 import axios from 'axios';
+import clicked from '../Clicked.js'
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 
 
@@ -29,6 +30,7 @@ class Related extends React.Component {
   }
 
   nextImages(number) {
+    console.log(number);
     document.getElementsByClassName('test')[0].scrollLeft += number
 ;}
 
@@ -59,7 +61,7 @@ class Related extends React.Component {
   render() {
     return (<div>
       <h4 data-testid="custom-element">Related</h4><section>
-      <FaAngleLeft className='left-arrows' onClick={()=>this.nextImages(-180)}/><ul className='test'>{this.state.product}</ul><FaAngleRight className='right-arrows' onClick={()=>this.nextImages(180)}/>
+      <FaAngleLeft className='left-arrows' onClick={(e)=>{clicked("Related", e.target.classname); return this.nextImages(-180)}}/><ul className='test'>{this.state.product}</ul><FaAngleRight className='right-arrows' onClick={(e)=>{clicked("Related", e.target.classname); return this.nextImages(180)}}/>
       </section>
     </div>)
   }

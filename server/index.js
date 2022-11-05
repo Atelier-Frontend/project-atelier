@@ -261,6 +261,16 @@ app.post(`/interactions`, (req, res) => {
     });
 });
 
+app.post(`/interactions`, (req, res) => {
+  axios.defaults.headers.common['Authorization'] = process.env.TOKEN;
+  axios.post(`${apiPath}/interactions`, req.body)
+    .then((response) => {
+      res.status(201).send('click tracked')
+    })
+    .catch((err) => {
+      res.send(err)
+    });
+});
 
 // ---- RELATED ITEM AND OUTFIT CREATION ROUTES ---- //
 

@@ -65,6 +65,19 @@ e.g.
   scroll-behavior: smooth;
   overscroll-behavior-inline: contain;
 }
+.test2 {
+  display: grid;
+  margin-left: 2%;
+  margin-right: 5%;
+  padding-left: 0;
+  grid-auto-flow: column;
+  gap: var(--size-3);
+  grid-auto-columns: auto;
+  overflow-x: auto;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  overscroll-behavior-inline: contain;
+}
 section {
   /* display:grid;
   grid-auto-flow: column; */

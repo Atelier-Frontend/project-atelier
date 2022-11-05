@@ -48,8 +48,8 @@ componentDidUpdate(prevProps) {
     // }
     return (
       <aside className={this.props.class} >
-        <div onClick={()=> {
-          clicked(this.props.class, 'cards');
+        <div onClick={(e)=> {
+          clicked('Cards', e.target.className);
           this.props.update(this.state.product)}}>
   <img
     src={this.state.styles}
@@ -64,7 +64,7 @@ componentDidUpdate(prevProps) {
   <small>{this.state.product.default_price}</small>
   </div>
   </div>
- <button onClick={()=>{this.props.fun(this.state.product)}}> <div className='large-font text-center top-20'>
+ <button onClick={(e)=>{clicked("Fav", e.target); return this.props.fun(this.state.product)}}> <div className='large-font text-center top-20'>
   <ion-icon name="heart" >
     <div id='red-bg'></div>
   </ion-icon>

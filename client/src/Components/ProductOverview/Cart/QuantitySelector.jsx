@@ -1,5 +1,6 @@
 import React from 'react';
 import { BsDashLg } from 'react-icons/bs';
+import clicked from '../../Clicked.js';
 
 class QuantitySelector extends React.Component {
   constructor(props) {
@@ -31,6 +32,7 @@ class QuantitySelector extends React.Component {
   }
 
   handleChange(event) {
+    clicked('product-overview', event.target.className);
     this.setState({selectValue: event.target.value});
   }
 

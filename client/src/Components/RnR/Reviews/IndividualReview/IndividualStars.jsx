@@ -1,10 +1,6 @@
 import React from "react";
-<<<<<<< HEAD
-import { useState, useEffect } from "react";
-var yellowStar = "../../pic/single-star.png"
-=======
 import yellowStar from "../../pic/single-star.png"
->>>>>>> ea9223c158625cc662d2fb56a1d2608294fce491
+
 
 export default function IndividualStars(props) {
 

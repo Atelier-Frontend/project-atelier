@@ -1,5 +1,6 @@
 import React from 'react';
 import Cards from './Cards.jsx';
+import clicked from '../Clicked.js';
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 
 class Your extends React.Component {
@@ -10,6 +11,7 @@ class Your extends React.Component {
 
     }
     this.list = this.list.bind(this);
+    this.nextImages2 = this.nextImages2.bind(this)
   }
   componentDidMount () {
     this.list();
@@ -21,6 +23,10 @@ class Your extends React.Component {
       this.list();
     }
   }
+  nextImages2(number) {
+    console.log("other");
+    document.getElementsByClassName('test2')[0].scrollLeft += number
+;}
 
   list () {
         var lists = [];
@@ -37,10 +43,8 @@ class Your extends React.Component {
   render() {
     if(this.props.products.length > 0) {
     return (<div>
-      <div>Your</div><section>
-      <FaAngleLeft className='left-arrows' /><ul className='test'>{this.state.product}
-      </ul>
-      <FaAngleRight className='right-arrows' />
+      <h4 data-testid="custom-element">Your</h4><section>
+      <FaAngleLeft className='left-arrows' onClick={(e)=>{clicked("Related", e.target.classname); this.nextImages2(-180)}}/><ul className='test2'>{this.state.product}</ul><FaAngleRight className='right-arrows' onClick={(e)=>{clicked("Related", e.target.classname); this.nextImages2(180)}}/>
 
       </section>
     </div>)

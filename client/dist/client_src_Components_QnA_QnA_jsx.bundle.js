@@ -111,9 +111,13 @@ class AnswerPhotos extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
           height: "60px",
           marginBottom: "1rem"
         },
+<<<<<<< HEAD
         onClick: this.zoomInImage.bind(this),
         loading: "lazy",
         fetchpriority: "low"
+=======
+        onClick: this.zoomInImage.bind(this)
+>>>>>>> RelatedStars
       });
     }), this.state.enlarged ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FullSizeAnswerPhoto_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
       zoomOutImage: this.zoomOutImage.bind(this),
@@ -264,7 +268,10 @@ class FullSizeAnswerPhoto extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
       className: "full-size-image-container"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
       className: "full-size-image",
+<<<<<<< HEAD
       alt: "large-img",
+=======
+>>>>>>> RelatedStars
       src: this.props.imageURL,
       onClick: this.props.zoomOutImage.bind(this)
     }));
@@ -289,17 +296,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+<<<<<<< HEAD
 /* harmony import */ var _AnswerPhotos_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AnswerPhotos.jsx */ "./client/src/Components/QnA/AnswerPhotos.jsx");
 
+=======
+>>>>>>> RelatedStars
 
 
 
 class ImageHandler extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
   constructor(props) {
     super(props);
+<<<<<<< HEAD
     this.state = {
       photosUrl: []
     };
+=======
+    this.state = {};
+>>>>>>> RelatedStars
   }
 
   async handleFileRead(e) {
@@ -330,12 +344,15 @@ class ImageHandler extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
       body: b64.split('base64,')[1]
     }).then(response => {
       this.props.addImageUrl(response.data.url);
+<<<<<<< HEAD
 
       if (this.state.photosUrl.length < 5) {
         this.setState({
           photosUrl: [...this.state.photosUrl, response.data.url]
         });
       }
+=======
+>>>>>>> RelatedStars
     }).catch(err => {
       console.log('failed');
     });
@@ -353,6 +370,7 @@ class ImageHandler extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
       type: "file",
       accept: "image/*",
       onChange: this.handleFileRead.bind(this)
+<<<<<<< HEAD
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.state.photosUrl.map(img => {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         src: img,
@@ -363,6 +381,9 @@ class ImageHandler extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
     })), this.state.photosUrl.length === 5 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
       className: "form-image-validation"
     }, "You have reached your image upload limit") : null));
+=======
+    }), this.props.len === 0 ? null : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, `You have select ${this.props.len} image(s)`)));
+>>>>>>> RelatedStars
   }
 
 }
@@ -592,7 +613,11 @@ class ModalAnswer extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
       required: true
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_ImageHandler_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
       addImageUrl: this.addImageUrl.bind(this),
+<<<<<<< HEAD
       photos: this.state.photos
+=======
+      len: this.state.photos.length
+>>>>>>> RelatedStars
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "What is your nickname?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
       type: "text",
       placeholder: "Example: jack543!",

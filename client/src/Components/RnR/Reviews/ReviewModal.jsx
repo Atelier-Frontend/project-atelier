@@ -1,13 +1,14 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
+// import loadable from '@loadable/component';
+// const ImageModal = loadable(() => import('./ImageModal.jsx'));
 import ImageModal from "./ImageModal.jsx";
 import star0 from "../pic/form-star-0.png";
 import star1 from "../pic/single-star.png";
 
 export default function ReviewModal(props) {
 
-  const [star, setStar] = useState(0);
   const [radio, setRadio] = useState("Yes");
   const [summary, setSummary] = useState("");
   const [reviewBody, setReviewBody] = useState("");
@@ -71,7 +72,7 @@ export default function ReviewModal(props) {
   }
 
   function inputValidation() {
-    if (star > 0 && reviewBody.length >= 50 &&
+    if (state.overall[1] > 0 && reviewBody.length >= 50 &&
         nickname.length > 0 && email.length > 0) {
       return true;
     }
@@ -93,7 +94,7 @@ export default function ReviewModal(props) {
       setIsValidInput(true);
       axios.post('/reviews', {
         product_id: props.product.id,
-        rating: star,
+        rating: state.overall[1],
         summary: summary,
         body: reviewBody,
         recommend: (radio === "Yes"),
@@ -212,7 +213,7 @@ export default function ReviewModal(props) {
                 required />
           {(!isValidInput) ?
             <p className="inputValidation">
-              Please fill in all required of the fields
+              Please fill in all required of the fields(minimum review characters: 50)
             </p> : ""
           }
           {(!isValidEmail)?

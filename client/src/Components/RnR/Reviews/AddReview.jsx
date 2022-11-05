@@ -1,6 +1,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
+// import loadable from '@loadable/component';
+// const ReviewModal = loadable(() => import('./ReviewModal.jsx'));
 import ReviewModal from "./ReviewModal.jsx";
+
 
 export default function AddReview(props) {
 

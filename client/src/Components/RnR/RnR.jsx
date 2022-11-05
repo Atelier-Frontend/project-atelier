@@ -17,7 +17,6 @@ export default function RnR(props) {
   const [sortingKeyword, setSortingKeyword] = useState("relevant");
   const [term, setTerm] = useState("");
 
-
   useEffect(() => {
     getReviews(props);
     getRatings(props);
@@ -131,6 +130,13 @@ export default function RnR(props) {
     }
   }
 
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
+
   return(<>
     <h3 className="widget-title" id="ratings-reviews">Ratings & Reviews</h3>
     <div className="Ratings-Reviews">
@@ -149,6 +155,8 @@ export default function RnR(props) {
                filterReviews={filterReviews}
                getReviews={getReviews}
                term={term} />
+      <p className="back-to-top" onClick={scrollToTop}>&#8679; Back to top</p>
     </div>
+
   </>)
 }

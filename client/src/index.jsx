@@ -1,7 +1,8 @@
-import React from 'react';
+import React from "react";
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import axios from 'axios';
+import ErrorBoundary from './ErrorBoundary.jsx';
 import ProductOverview from './Components/ProductOverview/ProductOverview.jsx';
 import Your from './Components/Related/Your.jsx';
 import Related from './Components/Related/Related.jsx';
@@ -25,7 +26,7 @@ class App extends React.Component {
     // if(JSON.stringify(this.state.products) === '{}') {
     axios.get('/products')
       .then((response) => {
-        this.update(response.data[2]);
+        this.update(response?.data[2]);
       })
       .catch((err) => {
         console.log(err)
@@ -41,7 +42,7 @@ class App extends React.Component {
 
 
   update (state_id) {
-    axios.get('/products/product_id', {params: {id: state_id.id}})
+    axios.get('/products/product_id', {params: {id: state_id?.id}})
       .then((response)=> {
         let newproducts = response.data
         this.setState({products: newproducts})
@@ -87,20 +88,28 @@ class App extends React.Component {
           </label>
         </div>
       </div>
+      <ErrorBoundary>
       {Object.keys(this.state.products).length > 0 &&
         <ProductOverview
           products={this.state.products}
           update={this.update}
           favorite={this.fav}
           darkTheme={this.state.darkTheme}/>}
+      </ErrorBoundary>
       {Object.keys(this.state.products).length > 0 &&
         <Related products={this.state.products} update={this.update} fun={this.fav} darkTheme={this.state.darkTheme}/>}
+      <ErrorBoundary>
       {Object.keys(this.state.products).length > 0 &&
         <Your products={this.state.fav} darkTheme={this.state.darkTheme} />}
+      </ErrorBoundary>
+      <ErrorBoundary>
       {Object.keys(this.state.products).length > 0 &&
         <QnA products={this.state.products} />}
+      </ErrorBoundary>
+      <ErrorBoundary>
       {Object.keys(this.state.products).length > 0 &&
         <RnR products={this.state.products} darkTheme={this.state.darkTheme}/>}
+       </ErrorBoundary>
     </div>)
   }
 }

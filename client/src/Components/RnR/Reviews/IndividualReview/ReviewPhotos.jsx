@@ -25,6 +25,9 @@ export default function ReviewPhotos(props) {
                   style={{width:"60px", height:"60px", objectFit:"cover"}}
                   onClick={zoomInImage}
                   draggable="false"
+                  loading="lazy"
+                  fetchpriority="low"
+                  sizes="(max-width: 60px) 60px"
               />
       })
     }

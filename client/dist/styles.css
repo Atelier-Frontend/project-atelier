@@ -1709,4 +1709,15 @@ input:checked + .slider:before {
   margin-top: 20px;
 }
 
+.back-to-top {
+  position: absolute;
+  cursor: pointer;
+  width: 50;
+  height: 50;
+  margin-left: 1100px;
+  bottom: 20px;
+  color: aquamarine;
+  z-index: 100;
+}
+
 

@@ -33,6 +33,9 @@ class AnswerPhotos extends React.Component {
                     className="thumbnail-photo"
                     style={{width:"60px", height:"60px", marginBottom:"1rem"}}
                     onClick={this.zoomInImage.bind(this)}
+                    loading="lazy"
+                    fetchpriority="low"
+                    sizes="(max-width: 60px) 60px"
                />
        })
       }

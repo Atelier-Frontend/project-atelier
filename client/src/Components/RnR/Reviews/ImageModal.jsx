@@ -45,6 +45,8 @@ export default function ImageModal(props) {
                     alt="photo"
                     key={img}
                     className="form-thumbnail-photo"
+                    loading="lazy"
+                    sizes="(max-width: 60px) 60px"
                />
         })
          }

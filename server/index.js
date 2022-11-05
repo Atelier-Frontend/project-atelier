@@ -14,7 +14,9 @@ const header = {
 
 app.use(compression())
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '../client/dist')));
+app.use(express.static(path.join(__dirname, '../client/dist'), {
+  maxAge: 31536000
+}));
 
 // ---- PRODUCT OVERVIEW ROUTES ---- //
 

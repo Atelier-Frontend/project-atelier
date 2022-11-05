@@ -242,7 +242,7 @@ section aside:hover {
   object-fit: cover;
   position: relative;
   z-index: 2;
-  cursor: crosshair;
+  cursor:zoom-out;
 }
 
 .right-arrow {

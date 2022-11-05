@@ -6,33 +6,29 @@ Atelier's client-facing retail web-portal has become significantly outdated and 
 
 Each member of the team were responsible for different widgets:
 
+```sh
  - Blake Crawford: Product Overview
  - Chuck Song: Ratings & Reviews / Questions & Answers
  - Matthew Dailey: Related Items & Comparisons
-
+```
 ## Installation & Dev Environment Setup on Local Machine
 
+```sh
 1. navigate to project-atelier root directory within terminal
 2. npm install (installs all dependencies found in package.json)
 3. npm run client-dev (builds js bundle based on webpack config and watches for changes)
 4. open another terminal window
 5. npm run server-dev (starts express server and watches for changes)
+```
 
 The API that feeds data to the project requires a valid token. This token should be stored in a .env file in the root directory. 
 Store in the following format: TOKEN=''. The express server references this .env file for all API calls, so it is essential that this step is correctly done.
 
 
-### Product Overview
-
-Image Gallery Demo:
-
-![image-gallery](http://g.recordit.co/VjrPzxYWJL.gif)
-
-<img src="http://g.recordit.co/VjrPzxYWJL.gif" width="40" height="40" />
-
 ## Dependencies:
 
  - react
+ -react-icons
  - babel
  - axios
  - jquery

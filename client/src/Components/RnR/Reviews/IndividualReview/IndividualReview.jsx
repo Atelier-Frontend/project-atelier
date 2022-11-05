@@ -9,6 +9,8 @@ import Helpfulness from "./Helpfulness.jsx";
 import Report from "./Report.jsx";
 import ReviewSummary from "./ReviewSummary.jsx";
 import ReviewPhotos from "./ReviewPhotos.jsx";
+// import loadable from '@loadable/component';
+// const ReviewPhotos = loadable(() => import('./ReviewPhotos.jsx'));
 
 
 export default function IndividualReview(props) {

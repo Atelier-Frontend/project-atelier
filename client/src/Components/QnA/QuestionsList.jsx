@@ -59,15 +59,15 @@ class QuestionsList extends React.Component {
 
   render() {
     let questions = this.props.questions;
-    questions.sort(this.sortQuestions2);
-    questions.sort(this.sortQuestions);
+    questions?.sort(this.sortQuestions2);
+    questions?.sort(this.sortQuestions);
     let q = (this.props.moreQuestionsClicked === false) ? 2 : this.props.questions.length;
     {
-      if (questions.length === 0) {
+      if (questions?.length === 0) {
         return <h3> </h3>
       } else {
         return <div className="scrollableQuestionsList">
-          {(questions.slice(0, q).map((question)=>{
+          {(questions?.slice(0, q).map((question)=>{
             return(<div key={question.question_id}>
               <span className="question">
                 <p className="letterQ">Q: </p>

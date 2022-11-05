@@ -6,7 +6,7 @@ export default function ButtonRow(props) {
 
 return(<>
   <div className="Review-Button-Row">
-    {props.result.length > 2 ?
+    {props.result?.length > 2 ?
     <MoreReviews moreReviewsClickHandler={props.moreReviewsClickHandler}
                  reviewsCount={props.reviewsCount}
                  moreclicked={props.moreclicked}

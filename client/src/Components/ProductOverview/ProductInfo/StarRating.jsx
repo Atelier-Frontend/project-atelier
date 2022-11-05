@@ -66,7 +66,10 @@ class StarRating extends React.Component {
         <Stars score={this.state.rating} darkTheme={this.props.darkTheme}/>
       </div>
       <div className='reviews-link'>
-        <div className={this.state.clickedReview ? 'clicked-review' : 'stars'} onClick={this.scroll}>Read all reviews</div>
+        <div 
+          className={this.state.clickedReview ? 'clicked-review' : 'stars'} 
+          onClick={this.scroll} 
+          darkTheme={this.props.darkTheme}>Read all reviews</div>
       </div>
     </div>)
   }

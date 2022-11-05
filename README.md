@@ -25,16 +25,10 @@ The API that feeds data to the project requires a valid token. This token should
 Store in the following format: TOKEN=''. The express server references this .env file for all API calls, so it is essential that this step is correctly done.
 
 
-### Product Overview
-
-Image Gallery Demo:
-
-http://g.recordit.co/VjrPzxYWJL.gif
-
-
 ## Dependencies:
 
  - react
+ -react-icons
  - babel
  - axios
  - jquery

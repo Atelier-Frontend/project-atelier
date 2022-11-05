@@ -7,8 +7,12 @@
   width: 3%;
   height: 3%;
   cursor: pointer;
-  margin-left: 1333px;
-  margin-top: -180px;
+  margin-left: 78%;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
 }
 
 /* Please adjust styles for a specific component in your widget if needed;
@@ -39,7 +43,7 @@ e.g.
   color:  #DCD7C9;
 }
 
-.dark-theme .rating-barBkg {
+.dark-theme .rating-barBkg, .dark-theme .review-form-container {
   color:  #3F4E4F;
 }
 
@@ -56,8 +60,8 @@ e.g.
   grid-auto-flow: column;
   gap: var(--size-3);
   grid-auto-columns: auto;
-  overflow-x: auto;
   overflow: hidden;
+  overflow-x: auto;
   scroll-behavior: smooth;
   overscroll-behavior-inline: contain;
 }
@@ -300,7 +304,7 @@ section aside:hover {
 .ex-button {
   position: absolute;
   top: 4%;
-  right: -38.5%;
+  right: -39.5%;
   font-size: 2rem;
   cursor: pointer;
   user-select: none;
@@ -316,7 +320,7 @@ section aside:hover {
 
 .ex-right-arrow {
   position: absolute;
-  top: 35%;
+  top: 39%;
   right: -37%;
   font-size: 2.3rem;
   cursor: pointer;
@@ -335,8 +339,8 @@ section aside:hover {
 
 .ex-left-arrow {
   position: absolute;
-  top: 35%;
-  left: 20%;
+  top: 39%;
+  left: 13.5%;
   font-size: 2.3rem;
   cursor: pointer;
   user-select: none;
@@ -418,6 +422,7 @@ section aside:hover {
   transition: all 0.15s;
   position: relative;
   z-index: 1;
+  cursor: pointer;
 }
 
 .quantity-dropdown:hover {
@@ -454,6 +459,7 @@ section aside:hover {
   background-color: white;
   text-align: left;
   transition: all 0.15s;
+  cursor: pointer;
 }
 
 .size-dropdown:hover {
@@ -490,6 +496,7 @@ section aside:hover {
   background-color: white;
   text-align: left;
   transition: all 0.15s;
+  cursor: pointer;
 }
 
 .add-cart:hover {
@@ -522,6 +529,7 @@ section aside:hover {
   color: black;
   background-color: white;
   transition: all 0.15s;
+  cursor: pointer;
 }
 
 .add-to-style:hover {
@@ -582,7 +590,7 @@ section aside:hover {
 
 .right-column {
   width: 35%;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .style-container {
@@ -621,7 +629,9 @@ section aside:hover {
 }
 
 .product-hidden {
-  display: none;
+  visibility: hidden;
+  margin-left: -10px;
+  padding: 0;
 }
 
 .category {
@@ -632,20 +642,168 @@ section aside:hover {
 
 .stars {
   margin-left: -10px;
+  font-size: 10pt;
+  font-family: 'Arimo', sans-serif;
+  text-decoration: underline;
+  color: #046E8F;
+  cursor: pointer;
+}
+
+.clicked-review {
+  margin-left: -10px;
+  font-size: 10pt;
+  font-family: 'Arimo', sans-serif;
+  text-decoration: underline;
+  color: #CC92C2;
+  cursor: pointer;
+}
+
+.light-switch-label {
+  font-size: 10pt;
+  position: absolute;
+  top: 8.55%;
+  margin-left: 73.5%;
+  font-family: 'Arimo', sans-serif;
+  color: #a2a7a5ff;
+  opacity: 0.8;
+}
+
+.theme-switch-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 5px;
+  width: 30%;
+}
+
+.theme-switch {
+  display: inline-block;
+  height: 24px;
+  position: relative;
+  width: 45px;
+  cursor: pointer;
+  margin-left: 26%;
+}
+
+.theme-switch input {
+  display:none;
+}
+
+.under-header {
+  display: flex;
+  flex-direction: row;
+}
+
+.sale-message-wrapper {
+  width: 70%;
+  height: 20px;
+  padding-top: 7px;
+}
+
+.sale-message {
+  font-size: 11pt;
+  font-family: 'Arimo', sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  padding-left: 40%;
+}
+
+.slider {
+  background-color: #ccc;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+}
+
+.slider:before {
+  background-color: #fff;
+  bottom: 2px;
+  content: "";
+  height: 20px;
+  left: 2px;
+  position: absolute;
+  transition: .4s;
+  width: 20px;
+}
+
+input:checked + .slider {
+  background-color: #66bb6a;
+}
+
+input:checked + .slider:before {
+  transform: translateX(21px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }
 
 .project-title {
-  max-width: 1283px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 15px;
   display: flex;
-  font-weight: bold;
+  flex-direction: row;
   font-family: 'Arimo', sans-serif;
+  background-color: rgb(48, 74, 119);
+  animation-name: backgroundColorPalette;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  justify-content: space-between;
+}
+
+.title-search {
+  width: 160px;
+  border-bottom: 3px solid rgb(255, 255, 255);
+  margin-right: -43%;
+}
+
+.title-search-icon {
+  color: rgb(255, 255, 255);
+  margin-right: 20%;
+  font-size: 1.6rem;
+  height: 27px;
+  padding-top: 15px;
+  cursor: pointer;
+}
+
+@keyframes backgroundColorPalette {
+  0% {
+    background: #f08080ff;
+  }
+  25% {
+    background: #f4978eff;
+  }
+  50% {
+    background: #f8ad9dff;
+  }
+  75% {
+    background: #fbc4abff;
+  }
+  100% {
+    background: #ffdab9ff;
+  }
 }
 
 .title {
-  padding-left: 10px;
+  padding-left: 17%;
+  color: rgb(255, 255, 255);
+  font-family: 'Arimo', sans-serif;
+  font-weight: bold;
+  text-decoration: underline white;
+  text-underline-offset: 9px;
 }
+
+
 
 .selected {
   width: 60px;
@@ -746,6 +904,7 @@ section aside:hover {
 .product-summary {
   position: relative;
   height: 50%;
+  border-right: 2px solid black;
 }
 
 .slogan {
@@ -771,6 +930,37 @@ section aside:hover {
   position: relative;
   top: 2px;
   right: -110px;
+}
+
+.features {
+  position: absolute;
+  top: 80.2%;
+  margin-left: 0.8%;
+  visibility: visible;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: row;
+}
+
+.feature-mark {
+  font-size: 30px;
+}
+
+.feature-type {
+  padding-top: 9px;
+  margin-left: 10px;
+  font-family: 'Arimo', sans-serif;
+  font-size: 11pt;
+  font-weight: bold;
+}
+
+.feature-value {
+  padding-top: 9px;
+  margin-left: 6px;
+  font-family: 'Arimo', sans-serif;
+  font-size: 11pt;
 }
 
 /* Widget title styles  */
@@ -968,7 +1158,7 @@ section aside:hover {
 
 .scrollableAnswersList {
   max-height: 350px;
-  width: 50vw;
+  width: 60vw;
   overflow-y: auto;
   overflow-x: hidden;
   text-align: justify;
@@ -979,7 +1169,7 @@ section aside:hover {
   overflow-y: auto;
   overflow-x: hidden;
   text-align: justify;
-  width: 1000px;
+  width: 90vw;
   margin-top: 10px;
   font-size: large;
 }
@@ -1003,7 +1193,9 @@ section aside:hover {
   background-color: rgb(231, 231, 231, 1);
   opacity: 1;
   font-family: 'Arimo', sans-serif;
-  z-index: 200
+  z-index: 200;
+  min-width: fit-content;
+  min-height: fit-content;
 }
 
 .form-wrapper {
@@ -1082,7 +1274,7 @@ section aside:hover {
   object-fit: cover;
 }
 
-.emailValidation, .inputValidation {
+.emailValidation, .inputValidation, .form-image-validation {
   font-size: small;
   color: rgb(157, 5, 5);
   padding-top: -15px;
@@ -1092,7 +1284,7 @@ section aside:hover {
 
 /* Ratings & Reviews */
 .Ratings-Reviews {
-  width: 1000px;
+  width: 92%;
   height: 700px;
   position: relative;
   text-align: left;
@@ -1120,6 +1312,7 @@ section aside:hover {
   left: 350px;
   right: 0;
   position: absolute;
+  margin-bottom: 1em;
 }
 
 .Ratings-Reviews .reviews-search-bar {
@@ -1282,6 +1475,10 @@ section aside:hover {
   flex-direction:row;
   justify-content: space-evenly;
   text-align: right;
+  margin-right: 10px;
+}
+
+.review-body {
   margin-right: 10px;
 }
 
@@ -1462,6 +1659,7 @@ section aside:hover {
 
 .thumbnail-photo {
   margin-right: 1em;
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .thumbnail-photo:hover {
@@ -1489,6 +1687,7 @@ section aside:hover {
   max-height: 90vh;
   max-width: 80vw;
   opacity: 1;
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .review-dropdown-menu {
@@ -1501,4 +1700,24 @@ section aside:hover {
   margin-left: 5px;
   margin-top: 17px;
 }
+
+.form-thumbnail-photo {
+  width: 60px;
+  height: 60px;
+  text-align: left;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  margin-top: 20px;
+}
+
+.back-to-top {
+  position: absolute;
+  cursor: pointer;
+  width: 50;
+  height: 50;
+  margin-left: 1100px;
+  bottom: 20px;
+  color: rgb(15, 93, 237);
+  z-index: 100;
+}
+
 

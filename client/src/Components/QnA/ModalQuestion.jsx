@@ -82,7 +82,7 @@ class ModalQuestion extends React.Component {
                  <p style={{ marginTop:'-1.5rem', fontSize: 12, fontWeight: "normal", fontStyle: "italic", marginBottom: "2rem" }}
                  >For privacy reasons, do not use your full name or email address</p>
           <label>Your email</label>
-          <input type={"text"} placeholder="Why did you like the product or not?" name={"email"}
+          <input type={"text"} placeholder="Example: jackson11@email.com" name={"email"}
                  maxLength={"60"}
                  onChange={this.onChange.bind(this)} required />
                  <p style={{ marginTop:'0.5rem', fontSize: 12, fontWeight: "normal", fontStyle: "italic" }}
